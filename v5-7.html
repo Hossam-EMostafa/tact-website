@@ -722,7 +722,7 @@
         <sc-for list="{{ awardRows }}" as="a" hint-placeholder-count="4">
           <article class="award-row" data-reveal="" style="border-bottom: 1px solid rgba(40,40,41,.16); padding: 30px 0; display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; transition: padding-left .35s, background .3s;" style-hover="padding-left: 18px; background: #fff;">
             <div style="width: 120px; height: 140px; flex: 0 0 auto; overflow: hidden; background: transparent; mix-blend-mode: multiply; filter: contrast(1.08) brightness(1.06);">
-              <image-slot id="{{ a.slot }}" fit="contain" shape="rect" placeholder="{{ a.slotLabel }}"></image-slot>
+              <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width: 100%; height: 100%; object-fit: contain; display: block;">
             </div>
             <div style="flex: 1 1 260px; min-width: 0;">
               <h3 style="margin: 0 0 8px; font-size: clamp(19px, 2.2vw, 27px); line-height: 1.15; letter-spacing: -.025em; font-weight: 600;">{{ a.title }}</h3>
@@ -797,7 +797,7 @@
           <div style="container-type: inline-size; width: 100%;"><h1 style="margin: 0; font-size: min(clamp(42px, 7vw, 116px), 9.2cqi); line-height: 1.06; letter-spacing: -.05em; font-weight: 600; max-width: 18ch; text-wrap: balance;">{{ tx.k3 }}</h1></div>
           <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px; border-top: 1px solid rgba(247,245,242,.18); padding-top: 24px;">
             <p style="margin: 0; font-size: 17px; line-height: 1.7; color: rgba(247,245,242,.75); max-width: 58ch;">{{ tx.k4 }}</p>
-            <!-- Standalone booth link omitted: Tact Booth 3D v2.html is missing from the supplied v5.7 package. -->
+            <a href="Tact Booth 3D v2.html" style="flex: 0 0 auto; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 20px; border-radius: 99px; border: 1px solid rgba(247,245,242,.3); color: #f7f5f2; font-size: 14px; font-weight: 600; transition: background .25s ease, border-color .25s ease, color .25s ease;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff;">{{ tx.k5 }} <span>→</span></a>
           </div>
         </div>
         <nav aria-label="{{ tx.k2 }}" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 10px;">
@@ -3661,7 +3661,7 @@ class Component extends DCLogic {
         { title: "Best integrated media campaign", body: "For the Ramadan Season 1445 campaign — over 245 million impressions and 55 million video views.", metricLabel: "Video views" },
         { title: "Best use of traditional campaigns", body: "For the Founding Day campaign, from a local idea to a global achievement, reaching over 1.1 billion views.", metricLabel: "Views" },
         { title: "Best influencer marketing campaign", body: "For the Riyadh Marathon 2025 influencer campaign, with over 41 influencers and more than 40,000 participants attracted.", metricLabel: "Participants attracted" }
-      ]).map((a, i) => ({ ...a, slot: "award-" + (i + 1), slotLabel: ar ? "صورة الجائزة" : "Award image", metric: this.cnt(["556M", "55M", "1.1B", "40K+"][i], "awards") })),
+      ]).map((a, i) => ({ ...a, img: "assets/awards/award-" + (i + 1) + ".png", slot: "award-" + (i + 1), slotLabel: ar ? "صورة الجائزة" : "Award image", metric: this.cnt(["556M", "55M", "1.1B", "40K+"][i], "awards") })),
       isoRows: [
         { code: "ISO 21500:2021", name: "Project management systems", bg: "background-image: url(assets/iso/iso-21500.gif);", pdf: "assets/iso/iso-21500.pdf", thumb: "assets/iso/cert-21500.jpg" },
         { code: "ISO 31000:2018", name: "Risk management systems", bg: "background-image: url(assets/iso/iso-31000.png);", pdf: "assets/iso/iso-31000.pdf", thumb: "assets/iso/cert-31000.jpg" },

@@ -1,30 +1,21 @@
-Tact website v5.7
+tact website v5.7: upload package (main link)
 
-Static site. index.html is the homepage copied from the supplied local v5.7
-package; v5-7.html is the equivalent versioned entry point.
+index.html IS the v5.7 site, so it goes live on the main link as soon as it is committed.
+  https://tact-website-git-main-matef-1420.vercel.app/       -> v5.7
+  https://tact-website-git-main-matef-1420.vercel.app/v5-7   -> v5.7 (same file)
+  https://tact-website-git-main-matef-1420.vercel.app/v5-6   -> previous version (backup, already in the repo)
 
-Deploy the files in this repository root. Vercel serves clean URLs and does not
-rewrite the homepage to a versioned or archived page. Assets use revalidation
-because filenames are reused across releases.
+How to upload
+1. Open github.com/Hossam-EMostafa/tact-website on the main branch.
+2. Click Add file, then Upload files.
+3. Drag in everything inside this folder, including the assets folder. GitHub will say index.html, v5-7.html, the -v5-7 scripts and some assets are replaced. That is expected.
+4. Commit message: "v5.7 final: index.html live". Commit to main.
+5. Vercel redeploys on its own in about a minute. Hard-refresh the site (Ctrl+Shift+R) to skip the browser cache.
 
-Production website: https://tact-website-ochre.vercel.app
-The existing production branch is merged normally with main before publishing.
-Do not recreate the Vercel project or change DNS.
+Files
+- index.html and v5-7.html: the v5.7 site
+- support-v5-7.js, tact-ar-*-v5-7.js, image-slot-v5-7.js, tact-logo-anim-v5-7.js: the scripts v5.7 uses
+- assets/: every image, logo, font, video and certificate the site uses, including the new ones
+  (Effra font, ISO certificate thumbnails, Health Holding logo, Wirth booth photo)
 
-Local preview: python3 -m http.server 8765
-
-Known source omission: Tact Booth 3D v2.html is referenced by the supplied
-Services page but is absent from the supplied package. Its broken link is
-omitted from both entry points pending the matching new file. No old booth
-page or v5.6 page is retained. The source package is therefore incomplete for
-the standalone booth feature.
-
-Keep .env files, .vercel metadata and external backups out of Git.
-
-Additional source limitations found in browser testing: the calendar has
-English text in Arabic mode, and its PDF download button links back to the
-calendar route without a downloadable PDF. These source features remain
-incomplete. Contact forms were not submitted during verification.
-
-An empty image-slots.state.json supplies the optional image-slot state omitted
-from the source package; its script uses this public path to avoid a 404.
+v5-6.html is not in this folder because it is already in the repo and stays untouched.
