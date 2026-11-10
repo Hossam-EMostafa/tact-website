@@ -33,6 +33,14 @@
   @keyframes tact-fly { 0% { opacity: 0; transform: translate(0,22px) scale(.94); } 18% { opacity: 1; transform: translate(0,0) scale(1); } 46% { opacity: 1; transform: translate(0,0) scale(1); } 58% { transform: translate(calc(var(--dx,0px) * .18), calc(var(--dy,0px) * .1)) scale(1.04); } 100% { opacity: 1; transform: translate(var(--dx,0px), var(--dy,0px)) scale(var(--s,.85)); } }
   @keyframes tact-load-out { 0%,40% { opacity: 1; transform: scale(1) translateY(0); } 62%,100% { opacity: 0; transform: scale(.6) translateY(-26px); } }
   @keyframes tact-thread { to { stroke-dashoffset: -400; } }
+  @media (max-height: 720px) { [data-hs-text] { top: 104px !important; } [data-hs-lead], [data-hs-sub] { display: none !important; } }
+  @font-face { font-family: "Effra"; src: local("Effra Bold"), local("Effra-Bold"), url("assets/fonts/Effra-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Effra"; src: local("Effra"), local("Effra-Regular"), url("assets/fonts/Effra-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+  @keyframes tact-orbit { to { transform: rotate(360deg); } }
+  @keyframes tact-mq-l { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
+  @keyframes tact-mq-r { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }
+  @keyframes tact-orbit-back { to { transform: rotate(-360deg); } }
+  @media (prefers-reduced-motion: reduce) { [data-orb] { animation: none !important; transition-duration: .01ms !important; } }
   .sec-card .sec-rule { transform: scaleX(0); transform-origin: left; transition: transform .55s cubic-bezier(.2,.75,.2,1); }
   .sec-card:hover .sec-rule { transform: scaleX(1); }
   .sec-dark .sec-rule { transform: scaleX(0); transform-origin: left; transition: transform .55s cubic-bezier(.2,.75,.2,1); }
@@ -157,8 +165,8 @@
     .case-ph:hover [data-case-cap] { translate: 0 -6px; color: #fff; }
   }
   @media (prefers-reduced-motion: reduce) { .case-ph [data-case-drift] { animation: none !important; transform: scale(1.04); } .case-ph [data-swap="img"] { translate: none !important; scale: none !important; } }
-  [dir="rtl"] h1 { line-height: 1.28 !important; }
-  [dir="rtl"] h1:not([data-lines]) { font-size: clamp(34px, 4.8vw, 76px) !important; line-height: 1.4 !important; padding-bottom: .14em; }
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { line-height: 1.08 !important; }
+  [dir="rtl"] h1:not([data-lines]) { font-size: clamp(34px, 4.8vw, 76px) !important; line-height: 1.1 !important; padding-bottom: .06em; }
   [dir="rtl"] [data-ab-card] h2 { font-size: clamp(48px, 8vw, 140px) !important; line-height: 1.3 !important; }
   [dir="rtl"] [data-ar-mq] { font-size: clamp(44px, 6.4vw, 104px) !important; line-height: 1.55 !important; }
   [dir="rtl"] h2 { line-height: 1.32 !important; }
@@ -290,14 +298,14 @@
 <script src="./tact-ar-content-v5-7.js"></script>
 <script src="./tact-ar-legal-v5-7.js"></script>
 <script src="./image-slot-v5-7.js"></script>
-<script src="./tact-logo-anim-v5-7.js"></script>
+<script src="tact-logo-anim-v5-7.js"></script>
 </helmet>
 
 
 <div style="min-height: 100vh;">
   <a class="skip-link" href="#main-content" onClick="{{ skipToMain }}">{{ skipLabel }}</a>
 
-  <sc-if value="{{ introOn }}" hint-placeholder-val="{{ false }}">
+  <sc-if value="{{ introOn }}" hint-placeholder-val="{{ true }}">
     <div ref="{{ introRef }}" dir="ltr" aria-hidden="true" style="position: fixed; inset: 0; z-index: 95; background: #f7f5f2; overflow: hidden; pointer-events: none; display: flex; align-items: center; justify-content: center;">
       <svg data-intro-logo="" viewBox="0 0 157 41" style="width: clamp(220px, 26vw, 380px); height: auto; display: block; overflow: visible; color: #282829;"><sc-for list="{{ logoPaths }}" as="p" hint-placeholder-count="18"><path d="{{ p.d }}" fill="{{ p.f }}" style="stroke: {{ p.s }}; stroke-width: .6; stroke-opacity: 0;"></path></sc-for></svg>
     </div>
@@ -395,7 +403,6 @@
             <div style="position: absolute; inset: 0; z-index: {{ s.z }}; clip-path: {{ s.clip }}; transition: {{ s.clipT }}; overflow: hidden;">
               <div role="img" aria-label="{{ s.label }}" style="position: absolute; inset: -3%; background-size: cover; background-position: center; {{ s.bg }}; transform: {{ s.kb }}; transition: {{ s.kbT }};"></div>
               <sc-if value="{{ s.isHead }}" hint-placeholder-val="{{ false }}">
-                <video data-hs-video="" src="assets/tact-promo.mp4" loop="" muted="" playsinline="" preload="auto" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
                 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.5) 0%, rgba(40,40,41,0) 28%);"></div>
                 <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: linear-gradient(180deg, rgba(40,40,41,0) 0%, rgba(40,40,41,.78) 100%); pointer-events: none;"></div>
               </sc-if>
@@ -415,29 +422,29 @@
 
         <div data-hs-drag="txt" style="position: absolute; inset: 0; z-index: 5; pointer-events: none;">
           <sc-for list="{{ hsSlides }}" as="s" hint-placeholder-count="5">
-            <div data-hs-text="{{ s.i }}" aria-hidden="{{ s.ah }}" style="position: absolute; left: 0; right: 0; bottom: 138px;">
-              <div style="max-width: 1320px; margin: 0 auto; padding: 0 28px;">
-                <p style="margin: 0 0 22px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #4cc0af; max-width: 60ch; opacity: {{ s.f1.op }}; transform: {{ s.f1.tf }}; transition: {{ s.f1.tr }};">{{ s.kicker }}</p>
-                <h2 style="margin: 0 0 30px; font-size: clamp(44px, 7vw, 124px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600;">
+            <div data-hs-text="{{ s.i }}" aria-hidden="{{ s.ah }}" style="position: absolute; left: 0; right: 0; top: 150px; bottom: 138px; display: flex; flex-direction: column; justify-content: safe flex-end;">
+              <div style="width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 28px; box-sizing: border-box;">
+                <p style="margin: 0 0 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #4cc0af; max-width: 60ch; opacity: {{ s.f1.op }}; transform: {{ s.f1.tf }}; transition: {{ s.f1.tr }};">{{ s.kicker }}</p>
+                <h2 style="margin: 0 0 24px; font-size: clamp(28px, min(4.8vw, 8vh), 80px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600;">
                   <sc-for list="{{ s.lines }}" as="ln" hint-placeholder-count="3">
                     <span style="display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em;"><span style="display: block; color: {{ ln.color }}; opacity: {{ ln.op }}; transform: {{ ln.tf }}; transition: {{ ln.tr }};">{{ ln.text }}</span></span>
                   </sc-for>
                 </h2>
                 <sc-if value="{{ s.isHead }}" hint-placeholder-val="{{ true }}">
                   <div style="display: flex; flex-wrap: wrap; gap: 22px 40px; align-items: center; opacity: {{ s.f2.op }}; transform: {{ s.f2.tf }}; transition: {{ s.f2.tr }};">
-                    <p style="margin: 0; max-width: 46ch; font-size: 16.5px; line-height: 1.7; color: rgba(247,245,242,.82);">{{ t.heroLead }}</p>
+                    <p data-hs-lead="" style="margin: 0; max-width: 46ch; font-size: 16.5px; line-height: 1.7; color: rgba(247,245,242,.82);">{{ t.heroLead }}</p>
                     <button type="button" data-hs-nodrag="" onClick="{{ goWork }}" style="pointer-events: auto; border: 0; font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; background: #f15d2a; color: #fff; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; transition: background .3s ease, color .3s ease, transform .45s cubic-bezier(.23,1,.32,1);" style-hover="background: #f7f5f2; color: #282829; transform: translateY(-3px);">{{ t.seeWork }} <span>{{ arrow }}</span></button>
                   </div>
                 </sc-if>
                 <sc-if value="{{ s.isCase }}" hint-placeholder-val="{{ false }}">
                   <div style="display: flex; flex-wrap: wrap; gap: 20px 0; align-items: flex-end; opacity: {{ s.f2.op }}; transform: {{ s.f2.tf }}; transition: {{ s.f2.tr }};">
                     <div style="padding-inline-end: 40px;">
-                      <div data-hs-to="{{ s.mTo }}" data-dec="{{ s.mDec }}" data-pre="{{ s.mPre }}" data-suf="{{ s.mSuf }}" dir="ltr" style="font-size: clamp(56px, 7vw, 116px); font-weight: 600; letter-spacing: -.05em; line-height: .9; color: #f15d2a; font-variant-numeric: tabular-nums;">{{ s.mText }}</div>
+                      <div data-hs-to="{{ s.mTo }}" data-dec="{{ s.mDec }}" data-pre="{{ s.mPre }}" data-suf="{{ s.mSuf }}" dir="ltr" style="width: fit-content; font-size: clamp(34px, min(5vw, 7.5vh), 80px); font-weight: 600; letter-spacing: -.05em; line-height: .9; color: #f15d2a; font-variant-numeric: tabular-nums;">{{ s.mText }}</div>
                       <div style="margin-top: 10px; font-size: 14px; color: rgba(247,245,242,.8);">{{ s.mLabel }}</div>
                     </div>
                     <sc-for list="{{ s.sub }}" as="m" hint-placeholder-count="2">
-                      <div style="border-inline-start: 1px solid rgba(247,245,242,.25); padding-block: 0 4px; padding-inline: 22px 32px;">
-                        <div dir="ltr" style="font-size: clamp(26px, 2.6vw, 40px); font-weight: 600; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums;">{{ m.v }}</div>
+                      <div data-hs-sub="" style="border-inline-start: 1px solid rgba(247,245,242,.25); padding-block: 0 4px; padding-inline: 22px 32px;">
+                        <div dir="ltr" style="width: fit-content; font-size: clamp(22px, 2.1vw, 32px); font-weight: 600; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums;">{{ m.v }}</div>
                         <div style="margin-top: 8px; font-size: 13px; color: rgba(247,245,242,.75);">{{ m.l }}</div>
                       </div>
                     </sc-for>
@@ -501,8 +508,65 @@
           </sc-for>
         </div>
         <div data-swap-group="svc" style="position: relative; padding: 4px 0 8px;">
-          <div class="svc-ph" onPointerMove="{{ svcPhMove }}" onPointerLeave="{{ svcPhLeave }}" style="position: relative; overflow: hidden; margin-bottom: 26px;">
-            <div data-swap="img" role="img" aria-label="{{ activeService.title }}" style="position: relative; width: 100%; aspect-ratio: 16/9; display: block;"><span data-slat="" class="slat" style="--dl: 0.18s; left: 0%; width: 9%;"><span class="slat-in" style="width: 1111.111%; left: 0.000%; {{ activeService.imgBg }}"></span></span><span data-slat="" class="slat" style="--dl: 0.00s; left: 9%; width: 15%;"><span class="slat-in" style="width: 666.667%; left: -60.000%; {{ activeService.imgBg }}"></span></span><span data-slat="" class="slat" style="--dl: 0.30s; left: 24%; width: 11%;"><span class="slat-in" style="width: 909.091%; left: -218.182%; {{ activeService.imgBg }}"></span></span><span data-slat="" class="slat" style="--dl: 0.06s; left: 35%; width: 17%;"><span class="slat-in" style="width: 588.235%; left: -205.882%; {{ activeService.imgBg }}"></span></span><span data-slat="" class="slat" style="--dl: 0.36s; left: 52%; width: 8%;"><span class="slat-in" style="width: 1250.000%; left: -650.000%; {{ activeService.imgBg }}"></span></span><span data-slat="" class="slat" style="--dl: 0.12s; left: 60%; width: 14%;"><span class="slat-in" style="width: 714.286%; left: -428.571%; {{ activeService.imgBg }}"></span></span><span data-slat="" class="slat" style="--dl: 0.42s; left: 74%; width: 12%;"><span class="slat-in" style="width: 833.333%; left: -616.667%; {{ activeService.imgBg }}"></span></span><span data-slat="" class="slat" style="--dl: 0.24s; left: 86%; width: 14%;"><span class="slat-in" style="width: 714.286%; left: -614.286%; {{ activeService.imgBg }}"></span></span></div>
+          <div data-home-devs="" style="position: relative; margin-bottom: 30px; display: grid; grid-template-rows: auto;">
+            <div data-home-dev="0" aria-hidden="{{ hdHid0 }}" style="grid-area: 1 / 1; visibility: {{ hdVis0 }}; display: flex; flex-direction: column; min-height: 0;">
+              <div data-dev="cal" style="position: relative; width: 100%; max-width: 100%; flex: 1; min-height: clamp(300px, 30vw, 440px); box-sizing: border-box; border-radius: 24px; background: #282829; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); padding: clamp(20px, 2.6vw, 30px); display: flex; flex-direction: column; gap: 18px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(247,245,242,.6);"><span>{{ tx.k6 }}</span><span><span data-cal-n="" style="color: #f15d2a;">0</span> {{ tx.k7 }}</span></div>
+                <div style="flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-template-rows: auto repeat(5, minmax(0, 1fr)); gap: 6px;">
+                  <sc-for list="{{ svDays }}" as="dy" hint-placeholder-count="7"><span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .1em; text-align: center; color: rgba(247,245,242,.45);">{{ dy }}</span></sc-for>
+                  <sc-for list="{{ svCal }}" as="c" hint-placeholder-count="35"><span data-cal="" data-t="{{ c.t }}" style="display: block; min-height: 0; border-radius: 8px; background: rgba(247,245,242,.06); transition: background .35s ease, transform .35s cubic-bezier(.23,1,.32,1);"></span></sc-for>
+                </div>
+                <div style="display: flex; gap: 18px; font-size: 12.5px; color: rgba(247,245,242,.7);"><span style="display: flex; align-items: center; gap: 8px;"><i style="width: 10px; height: 10px; border-radius: 3px; background: #f15d2a; display: block;"></i>{{ tx.k8 }}</span><span style="display: flex; align-items: center; gap: 8px;"><i style="width: 10px; height: 10px; border-radius: 3px; background: #4cc0af; display: block;"></i>{{ tx.k9 }}</span></div>
+              </div>
+            </div>
+            <div data-home-dev="1" aria-hidden="{{ hdHid1 }}" style="grid-area: 1 / 1; visibility: {{ hdVis1 }}; display: flex; flex-direction: column; min-height: 0;">
+              <div data-dev="type" style="position: relative; width: 100%; max-width: 100%; flex: 1; min-height: clamp(300px, 30vw, 440px); box-sizing: border-box; border-radius: 24px; background: #343436; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); padding: clamp(20px, 2.6vw, 30px); display: flex; flex-direction: column; gap: 22px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(247,245,242,.6);"><span>{{ tx.k10 }}</span><span style="border: 1px solid rgba(247,245,242,.25); border-radius: 99px; padding: 4px 10px; letter-spacing: .1em;">{{ tx.k11 }}</span></div>
+                <p data-full="{{ sv1.lead }}" style="margin: 0; flex: 1; min-height: 0; overflow: hidden; font-size: clamp(20px, 2vw, 27px); line-height: 1.35; letter-spacing: -.02em; font-weight: 500;"><span data-type=""></span><span style="display: inline-block; width: 2px; height: 1em; background: #f15d2a; vertical-align: -.12em; margin-inline-start: 3px;"></span></p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  <sc-for list="{{ sv1.items }}" as="it" hint-placeholder-count="4"><span data-chip="" style="border: 1px solid rgba(247,245,242,.2); border-radius: 99px; padding: 8px 13px; font-size: 12.5px; font-weight: 500; color: rgba(247,245,242,.55); transition: background .35s ease, color .35s ease, border-color .35s ease;">{{ it }}</span></sc-for>
+                </div>
+              </div>
+            </div>
+            <div data-home-dev="2" aria-hidden="{{ hdHid2 }}" style="grid-area: 1 / 1; visibility: {{ hdVis2 }}; display: flex; flex-direction: column; min-height: 0;">
+              <div data-dev="vf" style="position: relative; width: 100%; max-width: 100%; flex: 1; min-height: clamp(300px, 30vw, 440px); box-sizing: border-box; border-radius: 24px; background: #282829; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); overflow: hidden; padding: 0;">
+                <img data-vf-img="" src="assets/web/crowd.jpg" alt="{{ tx.k82 }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.3);">
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.45), transparent 30%, transparent 70%, rgba(40,40,41,.55));"></div>
+                <span style="position: absolute; top: 18px; left: 18px; width: 26px; height: 26px; border-top: 2px solid #f7f5f2; border-left: 2px solid #f7f5f2;"></span>
+                <span style="position: absolute; top: 18px; right: 18px; width: 26px; height: 26px; border-top: 2px solid #f7f5f2; border-right: 2px solid #f7f5f2;"></span>
+                <span style="position: absolute; bottom: 18px; left: 18px; width: 26px; height: 26px; border-bottom: 2px solid #f7f5f2; border-left: 2px solid #f7f5f2;"></span>
+                <span style="position: absolute; bottom: 18px; right: 18px; width: 26px; height: 26px; border-bottom: 2px solid #f7f5f2; border-right: 2px solid #f7f5f2;"></span>
+                <span style="position: absolute; top: 26px; left: 56px; display: flex; align-items: center; gap: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; color: #f7f5f2;"><i style="width: 9px; height: 9px; border-radius: 50%; background: #f15d2a; display: block;"></i>{{ tx.k12 }}</span>
+                <span data-tc="" style="position: absolute; top: 26px; right: 56px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .12em; color: #f7f5f2; font-variant-numeric: tabular-nums;">00:00:00:00</span>
+                <span data-vf-focus="" style="position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1; border: 1.5px solid rgba(247,245,242,.9); transform: translate(-50%, -50%) scale(1.8); opacity: 0;"></span>
+                <span style="position: absolute; bottom: 26px; left: 56px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #f7f5f2;">{{ svVfLabel }}</span>
+              </div>
+            </div>
+            <div data-home-dev="3" aria-hidden="{{ hdHid3 }}" style="grid-area: 1 / 1; visibility: {{ hdVis3 }}; display: flex; flex-direction: column; min-height: 0;">
+              <div data-dev="chart" style="position: relative; width: 100%; max-width: 100%; flex: 1; min-height: clamp(300px, 30vw, 440px); box-sizing: border-box; border-radius: 24px; background: #343436; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); padding: clamp(20px, 2.6vw, 30px); display: flex; flex-direction: column; gap: 18px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(247,245,242,.6);"><span>{{ tx.k13 }}</span><span style="display: flex; gap: 14px; letter-spacing: .08em; text-transform: none;"><span style="display: flex; align-items: center; gap: 6px;"><i style="width: 14px; height: 2px; background: #f15d2a; display: block;"></i>{{ tx.k14 }}</span><span style="display: flex; align-items: center; gap: 6px;"><i style="width: 14px; height: 2px; background: #4cc0af; display: block;"></i>{{ tx.k15 }}</span></span></div>
+                <svg viewBox="0 0 400 220" preserveAspectRatio="none" style="width: 100%; flex: 1 1 0; min-height: 120px; display: block; overflow: visible;" aria-hidden="true">
+                  <path d="M0 55 H400 M0 110 H400 M0 165 H400" stroke="rgba(247,245,242,.08)" stroke-width="1" fill="none"></path>
+                  <path data-ch-cost="" d="M0 150 C 100 146, 200 152, 300 148 S 380 149, 400 150" pathLength="1" stroke="#4cc0af" stroke-width="2.5" fill="none" stroke-dasharray="1" stroke-dashoffset="1" stroke-linecap="round"></path>
+                  <path data-ch-reach="" d="M0 205 C 60 200, 110 175, 160 150 S 260 80, 310 60 S 380 22, 400 16" pathLength="1" stroke="#f15d2a" stroke-width="3.5" fill="none" stroke-dasharray="1" stroke-dashoffset="1" stroke-linecap="round"></path>
+                </svg>
+                <div style="display: flex; flex-direction: column;">
+                  <sc-for list="{{ svOpt }}" as="o" hint-placeholder-count="3"><div style="display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-top: 1px solid rgba(247,245,242,.1); font-size: 14px;"><span>{{ o }}</span><span data-opt="" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; border-radius: 99px; padding: 5px 10px; background: rgba(247,245,242,.08); color: rgba(247,245,242,.5); transition: background .35s ease, color .35s ease;">{{ tx.k16 }}</span></div></sc-for>
+                </div>
+              </div>
+            </div>
+            <div data-home-dev="4" aria-hidden="{{ hdHid4 }}" style="grid-area: 1 / 1; visibility: {{ hdVis4 }}; display: flex; flex-direction: column; min-height: 0;">
+              <div data-dev="rep" style="position: relative; width: 100%; max-width: 100%; flex: 1; min-height: clamp(300px, 30vw, 440px); box-sizing: border-box; border-radius: 24px; background: #282829; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); padding: clamp(20px, 2.6vw, 30px); display: flex; flex-direction: column; gap: 18px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(247,245,242,.6);"><span>{{ tx.k17 }}</span><span>{{ tx.k18 }}</span></div>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                  <sc-for list="{{ svBars }}" as="r" hint-placeholder-count="4"><div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-size: 13.5px; color: rgba(247,245,242,.8);">{{ r.t }}</span><span style="display: block; height: 10px; border-radius: 99px; background: rgba(247,245,242,.08); overflow: hidden;"><span data-bar="" data-w="{{ r.w }}" style="display: block; height: 100%; width: 0%; border-radius: 99px; background: #f15d2a;"></span></span></div></sc-for>
+                </div>
+                <div data-rec="" style="margin-top: auto; opacity: 0; transform: translateY(10px); transition: opacity .5s ease, transform .6s cubic-bezier(.23,1,.32,1); border-radius: 14px; background: #f15d2a; color: #fff; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;">
+                  <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase;">{{ tx.k19 }}</span>
+                  <span style="font-size: 15px; line-height: 1.5; font-weight: 500;">{{ tx.k20 }}</span>
+                </div>
+              </div>
+            </div>
           </div>
           <h3 data-swap="" style="--sd: 1; margin: 0 0 16px; font-size: clamp(22px, 2.4vw, 32px); letter-spacing: -.03em; line-height: 1.1; font-weight: 600;">{{ activeService.title }}</h3>
           <p data-swap="" style="--sd: 2; margin: 0 0 16px; font-size: clamp(16px, 1.8vw, 21px); line-height: 1.55; color: #282829; max-width: 46ch;">{{ activeService.lead }}</p>
@@ -559,33 +623,37 @@
       </div>
     </section>
 
-    <section style="position: relative; overflow: hidden; background: #282829; color: #f7f5f2;">
+    <section data-screen-label="Home sectors" style="position: relative; overflow: hidden; background: #282829; color: #f7f5f2; padding: 110px 28px 100px;">
       <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.045) 0 1px, transparent 1px 14px);"></div>
-      <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 110px 28px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 40px; align-items: end; margin-bottom: 48px;">
-          <div>
-            <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0 0 18px;">{{ t.sectorsKicker }}</p>
-            <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.sectorsHead }}</h2>
-          </div>
-          <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(247,245,242,.7); max-width: 44ch;">{{ t.sectorsIntro }}</p>
+      <div style="position: relative; max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;">
+          <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0;">{{ t.sectorsKicker }}</p>
+          <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.sectorsHead }}</h2>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 28px;">
-          <sc-for list="{{ sectors }}" as="sec" hint-placeholder-count="5">
-            <article class="sec-dark" data-spot="" data-reveal="" style="position: relative; overflow: hidden; background: rgba(247,245,242,.05); border: 1px solid rgba(247,245,242,.14); padding: 30px 28px 32px; display: flex; flex-direction: column; transition: border-color .35s, background .35s, transform .45s;" style-hover="border-color: rgba(247,245,242,.3); background: rgba(247,245,242,.08); transform: translateY(-5px);">
-              <span class="sec-rule" style="position: absolute; left: 0; top: 0; height: 3px; width: 100%; background: #f15d2a; display: block;"></span>
-              <h3 style="position: relative; font-size: 23px; line-height: 1.16; letter-spacing: -.03em; font-weight: 600; margin: 6px 0 16px; max-width: 16ch;">{{ sec.name }}</h3>
-              <p style="margin: 0 0 22px; font-size: 14.5px; line-height: 1.7; color: rgba(247,245,242,.75);">{{ sec.body }}</p>
-              <div style="margin-top: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 10px;">
-                <sc-for list="{{ sec.logos }}" as="c" hint-placeholder-count="3">
-                  <div style="min-width: 0; display: flex; flex-direction: column; gap: 7px; transition: transform .3s;" style-hover="transform: translateY(-3px);">
-                    <div style="aspect-ratio: 16 / 10; border-radius: 8px; overflow: hidden; background: #fff;">
-                      <image-slot id="{{ c.id }}" fit="contain" shape="rect" placeholder="Logo"></image-slot>
-                    </div>
-                    <span style="font-size: 12px; line-height: 1.35; color: rgba(247,245,242,.75);">{{ c.name }}</span>
+        <div style="position: relative; width: {{ orbW }}px; height: {{ orbW }}px;">
+          <div style="position: absolute; left: 50%; top: 50%; width: 620px; height: 620px; margin: -310px 0 0 -310px; transform: scale({{ orbS }}); direction: ltr;">
+            <div style="position: absolute; inset: 70px; border-radius: 50%; border: 1px dashed rgba(247,245,242,.16);"></div>
+            <div data-orb="" style="position: absolute; inset: 0; animation: tact-orbit 60s linear infinite;">
+              <sc-for list="{{ orbRing }}" as="c" hint-placeholder-count="6">
+                <div data-orb="" style="position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: {{ c.pos }}; transition: transform 1s cubic-bezier(.77,0,.175,1);">
+                  <div data-orb="" style="animation: tact-orbit-back 60s linear infinite;">
+                    <div data-orb="" role="img" aria-label="{{ c.name }}" style="transform: translate(-50%,-50%) scale({{ c.sc }}); opacity: {{ c.op }}; transition: opacity .5s cubic-bezier(.23,1,.32,1) {{ c.d }}, transform .7s cubic-bezier(.23,1,.32,1) {{ c.d }}; width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.2; color: #f7f5f2;">{{ c.txt }}</div>
                   </div>
-                </sc-for>
-              </div>
-            </article>
+                </div>
+              </sc-for>
+            </div>
+            <div style="position: absolute; inset: 170px; border-radius: 50%; background: #f15d2a; color: #fff;">
+              <sc-for list="{{ orbCenter }}" as="x" hint-placeholder-count="1">
+                <div data-orb="" aria-hidden="{{ x.ah }}" style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; direction: {{ x.dir }}; opacity: {{ x.op }}; transform: {{ x.tf }}; transition: opacity .45s cubic-bezier(.23,1,.32,1), transform .6s cubic-bezier(.23,1,.32,1);">
+                  <span style="font-size: 30px; font-weight: 600; letter-spacing: -.035em; line-height: 1.05;">{{ x.name }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+          <sc-for list="{{ orbChips }}" as="ch" hint-placeholder-count="5">
+            <button type="button" onClick="{{ ch.go }}" aria-pressed="{{ ch.pressed }}" style="border: 1px solid {{ ch.bd }}; background: {{ ch.bgc }}; color: {{ ch.ink }}; font-family: inherit; font-size: 14px; font-weight: 600; padding: 12px 20px; border-radius: 99px; cursor: pointer; transition: background .3s, color .3s, border-color .3s, transform .16s cubic-bezier(.23,1,.32,1);" style-active="transform: scale(.97);">{{ ch.name }}</button>
           </sc-for>
         </div>
       </div>
@@ -653,7 +721,7 @@
       <div data-count-group="awards" style="display: flex; flex-direction: column; border-top: 3px solid #f15d2a;">
         <sc-for list="{{ awardRows }}" as="a" hint-placeholder-count="4">
           <article class="award-row" data-reveal="" style="border-bottom: 1px solid rgba(40,40,41,.16); padding: 30px 0; display: flex; flex-wrap: wrap; gap: 18px 28px; align-items: center; transition: padding-left .35s, background .3s;" style-hover="padding-left: 18px; background: #fff;">
-            <div style="width: 96px; height: 72px; flex: 0 0 auto; border-radius: 8px; overflow: hidden; background: #fff; border: 1px solid rgba(40,40,41,.12);">
+            <div style="width: 120px; height: 140px; flex: 0 0 auto; overflow: hidden; background: transparent; mix-blend-mode: multiply; filter: contrast(1.08) brightness(1.06);">
               <image-slot id="{{ a.slot }}" fit="contain" shape="rect" placeholder="{{ a.slotLabel }}"></image-slot>
             </div>
             <div style="flex: 1 1 260px; min-width: 0;">
@@ -682,60 +750,10 @@
           <sc-for list="{{ isoRows }}" as="iso" hint-placeholder-count="5">
             <div class="iso-card" data-reveal="" style="padding: 28px 24px 32px; border-right: 1px solid rgba(40,40,41,.12); transition: background .3s, transform .3s;" style-hover="background: rgba(76,192,175,.1); transform: translateY(-4px);">
               <div class="iso-bar" style="width: 30px; height: 3px; background: #4cc0af; margin-bottom: 20px;"></div>
-              <div class="iso-mark" style="height: 72px; width: 72px; margin-bottom: 18px; background-repeat: no-repeat; background-position: left center; background-size: contain; {{ iso.bg }}" role="img" aria-label="{{ iso.code }} certification mark"></div>
+              <a href="{{ iso.pdf }}" target="_blank" rel="noopener" aria-label="{{ iso.code }} certificate" style="display: block; margin-bottom: 20px; aspect-ratio: 1 / 1.414; overflow: hidden; border-radius: 6px; border: 1px solid rgba(40,40,41,.14); background: #fff; box-shadow: 0 14px 30px -18px rgba(40,40,41,.45); transition: transform .35s cubic-bezier(.23,1,.32,1), box-shadow .35s;" style-hover="transform: translateY(-4px) rotate(-1deg); box-shadow: 0 22px 40px -18px rgba(40,40,41,.55);"><img src="{{ iso.thumb }}" alt="{{ iso.code }} certificate" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;"></a>
               <div style="font-size: 15px; font-weight: 600; letter-spacing: -.01em;">{{ iso.code }}</div>
               <div style="margin-top: 10px; font-size: clamp(10px, 1.05vw, 11.5px); line-height: 1.5; letter-spacing: -.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: rgba(40,40,41,.65);">{{ iso.name }}</div>
               <a href="{{ iso.pdf }}" target="_blank" rel="noopener" style="margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(40,40,41,.24); border-radius: 99px; padding: 8px 14px; font-size: 12px; font-weight: 600; color: #282829; transition: border-color .25s, color .25s, background .25s, gap .25s;" style-hover="border-color: #f15d2a; color: #f15d2a; background: rgba(241,93,42,.06); gap: 12px;">{{ t.viewCert }} <span class="arw-d" style="font-size: 13px; line-height: 1;">↗</span></a>
-            </div>
-          </sc-for>
-        </div>
-      </div>
-    </section>
-
-    <section id="calendar" data-cal="" style="position: relative; background: #f15d2a; color: #fff; padding: 110px 0 0; overflow: hidden;">
-      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255,255,255,.07) 0 1px, transparent 1px 16px); pointer-events: none;"></div>
-      <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 56px 72px; align-items: center;">
-        <div>
-          <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #fff; margin: 0 0 20px;">{{ t.calKicker }}</p>
-          <h2 data-reveal="" style="font-size: clamp(38px, 5.2vw, 76px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; margin: 0 0 26px; max-width: 14ch;">{{ t.calHead }}</h2>
-          <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; margin: 0 0 26px;">
-            <span style="font-size: clamp(48px, 5.6vw, 84px); font-weight: 600; letter-spacing: -.05em; line-height: .9; color: #282829; font-variant-numeric: tabular-nums;">2026</span>
-            <span dir="ltr" style="font-size: clamp(22px, 2.4vw, 34px); font-weight: 500; letter-spacing: .04em; color: #fff; font-variant-numeric: tabular-nums;">1447 / 1448</span>
-          </div>
-          <p style="margin: 0 0 34px; max-width: 46ch; font-size: 16.5px; line-height: 1.7; color: #fff;">{{ t.calLead }}</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-            <a href="#calendar" style="display: inline-flex; align-items: center; gap: 12px; background: #282829; color: #fff; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; transition: background .25s ease, color .25s ease, transform .4s cubic-bezier(.2,.75,.2,1);" style-hover="background: #fff; color: #282829; transform: translateY(-3px);" style-active="transform: scale(.97);">{{ t.calDownload }}</a>
-            <a href="#calendar" style="display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(255,255,255,.7); color: #fff; font-size: 15px; font-weight: 600; padding: 15px 24px; border-radius: 99px; transition: background .25s ease, color .25s ease;" style-hover="background: #fff; color: #282829;" style-active="transform: scale(.97);">{{ t.calApp }}</a>
-          </div>
-        </div>
-        <div style="position: relative; height: 640px; max-width: 600px; width: 100%; justify-self: center; display: flex; align-items: center; justify-content: flex-start; direction: ltr;">
-          <img data-cal-photo="" src="assets/calendar/illustrations.png" alt="{{ t.calIllusAlt }}" loading="lazy" style="position: absolute; right: 0; top: 50%; margin-top: -270px; width: min(64%, 420px); height: 540px; object-fit: cover; object-position: center 62%; border-radius: 8px; box-shadow: 0 40px 80px -40px rgba(40,40,41,.7);">
-          <button onClick="{{ replayCal }}" aria-label="{{ t.calTap }}" style="position: relative; width: 290px; height: 600px; padding: 9px; border: 0; border-radius: 46px; background: #1d1d1e; box-shadow: 0 50px 90px -40px rgba(40,40,41,.85), inset 0 0 0 1px rgba(255,255,255,.08); cursor: pointer; transition: transform .5s cubic-bezier(.2,.75,.2,1);" style-hover="transform: translateY(-6px);" style-active="transform: scale(.985);">
-            <span style="position: relative; display: block; width: 100%; height: 100%; border-radius: 38px; overflow: hidden; background: #282829;">
-              <video data-cal-bg="" src="assets/calendar/cal-newyear.mp4" muted="" loop="" playsinline="" preload="metadata" aria-hidden="true" style="position: absolute; inset: -40px; width: calc(100% + 80px); height: calc(100% + 80px); object-fit: cover; display: block; filter: blur(22px) brightness(.55);"></video>
-              <video data-cal-video="" src="assets/calendar/cal-newyear.mp4" poster="assets/calendar/poster-2026.png" muted="" loop="" playsinline="" preload="metadata" style="position: absolute; left: 0; right: 0; top: 50%; width: 100%; height: auto; aspect-ratio: 4 / 5; transform: translateY(-50%); object-fit: contain; display: block;"></video>
-              <span data-cal-splash="" style="position: absolute; inset: 0; background: #282829; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;">
-                <svg viewBox="0 0 119 78" style="width: 112px; height: 73.4px; overflow: visible; display: block;"><sc-for list="{{ calPieces }}" as="p" hint-placeholder-count="6"><path data-p="{{ p.k }}" d="{{ p.d }}" fill="{{ p.c }}" style="transform-box: fill-box; transform-origin: center;"></path></sc-for></svg>
-                <span dir="ltr" style="display: flex; gap: 6.6px; align-items: flex-start;">
-                  <svg viewBox="0 0 106 41" style="width: 87.9px; height: 34px; display: block; overflow: hidden;"><sc-for list="{{ calLetters }}" as="l" hint-placeholder-count="4"><path data-l="" d="{{ l }}" fill="#e85d2c"></path></sc-for></svg>
-                  <span data-desc="" style="display: block; width: 36.5px; height: 34px; overflow: hidden;"><img src="assets/tact-logo-light.svg" alt="" style="height: 34px; width: auto; display: block; margin-left: -93.7px;"></span>
-                </span>
-                <span data-cal-sub="" dir="ltr" style="font-size: 13px; font-weight: 500; letter-spacing: .06em; color: rgba(247,245,242,.8);">{{ tx.k1 }}</span>
-              </span>
-              <span style="position: absolute; top: 10px; left: 50%; width: 84px; height: 24px; margin-left: -42px; border-radius: 99px; background: #1d1d1e;"></span>
-            </span>
-          </button>
-        </div>
-      </div>
-      <div style="position: relative; max-width: 1320px; margin: 84px auto 0; padding: 0 28px;">
-        <div class="cal-strip" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,.45);">
-          <sc-for list="{{ calMonths }}" as="m" hint-placeholder-count="12">
-            <div style="background: {{ m.bg }}; color: {{ m.ink }}; --cs-bg: {{ m.sbg }}; --cs-bd: {{ m.bd }}; transition: background .35s ease, color .35s ease; cursor: default; padding: 22px 14px 26px; border-bottom: 1px solid rgba(255,255,255,.3); box-shadow: inset -1px 0 0 rgba(255,255,255,.3); display: flex; flex-direction: column; gap: 10px; min-height: 196px;" onMouseEnter="{{ m.enter }}" onMouseLeave="{{ m.leave }}">
-              <div style="height: 44px; margin-bottom: 6px;"><div data-cal-shape="" data-r="{{ m.r }}" style="width: 40px; height: 40px; border-radius: {{ m.br }}; background: var(--cs-bg); border: var(--cs-bd); transition: background .35s ease, border-color .35s ease; transform: rotate({{ m.r }}deg);"></div></div>
-              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; color: inherit;">{{ m.num }}</span>
-              <span style="font-size: 18px; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; color: inherit; overflow-wrap: anywhere;">{{ m.name }}</span>
-              <span style="font-size: 12.5px; line-height: 1.45; color: inherit;">{{ m.hijri }}</span>
-              <sc-if value="{{ m.hasDay }}" hint-placeholder-val="{{ false }}"><span style="margin-top: auto; font-size: 12.5px; font-weight: 600; line-height: 1.35; color: inherit;">{{ m.day }}</span></sc-if>
             </div>
           </sc-for>
         </div>
@@ -793,7 +811,7 @@
       </div>
       <div aria-hidden="true" data-ar-mq="" style="position: relative; margin-top: clamp(64px, 10vh, 110px); padding-bottom: 28px; display: flex; flex-direction: column; gap: 4px; overflow: hidden; white-space: nowrap; font-size: clamp(56px, 9vw, 150px); font-weight: 600; letter-spacing: -.05em; line-height: 1.06;">
         <div data-mq="1" style="will-change: transform;">{{ svMarquee }}</div>
-        <div data-mq="-1" style="will-change: transform; color: transparent; -webkit-text-stroke: 1.5px rgba(247,245,242,.35);">{{ svMarquee }}</div>
+        <div data-mq="-1" style="will-change: transform; color: #f15d2a;">{{ svMarquee }}</div>
       </div>
     </section>
     <section data-sv="0" data-screen-label="Service 01" style="position: relative; height: {{ svH }}; background: #f7f5f2; color: #282829;">
@@ -957,53 +975,29 @@
         <p style="margin: 0; flex: 1 1 min(100%, 440px); min-width: 0; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.4; letter-spacing: -.025em; font-weight: 500; max-width: 40ch; text-wrap: pretty;">{{ tx.k24 }}</p>
       </div>
     </section>
-    <sc-if value="{{ secWide }}" hint-placeholder-val="{{ true }}">
-    <section data-sx="" data-screen-label="Sector dial" style="position: relative; height: 620vh; background: #282829; color: #f7f5f2;">
-      <div data-lines="" style="position: sticky; top: 0; height: 100vh; overflow: hidden; box-sizing: border-box; padding: 96px 28px 40px; display: flex;">
-        <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.035) 0 1px, transparent 1px 14px);"></div>
-        <div style="position: relative; max-width: 1320px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center;">
-          <div style="position: relative; height: min(72vh, 640px); perspective: 1100px; overflow: hidden;">
-            <div data-drum-wrap="" style="position: absolute; inset: 0; transform-style: preserve-3d;">
-              <sc-for list="{{ secDrum }}" as="d" hint-placeholder-count="10">
-                <button type="button" data-drum="" onClick="{{ d.go }}" style="position: absolute; inset-inline: 0; top: 50%; margin-top: -.6em; height: 1.2em; display: flex; align-items: center; gap: .4em; border: 0; background: transparent; padding: 0; color: #f7f5f2; font: inherit; font-size: clamp(22px, 2.6vw, 42px); font-weight: 600; letter-spacing: -.04em; line-height: 1.2; text-align: start; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; backface-visibility: hidden; transition: color .3s ease;"><span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .2em; letter-spacing: .14em; font-weight: 400; color: #f15d2a;">{{ d.num }}</span>{{ d.name }}</button>
+    <section data-screen-label="Sector rows" style="position: relative; background: #282829; color: #f7f5f2; padding: clamp(72px, 10vh, 110px) 0;">
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="10">
+        <div onMouseEnter="{{ r.on }}" onMouseLeave="{{ r.off }}" onClick="{{ r.tap }}" style="display: grid; grid-template-columns: {{ r.cols }}; align-items: center; border-top: 1px solid rgba(247,245,242,.12); background: {{ r.bgc }}; transition: background .4s cubic-bezier(.23,1,.32,1);">
+          <div style="padding: 28px clamp(20px, 3vw, 40px) 28px clamp(20px, 5.5vw, 80px); display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+            <h2 style="margin: 0; font-size: clamp(22px, 2vw, 26px); line-height: 1.15; font-weight: 600; letter-spacing: -.03em; color: {{ r.ink }}; transition: color .3s;">{{ r.name }}</h2>
+            <sc-if value="{{ r.inlineBody }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 15px; line-height: 1.65; color: {{ r.bodyInk }}; max-width: 60ch;">{{ r.body }}</p></sc-if>
+          </div>
+          <sc-if value="{{ r.hasTrack }}" hint-placeholder-val="{{ true }}">
+          <div style="position: relative; overflow: hidden; height: {{ r.trackH }}; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+            <div data-orb="" style="position: absolute; top: 0; bottom: 0; left: 0; direction: ltr; display: flex; align-items: center; gap: 72px; padding-right: 72px; width: max-content; animation: {{ r.anim }}; animation-play-state: {{ r.play }}; opacity: {{ r.trackOp }}; transition: opacity .4s;">
+              <sc-for list="{{ r.loop }}" as="c" hint-placeholder-count="6">
+                <div role="img" aria-label="{{ c.name }}" style="flex: 0 0 auto; width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; font-size: 17px; font-weight: 600; white-space: nowrap; color: #f7f5f2;">{{ c.txt }}</div>
               </sc-for>
             </div>
+            <sc-if value="{{ r.overlayBody }}" hint-placeholder-val="{{ true }}"><p data-orb="" style="position: absolute; inset: 0; margin: 0; display: flex; align-items: center; padding-inline-end: clamp(20px, 5.5vw, 80px); font-size: 17px; line-height: 1.55; color: #f7f5f2; max-width: 70ch; opacity: {{ r.bodyOp }}; transform: {{ r.bodyTf }}; transition: opacity .4s cubic-bezier(.23,1,.32,1), transform .5s cubic-bezier(.23,1,.32,1); pointer-events: none;">{{ r.body }}</p></sc-if>
           </div>
-          <div data-sx-card="" style="display: flex; flex-direction: column; gap: 22px; min-width: 0;">
-            <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;">
-              <span><span style="color: #f15d2a;">{{ secCur.num }}</span><span style="color: rgba(247,245,242,.55);"> / {{ secTotal }}</span></span>
-              <span style="color: rgba(247,245,242,.55); text-transform: uppercase;">{{ secCur.count }}</span>
-            </div>
-            <h2 data-sx-a="" style="margin: 0; font-size: clamp(30px, 3.2vw, 50px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ secCur.name }}</h2>
-            <p data-sx-a="" style="margin: 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.6; color: {{ secCur.bodyInk }}; max-width: 46ch; text-wrap: pretty;">{{ secCur.body }}</p>
-            <div data-sx-a="" style="display: {{ secCur.cliDisp }}; flex-direction: column; gap: 12px;">
-              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,245,242,.55);">{{ tx.k25 }}</span>
-              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                <sc-for list="{{ secCur.logos }}" as="c" hint-placeholder-count="3"><div style="width: 128px; display: flex; flex-direction: column; gap: 7px; transition: transform .3s;" style-hover="transform: translateY(-3px);"><div style="height: 73px; border-radius: 8px; overflow: hidden; background: #fff;"><image-slot id="{{ c.id }}" fit="contain" shape="rect" placeholder="Logo"></image-slot></div><span style="font-size: 12px; line-height: 1.35; color: rgba(247,245,242,.75);">{{ c.name }}</span></div></sc-for>
-              </div>
-            </div>
-            <div style="display: flex; gap: 4px; margin-top: 8px;">
-              <sc-for list="{{ secTicks }}" as="t" hint-placeholder-count="10"><span style="flex: 1; height: 3px; border-radius: 99px; background: {{ t.bg }}; transition: background .3s ease;"></span></sc-for>
-            </div>
-          </div>
+          </sc-if>
+          <sc-if value="{{ r.noTrack }}" hint-placeholder-val="{{ false }}">
+          <p style="margin: 0; padding: 28px clamp(20px, 5.5vw, 80px) 28px 0; font-size: 17px; line-height: 1.55; color: {{ r.bodyInk }}; max-width: 70ch;">{{ r.body }}</p>
+          </sc-if>
         </div>
-      </div>
+      </sc-for>
     </section>
-    </sc-if>
-    <sc-if value="{{ secNarrow }}" hint-placeholder-val="{{ false }}">
-    <section data-screen-label="Sector list" style="background: #282829; color: #f7f5f2; padding: 72px 20px 88px;">
-      <div style="display: flex; flex-direction: column;">
-        <sc-for list="{{ secList }}" as="d" hint-placeholder-count="5">
-          <div style="border-top: 1px solid rgba(247,245,242,.16); padding: 30px 0; display: flex; flex-direction: column; gap: 14px;">
-            <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; color: #f15d2a;">{{ d.num }}</span>
-            <h2 style="margin: 0; font-size: 32px; line-height: 1.06; letter-spacing: -.04em; font-weight: 600;">{{ d.name }}</h2>
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: {{ d.bodyInk }};">{{ d.body }}</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 7px;"><sc-for list="{{ d.logos }}" as="c" hint-placeholder-count="3"><div style="width: 112px; display: flex; flex-direction: column; gap: 7px; transition: transform .3s;" style-hover="transform: translateY(-3px);"><div style="height: 64px; border-radius: 8px; overflow: hidden; background: #fff;"><image-slot id="{{ c.id }}" fit="contain" shape="rect" placeholder="Logo"></image-slot></div><span style="font-size: 12px; line-height: 1.35; color: rgba(247,245,242,.75);">{{ c.name }}</span></div></sc-for></div>
-          </div>
-        </sc-for>
-      </div>
-    </section>
-    </sc-if>
   </main>
   </sc-if>
 
@@ -1096,7 +1090,7 @@
     <section data-ab-hero="" data-screen-label="About hero" style="position: relative; height: 170vh; background: #282829; color: #f7f5f2;">
       <div style="position: sticky; top: 0; height: 100vh; min-height: 640px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;">
         <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.045) 0 1px, transparent 1px 14px);"></div>
-        <div aria-hidden="true" style="position: absolute; inset-inline-end: -1.5vw; top: 44%; transform: translateY(calc(-50% - var(--p, 0) * 8vh)); font-size: clamp(150px, 33vw, 560px); font-weight: 700; letter-spacing: -.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(247,245,242,.3); background-image: linear-gradient(0deg, #f15d2a calc(var(--p, 0) * 100%), transparent calc(var(--p, 0) * 100%)); -webkit-background-clip: text; background-clip: text; font-variant-numeric: tabular-nums; pointer-events: none; user-select: none;">2014</div>
+        <div aria-hidden="true" style="position: absolute; inset-inline-end: -1.5vw; top: 44%; transform: translateY(calc(-50% - var(--p, 0) * 8vh)); font-family: Effra, 'Readex Pro', system-ui, sans-serif; font-size: clamp(150px, 33vw, 560px); font-weight: 700; letter-spacing: -.06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(247,245,242,.3); background-image: linear-gradient(0deg, #f15d2a calc(var(--p, 0) * 100%), transparent calc(var(--p, 0) * 100%)); -webkit-background-clip: text; background-clip: text; font-variant-numeric: tabular-nums; pointer-events: none; user-select: none;">2014</div>
         <div style="position: relative; width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 28px clamp(40px, 8vh, 88px); display: flex; flex-direction: column; gap: 28px;">
           <div style="display: flex; align-items: center; gap: 14px;">
             <span style="width: 52px; height: 3px; background: #f15d2a; display: block;"></span>
@@ -1414,7 +1408,7 @@
           <sc-for list="{{ isoRows }}" as="iso" hint-placeholder-count="5">
             <div class="iso-card" data-reveal="" style="padding: 28px 24px 32px; border-right: 1px solid rgba(40,40,41,.12); transition: background .3s, transform .3s;" style-hover="background: rgba(76,192,175,.1); transform: translateY(-4px);">
               <div class="iso-bar" style="width: 30px; height: 3px; background: #4cc0af; margin-bottom: 20px;"></div>
-              <div class="iso-mark" style="height: 72px; width: 72px; margin-bottom: 18px; background-repeat: no-repeat; background-position: left center; background-size: contain; {{ iso.bg }}" role="img" aria-label="{{ iso.code }} certification mark"></div>
+              <a href="{{ iso.pdf }}" target="_blank" rel="noopener" aria-label="{{ iso.code }} certificate" style="display: block; margin-bottom: 20px; aspect-ratio: 1 / 1.414; overflow: hidden; border-radius: 6px; border: 1px solid rgba(40,40,41,.14); background: #fff; box-shadow: 0 14px 30px -18px rgba(40,40,41,.45); transition: transform .35s cubic-bezier(.23,1,.32,1), box-shadow .35s;" style-hover="transform: translateY(-4px) rotate(-1deg); box-shadow: 0 22px 40px -18px rgba(40,40,41,.55);"><img src="{{ iso.thumb }}" alt="{{ iso.code }} certificate" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;"></a>
               <div style="font-size: 15px; font-weight: 600; letter-spacing: -.01em;">{{ iso.code }}</div>
               <div style="margin-top: 10px; font-size: clamp(10px, 1.05vw, 11.5px); line-height: 1.5; letter-spacing: -.012em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: rgba(40,40,41,.65);">{{ iso.name }}</div>
               <a href="{{ iso.pdf }}" target="_blank" rel="noopener" style="margin-top: 16px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(40,40,41,.24); border-radius: 99px; padding: 8px 14px; font-size: 12px; font-weight: 600; color: #282829; transition: border-color .25s, color .25s, background .25s, gap .25s;" style-hover="border-color: #f15d2a; color: #f15d2a; background: rgba(241,93,42,.06); gap: 12px;">{{ t.viewCert }} <span class="arw-d" style="font-size: 13px; line-height: 1;">↗</span></a>
@@ -1952,27 +1946,27 @@ const HIRING = [
 
 const SECTORS_EN = [
   { name: "Culture", body: "We build communication strategies that strengthen the presence of cultural entities, highlight their initiatives and carry their messages to the public with lasting effect.", clients: ["Ministry of Culture", "Literature, Publishing & Translation Commission", "Heritage Commission", "Architecture & Design Commission", "Film Commission", "Museums Commission"] },
-  { name: "Health", body: "We develop communication solutions that build awareness, strengthen trust and simplify health messaging in ways that land.", clients: ["Ministry of Health"] },
+  { name: "Health", body: "We develop communication solutions that build awareness, strengthen trust and simplify health messaging in ways that land.", clients: ["Ministry of Health", "Health Holding"] },
   { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Al-Qadsiah Club", "Diriyah Club"] },
   { name: "Entertainment", body: "We run digital communication for events and seasons with high flexibility, turning entertainment experiences into wide reach and engagement.", clients: ["Riyadh Season", "Jeddah Season", "Diriyah Season"] },
-  { name: "Technology services", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Sebrani", "Elm", "Mobily"] }
+  { name: "Technology services", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"] }
 ];
 
 const SECTOR_PAGE = [
   { name: "Public government sector", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Culture", body: "We build communication strategies that strengthen the presence of cultural entities, highlight their initiatives and carry their messages to the public with lasting effect.", clients: ["Ministry of Culture", "Literature, Publishing & Translation Commission", "Heritage Commission", "Architecture & Design Commission", "Film Commission", "Museums Commission"], wins: [] },
-  { name: "Technology", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Sebrani", "Elm", "Mobily"], wins: [] },
+  { name: "Technology", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"], wins: [] },
   { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Al-Qadsiah Club", "Diriyah Club"], wins: [] },
   { name: "Vision realization programs", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Entertainment", body: "We run digital communication for events and seasons with high flexibility, turning entertainment experiences into wide reach and engagement.", clients: ["Riyadh Season", "Jeddah Season", "Diriyah Season"], wins: [] },
   { name: "PIF companies", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Financial sector", body: "[Copy to come.]", clients: [], wins: [] },
-  { name: "Health", body: "We develop communication solutions that build awareness, strengthen trust and simplify health messaging in ways that land.", clients: ["Ministry of Health"], wins: [] },
+  { name: "Health", body: "We develop communication solutions that build awareness, strengthen trust and simplify health messaging in ways that land.", clients: ["Ministry of Health", "Health Holding"], wins: [] },
   { name: "Non-profit sector", body: "[Copy to come.]", clients: [], wins: [] }
 ];
 
 const CASES_EN = [
-  { tab: "Wirth Nights", year: "2026 — Royal Institute of Traditional Arts (Wirth)", name: "Wirth Ramadan Nights", body: "tact partnered as a sponsor of Wirth Ramadan Nights, a cultural event organised by the Royal Institute of Traditional Arts to celebrate Saudi heritage. The programme included handicrafts, creative trails and live experiences staged to bring the spirit of Ramadan to life.", metrics: [{ value: "5.2M", label: "Impressions" }, { value: "1.2M", label: "Views" }, { value: "43K", label: "Engagements" }, { value: "155", label: "Creative pieces" }], services: ["Project management", "Copywriting", "Design", "Daily & closing reports", "Live event monitoring"], img: "assets/web/giveaway.jpg", shotLabel: "Event photography — Wirth Ramadan Nights" },
+  { tab: "Wirth Nights", year: "2026 — Royal Institute of Traditional Arts (Wirth)", name: "Wirth Ramadan Nights", body: "tact partnered as a sponsor of Wirth Ramadan Nights, a cultural event organised by the Royal Institute of Traditional Arts to celebrate Saudi heritage. The programme included handicrafts, creative trails and live experiences staged to bring the spirit of Ramadan to life.", metrics: [{ value: "5.2M", label: "Impressions" }, { value: "1.2M", label: "Views" }, { value: "43K", label: "Engagements" }, { value: "155", label: "Creative pieces" }], services: ["Project management", "Copywriting", "Design", "Daily & closing reports", "Live event monitoring"], img: "assets/web/wirth-booth.jpg", shotLabel: "Event photography — Wirth Ramadan Nights" },
   { tab: "Hajj Media Forum", year: "2026 — Hajj Media Forum", name: "Hajj Media Forum", body: "tact acted as digital communication partner for an integrated media environment supporting journalists covering the Hajj season, with interactive technology, media zones hosting the Unified Hajj Media Operations Centre, a press briefing platform and a creative exhibition on the transformation of services for pilgrims.", metrics: [{ value: "2.2M", label: "Impressions" }, { value: "631K", label: "Views" }, { value: "6.2K", label: "Engagements" }, { value: "77", label: "Creative pieces" }], services: ["Media coverage", "Project management", "Copywriting", "Production"], img: "assets/web/crowd.jpg", shotLabel: "Media centre coverage — Hajj Media Forum" },
   { tab: "Riyadh Marathon", year: "2026 — Riyadh Marathon", name: "Riyadh Marathon", body: "As supporting partner of Riyadh Marathon 2026, tact managed digital communication for the event. We created interactive content to motivate participants and followers, and covered the day from the first moments through the race routes to the sponsors' ceremony — a live, complete picture of the capital's biggest sporting event.", metrics: [{ value: "265,646", label: "Impressions" }, { value: "36,463+", label: "Views" }, { value: "8,228", label: "Engagements" }, { value: "116", label: "Posts" }], services: ["Project management", "Copywriting", "Weekly, monthly & closing reports", "Design & presentations", "Video editing", "Influencer engagement"], img: "assets/web/wheel-visitors.jpg", shotLabel: "Race-day coverage — Riyadh Marathon" },
   { tab: "Banan", year: "2025 — Banan, Saudi International Handicrafts Week", name: "Banan Exhibition", body: "As official digital communication partner for Banan, tact brought out the essence of Saudi International Handicrafts Week 2025. Daily coverage spotlighted the artisans and their work, with creative content connecting Saudi cultural heritage to audiences invested in traditional arts.", metrics: [{ value: "387K", label: "Impressions" }, { value: "17.7K", label: "Views" }, { value: "13K", label: "Engagements" }, { value: "125", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design", "Photography", "Video editing"], img: "assets/web/calendar.jpg", shotLabel: "Artisan portraits — Banan exhibition" },
@@ -2107,10 +2101,10 @@ const SERVICES_AR = [
 
 const SECTORS_AR = [
   { name: "الثقافة", body: "نبني استراتيجيات اتصال تعزز حضور الجهات الثقافية، وتُبرز مبادراتها، وتنقل رسائلها إلى الجمهور بأثر يدوم.", clients: ["وزارة الثقافة", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"] },
-  { name: "الصحة", body: "نطوّر حلول اتصال تبني الوعي وتعزز الثقة وتبسّط الرسائل الصحية بطريقة تصل.", clients: ["وزارة الصحة"] },
+  { name: "الصحة", body: "نطوّر حلول اتصال تبني الوعي وتعزز الثقة وتبسّط الرسائل الصحية بطريقة تصل.", clients: ["وزارة الصحة", "الصحة القابضة"] },
   { name: "الرياضة", body: "نبني تجارب رقمية تعمّق ارتباط الجمهور وترفع حضور الجهات الرياضية بمحتوى ومجتمع فاعل.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "نادي القادسية", "نادي الدرعية"] },
   { name: "الترفيه", body: "ندير الاتصال الرقمي للفعاليات والمواسم بمرونة عالية، ونحوّل التجارب الترفيهية إلى وصول وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"] },
-  { name: "الخدمات التقنية", body: "نساعد الجهات التقنية على توصيل خدماتها بوضوح وتحسين تجربة المستخدم عبر اتصال رقمي فاعل.", clients: ["ثقة", "سبراني", "علم", "موبايلي"] }
+  { name: "الخدمات التقنية", body: "نساعد الجهات التقنية على توصيل خدماتها بوضوح وتحسين تجربة المستخدم عبر اتصال رقمي فاعل.", clients: ["ثقة", "سيبراني", "علم", "موبايلي"] }
 ];
 
 const STATS_AR = [
@@ -2132,7 +2126,7 @@ const VALUES_AR = [
 ];
 
 const CASES_AR = [
-  { tab: "ليالي ورث", year: "2026 — المعهد الملكي للفنون التقليدية (ورث)", name: "ليالي ورث الرمضانية", body: "شاركت تاكت راعياً لليالي ورث الرمضانية، وهي فعالية ثقافية نظّمها المعهد الملكي للفنون التقليدية للاحتفاء بالتراث السعودي. تضمن البرنامج الحرف اليدوية والمسارات الإبداعية وتجارب حية أُقيمت لإحياء روح رمضان.", metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "مواد إبداعية" }], services: ["إدارة المشروع", "كتابة المحتوى", "التصميم", "التقارير اليومية والختامية", "المتابعة الحية للفعالية"], img: "assets/web/giveaway.jpg", shotLabel: "تصوير الفعالية — ليالي ورث الرمضانية" },
+  { tab: "ليالي ورث", year: "2026 — المعهد الملكي للفنون التقليدية (ورث)", name: "ليالي ورث الرمضانية", body: "شاركت تاكت راعياً لليالي ورث الرمضانية، وهي فعالية ثقافية نظّمها المعهد الملكي للفنون التقليدية للاحتفاء بالتراث السعودي. تضمن البرنامج الحرف اليدوية والمسارات الإبداعية وتجارب حية أُقيمت لإحياء روح رمضان.", metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "مواد إبداعية" }], services: ["إدارة المشروع", "كتابة المحتوى", "التصميم", "التقارير اليومية والختامية", "المتابعة الحية للفعالية"], img: "assets/web/wirth-booth.jpg", shotLabel: "تصوير الفعالية — ليالي ورث الرمضانية" },
   { tab: "منتدى الحج الإعلامي", year: "2026 — منتدى الحج الإعلامي", name: "منتدى الحج الإعلامي", body: "عملت تاكت شريكاً للاتصال الرقمي لبيئة إعلامية متكاملة تخدم الصحفيين المغطين لموسم الحج، بتقنيات تفاعلية، ومناطق إعلامية تستضيف مركز عمليات الحج الإعلامي الموحد، ومنصة للإحاطات الصحفية، ومعرض إبداعي عن تطور الخدمات المقدمة للحجاج.", metrics: [{ value: "2.2M", label: "الظهور" }, { value: "631K", label: "المشاهدات" }, { value: "6.2K", label: "التفاعلات" }, { value: "77", label: "مواد إبداعية" }], services: ["التغطية الإعلامية", "إدارة المشروع", "كتابة المحتوى", "الإنتاج"], img: "assets/web/crowd.jpg", shotLabel: "تغطية المركز الإعلامي — منتدى الحج الإعلامي" },
   { tab: "ماراثون الرياض", year: "2026 — ماراثون الرياض", name: "ماراثون الرياض", body: "بصفتها شريكاً مساندًا لماراثون الرياض 2026، أدارت تاكت الاتصال الرقمي للحدث. أنتجنا محتوى تفاعلياً لتحفيز المشاركين والمتابعين، وغطّينا اليوم من لحظاته الأولى مروراً بمسارات السباق حتى حفل الرعاة — صورة حية وكاملة لأكبر حدث رياضي في العاصمة.", metrics: [{ value: "265,646", label: "الظهور" }, { value: "36,463+", label: "المشاهدات" }, { value: "8,228", label: "التفاعلات" }, { value: "116", label: "المنشورات" }], services: ["إدارة المشروع", "كتابة المحتوى", "التقارير الأسبوعية والشهرية والختامية", "التصميم والعروض", "مونتاج الفيديو", "إشراك المؤثرين"], img: "assets/web/wheel-visitors.jpg", shotLabel: "تغطية يوم السباق — ماراثون الرياض" },
   { tab: "بنان", year: "2025 — بنان، أسبوع الحرف اليدوية الدولي السعودي", name: "معرض بنان", body: "بصفتها الشريك الرسمي للاتصال الرقمي لبنان، أبرزت تاكت جوهر أسبوع الحرف اليدوية الدولي السعودي 2025. سلّطت التغطية اليومية الضوء على الحرفيين وأعمالهم، بمحتوى إبداعي يربط التراث الثقافي السعودي بجمهور مهتم بالفنون التقليدية.", metrics: [{ value: "387K", label: "الظهور" }, { value: "17.7K", label: "المشاهدات" }, { value: "13K", label: "التفاعلات" }, { value: "125", label: "المنشورات" }], services: ["إدارة المشروع", "كتابة المحتوى", "التقارير الختامية", "التصميم", "التصوير", "مونتاج الفيديو"], img: "assets/web/calendar.jpg", shotLabel: "صور الحرفيين — معرض بنان" },
@@ -2266,9 +2260,12 @@ const HS_CASES = [
   { img: "ten-lit", label: "Ten years of tact", labelAr: "عشر سنوات من تاكت", kicker: "Ten years of tact — activation, Riyadh", kickerAr: "عشر سنوات من تاكت — تفعيل، الرياض", lines: ["Ten years", "of tact"], linesAr: ["عشر سنوات", "من تاكت"], m: { to: 14, dec: 0, pre: "+", suf: "B", l: "Annual digital reach", lAr: "وصول رقمي سنوي" }, sub: [] }
 ];
 const HS0 = { slide: 0, prev: -1, dir: 1, paused: false, on: false };
+// Client logos as SVG: add the slot id here once its file is in assets/logos/<id>.svg
+const LOGO_SVG = {"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86};
+const logoItem = (name, id) => { const r = LOGO_SVG[id], has = !!r, span = !has || r <= 2 ? 2 : r <= 3.2 ? 3 : 6; return { name, id, hasSvg: has, noSvg: !has, svg: has ? "assets/logos/" + id + (id === "logo-cyberani" ? ".png" : ".svg") : "", svgBg: has ? "url(assets/logos/" + id + (id === "logo-cyberani" ? ".png" : ".svg") + ")" : "none", span: "span " + span, w: span === 6 ? "100%" : span === 3 ? "190px" : "" }; };
 const ROUTES = ["home", "services", "sectors", "work", "about", "leadership", "history", "why", "calendar", "contact", "stories"];
 class Component extends DCLogic {
-  state = { lang: (() => { try { return localStorage.getItem("tact-lang") || "en"; } catch (e) { return "en"; } })(), page: (() => { try { const m = /^#\/([a-z]+)$/.exec(location.hash); return m && ROUTES.includes(m[1]) ? m[1] : "home"; } catch (e) { return "home"; } })(), openSector: 0, openRow: 1, caseIdx: 0, t: 0, intro: (() => { try { return !window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return true; } })(), w: typeof window !== "undefined" ? window.innerWidth : 1200, menuOpen: false, slide: 0, hoverService: -1 };
+  state = { lang: (() => { try { return localStorage.getItem("tact-lang") || "en"; } catch (e) { return "en"; } })(), page: (() => { try { const m = /^#\/([a-z]+)$/.exec(location.hash); if (m && ROUTES.includes(m[1])) return m[1]; const s = sessionStorage.getItem("tact-page"); return s && (ROUTES.includes(s) || s === "legal") ? s : "home"; } catch (e) { return "home"; } })(), legalIdx: (() => { try { return +(sessionStorage.getItem("tact-legal") || 0); } catch (e) { return 0; } })(), openSector: 0, openRow: 1, caseIdx: 0, t: 0, intro: (() => { try { return !window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return true; } })(), w: typeof window !== "undefined" ? window.innerWidth : 1200, menuOpen: false, slide: 0, hoverService: -1 };
 
   applyDir() {
     const ar = this.state.lang === "ar";
@@ -2368,7 +2365,7 @@ class Component extends DCLogic {
   }
   hsVals(ar, TX) {
     const h = this.hsS(), R = this._hsRed, a = h.slide, pa = h.prev, d = h.dir, on = h.on;
-    const all = [{ head: true, img: "ten-booth", label: "tact", kicker: TX.heroKicker, lines: [[TX.h1a], [TX.h1b, 1], [TX.h1c], [TX.h1d]] }].concat(HS_CASES.map((c) => ({ img: c.img, label: ar ? c.labelAr : c.label, kicker: ar ? c.kickerAr : c.kicker, lines: (ar ? c.linesAr : c.lines).map((x) => [x]), m: c.m, sub: c.sub })));
+    const all = [{ head: true, img: "wirth-booth", label: "tact", kicker: TX.heroKicker, lines: [[TX.h1a], [TX.h1b, 1], [TX.h1c], [TX.h1d]] }].concat(HS_CASES.map((c) => ({ img: c.img, label: ar ? c.labelAr : c.label, kicker: ar ? c.kickerAr : c.kicker, lines: (ar ? c.linesAr : c.lines).map((x) => [x]), m: c.m, sub: c.sub })));
     const rtl = ar ? -1 : 1;
     const hsSlides = all.map((s, i) => {
       const act = i === a, prev = i === pa && !act, live = act && on;
@@ -2415,6 +2412,8 @@ class Component extends DCLogic {
     };
   }
   componentDidMount() {
+    setTimeout(() => this.homeDevCheck(), 0);
+    this._orbT = setInterval(() => { if (this.state.page === "home" && !document.hidden) this.setState((s) => ({ orbD: ((s.orbD || 0) + 1) % 5 })); }, 7000);
     this.hsMount();
     { let n = 0, last = -1; const iv = setInterval(() => { const c = Object.keys(window.TACT_AR || {}).length; if (c !== last) { last = c; if (c) this.forceUpdate(); } if (++n > 60) clearInterval(iv); }, 120); }
     this.applyDir();
@@ -2744,31 +2743,68 @@ class Component extends DCLogic {
       if (r.bottom < -60 || r.top > vh + 60) return;
       let p = r.height - vh > 40 ? cl(-r.top / (r.height - vh) * 1.25 + .12) : cl((vh * .95 - r.top) / (vh * .75));
       if (red) p = 1;
-      const dv = sec.querySelector("[data-dev]"), kind = dv && dv.getAttribute("data-dev");
-      if (kind === "cal") {
-        const cells = dv.querySelectorAll("[data-cal]"), k = Math.floor(p * cells.length); let n = 0;
-        cells.forEach((c, i) => { const t = c.getAttribute("data-t"), on = i < k && t; if (on) n++; c.style.background = on ? (t === "p" ? "#f15d2a" : "#4cc0af") : "rgba(247,245,242,.06)"; c.style.transform = on ? "scale(1)" : "scale(.86)"; });
-        dv.querySelector("[data-cal-n]").textContent = n;
-      } else if (kind === "type") {
-        const pEl = dv.querySelector("[data-full]"), full = pEl.getAttribute("data-full") || "";
-        dv.querySelector("[data-type]").textContent = full.slice(0, Math.round(cl(p / .8) * full.length));
-        dv.querySelectorAll("[data-chip]").forEach((c, j) => { const on = p > .25 + j * .17; c.style.background = on ? "#f15d2a" : "transparent"; c.style.color = on ? "#fff" : "rgba(247,245,242,.55)"; c.style.borderColor = on ? "#f15d2a" : "rgba(247,245,242,.2)"; });
-      } else if (kind === "vf") {
-        dv.querySelector("[data-vf-img]").style.transform = "scale(" + (1.3 - .3 * p).toFixed(4) + ")";
-        const f = dv.querySelector("[data-vf-focus]"), fp = cl((p - .3) / .4);
-        f.style.transform = "translate(-50%, -50%) scale(" + (1.8 - .8 * fp).toFixed(3) + ")"; f.style.opacity = (fp > 0 && fp < 1 ? 1 : fp >= 1 ? .5 : 0).toString();
-        const fr = Math.floor(p * 90 * 25), pad = (x) => String(x).padStart(2, "0");
-        dv.querySelector("[data-tc]").textContent = "00:" + pad(Math.floor(fr / 1500)) + ":" + pad(Math.floor(fr / 25) % 60) + ":" + pad(fr % 25);
-      } else if (kind === "chart") {
-        dv.querySelector("[data-ch-reach]").style.strokeDashoffset = (1 - cl(p / .85)).toFixed(4);
-        dv.querySelector("[data-ch-cost]").style.strokeDashoffset = (1 - cl(p / .85)).toFixed(4);
-        dv.querySelectorAll("[data-opt]").forEach((o, j) => { const on = p > .3 + j * .2; o.style.background = on ? "#4cc0af" : "rgba(247,245,242,.08)"; o.style.color = on ? "#282829" : "rgba(247,245,242,.5)"; });
-      } else if (kind === "rep") {
-        dv.querySelectorAll("[data-bar]").forEach((b, j) => { b.style.width = (+b.getAttribute("data-w") * cl((p - j * .08) / .6)).toFixed(1) + "%"; });
-        const rc = dv.querySelector("[data-rec]"), on = p > .8;
-        rc.style.opacity = on ? "1" : "0"; rc.style.transform = on ? "none" : "translateY(10px)";
-      }
+      this.devFrame(sec.querySelector("[data-dev]"), p);
     });
+  }
+
+  devFrame(dv, p) {
+    if (!dv) return;
+    const cl = (x) => Math.max(0, Math.min(1, x));
+    const kind = dv.getAttribute("data-dev");
+    if (kind === "cal") {
+      const cells = dv.querySelectorAll("[data-cal]"), k = Math.floor(p * cells.length); let n = 0;
+      cells.forEach((c, i) => { const t = c.getAttribute("data-t"), on = i < k && t; if (on) n++; c.style.background = on ? (t === "p" ? "#f15d2a" : "#4cc0af") : "rgba(247,245,242,.06)"; c.style.transform = on ? "scale(1)" : "scale(.86)"; });
+      dv.querySelector("[data-cal-n]").textContent = n;
+    } else if (kind === "type") {
+      const pEl = dv.querySelector("[data-full]"), full = pEl.getAttribute("data-full") || "";
+      dv.querySelector("[data-type]").textContent = full.slice(0, Math.round(cl(p / .8) * full.length));
+      dv.querySelectorAll("[data-chip]").forEach((c, j) => { const on = p > .25 + j * .17; c.style.background = on ? "#f15d2a" : "transparent"; c.style.color = on ? "#fff" : "rgba(247,245,242,.55)"; c.style.borderColor = on ? "#f15d2a" : "rgba(247,245,242,.2)"; });
+    } else if (kind === "vf") {
+      dv.querySelector("[data-vf-img]").style.transform = "scale(" + (1.3 - .3 * p).toFixed(4) + ")";
+      const f = dv.querySelector("[data-vf-focus]"), fp = cl((p - .3) / .4);
+      f.style.transform = "translate(-50%, -50%) scale(" + (1.8 - .8 * fp).toFixed(3) + ")"; f.style.opacity = (fp > 0 && fp < 1 ? 1 : fp >= 1 ? .5 : 0).toString();
+      const fr = Math.floor(p * 90 * 25), pad = (x) => String(x).padStart(2, "0");
+      dv.querySelector("[data-tc]").textContent = "00:" + pad(Math.floor(fr / 1500)) + ":" + pad(Math.floor(fr / 25) % 60) + ":" + pad(fr % 25);
+    } else if (kind === "chart") {
+      dv.querySelector("[data-ch-reach]").style.strokeDashoffset = (1 - cl(p / .85)).toFixed(4);
+      dv.querySelector("[data-ch-cost]").style.strokeDashoffset = (1 - cl(p / .85)).toFixed(4);
+      dv.querySelectorAll("[data-opt]").forEach((o, j) => { const on = p > .3 + j * .2; o.style.background = on ? "#4cc0af" : "rgba(247,245,242,.08)"; o.style.color = on ? "#282829" : "rgba(247,245,242,.5)"; });
+    } else if (kind === "rep") {
+      dv.querySelectorAll("[data-bar]").forEach((b, j) => { b.style.width = (+b.getAttribute("data-w") * cl((p - j * .08) / .6)).toFixed(1) + "%"; });
+      const rc = dv.querySelector("[data-rec]"), on = p > .8;
+      rc.style.opacity = on ? "1" : "0"; rc.style.transform = on ? "none" : "translateY(10px)";
+    }
+
+  }
+
+  homeDevCheck() {
+    const box = document.querySelector("[data-home-devs]");
+    if (!box) { this._hdBox = null; return; }
+    if (box !== this._hdBox) {
+      this._hdBox = box; this._hdPlayed = -1; this._hdSeen = false;
+      if (this._hdIO) this._hdIO.disconnect();
+      this._hdIO = new IntersectionObserver((es) => es.forEach((e) => {
+        const need = Math.min(e.boundingClientRect.height, window.innerHeight) * .55;
+        if (e.isIntersecting && e.intersectionRect.height >= need) { this._hdSeen = true; this.homeDevPlay(); }
+      }), { threshold: [0, .2, .4, .55, .7, .85, 1] });
+      this._hdIO.observe(box);
+    }
+    if (this.state.lang !== this._hdLang) { this._hdLang = this.state.lang; this._hdPlayed = -1; }
+    if (this._hdSeen) this.homeDevPlay();
+  }
+
+  homeDevPlay() {
+    const i = this.state.serviceIdx || 0;
+    if (i === this._hdPlayed || !this._hdBox) return;
+    this._hdPlayed = i;
+    const dv = this._hdBox.querySelector('[data-home-dev="' + i + '"] [data-dev]');
+    cancelAnimationFrame(this._hdRaf);
+    if (!dv) return;
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { this.devFrame(dv, 1); return; }
+    this.devFrame(dv, 0);
+    const t0 = performance.now() + 350, D = 2400;
+    const tick = (now) => { const x = Math.max(0, Math.min(1, (now - t0) / D)); this.devFrame(dv, 1 - Math.pow(1 - x, 3)); if (x < 1) this._hdRaf = requestAnimationFrame(tick); };
+    this._hdRaf = requestAnimationFrame(tick);
   }
 
   goSv(i, e) {
@@ -2957,7 +2993,7 @@ class Component extends DCLogic {
   setupCal() {
     clearTimeout(this._calT);
     this._calT = setTimeout(() => {
-      const sec = document.querySelector("[data-cal]");
+      const sec = document.querySelector("section[data-cal]");
       if (!sec || sec === this._calSec) return;
       this._calSec = sec; this._calPlayed = false;
       if (this._calIO) this._calIO.disconnect();
@@ -3026,6 +3062,8 @@ class Component extends DCLogic {
 
   componentDidUpdate() {
     this.applyDir();
+    this.savePage();
+    this.homeDevCheck();
     this.hsUpdate();
     this.syncA();
     if (this._aScroll) this._aScroll();
@@ -3055,6 +3093,7 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    clearInterval(this._orbT);
     this.hsUnmount();
     window.removeEventListener("scroll", this._svcScroll);
     window.removeEventListener("scroll", this._aScroll); window.removeEventListener("resize", this._aResize);
@@ -3137,6 +3176,14 @@ class Component extends DCLogic {
     };
   }
 
+
+  savePage() {
+    const p = this.state.page, li = this.state.legalIdx || 0;
+    if (p === this._savedPage && li === this._savedLegal) return;
+    this._savedPage = p; this._savedLegal = li;
+    try { sessionStorage.setItem("tact-page", p); sessionStorage.setItem("tact-legal", String(li)); } catch (e) {}
+    try { const want = ROUTES.includes(p) ? (p === "home" ? "" : "#/" + p) : null; if (want !== null && location.hash !== want && !(want === "" && !location.hash)) history.replaceState(null, "", want || location.pathname + location.search); } catch (e) {}
+  }
 
   go(page) {
     return (e) => {
@@ -3303,8 +3350,8 @@ class Component extends DCLogic {
       langDisplay: compact ? "none" : "flex",
       ctaLabel: compact ? TX.contact : TX.startProject,
       nav: NAV.map((n, i) => ({
-        label: n.label || LABELS[n.key], go: this.go(n.children ? n.children[0] : n.key),
-        href: "#/" + (n.children ? n.children[0] : n.key), popup: n.children ? "true" : "false",
+        label: n.label || LABELS[n.key], go: n.children ? (e) => { if (e && e.preventDefault) e.preventDefault(); } : this.go(n.key),
+        href: n.children ? undefined : "#/" + n.key, popup: n.children ? "true" : "false",
         hov: onDark ? "#f15d2a" : "#f15d2a",
         num: "0" + (i + 1),
         caretDisplay: n.children ? "block" : "none",
@@ -3416,6 +3463,7 @@ class Component extends DCLogic {
           rule: on ? "#f15d2a" : "rgba(40,40,41,.18)"
         };
       }),
+      ...Object.fromEntries([0, 1, 2, 3, 4].flatMap((k) => { const on = (this.state.serviceIdx || 0) === k; return [["hdVis" + k, on ? "visible" : "hidden"], ["hdHid" + k, on ? "false" : "true"]]; })),
       activeService: { ...SERVICES[this.state.serviceIdx || 0], imgBg: "background-image: url(" + SERVICES[this.state.serviceIdx || 0].img + "); background-size: cover; background-position: center;" },
       services: SERVICES.map((s) => ({ ...s, basis: "calc((100% - " + (perView - 1) * 50 + "px) / " + perView + ")" })),
       slideTrack: "translateX(calc((100% + 50px) * " + (-slide / perView).toFixed(6) + "))",
@@ -3485,13 +3533,27 @@ class Component extends DCLogic {
         const cnt = (c) => c.length ? (ar ? (c.length === 1 ? "عميل واحد" : c.length + " عملاء") : c.length + (c.length === 1 ? " client" : " clients")) : "";
         const ink = (b) => /^\[/.test(b) ? "rgba(247,245,242,.45)" : "rgba(247,245,242,.78)";
         const cur = SECTOR_PAGE[si];
-        const lg = (c) => c.map((n) => ({ name: n, id: "logo-" + String(n).toLowerCase().replace(/[^a-z0-9]+/g, "-") }));
+        const lg = (c) => c.map((n) => logoItem(n, "logo-" + String(n).toLowerCase().replace(/[^a-z0-9]+/g, "-")));
         return {
           secWide: wide, secNarrow: !wide, secTotal: pad(SECTOR_PAGE.length),
           secDrum: SECTOR_PAGE.map((x, i) => ({ name: x.name, num: pad(i + 1), go: () => this.goSector(i) })),
           secCur: { ...cur, logos: lg(cur.clients), num: pad(si + 1), count: cnt(cur.clients), bodyInk: ink(cur.body), cliDisp: cur.clients.length ? "flex" : "none" },
           secTicks: SECTOR_PAGE.map((_, i) => ({ bg: i <= si ? "#f15d2a" : "rgba(247,245,242,.14)" })),
-          secList: SECTOR_PAGE.map((x, i) => ({ ...x, logos: lg(x.clients), num: pad(i + 1), bodyInk: ink(x.body) }))
+          secList: SECTOR_PAGE.map((x, i) => ({ ...x, logos: lg(x.clients), num: pad(i + 1), bodyInk: ink(x.body) })),
+          rows: SECTOR_PAGE.map((x, i) => {
+            const on = this.state.rowHov === i, has = x.clients.length > 0;
+            const base = x.clients.map((n) => { const id = "logo-" + String(n).toLowerCase().replace(/[^a-z0-9]+/g, "-"), r = LOGO_SVG[id];
+              if (!r) return { name: n, w: 0, h: 40, bg: "transparent", txt: n, f: "none" };
+              let hh = Math.sqrt(3400 / r); hh = Math.max(26, Math.min(60, hh)); let ww = hh * r; if (ww > 220) { ww = 220; hh = ww / r; }
+              return { name: n, w: Math.round(ww), h: Math.round(hh), bg: logoItem(n, id).svgBg + " center / contain no-repeat", txt: "", f: "brightness(0) invert(1)" }; }).map((c) => c.w ? c : { ...c, w: undefined });
+            let loop = base; while (has && loop.length < 8) loop = loop.concat(base);
+            return { name: x.name, body: x.body, bodyInk: ink(x.body), hasTrack: has, noTrack: !has && wide, inlineBody: !wide, overlayBody: wide,
+              cols: wide ? "minmax(0, 300px) minmax(0, 1fr)" : "minmax(0, 1fr)", trackH: wide ? "120px" : "96px",
+              loop: loop.concat(loop), anim: (i % 2 ? "tact-mq-r " : "tact-mq-l ") + (28 + loop.length * 2) + "s linear infinite",
+              play: on && wide ? "paused" : "running", trackOp: on && wide ? 0.12 : 1, bodyOp: on ? 1 : 0, bodyTf: on ? "none" : "translateY(8px)",
+              bgc: on ? "rgba(241,93,42,.08)" : "transparent", ink: on ? "#f15d2a" : "#f7f5f2",
+              on: () => { if (wide) this.setState({ rowHov: i }); }, off: () => { if (wide) this.setState({ rowHov: -1 }); }, tap: () => { if (wide) this.setState({ rowHov: on ? -1 : i }); } };
+          })
         };
       })(),
       sectorRows: SECTOR_PAGE.map((s, i) => {
@@ -3513,12 +3575,29 @@ class Component extends DCLogic {
           toggle: () => this.setState({ openRow: open ? -1 : i })
         };
       }),
+      ...(() => {
+        const D = this.state.orbD || 0, R0 = 240, all = [];
+        const idOf = (si, j) => "logo-" + String(((SECTORS_EN[si] || {}).clients || [])[j] || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "");
+        SECTORS.forEach((s, si) => s.clients.forEach((n, j) => all.push({ n, si, j, id: idOf(si, j) })));
+        const sz = (x) => { const r = LOGO_SVG[x.id]; if (!r) return { w: 150, h: 48, bg: "transparent", txt: x.n, f: "none" };
+          let h = Math.sqrt(4200 / r); h = Math.max(28, Math.min(68, h)); let wd = h * r; if (wd > 190) { wd = 190; h = wd / r; }
+          return { w: Math.round(wd), h: Math.round(h), bg: logoItem(x.n, x.id).svgBg + " center / contain no-repeat", txt: "", f: "brightness(0) invert(1)" }; };
+        const act = SECTORS[D].clients.length;
+        const ow = Math.max(260, Math.min(620, (w || 1200) - 56));
+        return {
+          orbW: ow, orbS: ow / 620,
+          orbRing: all.map((x, k) => { const on = x.si === D, ang = on ? (x.j / act) * 360 - 90 : (k / all.length) * 360, rad = on ? R0 : R0 + 60;
+            return { name: x.n, ...sz(x), pos: "rotate(" + ang + "deg) translate(" + rad + "px) rotate(" + (-ang) + "deg)", sc: on ? 1 : 0.55, op: on ? 1 : 0.12, d: on ? (x.j * 80) + "ms" : "0ms" }; }),
+          orbCenter: SECTORS.map((s, i) => ({ name: s.name, dir: ar ? "rtl" : "ltr", ah: i === D ? "false" : "true", body: ar ? (s.clients.length === 1 ? "عميل واحد" : s.clients.length + " عملاء") : s.clients.length + (s.clients.length === 1 ? " client" : " clients"), op: i === D ? 1 : 0, tf: i === D ? "none" : "translateY(8px)" })),
+          orbChips: SECTORS.map((s, i) => ({ name: s.name, pressed: i === D ? "true" : "false", bd: i === D ? "#f15d2a" : "rgba(247,245,242,.28)", bgc: i === D ? "#f15d2a" : "transparent", ink: i === D ? "#fff" : "#f7f5f2", go: () => { clearInterval(this._orbT); this.setState({ orbD: i }); } }))
+        };
+      })(),
       sectors: SECTORS.map((s, i) => {
         const open = i === openSector;
         return {
           ...s,
           num: String(i + 1).padStart(2, "0"),
-          logos: s.clients.map((c, j) => ({ name: c, id: "logo-" + String(((SECTORS_EN[i] || {}).clients || [])[j] || c).toLowerCase().replace(/[^a-z0-9]+/g, "-") })),
+          logos: s.clients.map((c, j) => logoItem(c, "logo-" + String(((SECTORS_EN[i] || {}).clients || [])[j] || c).toLowerCase().replace(/[^a-z0-9]+/g, "-"))),
           count: ar ? (s.clients.length === 1 ? "عميل واحد" : s.clients.length + " عملاء") : s.clients.length + (s.clients.length === 1 ? " client" : " clients"),
           plus: open ? "#4cc0af" : "#2f7d72",
           bg: open ? "#282829" : "#f7f5f2",
@@ -3584,11 +3663,11 @@ class Component extends DCLogic {
         { title: "Best influencer marketing campaign", body: "For the Riyadh Marathon 2025 influencer campaign, with over 41 influencers and more than 40,000 participants attracted.", metricLabel: "Participants attracted" }
       ]).map((a, i) => ({ ...a, slot: "award-" + (i + 1), slotLabel: ar ? "صورة الجائزة" : "Award image", metric: this.cnt(["556M", "55M", "1.1B", "40K+"][i], "awards") })),
       isoRows: [
-        { code: "ISO 21500:2021", name: "Project management systems", bg: "background-image: url(assets/iso/iso-21500.gif);", pdf: "assets/iso/iso-21500.pdf" },
-        { code: "ISO 31000:2018", name: "Risk management systems", bg: "background-image: url(assets/iso/iso-31000.png);", pdf: "assets/iso/iso-31000.pdf" },
-        { code: "ISO 9001:2015", name: "Quality management systems", bg: "background-image: url(assets/iso/iso-9001.jpg);", pdf: "assets/iso/iso-9001.pdf" },
-        { code: "ISO 45001:2018", name: "Occupational health & safety", bg: "background-image: url(assets/iso/iso-45001.png);", pdf: "assets/iso/iso-45001.pdf" },
-        { code: "ISO 14001:2015", name: "Environmental management systems", bg: "background-image: url(assets/iso/iso-14001.jpg);", pdf: "assets/iso/iso-14001.pdf" }
+        { code: "ISO 21500:2021", name: "Project management systems", bg: "background-image: url(assets/iso/iso-21500.gif);", pdf: "assets/iso/iso-21500.pdf", thumb: "assets/iso/cert-21500.jpg" },
+        { code: "ISO 31000:2018", name: "Risk management systems", bg: "background-image: url(assets/iso/iso-31000.png);", pdf: "assets/iso/iso-31000.pdf", thumb: "assets/iso/cert-31000.jpg" },
+        { code: "ISO 9001:2015", name: "Quality management systems", bg: "background-image: url(assets/iso/iso-9001.jpg);", pdf: "assets/iso/iso-9001.pdf", thumb: "assets/iso/cert-9001.jpg" },
+        { code: "ISO 45001:2018", name: "Occupational health & safety", bg: "background-image: url(assets/iso/iso-45001.png);", pdf: "assets/iso/iso-45001.pdf", thumb: "assets/iso/cert-45001.jpg" },
+        { code: "ISO 14001:2015", name: "Environmental management systems", bg: "background-image: url(assets/iso/iso-14001.jpg);", pdf: "assets/iso/iso-14001.pdf", thumb: "assets/iso/cert-14001.jpg" }
       ].map((r, i) => ({ ...r, name: ar ? ISO_NAMES_AR[i] : r.name })),
       awards: [
         { title: "Best digital marketing campaign", body: "For the Cultural Skills competition with the Ministry of Culture — over 556 million impressions and 15.8 million engagements." },
