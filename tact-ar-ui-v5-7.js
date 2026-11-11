@@ -58,6 +58,7 @@ Object.assign(window.TACT_AR = window.TACT_AR || {}, {
 "Tell us what you want to move": "أخبرنا بما تريد تحقيقه",
 "Service needed": "الخدمة المطلوبة",
 "Select a service": "اختر خدمة",
+"Select a contact": "اختر جهة التواصل",
 "Brief": "الموجز",
 "Send brief": "أرسل الموجز",
 "Direct": "تواصل مباشر",
