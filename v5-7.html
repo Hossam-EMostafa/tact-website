@@ -10,6 +10,7 @@
 <helmet>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>tact — Digital Communications</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -403,7 +404,7 @@
             <div style="position: absolute; inset: 0; z-index: {{ s.z }}; clip-path: {{ s.clip }}; transition: {{ s.clipT }}; overflow: hidden;">
               <div role="img" aria-label="{{ s.label }}" style="position: absolute; inset: -3%; background-size: cover; background-position: center; {{ s.bg }}; transform: {{ s.kb }}; transition: {{ s.kbT }};"></div>
               <sc-if value="{{ s.isHead }}" hint-placeholder-val="{{ false }}">
-                <video src="assets/web/hero-tact.mp4" poster="assets/web/wirth-booth.jpg" autoplay="" muted="" loop="" playsinline="" preload="auto" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+                <img src="assets/web/hero-tact.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
                 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.5) 0%, rgba(40,40,41,0) 28%);"></div>
                 <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: linear-gradient(180deg, rgba(40,40,41,0) 0%, rgba(40,40,41,.78) 100%); pointer-events: none;"></div>
               </sc-if>
@@ -529,7 +530,7 @@
             </div>
             <div data-home-dev="2" aria-hidden="{{ hdHid2 }}" style="grid-area: 1 / 1; visibility: {{ hdVis2 }}; display: flex; flex-direction: column; min-height: 0;">
               <div data-dev="vf" style="position: relative; width: 100%; max-width: 100%; flex: 1; min-height: clamp(300px, 30vw, 440px); box-sizing: border-box; border-radius: 24px; background: #282829; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); overflow: hidden; padding: 0;">
-                <img data-vf-img="" src="assets/web/crowd.jpg" alt="{{ tx.k82 }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.3);">
+                <img data-vf-img="" src="assets/web/crowd.webp" alt="{{ tx.k82 }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.3);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.45), transparent 30%, transparent 70%, rgba(40,40,41,.55));"></div>
                 <span style="position: absolute; top: 18px; left: 18px; width: 26px; height: 26px; border-top: 2px solid #f7f5f2; border-left: 2px solid #f7f5f2;"></span>
                 <span style="position: absolute; top: 18px; right: 18px; width: 26px; height: 26px; border-top: 2px solid #f7f5f2; border-right: 2px solid #f7f5f2;"></span>
@@ -606,17 +607,17 @@
 
     <section class="ph-strip" style="display: flex; gap: 2px; background: #282829;">
       <div class="ph-cell" style="--d: 0;">
-        <img src="assets/web/ten-lit.jpg" loading="lazy" alt="{{ tx.k79 }}">
+        <img src="assets/web/ten-lit.webp" loading="lazy" alt="{{ tx.k79 }}">
         <span class="ph-bar" aria-hidden="true"></span>
         <span class="ph-cap" aria-hidden="true">{{ tx.k79 }}</span>
       </div>
       <div class="ph-cell" style="--d: 1;">
-        <img src="assets/web/team.jpg" loading="lazy" alt="{{ tx.k80 }}">
+        <img src="assets/web/team.webp" loading="lazy" alt="{{ tx.k80 }}">
         <span class="ph-bar" aria-hidden="true"></span>
         <span class="ph-cap" aria-hidden="true">{{ tx.k80 }}</span>
       </div>
       <div class="ph-cell" style="--d: 2;">
-        <img src="assets/web/wheel-spin.jpg" loading="lazy" alt="{{ tx.k81 }}">
+        <img src="assets/web/wheel-spin.webp" loading="lazy" alt="{{ tx.k81 }}">
         <span class="ph-bar" aria-hidden="true"></span>
         <span class="ph-cap" aria-hidden="true">{{ tx.k81 }}</span>
       </div>
@@ -876,7 +877,7 @@
           </div>
           <div style="order: 2; display: grid; min-width: 0;">
               <div data-dev="vf" style="position: relative; width: 100%; max-width: 560px; justify-self: center; box-sizing: border-box; border-radius: 24px; background: #282829; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); overflow: hidden; aspect-ratio: 4 / 3; padding: 0;">
-                <img data-vf-img="" src="assets/web/crowd.jpg" alt="{{ tx.k82 }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.3);">
+                <img data-vf-img="" src="assets/web/crowd.webp" alt="{{ tx.k82 }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.3);">
                 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.45), transparent 30%, transparent 70%, rgba(40,40,41,.55));"></div>
                 <span style="position: absolute; top: 18px; left: 18px; width: 26px; height: 26px; border-top: 2px solid #f7f5f2; border-left: 2px solid #f7f5f2;"></span>
                 <span style="position: absolute; top: 18px; right: 18px; width: 26px; height: 26px; border-top: 2px solid #f7f5f2; border-right: 2px solid #f7f5f2;"></span>
@@ -1105,14 +1106,14 @@
     <section data-ab-words="" style="position: relative; height: 240vh; background: #f7f5f2; color: #282829;">
       <div data-lines="" style="position: sticky; top: 0; height: 100vh; display: flex; align-items: center;">
         <p style="margin: 0 auto; max-width: 1180px; padding: 0 28px; font-size: clamp(28px, 4.2vw, 64px); line-height: 1.2; letter-spacing: -.035em; font-weight: 500; text-wrap: pretty;">
-          <sc-for list="{{ abWords }}" as="w" hint-placeholder-count="12"><span data-w="" style="display: inline-block; margin-inline-end: .24em; opacity: .14; color: {{ w.c }};">{{ w.t }}</span></sc-for>
+          <sc-for list="{{ abWords }}" as="w" hint-placeholder-count="12"><span data-w="" style="display: inline-block; margin-inline-end: .24em; opacity: .14; color: {{ w.c }};">{{ w.t }} </span></sc-for>
         </p>
       </div>
     </section>
     <section data-ab-img="" style="position: relative; height: 220vh; background: #f7f5f2;">
       <div data-lines="" style="position: sticky; top: 0; height: 100vh; overflow: hidden;">
         <div data-ab-frame="" style="position: absolute; inset: 0; overflow: hidden; background: #282829; clip-path: inset(16% 20% 16% 20% round 28px);">
-          <img data-ab-pic="" src="assets/web/booth-talk.jpg" alt="{{ tx.k33 }}" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.18);">
+          <img data-ab-pic="" src="assets/web/booth-talk.webp" alt="{{ tx.k33 }}" style="width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.18);">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(40,40,41,.75));"></div>
           <p data-ab-cap="" style="position: absolute; inset-inline-start: 28px; bottom: 32px; margin: 0; opacity: 0; color: #f7f5f2; font-size: clamp(18px, 2vw, 28px); font-weight: 500; letter-spacing: -.02em;">{{ tx.k33 }}</p>
         </div>
@@ -1280,8 +1281,11 @@
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 260px)); gap: 44px 40px;">
         <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="4">
           <article class="ld-card">
-            <div class="ld-portrait" style="aspect-ratio: 4 / 5; background: rgba(40,40,41,.06); display: flex; align-items: flex-end; padding: 16px;">
+            <div class="ld-portrait" style="aspect-ratio: 4 / 5; background: rgba(40,40,41,.06); display: flex; align-items: center; justify-content: center; padding: 16px;">
               <i style="background-image: {{ l.imgUrl }};"></i>
+              <div style="display: {{ l.iconDisplay }}; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(241,93,42,.12), rgba(40,40,41,.05)); border-radius: 8px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#f15d2a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width: 52px; height: 52px; opacity: .85;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
               <span style="position: relative; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(40,40,41,.4); display: {{ l.slotLabel }};">{{ tx.k49 }}</span>
             </div>
             <div style="padding: 20px 0 0;">
@@ -1378,7 +1382,7 @@
             <article data-why-panel="" style="--f: 0; flex: 0 0 auto; width: min(80vw, 1000px); height: min(68vh, 640px); box-sizing: border-box; border-radius: 28px; background: {{ w.bg }}; color: {{ w.fg }}; padding: clamp(24px, 3.6vw, 52px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px 48px; align-content: space-between; overflow: hidden; transform-origin: 50% 50%; box-shadow: 0 30px 60px -36px rgba(40,40,41,.35);">
               <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-width: 0;">
                 <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: {{ w.sub }};">{{ tx.kReason }} {{ w.num }} / 06</span>
-                <span aria-hidden="true" style="font-size: clamp(120px, 20vw, 300px); font-weight: 700; letter-spacing: -.07em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px {{ w.stroke }}; background-image: linear-gradient(0deg, #f15d2a calc(var(--f) * 100%), transparent calc(var(--f) * 100%)); -webkit-background-clip: text; background-clip: text; font-variant-numeric: tabular-nums;">{{ w.num }}</span>
+                <span aria-hidden="true" style="font-family: Effra, 'Readex Pro', system-ui, sans-serif; font-size: clamp(120px, 20vw, 300px); font-weight: 700; letter-spacing: -.07em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px {{ w.stroke }}; background-image: linear-gradient(0deg, #f15d2a calc(var(--f) * 100%), transparent calc(var(--f) * 100%)); -webkit-background-clip: text; background-clip: text; font-variant-numeric: tabular-nums;">{{ w.num }}</span>
               </div>
               <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; min-width: 0;">
                 <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 56px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ w.head }}</h2>
@@ -1427,19 +1431,19 @@
           <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(247,245,242,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(247,245,242,.05) 1px, transparent 1px); background-size: calc((100% - 112px) / 7) 120px; background-position: 56px 72px; pointer-events: none;"></div>
           <div style="position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 600px; gap: 48px; align-items: center;">
             <div>
-              <p style="margin: 0 0 26px; display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;"><span style="width: 10px; height: 10px; border-radius: 99px; background: #f15d2a; display: block;"></span>Today · {{ cp.today.long }}</p>
+              <p style="margin: 0 0 26px; display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;"><span style="width: 10px; height: 10px; border-radius: 99px; background: #f15d2a; display: block;"></span>{{ t.calToday }} · {{ cp.today.long }}</p>
               <div style="display: flex; align-items: flex-end; gap: 22px; margin: 0 0 30px;">
                 <h1 style="margin: 0; font-size: 188px; line-height: .82; letter-spacing: -.065em; font-weight: 600; color: #f15d2a;">2026</h1>
                 <div style="display: flex; flex-direction: column; gap: 6px; padding-bottom: 6px; border-inline-start: 2px solid rgba(247,245,242,.25); padding-inline-start: 18px;">
-                  <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(247,245,242,.55);">Hijri</span>
+                  <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(247,245,242,.55);">{{ t.calHijri }}</span>
                   <span style="font-size: 30px; font-weight: 500; letter-spacing: .02em;">1447 / 1448</span>
                 </div>
               </div>
-              <h2 style="margin: 0 0 18px; font-size: 48px; line-height: 1.06; letter-spacing: -.04em; font-weight: 600;">Plan. Organise. Review.</h2>
-              <p style="margin: 0 0 36px; max-width: 46ch; font-size: 17px; line-height: 1.7; color: rgba(247,245,242,.75); text-wrap: pretty;">The tact 2026 calendar brings together the key events and dates that organise your work and your days, across the Gregorian year and Hijri 1447 to 1448.</p>
+              <h2 style="margin: 0 0 18px; font-size: 48px; line-height: 1.06; letter-spacing: -.04em; font-weight: 600;">{{ t.calHead }}</h2>
+              <p style="margin: 0 0 36px; max-width: 46ch; font-size: 17px; line-height: 1.7; color: rgba(247,245,242,.75); text-wrap: pretty;">{{ t.calLead }}</p>
               <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                <a href="#/calendar" style="display: inline-flex; align-items: center; gap: 12px; background: #f15d2a; color: #fff; font-size: 15px; font-weight: 600; padding: 17px 28px; border-radius: 99px;" style-hover="background: #f7f5f2; color: #282829;">Download the calendar (PDF) <span>↓</span></a>
-                <a href="#/calendar" onClick="{{ cp.toApp }}" style="display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(247,245,242,.4); color: #f7f5f2; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px;" style-hover="background: #f7f5f2; color: #282829;">Get the app</a>
+                <a href="#/calendar" style="display: inline-flex; align-items: center; gap: 12px; background: #f15d2a; color: #fff; font-size: 15px; font-weight: 600; padding: 17px 28px; border-radius: 99px;" style-hover="background: #f7f5f2; color: #282829;">{{ t.calDownloadFull }} <span>↓</span></a>
+                <a href="#/calendar" onClick="{{ cp.toApp }}" style="display: inline-flex; align-items: center; gap: 12px; border: 1px solid rgba(247,245,242,.4); color: #f7f5f2; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px;" style-hover="background: #f7f5f2; color: #282829;">{{ t.calApp }}</a>
               </div>
             </div>
             <div style="position: relative; height: 640px;">
@@ -1464,7 +1468,7 @@
               </div>
               <div style="position: absolute; left: 0; bottom: 10px; width: 200px; height: 412px; padding: 7px; border-radius: 36px; background: #1d1d1e; box-shadow: 0 40px 80px -30px rgba(0,0,0,.85), inset 0 0 0 1px rgba(255,255,255,.08); transform: rotate(-6deg); z-index: 4;">
                 <div style="position: relative; width: 100%; height: 100%; border-radius: 31px; overflow: hidden; background: #282829;">
-                  <video src="assets/calendar/cal-newyear.mp4" poster="assets/calendar/poster-2026.png" autoplay="" muted="" loop="" playsinline="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+                  <img src="assets/calendar/cal-newyear.webp" alt="Calendar 2026 Preview" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
                   <span style="position: absolute; top: 9px; left: 50%; width: 66px; height: 20px; margin-left: -33px; border-radius: 99px; background: #1d1d1e;"></span>
                 </div>
               </div>
@@ -1484,19 +1488,19 @@
       <div style="padding: 88px 0 96px; border-top: 1px solid rgba(247,245,242,.12);">
           <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; padding: 0 56px; margin-bottom: 40px;">
             <div>
-              <p style="margin: 0 0 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;">The year</p>
-              <h2 style="margin: 0; font-size: 56px; line-height: 1.04; letter-spacing: -.045em; font-weight: 600;">Twelve months, two calendars</h2>
+              <p style="margin: 0 0 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;">{{ t.calYearKicker }}</p>
+              <h2 style="margin: 0; font-size: 56px; line-height: 1.04; letter-spacing: -.045em; font-weight: 600;">{{ t.calYearHead }}</h2>
             </div>
             <div style="display: flex; align-items: center; gap: 18px;">
               <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; letter-spacing: .12em; font-variant-numeric: tabular-nums;"><span style="color: #f15d2a;">{{ cp.aNum }}</span> / 12</span>
-              <button onClick="{{ cp.aPrev }}" aria-label="Previous month" style="width: 52px; height: 52px; border-radius: 99px; border: 1px solid rgba(247,245,242,.3); background: transparent; color: #f7f5f2; font-size: 18px; cursor: pointer; font-family: inherit;" style-hover="background: #f15d2a; border-color: #f15d2a;">←</button>
-              <button onClick="{{ cp.aNext }}" aria-label="Next month" style="width: 52px; height: 52px; border-radius: 99px; border: 1px solid rgba(247,245,242,.3); background: transparent; color: #f7f5f2; font-size: 18px; cursor: pointer; font-family: inherit;" style-hover="background: #f15d2a; border-color: #f15d2a;">→</button>
+              <button onClick="{{ cp.aPrev }}" aria-label="{{ t.calPrev }}" style="width: 52px; height: 52px; border-radius: 99px; border: 1px solid rgba(247,245,242,.3); background: transparent; color: #f7f5f2; font-size: 18px; cursor: pointer; font-family: inherit;" style-hover="background: #f15d2a; border-color: #f15d2a;">{{ cp.prevArrow }}</button>
+              <button onClick="{{ cp.aNext }}" aria-label="{{ t.calNext }}" style="width: 52px; height: 52px; border-radius: 99px; border: 1px solid rgba(247,245,242,.3); background: transparent; color: #f7f5f2; font-size: 18px; cursor: pointer; font-family: inherit;" style-hover="background: #f15d2a; border-color: #f15d2a;">{{ cp.nextArrow }}</button>
             </div>
           </div>
           <div style="overflow: hidden; padding: 0 56px;">
             <div style="display: flex; gap: 16px; transform: translateX({{ cp.aShift }}); transition: transform .7s cubic-bezier(.2,.75,.2,1);">
               <sc-for list="{{ cp.monthsA }}" as="m" hint-placeholder-count="12">
-                <button type="button" onClick="{{ m.pick }}" style="flex: 0 0 380px; text-align: left; font-family: inherit; border: 0; cursor: pointer; padding: 28px 26px 30px; border-radius: 18px; background: {{ m.bg }}; color: {{ m.ink }}; transition: background .45s ease, color .45s ease, opacity .45s; opacity: {{ m.op }}; display: flex; flex-direction: column; gap: 18px;">
+                <button type="button" onClick="{{ m.pick }}" style="flex: 0 0 380px; text-align: start; font-family: inherit; border: 0; cursor: pointer; padding: 28px 26px 30px; border-radius: 18px; background: {{ m.bg }}; color: {{ m.ink }}; transition: background .45s ease, color .45s ease, opacity .45s; opacity: {{ m.op }}; display: flex; flex-direction: column; gap: 18px;">
                   <span style="display: flex; justify-content: space-between; align-items: baseline;">
                     <span style="font-size: 30px; font-weight: 600; letter-spacing: -.03em;">{{ m.name }}</span>
                     <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; letter-spacing: .14em; color: #f15d2a;">{{ m.num }}</span>
@@ -1508,7 +1512,7 @@
                   </span>
                   <span style="min-height: 44px; display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; line-height: 1.4; border-top: 1px solid {{ m.rule }}; padding-top: 14px;">
                     <sc-for list="{{ m.events }}" as="e" hint-placeholder-count="1"><span><span style="color: #f15d2a; font-weight: 600;">{{ e.day }}</span>  {{ e.title }}</span></sc-for>
-                    <sc-if value="{{ m.none }}" hint-placeholder-val="{{ false }}"><span style="opacity: .5;">No national occasions</span></sc-if>
+                    <sc-if value="{{ m.none }}" hint-placeholder-val="{{ false }}"><span style="opacity: .5;">{{ t.calNoOccasions }}</span></sc-if>
                   </span>
                 </button>
               </sc-for>
@@ -1522,9 +1526,9 @@
     <section style="background: #282829; color: #f7f5f2; overflow: hidden;">
       <div style="padding: 96px 56px; background: #f7f5f2; color: #282829; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 64px;">
           <div>
-            <p style="margin: 0 0 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;">Key dates</p>
-            <h2 style="margin: 0 0 18px; font-size: 52px; line-height: 1.04; letter-spacing: -.045em; font-weight: 600;">The occasions that shape the year</h2>
-            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.68); max-width: 38ch;">Hijri dates follow the official moon-sighting announcement and may shift by a day.</p>
+            <p style="margin: 0 0 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;">{{ t.calKeyKicker }}</p>
+            <h2 style="margin: 0 0 18px; font-size: 52px; line-height: 1.04; letter-spacing: -.045em; font-weight: 600;">{{ t.calKeyHead }}</h2>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.68); max-width: 38ch;">{{ t.calKeyNote }}</p>
           </div>
           <div style="border-top: 2px solid #282829;">
             <sc-for list="{{ cp.keyDates }}" as="k" hint-placeholder-count="8">
@@ -1541,37 +1545,37 @@
       <div style="padding: 96px 56px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 36px;">
             <div>
-              <p style="margin: 0 0 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;">Illustrations</p>
-              <h2 style="margin: 0; font-size: 52px; line-height: 1.04; letter-spacing: -.045em; font-weight: 600;">A Kingdom drawn month by month</h2>
+              <p style="margin: 0 0 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a;">{{ t.calIllusKicker }}</p>
+              <h2 style="margin: 0; font-size: 52px; line-height: 1.04; letter-spacing: -.045em; font-weight: 600;">{{ t.calIllusHead }}</h2>
             </div>
-            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(247,245,242,.7); max-width: 40ch;">Each month carries its own illustration: places, crafts and moments from across the Kingdom.</p>
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(247,245,242,.7); max-width: 40ch;">{{ t.calIllusLead }}</p>
           </div>
           <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 14px;">
-            <div style="grid-row: span 2; border-radius: 14px; background: #f7f5f2 url(assets/calendar/illustrations.png) no-repeat; background-size: 120%; background-position: 50% 66%;"></div>
-            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.png) no-repeat; background-size: 360%; background-position: 70% 54%;"></div>
-            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.png) no-repeat; background-size: 360%; background-position: 98% 54%;"></div>
-            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.png) no-repeat; background-size: 360%; background-position: 12% 82%;"></div>
-            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.png) no-repeat; background-size: 360%; background-position: 92% 84%;"></div>
+            <div style="grid-row: span 2; border-radius: 14px; background: #f7f5f2 url(assets/calendar/illustrations.webp) no-repeat; background-size: 120%; background-position: 50% 66%;"></div>
+            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.webp) no-repeat; background-size: 360%; background-position: 70% 54%;"></div>
+            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.webp) no-repeat; background-size: 360%; background-position: 98% 54%;"></div>
+            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.webp) no-repeat; background-size: 360%; background-position: 12% 82%;"></div>
+            <div style="border-radius: 14px; background: url(assets/calendar/illustrations.webp) no-repeat; background-size: 360%; background-position: 92% 84%;"></div>
           </div>
         </div>
     </section>
     <section style="background: #282829; color: #f7f5f2; overflow: hidden;">
       <div style="padding: 0 56px 96px; display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 14px;">
-          <div style="height: 560px; border-radius: 14px; background: url(assets/calendar/desk.png) center 45% / cover;"></div>
-          <div style="height: 560px; border-radius: 14px; background: url(assets/calendar/poster-2026.png) center 60% / cover;"></div>
-          <div style="height: 560px; border-radius: 14px; background: url(assets/calendar/notebook.png) center 40% / cover;"></div>
+          <div style="height: 560px; border-radius: 14px; background: url(assets/calendar/desk.webp) center 45% / cover;"></div>
+          <div style="height: 560px; border-radius: 14px; background: url(assets/calendar/poster-2026.webp) center 60% / cover;"></div>
+          <div style="height: 560px; border-radius: 14px; background: url(assets/calendar/notebook.webp) center 40% / cover;"></div>
         </div>
     </section>
     <section style="background: #282829; color: #f7f5f2; overflow: hidden;">
       <div id="cal-app-a" style="margin: 0 56px 96px; border-radius: 24px; background: #1f1f20; border: 1px solid rgba(247,245,242,.12); padding: 56px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center;">
           <div>
-            <h2 style="margin: 0 0 12px; font-size: 44px; line-height: 1.06; letter-spacing: -.04em; font-weight: 600;">Keep the year with you</h2>
-            <p style="margin: 0; font-size: 16px; line-height: 1.7; color: rgba(247,245,242,.72); max-width: 52ch;">Download the PDF to print at your desk, or get the app for the dates on your phone.</p>
+            <h2 style="margin: 0 0 12px; font-size: 44px; line-height: 1.06; letter-spacing: -.04em; font-weight: 600;">{{ t.calAppHead }}</h2>
+            <p style="margin: 0; font-size: 16px; line-height: 1.7; color: rgba(247,245,242,.72); max-width: 52ch;">{{ t.calAppLead }}</p>
           </div>
           <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
-            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f7f5f2; color: #282829; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f15d2a; color: #fff;"><span style="font-size: 11px; opacity: .7;">Download on the</span><span style="font-size: 18px; font-weight: 600;">App Store</span></a>
-            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f7f5f2; color: #282829; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f15d2a; color: #fff;"><span style="font-size: 11px; opacity: .7;">Get it on</span><span style="font-size: 18px; font-weight: 600;">Google Play</span></a>
-            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f15d2a; color: #fff; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f7f5f2; color: #282829;"><span style="font-size: 11px; opacity: .85;">Print version</span><span style="font-size: 18px; font-weight: 600;">PDF ↓</span></a>
+            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f7f5f2; color: #282829; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f15d2a; color: #fff;"><span style="font-size: 11px; opacity: .7;">{{ t.calDownloadOn }}</span><span style="font-size: 18px; font-weight: 600;">App Store</span></a>
+            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f7f5f2; color: #282829; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f15d2a; color: #fff;"><span style="font-size: 11px; opacity: .7;">{{ t.calGetItOn }}</span><span style="font-size: 18px; font-weight: 600;">Google Play</span></a>
+            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f15d2a; color: #fff; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f7f5f2; color: #282829;"><span style="font-size: 11px; opacity: .85;">{{ t.calPrintVer }}</span><span style="font-size: 18px; font-weight: 600;">{{ t.calPdf }}</span></a>
           </div>
         </div>
     </section>
@@ -1614,9 +1618,11 @@
         <button style="border: 0; background: #282829; color: #f7f5f2; font-family: inherit; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; cursor: pointer; align-self: flex-start; transition: background .2s;" style-hover="background: #f15d2a; transform: translateY(-2px);">{{ tx.k67 }}</button>
       </div>
       <div style="background: #282829; color: #f7f5f2; border-radius: 18px; padding: 0; overflow: hidden; align-self: start;">
-        <div role="img" aria-label="tact" style="width: 100%; aspect-ratio: 3 / 2; background-color: #343435; background-image: url(assets/web/contact-image.jpg); background-size: cover; background-position: 50% 70%;"></div>
+        <div role="img" aria-label="tact" style="width: 100%; aspect-ratio: 3 / 2; background-color: #343435; background-image: url(assets/web/contact-image.webp); background-size: cover; background-position: 50% 70%;"></div>
         <div style="display: flex; flex-direction: column; gap: 26px; padding: 30px 34px 34px;">
           <div>
+            <div style="font-size: 15px; font-weight: 600; color: #f7f5f2; margin-bottom: 4px;">+966 53 335 1389</div>
+            <div style="font-size: 13.5px; color: rgba(247,245,242,.7); margin-bottom: 14px;">info@tact.sa · BD@tact.sa</div>
             <div style="font-size: 12.5px; color: rgba(247,245,242,.55); margin-bottom: 10px;">{{ tx.k71 }}</div>
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
               <a href="https://www.instagram.com/tactsa/" aria-label="Instagram" title="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(247,245,242,.28); border-radius: 99px; color: #f7f5f2; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff; transform: translateY(-3px);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 18px; height: 18px; display: block; flex: 0 0 18px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
@@ -1679,78 +1685,43 @@
   </main>
   </sc-if>
 
-  <section style="position: relative; background: #f15d2a; color: #fff; padding: 100px 28px; overflow: hidden; display: {{ ctaDisplay }};">
-    <div style="position: relative; max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 40px; align-items: end;">
-      <h2 data-reveal="" style="font-size: clamp(34px, 5vw, 76px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; margin: 0; max-width: 14ch;">{{ t.ctaHead }}</h2>
-      <div style="display: flex; flex-direction: column; gap: 18px; align-items: flex-start;">
-        <p style="margin: 0; font-size: 16px; line-height: 1.7; max-width: 38ch; color: rgba(255,255,255,.9);">{{ t.ctaBody }}</p>
-        <button class="btn-x" onClick="{{ goContact }}" style="border: 0; background: #282829; color: #f7f5f2; font-family: inherit; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: transform .45s cubic-bezier(.23,1,.32,1), background .3s, color .3s;" style-hover="transform: translateY(-3px); background: #ffffff; color: #f15d2a;">{{ t.startProject }} <span class="arw" style="font-size: 17px;"><i>{{ arrow }}</i><i>{{ arrow }}</i></span></button>
-      </div>
+
+  <footer style="position: relative; background: #282829; color: rgba(247,245,242,.75); border-top: 4px solid #f15d2a; overflow: hidden;">
+    <div onMouseMove="{{ magMove }}" onMouseLeave="{{ magLeave }}" style="position: relative; max-width: 1320px; margin: 0 auto; padding: clamp(72px, 10vw, 120px) 28px clamp(48px, 6vw, 72px); display: flex; flex-direction: column; gap: 40px; cursor: default;">
+      <svg ref="{{ ftrLogoRef }}" onMouseEnter="{{ logoHoverOn }}" onMouseLeave="{{ logoHoverOff }}" viewBox="0 0 157 41" role="img" aria-label="{{ tx.k76 }}" style="height: 44px; width: auto; display: block; align-self: flex-start; overflow: visible; aspect-ratio: 157 / 41; color: #F7F5F2; transition: color .4s ease;"><sc-for list="{{ logoPaths }}" as="p" hint-placeholder-count="18"><path data-lw="{{ p.w }}" d="{{ p.d }}" fill="{{ p.f }}" style="stroke: {{ p.s }}; stroke-width: .6; stroke-dasharray: 1; stroke-dashoffset: 0; stroke-opacity: 0; stroke-linejoin: round;"></path></sc-for></svg>
+      <h2 aria-label="{{ magLabel }}" style="margin: 0; font-size: clamp(48px, 7vw, 96px); line-height: 1.05; letter-spacing: -.05em; font-weight: 600; color: #f7f5f2; display: flex; flex-wrap: wrap; gap: 0 .26em;"><sc-for list="{{ magWords }}" as="w" hint-placeholder-count="4"><span style="display: inline-flex; white-space: nowrap;"><sc-for list="{{ w.chars }}" as="c" hint-placeholder-count="4"><span data-mag="" aria-hidden="true" style="display: inline-block; color: {{ c.ink }}; transition: transform .6s cubic-bezier(.34,1.4,.64,1);">{{ c.ch }}</span></sc-for></span></sc-for></h2>
+      <a href="#/contact" onClick="{{ goContact }}" style="align-self: flex-start; display: inline-flex; gap: 12px; background: #f15d2a; color: #fff; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; transition: background .3s, color .3s;" style-hover="background: #f7f5f2; color: #282829;">{{ magCta }} <span>→</span></a>
     </div>
-  </section>
-
-  <footer style="position: relative; background: #282829; color: rgba(247,245,242,.7); border-top: 4px solid #f15d2a; overflow: hidden;">
-    <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.035) 0 1px, transparent 1px 16px);"></div>
-
-    <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 76px 28px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 56px 40px; align-items: start;">
-      <div>
-        <svg ref="{{ ftrLogoRef }}" onMouseEnter="{{ logoHoverOn }}" onMouseLeave="{{ logoHoverOff }}" viewBox="0 0 157 41" role="img" aria-label="{{ tx.k76 }}" style="height: 54px; width: auto; margin: 0 0 22px; display: block; overflow: visible; aspect-ratio: 157 / 41; color: #F7F5F2; transition: color .4s ease;"><sc-for list="{{ logoPaths }}" as="p" hint-placeholder-count="18"><path data-lw="{{ p.w }}" d="{{ p.d }}" fill="{{ p.f }}" style="stroke: {{ p.s }}; stroke-width: .6; stroke-dasharray: 1; stroke-dashoffset: 0; stroke-opacity: 0; stroke-linejoin: round;"></path></sc-for></svg>
-        <p style="margin: 0 0 26px; max-width: 42ch; font-size: 14.5px; line-height: 1.7; color: rgba(247,245,242,.72);">{{ t.footerDesc }}</p>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px;">
+    <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 0 28px;">
+      <nav aria-label="{{ t.pages }}" style="display: flex; flex-wrap: wrap; gap: 10px 0; align-items: center; border-top: 1px solid rgba(247,245,242,.16); border-bottom: 1px solid rgba(247,245,242,.16); padding: 22px 0;">
+        <sc-for list="{{ nav }}" as="item" hint-placeholder-count="6">
+          <a href="{{ item.href }}" onClick="{{ item.go }}" style="font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; letter-spacing: -.02em; color: #f7f5f2; padding-inline-end: 22px; margin-inline-end: 22px; border-inline-end: 1px solid rgba(247,245,242,.2); transition: color .25s;" style-hover="color: #f15d2a;">{{ item.label }}</a>
+        </sc-for>
+        <a href="#/calendar" onClick="{{ goCalendar }}" style="font-size: clamp(17px, 1.8vw, 22px); font-weight: 600; letter-spacing: -.02em; color: #f7f5f2; transition: color .25s;" style-hover="color: #f15d2a;">{{ calLabel }}</a>
+      </nav>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Tact+Digital+Communications+Riyadh" target="_blank" rel="noopener" aria-label="{{ t.viewMaps }}" style="position: relative; display: block; height: 140px; margin: 28px 0; border-radius: 99px; overflow: hidden; border: 1px solid rgba(247,245,242,.18); background: #343436;">
+        <iframe title="{{ t.viewMaps }}" src="https://www.google.com/maps?q=Tact+Digital+Communications+Riyadh&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(1.05); pointer-events: none;"></iframe>
+        <span style="position: absolute; inset-inline-start: 24px; top: 50%; transform: translateY(-50%); background: #f15d2a; color: #fff; font-size: 13px; font-weight: 600; padding: 10px 16px; border-radius: 99px;">{{ t.studio }} · {{ t.riyadh }}, {{ t.ksa }}</span>
+      </a>
+      <div style="padding: 0 0 26px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 24px; font-size: 12.5px;">
+        <div style="display: flex; flex-direction: column; gap: 7px;">
+          <p style="margin: 0; font-size: 12.5px; color: rgba(247,245,242,.7);">{{ t.copyright }}</p>
+          <p style="margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .06em; color: rgba(247,245,242,.72);">{{ t.crvat }}</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
           <a href="https://www.instagram.com/tactsa/" aria-label="Instagram" title="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(247,245,242,.28); border-radius: 99px; color: #f7f5f2; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff; transform: translateY(-3px);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 18px; height: 18px; display: block; flex: 0 0 18px;"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
           <a href="https://www.linkedin.com/company/tact-digital-communication/" aria-label="LinkedIn" title="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(247,245,242,.28); border-radius: 99px; color: #f7f5f2; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff; transform: translateY(-3px);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 18px; height: 18px; display: block; flex: 0 0 18px;"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M7.3 10.4v6.3M7.3 7.6v.1"></path><path d="M11.4 16.7v-6.3M11.4 13.2c0-1.6 1-2.6 2.4-2.6s2.5 1 2.5 2.7v3.4"></path></svg></a>
           <a href="https://x.com/tactSA" aria-label="X" title="X" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(247,245,242,.28); border-radius: 99px; color: #f7f5f2; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff; transform: translateY(-3px);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 18px; height: 18px; display: block; flex: 0 0 18px;"><path d="M4 4l16 16M20 4L4 20"></path></svg></a>
           <a href="https://www.tiktok.com/@tactsa" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(247,245,242,.28); border-radius: 99px; color: #f7f5f2; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff; transform: translateY(-3px);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 18px; height: 18px; display: block; flex: 0 0 18px;"><path d="M13.5 3v10.8a3.6 3.6 0 11-3.6-3.6"></path><path d="M13.5 3c.4 2.6 2 4.2 4.6 4.4"></path></svg></a>
           <a href="https://www.youtube.com/@tactsa" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid rgba(247,245,242,.28); border-radius: 99px; color: #f7f5f2; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff; transform: translateY(-3px);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 18px; height: 18px; display: block; flex: 0 0 18px;"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path d="M10 9.3v5.4l4.6-2.7z"></path></svg></a>
         </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 40px 48px;">
-        <div>
-          <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,245,242,.5); margin: 0 0 16px;">{{ t.pages }}</p>
-          <div style="display: flex; flex-direction: column; align-items: flex-start;">
-            <sc-for list="{{ nav }}" as="item" hint-placeholder-count="7">
-              <a href="{{ item.href }}" onClick="{{ item.go }}" style="border: 0; background: transparent; color: rgba(247,245,242,.78); font-family: inherit; font-size: 14px; padding: 7px 0; cursor: pointer; text-align: left; transition: color .25s, padding-left .25s;" style-hover="color: #f15d2a; padding-left: 7px;">{{ item.label }}</a>
-            </sc-for>
-            <a href="#/calendar" onClick="{{ goCalendar }}" style="color: rgba(247,245,242,.78); font-size: 14px; padding: 7px 0; transition: color .25s, padding-left .25s;" style-hover="color: #f15d2a; padding-left: 7px;">{{ calLabel }}</a>
-          </div>
-          
-          <div style="display: flex; flex-direction: column; align-items: flex-start;">
-            <sc-for list="{{ companyNav }}" as="c" hint-placeholder-count="5">
-              
-            </sc-for>
-          </div>
-        </div>
-        <div>
-          <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,245,242,.5); margin: 0 0 16px;">{{ t.studio }}</p>
-          <a href="https://www.google.com/maps/search/?api=1&amp;query=Tact+Digital+Communications+Riyadh" target="_blank" rel="noopener" style="display: inline-flex; align-items: flex-start; gap: 10px; margin: 0 0 16px; font-size: 13.5px; line-height: 1.6; color: rgba(247,245,242,.78); transition: color .25s, gap .25s;" style-hover="color: #f15d2a; gap: 14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 16px; height: 16px; flex: 0 0 16px; margin-top: 2px; display: block;"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.6"></circle></svg><span>{{ t.riyadh }}<br>{{ t.ksa }}<br><span style="font-size: 12px; color: rgba(247,245,242,.55);">{{ t.viewMaps }}</span></span></a>
-          <div style="position: relative; width: 100%; max-width: 320px; aspect-ratio: 16 / 10; margin: 0 0 18px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(247,245,242,.18); background: #343436;">
-            <iframe title="{{ t.viewMaps }}" src="https://www.google.com/maps?q=Tact+Digital+Communications+Riyadh&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(1.05);"></iframe>
-          </div>
-          <div style="margin: 0 0 20px;">
-            <button onClick="{{ goContact }}" style="display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(247,245,242,.28); background: transparent; color: #f7f5f2; font-family: inherit; font-size: 12.5px; font-weight: 600; padding: 10px 16px; border-radius: 99px; cursor: pointer; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff; gap: 14px; transform: translateY(-2px);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="width: 15px; height: 15px; flex: 0 0 15px; display: block;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.6 6.2L12 13l8.4-6.8"></path></svg>{{ t.contactUs }}</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 44px 28px 0;">
-      <div style="border-top: 1px solid rgba(247,245,242,.18); padding: 22px 0 26px; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between; height: 69px">
-        <div style="display: flex; flex-direction: column; gap: 7px;">
-          <p style="margin: 0; font-size: 12.5px; color: rgba(247,245,242,.7);">{{ t.copyright }}</p>
-          <p style="margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .06em; color: rgba(247,245,242,.72);">{{ t.crvat }}</p>
-        </div>
         <div style="display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center;">
           <sc-for list="{{ legalQuick }}" as="q" hint-placeholder-count="3">
-            <button onClick="{{ q.go }}" style="border: 0; background: transparent; color: rgba(247,245,242,.72); font-family: inherit; font-size: 12.5px; padding: 0; cursor: pointer; transition: color .25s;" style-hover="color: #4cc0af;">{{ q.title }}</button>
+            <button onClick="{{ q.go }}" style="border: 0; background: transparent; color: rgba(247,245,242,.72); font-family: inherit; font-size: 12.5px; padding: 0; cursor: pointer; transition: color .25s;" style-hover="color: #f15d2a;">{{ q.title }}</button>
           </sc-for>
+          <button onClick="{{ backToTop }}" style="display: flex; align-items: center; gap: 10px; border: 1px solid rgba(247,245,242,.28); background: transparent; color: #f7f5f2; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; padding: 10px 16px; border-radius: 99px; cursor: pointer; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff;">{{ t.top }} <span class="up-arw" style="font-size: 13px;"><i>↑</i></span></button>
         </div>
-        <button onClick="{{ backToTop }}" style="display: flex; align-items: center; gap: 10px; border: 1px solid rgba(247,245,242,.28); background: transparent; color: #f7f5f2; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; padding: 10px 16px; border-radius: 99px; cursor: pointer; transition: all .25s;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff;">{{ t.top }} <span class="up-arw" style="font-size: 13px;"><i>↑</i></span></button>
       </div>
-    </div>
-
-    <div style="position: relative; overflow: hidden; padding: 0 0 clamp(4px, 1.4vw, 14px);">
-      
     </div>
   </footer>
 </div>
@@ -1898,7 +1869,7 @@ const AB_VALUES = [
   { title: "Effectiveness", body: "We work to achieve our partners' goals through creative solutions, active initiative, fast response and professional execution." },
   { title: "Mastery", body: "We work with precision and high productivity, because we believe in one entity: we are a mirror of our partners, and their success is ours." }
 ];
-const TL_IMG = ["assets/web/team.jpg", "assets/web/booth-screen.jpg", "assets/web/crowd.jpg", "assets/web/booth-talk.jpg", "assets/web/booth-wide.jpg", "assets/web/wheel-visitors.jpg", "assets/web/ten-lit.jpg", "assets/web/ten-sign.jpg"];
+const TL_IMG = ["assets/web/team.webp", "assets/web/booth-screen.webp", "assets/web/crowd.webp", "assets/web/booth-talk.webp", "assets/web/booth-wide.webp", "assets/web/wheel-visitors.webp", "assets/web/ten-lit.webp", "assets/web/ten-sign.webp"];
 const TIMELINE = [
   { year: "2014", title: "tact is founded in Riyadh", body: "The company starts as a small digital communication team with one conviction: Saudi entities need a partner who understands both the platform and the public." },
   { year: "2016", title: "The Thiqah partnership begins", body: "Managing the digital presence of Thiqah and its products — Etimad, Wathiq and Najiz among them — establishes the bilingual, multi-brand way of working that still shapes the company." },
@@ -1943,6 +1914,19 @@ const SECTORS_EN = [
   { name: "Technology services", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"] }
 ];
 
+const SECTOR_PAGE_AR = [
+  { name: "القطاع الحكومي العام", body: "نصنع استراتيجيات اتصالية تعزز حضور الجهات الحكومية، وتبرز مبادراتها ومشاريعها الوطنية بوضوح وموثوقية.", clients: ["وزارة الثقافة", "وزارة الصحة"], wins: [] },
+  { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"], wins: [] },
+  { name: "القطاع التقني", body: "نعزز ظهور الجهات التقنية من إيصال خدماتها بوضوح، وتعزيز تجربة المستفيد عبر تواصل رقمي فعّال.", clients: ["ثقة", "سبراني", "علم", "موبايلي"], wins: [] },
+  { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "نادي القادسية", "نادي الدرعية"], wins: [] },
+  { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["رؤية السعودية 2030"], wins: [] },
+  { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"], wins: [] },
+  { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"], wins: [] },
+  { name: "القطاع المالي", body: "نطوّر حلولًا اتصالية للمؤسسات والجهات المالية تبسط المفاهيم وتعزز الثقة والشفافية.", clients: [], wins: [] },
+  { name: "القطاع الصحي", body: "نطوّر حلولًا اتصالية تدعم بناء الوعي، وتعزز الثقة، وتبسط الرسائل الصحية بأساليب مؤثرة.", clients: ["وزارة الصحة", "الصحة القابضة"], wins: [] },
+  { name: "القطاع غير الربحي", body: "نصيغ رسائل اتصالية تبرز الأثر الإنساني والمجتمعي، وتحفز المشاركة التطوعية والمبادرات الخيرية.", clients: [], wins: [] }
+];
+
 const SECTOR_PAGE = [
   { name: "Public government sector", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Culture", body: "We build communication strategies that strengthen the presence of cultural entities, highlight their initiatives and carry their messages to the public with lasting effect.", clients: ["Ministry of Culture", "Literature, Publishing & Translation Commission", "Heritage Commission", "Architecture & Design Commission", "Film Commission", "Museums Commission"], wins: [] },
@@ -1957,41 +1941,41 @@ const SECTOR_PAGE = [
 ];
 
 const CASES_EN = [
-  { tab: "Wirth Nights", year: "2026 — Royal Institute of Traditional Arts (Wirth)", name: "Wirth Ramadan Nights", body: "tact partnered as a sponsor of Wirth Ramadan Nights, a cultural event organised by the Royal Institute of Traditional Arts to celebrate Saudi heritage. The programme included handicrafts, creative trails and live experiences staged to bring the spirit of Ramadan to life.", metrics: [{ value: "5.2M", label: "Impressions" }, { value: "1.2M", label: "Views" }, { value: "43K", label: "Engagements" }, { value: "155", label: "Creative pieces" }], services: ["Project management", "Copywriting", "Design", "Daily & closing reports", "Live event monitoring"], img: "assets/web/wirth-booth.jpg", shotLabel: "Event photography — Wirth Ramadan Nights" },
-  { tab: "Hajj Media Forum", year: "2026 — Hajj Media Forum", name: "Hajj Media Forum", body: "tact acted as digital communication partner for an integrated media environment supporting journalists covering the Hajj season, with interactive technology, media zones hosting the Unified Hajj Media Operations Centre, a press briefing platform and a creative exhibition on the transformation of services for pilgrims.", metrics: [{ value: "2.2M", label: "Impressions" }, { value: "631K", label: "Views" }, { value: "6.2K", label: "Engagements" }, { value: "77", label: "Creative pieces" }], services: ["Media coverage", "Project management", "Copywriting", "Production"], img: "assets/web/crowd.jpg", shotLabel: "Media centre coverage — Hajj Media Forum" },
-  { tab: "Riyadh Marathon", year: "2026 — Riyadh Marathon", name: "Riyadh Marathon", body: "As supporting partner of Riyadh Marathon 2026, tact managed digital communication for the event. We created interactive content to motivate participants and followers, and covered the day from the first moments through the race routes to the sponsors' ceremony — a live, complete picture of the capital's biggest sporting event.", metrics: [{ value: "265,646", label: "Impressions" }, { value: "36,463+", label: "Views" }, { value: "8,228", label: "Engagements" }, { value: "116", label: "Posts" }], services: ["Project management", "Copywriting", "Weekly, monthly & closing reports", "Design & presentations", "Video editing", "Influencer engagement"], img: "assets/web/wheel-visitors.jpg", shotLabel: "Race-day coverage — Riyadh Marathon" },
-  { tab: "Banan", year: "2025 — Banan, Saudi International Handicrafts Week", name: "Banan Exhibition", body: "As official digital communication partner for Banan, tact brought out the essence of Saudi International Handicrafts Week 2025. Daily coverage spotlighted the artisans and their work, with creative content connecting Saudi cultural heritage to audiences invested in traditional arts.", metrics: [{ value: "387K", label: "Impressions" }, { value: "17.7K", label: "Views" }, { value: "13K", label: "Engagements" }, { value: "125", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design", "Photography", "Video editing"], img: "assets/web/calendar.jpg", shotLabel: "Artisan portraits — Banan exhibition" },
-  { tab: "Live Healthy", year: "2025 — Global Health Exhibition", name: "Live Healthy Space", body: "As marketing partner of the Live Healthy space at the Global Health Exhibition 2025, tact highlighted an awareness pavilion through interactive digital content focused on activities that encourage healthy lifestyles, driving visitors to engage with the experiences on offer across the days of the forum.", metrics: [{ value: "27K", label: "Impressions" }, { value: "4.5K", label: "Views" }, { value: "270", label: "Engagements" }, { value: "19", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design"], img: "assets/web/vr.jpg", shotLabel: "Pavilion experience — Live Healthy space" },
-  { tab: "Translation Forum", year: "2025 — International Translation Forum", name: "International Translation Forum", body: "As digital communication partner of the International Translation Forum 2025, tact managed the event's digital presence, producing specialised content around the sessions and the perspectives of translators and specialists, and covering the forum across all its days.", metrics: [{ value: "27K", label: "Impressions" }, { value: "4.5K", label: "Views" }, { value: "270", label: "Engagements" }, { value: "19", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design"], img: "assets/web/booth-screen.jpg", shotLabel: "Session coverage — International Translation Forum" }
+  { tab: "Wirth Nights", year: "2026 — Royal Institute of Traditional Arts (Wirth)", name: "Wirth Ramadan Nights", body: "tact partnered as a sponsor of Wirth Ramadan Nights, a cultural event organised by the Royal Institute of Traditional Arts to celebrate Saudi heritage. The programme included handicrafts, creative trails and live experiences staged to bring the spirit of Ramadan to life.", metrics: [{ value: "5.2M", label: "Impressions" }, { value: "1.2M", label: "Views" }, { value: "43K", label: "Engagements" }, { value: "155", label: "Creative pieces" }], services: ["Project management", "Copywriting", "Design", "Daily & closing reports", "Live event monitoring"], img: "assets/web/wirth-nights.webp", shotLabel: "Event photography — Wirth Ramadan Nights" },
+  { tab: "Hajj Media Forum", year: "2026 — Hajj Media Forum", name: "Hajj Media Forum", body: "tact acted as digital communication partner for an integrated media environment supporting journalists covering the Hajj season, with interactive technology, media zones hosting the Unified Hajj Media Operations Centre, a press briefing platform and a creative exhibition on the transformation of services for pilgrims.", metrics: [{ value: "2.2M", label: "Impressions" }, { value: "631K", label: "Views" }, { value: "6.2K", label: "Engagements" }, { value: "77", label: "Creative pieces" }], services: ["Media coverage", "Project management", "Copywriting", "Production"], img: "assets/web/crowd.webp", shotLabel: "Media centre coverage — Hajj Media Forum" },
+  { tab: "Riyadh Marathon", year: "2026 — Riyadh Marathon", name: "Riyadh Marathon", body: "As supporting partner of Riyadh Marathon 2026, tact managed digital communication for the event. We created interactive content to motivate participants and followers, and covered the day from the first moments through the race routes to the sponsors' ceremony — a live, complete picture of the capital's biggest sporting event.", metrics: [{ value: "265,646", label: "Impressions" }, { value: "36,463+", label: "Views" }, { value: "8,228", label: "Engagements" }, { value: "116", label: "Posts" }], services: ["Project management", "Copywriting", "Weekly, monthly & closing reports", "Design & presentations", "Video editing", "Influencer engagement"], img: "assets/web/wheel-visitors.webp", shotLabel: "Race-day coverage — Riyadh Marathon" },
+  { tab: "Banan", year: "2025 — Banan, Saudi International Handicrafts Week", name: "Banan Exhibition", body: "As official digital communication partner for Banan, tact brought out the essence of Saudi International Handicrafts Week 2025. Daily coverage spotlighted the artisans and their work, with creative content connecting Saudi cultural heritage to audiences invested in traditional arts.", metrics: [{ value: "387K", label: "Impressions" }, { value: "17.7K", label: "Views" }, { value: "13K", label: "Engagements" }, { value: "125", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design", "Photography", "Video editing"], img: "assets/web/banan-booth.webp", shotLabel: "Artisan portraits — Banan exhibition" },
+  { tab: "Live Healthy", year: "2025 — Global Health Exhibition", name: "Live Healthy Space", body: "As marketing partner of the Live Healthy space at the Global Health Exhibition 2025, tact highlighted an awareness pavilion through interactive digital content focused on activities that encourage healthy lifestyles, driving visitors to engage with the experiences on offer across the days of the forum.", metrics: [{ value: "27K", label: "Impressions" }, { value: "4.5K", label: "Views" }, { value: "270", label: "Engagements" }, { value: "19", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design"], img: "assets/web/vr.webp", shotLabel: "Pavilion experience — Live Healthy space" },
+  { tab: "Translation Forum", year: "2025 — International Translation Forum", name: "International Translation Forum", body: "As digital communication partner of the International Translation Forum 2025, tact managed the event's digital presence, producing specialised content around the sessions and the perspectives of translators and specialists, and covering the forum across all its days.", metrics: [{ value: "27K", label: "Impressions" }, { value: "4.5K", label: "Views" }, { value: "270", label: "Engagements" }, { value: "19", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design"], img: "assets/web/booth-screen.webp", shotLabel: "Session coverage — International Translation Forum" }
 ];
 
 const SERVICES_EN = [
   {
-    num: "01", title: "Digital platform management", img: "assets/web/booth-screen.jpg",
+    num: "01", title: "Digital platform management", img: "assets/web/booth-screen.webp",
     lead: "We manage your presence across digital platforms with a clear strategy, consistent publishing and real engagement with your audience.",
     body: "A dedicated team owns the account: the annual strategy, the monthly content calendar, publishing across every platform, and community management in your voice. Objectives are set before a single post goes out, so what we publish is measured against what you set out to achieve.",
     items: ["Digital communication strategy", "Communication plans", "Social account management", "Digital community management"]
   },
   {
-    num: "02", title: "Creative content production", img: "assets/web/calendar.jpg",
+    num: "02", title: "Creative content production", img: "assets/web/calendar.webp",
     lead: "We create content that carries the identity and the messages in a creative way, serving marketing and communication goals.",
     body: "From the idea to the finished asset: creative concepts, copy written to a defined tone of voice in Arabic and English, art direction across every format, and motion graphics that make a message travel. Content is built to reinforce brand recall, not just to fill a slot.",
     items: ["Creative ideation", "Copywriting", "Visual content design", "Motion graphics"]
   },
   {
-    num: "03", title: "Coverage & production", img: "assets/web/crowd.jpg",
+    num: "03", title: "Coverage & production", img: "assets/web/crowd.webp",
     lead: "We deliver integrated production for documenting presence at local, regional and international events.",
     body: "Crews, equipment and editors mobilised around your calendar — event coverage, photography, live streaming and post-production, with same-day delivery when the moment demands it. The output documents the event and gives you a library to publish from afterwards.",
     items: ["Creative production", "Event coverage", "Photography sessions", "Live streaming"]
   },
   {
-    num: "04", title: "Promotional campaigns", img: "assets/web/wheel-visitors.jpg",
+    num: "04", title: "Promotional campaigns", img: "assets/web/wheel-visitors.webp",
     lead: "We plan, execute and buy media across channels, and keep optimising campaigns for higher reach among the target audience while protecting spend efficiency.",
     body: "Media planning and buying across digital, traditional and influencer channels, with KPIs agreed up front. Campaigns are optimised in flight — audiences, creative and budget allocation — so reach grows without the cost per result drifting.",
     items: ["Planning, execution & monitoring", "Digital platform promotion", "Traditional channel promotion", "Influencer marketing"]
   },
   {
-    num: "05", title: "Measurement & analytics", img: "assets/web/booth-wide.jpg",
+    num: "05", title: "Measurement & analytics", img: "assets/web/booth-wide.webp",
     lead: "We monitor and analyse results, and report the indicators that measure digital performance — with the recommendations needed to improve it.",
     body: "Professional monitoring and listening tools feed reporting on platform performance and campaign outcomes. Every report closes with recommendations, so the next cycle of work starts from evidence rather than assumption.",
     items: ["Monitoring & reporting", "Social listening & analysis", "Platform performance reports", "Campaign reports"]
@@ -2009,12 +1993,12 @@ const STATS_EN = [
 ];
 
 const TEAM = [
-  { role: "Account Director", name: "Name to be added", img: "assets/web/booth-talk.jpg", note: "Owns the partnership end to end and the relationship with the client team." },
-  { role: "Project Manager", name: "Name to be added", img: "assets/web/booth-wide.jpg", note: "Runs the plan, the approvals and the daily coverage schedule on site." },
-  { role: "Creative Lead", name: "Name to be added", img: "assets/web/ten-sign.jpg", note: "Sets the visual direction for every asset the campaign publishes." },
-  { role: "Copywriter", name: "Name to be added", img: "assets/web/calendar.jpg", note: "Writes the Arabic voice of the campaign, then carries it into English." },
-  { role: "Photographer & Editor", name: "Name to be added", img: "assets/web/crowd.jpg", note: "Shoots the event and turns it around for same-day publishing." },
-  { role: "Reporting Analyst", name: "Name to be added", img: "assets/web/booth-screen.jpg", note: "Tracks performance daily and closes the project with the results report." }
+  { role: "Account Director", name: "Name to be added", img: "assets/web/booth-talk.webp", note: "Owns the partnership end to end and the relationship with the client team." },
+  { role: "Project Manager", name: "Name to be added", img: "assets/web/booth-wide.webp", note: "Runs the plan, the approvals and the daily coverage schedule on site." },
+  { role: "Creative Lead", name: "Name to be added", img: "assets/web/ten-sign.webp", note: "Sets the visual direction for every asset the campaign publishes." },
+  { role: "Copywriter", name: "Name to be added", img: "assets/web/calendar.webp", note: "Writes the Arabic voice of the campaign, then carries it into English." },
+  { role: "Photographer & Editor", name: "Name to be added", img: "assets/web/crowd.webp", note: "Shoots the event and turns it around for same-day publishing." },
+  { role: "Reporting Analyst", name: "Name to be added", img: "assets/web/booth-screen.webp", note: "Tracks performance daily and closes the project with the results report." }
 ];
 
 const STORIES = [
@@ -2036,6 +2020,45 @@ const STORIES = [
     services: ["Digital community management", "Digital strategy", "Creative content", "Creative design", "Translation services", "Identity services", "Monitoring & reporting"] }
 ];
 
+const STORIES_EN = STORIES;
+const STORIES_AR = [
+  { client: "وزارة الثقافة", title: "وزارة الثقافة: حكاية إرثنا الوطني",
+    body: "كيف تروي قصة ثقافة أمة بأكملها، بتفرعاتها وفنونها، عبر منصات رقمية متعددة؟ كان التحدي الأبرز مع وزارة الثقافة وهيئاتها المتنوعة يتمثل في تزامن المهام وضخامتها؛ ففي أحد الأسابيع على سبيل المثال، واجهنا تحدي تنفيذ 8 مشاريع كبرى متزامنة! للوفاء بهذا المتطلب مع المحافظة على جودة المخرجات، أطلقنا حملة توظيف سريعة ومدروسة استقطبنا خلالها 60 محترفاً، وقمنا بتأهيلهم فوراً. لم نكتفِ بإدارة 13 حساباً للوزارة وهيئاتها، بل ساهمنا في بناء مراكز إعلامية متكاملة (مثل معرض بنان)، لنترجم جهود الوزارة في تعزيز الهوية الوطنية والحفاظ على التراث الثقافي إلى حضور رقمي مبهر يخطف أنظار العالم.",
+    services: ["إدارة المجتمعات الرقمية", "الاستراتيجيات الرقمية", "إطلاق وإدارة الحملات الكبرى والمتزامنة", "التصاميم الإبداعية", "الحملات المدفوعة", "المحتوى الإبداعي", "التغطيات الإعلامية"] },
+  { client: "شركة الدرعية", title: "شركة الدرعية",
+    body: "بدأنا العمل مع شركة الدرعية في عام 2024 بهدف تعزيز حضورها الرقمي عبر جميع منصات التواصل الاجتماعي، من خلال إدارة شاملة للحسابات وتنفيذ حملات إعلانية مدفوعة وحملات مع المؤثرين. ركّزنا على تقديم محتوى مبتكر وتصاميم جذابة، مع مراقبة دقيقة لتفاعل الجمهور، إضافةً إلى إعداد تقارير أداء شاملة ساهمت في تحسين الاستراتيجيات بشكل مستمر. كما نلتزم في جميع جهودنا بالمساهمة في تعزيز الهوية الثقافية السعودية بما يتماشى مع رؤية الشركة ورسالتها.",
+    services: ["إدارة الحسابات", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الإعلامية", "الحملات المدفوعة", "التسويق بالمؤثرين"] },
+  { client: "وزارة الصحة", title: "وزارة الصحة: نبضٌ رقمي لا يتوقف",
+    body: "كيف تدير التواصل الفعّال لقطاع يمس حياة الملايين يومياً؟ التحدي مع وزارة الصحة لم يكن مجرد إدارة حسابات، بل بناء وتجهيز مركز إعلامي متكامل داخل مقر الوزارة في وقت قياسي. استقطبنا 60 كفاءة احترافية، وقمنا بتأهيلهم وإدارة سير عملهم بسلاسة تامة لضمان استمرارية العمل بكفاءة لا مثيل لها، مما أثمر عن رفع الهوية الرقمية للوزارة وتعزيز صورتها الذهنية بشكل غير مسبوق.",
+    services: ["إدارة المجتمعات الرقمية", "المحتوى الإبداعي", "التصاميم الإبداعية", "الاستراتيجيات الرقمية", "التغطيات الميدانية والإعلامية", "الرصد والتقارير"] },
+  { client: "موسم الرياض", title: "موسم الرياض: إدارة الزخم لأكبر حدث ترفيهي",
+    body: "إدارة منصات أكبر حدث ترفيهي في المنطقة تعني العمل تحت ضغط مستمر وسرعة استجابة فائقة. واجهنا تحدي التعامل مع وتيرة نشر جنونية تجاوزت 70 منشوراً يومياً على مدار 7 مواسم ترفيهية متنوعة، لنقل فعاليات وأجواء أكبر وأضخم حدث ترفيهي في المنطقة. الحل كان بتخصيص فريق من 15 خبيراً يعملون من قلب الحدث على مدار الساعة (24/7)، لضمان تفاعل جماهيري لحظي، وتنفيذ حملات إعلانية ضخمة عززت من نجاح الموسم عالمياً.",
+    services: ["إدارة المجتمعات الرقمية", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الإعلامية", "الحملات المدفوعة", "التسويق بالمؤثرين"] },
+  { client: "نادي القادسية", title: "نادي القادسية: عودة الفرسان إلى الصدارة الرقمية",
+    body: "كيف تعيد إحياء الشغف الجماهيري لنادٍ عريق بعد غياب؟ بدأنا مع نادي القادسية في 2023 بحساب رئيسي واحد، وواجهنا تحدي قلة القاعدة الجماهيرية وصعوبة الوصول إليها. ابتكرنا استراتيجية توسعية شملت إنشاء أكثر من 20 حساباً متخصصاً بمختلف اللغات لتغطية كافة أقسام النادي. النتيجة؟ انتعاشة تاريخية لشعبية النادي محلياً وعالمياً، وبناء مجتمع رياضي ينبض بالحياة.",
+    services: ["إدارة المجتمعات الرقمية", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الإعلامية", "الحملات المدفوعة", "التسويق بالمؤثرين"] },
+  { client: "الاتحاد السعودي للرياضة للجميع", title: "الاتحاد السعودي للرياضة للجميع: نحرّك المجتمع معاً",
+    body: "نشر ثقافة الرياضة وتنظيم فعاليات ضخمة في مناطق مختلفة (مثل ماراثون الرياض وماراثون جدة) هو مهمة تتطلب استجابة رقمية سريعة وفعالة. قمنا بتطوير استراتيجية حيوية ركزت على رفع الوعي، وتخصيص فريق بكفاءة عالية لإدارة حسابات الاتحاد، مما ضاعف من وصول الرسائل الاتصالية وزاد من أعداد المشاركين في الفعاليات المجتمعية بشكل ملحوظ.",
+    services: ["إدارة المجتمع الرقمي", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الميدانية", "الحملات المدفوعة", "التغطيات الإعلامية"] },
+  { client: "المعهد الملكي للفنون التقليدية (وِرث)", title: "المعهد الملكي للفنون التقليدية (وِرث): رقمنة التراث بهوية أصيلة",
+    body: "تنوع الفعاليات وتعددها في فترات زمنية قصيرة كان التحدي الأبرز، إلى جانب ضرورة إنتاج محتوى عالي الجودة يعكس الهوية الثقافية العميقة للمعهد. قمنا بتوسيع الفريق الإعلامي لضمان سرعة الإنجاز، وطبقنا آليات عمل مرنة نسّقت بين فرق المحتوى والإدارة التشغيلية، لننجح في إبراز الهوية الخاصة بـ \"وِرث\" وتعزيز حضور المعهد كمرجع وطني للفنون التقليدية.",
+    services: ["إدارة المجتمع الرقمي", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الإعلامية", "الترجمة النوعية", "التسويق بالمؤثرين"] },
+  { client: "شركة ثقة", title: "شركة \"ثقة\": لغة واحدة، وهويات متعددة و 9 سنوات من الشراكة",
+    body: "على مدى 9 سنوات؛ أدرنا أكثر من 12 منتجاً رقمياً (مثل: منصة اعتماد، واثق، ناجز.. وغيرها) ولكل منها هويتها وجمهورها ونبرتها الخاصة؟ التحدي كان في تنوع الحسابات، والحل تمثل في إدارة الحضور الرقمي لشركة \"ثقة\" ومنتجاتها عبر فهم دقيق لطبيعة كل علامة، وبناء نماذج واضحة تضمن دقة الهوية وتناسق الظهور، لنقدم محتوى ثنائي اللغة يعزز من موثوقية هذه المنصات المهمة والمرتبطة بحياة الناس.",
+    services: ["إدارة المجتمعات الرقمية", "الاستراتيجيات الرقمية", "المحتوى الإبداعي", "التصاميم الإبداعية", "خدمات الترجمة", "خدمات الهوية", "الرصد والتقارير"] }
+];
+
+const STORY_STATS_AR = [
+  { to: 8, label: "مشاريع كبرى متزامنة في أسبوع واحد" },
+  { to: 2024, from: 2014, label: "عام انطلاق الشراكة" },
+  { to: 60, label: "كفاءة احترافية تم استقطابها وتأهيلها" },
+  { to: 70, label: "منشور يومياً كمتوسط نشر" },
+  { to: 20, suf: "+", label: "حساباً متخصصاً" },
+  { to: 6, label: "خدمات مقدمة" },
+  { to: 6, label: "خدمات مقدمة" },
+  { to: 12, suf: "+", label: "منتجاً رقمياً بهوية مستقلة" }
+];
+
 const STORY_STATS = [
   { to: 8, label: "major projects delivered in a single week" },
   { to: 2024, from: 2014, label: "the year the partnership began" },
@@ -2047,14 +2070,24 @@ const STORY_STATS = [
   { to: 12, suf: "+", label: "digital products, each with its own identity" }
 ];
 
-const LEADERS = [
-  { role: "Founder", name: "Rayan Al-Tuaimi", img: "assets/leaders/rayan-al-tuaimi.jpg" },
-  { role: "Chief Executive Officer", name: "Mansour Al-Otaibi", img: "assets/leaders/mansour-al-otaibi.jpg" },
-  { role: "Director of Project Management", name: "Awdah Al-Rabiah", img: "assets/leaders/awdah-al-rabiah.jpg" },
-  { role: "Director of Promotion & Campaigns", name: "Saleh Al-Hanaki" },
-  { role: "Director of Business Development & Marketing", name: "Abdullah Al-Humaidi", img: "assets/leaders/abdullah-al-humaidi.jpg" },
-  { role: "Director of Operations", name: "Hiba Yassin", img: "assets/leaders/hiba-yassin.jpeg" }
+const LEADERS_EN = [
+  { role: "Founder", name: "Rayan Al-Tuaimi", img: "assets/leaders-web/rayan-al-tuaimi.webp" },
+  { role: "Chief Executive Officer", name: "Mansour Al-Otaibi", img: "assets/leaders-web/mansour-al-otaibi.webp" },
+  { role: "Director of Project Management", name: "Awdah Al-Rabiah", img: "assets/leaders-web/awdah-al-rabiah.webp" },
+  { role: "Director of Promotion & Campaigns", name: "Saleh Al-Hanaki", img: "", isIcon: true },
+  { role: "Director of Business Development & Marketing", name: "Abdullah Al-Humaidi", img: "assets/leaders-web/abdullah-al-humaidi.webp" },
+  { role: "Director of Operations", name: "Hiba Yassin", img: "assets/leaders/hiba-yassin.webp" }
 ];
+
+const LEADERS_AR = [
+  { role: "المؤسس", name: "ريان الطعيمي", img: "assets/leaders-web/rayan-al-tuaimi.webp" },
+  { role: "الرئيس التنفيذي", name: "منصور العتيبي", img: "assets/leaders-web/mansour-al-otaibi.webp" },
+  { role: "مدير إدارة المشاريع", name: "أوضاح الربيعة", img: "assets/leaders-web/awdah-al-rabiah.webp" },
+  { role: "مدير إدارة الترويج والحملات", name: "صالح الحناكي", img: "", isIcon: true },
+  { role: "مدير إدارة تطوير الأعمال والتسويق", name: "عبدالله الحميدي", img: "assets/leaders-web/abdullah-al-humaidi.webp" },
+  { role: "مدير إدارة العمليات", name: "هبه ياسين", img: "assets/leaders/hiba-yassin.webp" }
+];
+const LEADERS = LEADERS_EN;
 
 const VALUES_EN = [
   { title: "Responsibility", body: "We embed a sense of responsibility in every task we take on, built on mutual trust and full belief in each other's skills." },
@@ -2068,68 +2101,96 @@ const VALUES_EN = [
 const LABELS_AR = { calendar: "تقويم تاكت", company: "الشركة", home: "الرئيسية", services: "خدماتنا", sectors: "القطاعات", work: "شراكاتنا", career: "التوظيف", contact: "تواصل معنا", about: "عن تاكت", history: "مسيرتنا", leadership: "القيادة", stories: "قصص نجاح", why: "لماذا تاكت؟" };
 
 const SERVICES_AR = [
-  { num: "01", title: "إدارة المنصات الرقمية", img: "assets/web/booth-screen.jpg",
-    lead: "ندير حضوركم على المنصات الرقمية باستراتيجية واضحة ونشر منتظم وتفاعل حقيقي مع جمهوركم.",
-    body: "فريق مخصص يتولى الحساب: الاستراتيجية السنوية، وخطة المحتوى الشهرية، والنشر على جميع المنصات، وإدارة المجتمع الرقمي بصوتكم. تُحدد الأهداف قبل نشر أي محتوى، ليكون كل ما ننشره مقيساً أمام ما وضعتموه من أهداف.",
-    items: ["استراتيجية الاتصال الرقمي", "خطط الاتصال", "إدارة حسابات التواصل", "إدارة المجتمع الرقمي"] },
-  { num: "02", title: "إنتاج المحتوى الإبداعي", img: "assets/web/calendar.jpg",
-    lead: "نصنع محتوى يحمل الهوية والرسائل بأسلوب إبداعي يخدم الأهداف التسويقية والاتصالية.",
-    body: "من الفكرة إلى العمل النهائي: أفكار إبداعية، ونصوص مكتوبة بنبرة صوت محددة بالعربية والإنجليزية، وإدارة فنية لكل الصيغ، ورسوم متحركة تجعل الرسالة تنتقل. المحتوى مبني لتعزيز تذكّر العلامة، لا لتعبئة جدول النشر.",
-    items: ["ابتكار الأفكار الإبداعية", "كتابة المحتوى", "تصميم المحتوى البصري", "الموشن جرافيك"] },
-  { num: "03", title: "التغطيات والإنتاج", img: "assets/web/crowd.jpg",
-    lead: "نقدم إنتاجاً متكاملاً لتوثيق الحضور في الأحداث المحلية والإقليمية والدولية.",
-    body: "فرق ومعدات ومحررون يتحركون وفق أجندتكم — تغطية الفعاليات، وجلسات التصوير، والبث المباشر، والمعالجة بعد الإنتاج، مع تسليم في اليوم نفسه حين تقتضي اللحظة ذلك. المخرجات توثّق الحدث وتمنحكم مكتبة تنشرون منها لاحقاً.",
-    items: ["الإنتاج الإبداعي", "تغطية الفعاليات", "جلسات التصوير", "البث المباشر"] },
-  { num: "04", title: "الحملات الترويجية", img: "assets/web/wheel-visitors.jpg",
-    lead: "نخطط وننفذ ونشتري المساحات الإعلانية عبر القنوات، ونحسّن الحملات باستمرار لزيادة الوصول إلى الجمهور المستهدف مع الحفاظ على كفاءة الإنفاق.",
-    body: "تخطيط وشراء إعلامي عبر القنوات الرقمية والتقليدية والمؤثرين، بمؤشرات أداء متفق عليها مسبقاً. نحسّن الحملات أثناء تشغيلها — الجماهير والمواد وتوزيع الميزانية — لينمو الوصول دون أن ترتفع تكلفة النتيجة.",
-    items: ["التخطيط والتنفيذ والمتابعة", "الترويج على المنصات الرقمية", "الترويج في القنوات التقليدية", "التسويق عبر المؤثرين"] },
-  { num: "05", title: "القياس والتحليل", img: "assets/web/booth-wide.jpg",
-    lead: "نرصد النتائج ونحللها، ونرفع التقارير بالمؤشرات التي تقيس الأداء الرقمي، مع التوصيات اللازمة لتحسينه.",
-    body: "أدوات رصد وإنصات احترافية تغذّي تقارير أداء المنصات ونتائج الحملات. كل تقرير يُختم بتوصيات، لتبدأ دورة العمل التالية من الدليل لا من الافتراض.",
-    items: ["الرصد والتقارير", "الإنصات وتحليل المنصات", "تقارير أداء المنصات", "تقارير الحملات"] }
+  { num: "01", title: "إدارة منصات التواصل الرقمي", img: "assets/web/booth-screen.webp",
+    lead: "ندير الظهور في المنصات الرقمية باستراتيجية واضحة ونشر مستمر وتفاعل فعّال مع جمهورك.",
+    body: "ندير المنصات الرقمية عبر إستراتيجية متكاملة تجمع بين التخطيط، والتشغيل، والمتابعة، لتعزيز ظهور العلامة، وبناء تواصل فعّال مع جمهورها.",
+    items: ["إستراتيجيات وخطط التواصل", "إدارة حسابات منصات التواصل الرقمي", "إدارة المجتمعات الرقمية"] },
+  { num: "02", title: "صناعة المحتوى الإبداعي", img: "assets/web/calendar.webp",
+    lead: "نبتكر محتوى يعكس الهوية والرسائل بشكل إبداعي يخدم أهداف التسويق والتواصل",
+    body: "نطوّر محتوى يجمع بين الفكرة، والإستراتيجية، والتنفيذ، ليقدم رسائل مؤثرة وتجارب تواكب الأهداف الإبداعية.",
+    items: ["المحتوى المرئي", "المحتوى الإبداعي", "إستراتيجيات المحتوى والأدلة", "صناعة المحتوى"] },
+  { num: "03", title: "التغطيات والإنتاج الفني", img: "assets/web/crowd.webp",
+    lead: "نقدم حلول إنتاج متكاملة لتوثيق الحضور في الأحداث والفعاليات المحلية والإقليمية والدولية.",
+    body: "ننتج مواد بصرية توثق اللحظة وتعزز أثرها، من الفكرة وحتى التنفيذ، بأعلى المعايير الإبداعية والتقنية.",
+    items: ["الإنتاج الفني", "تغطية الفعاليات و المؤتمرات", "البث المباشر للفعاليات المؤتمرات", "مونتاج فيديوهات"] },
+  { num: "04", title: "الحملات الترويجية", img: "assets/web/wheel-visitors.webp",
+    lead: "نقوم بتخطيط وتنفيذ وشراء المساحات الإعلانية في مختلف القنوات ونعمل على التحسين والتطوير المستمر للحملات لضمان وصول اعلى للفئة المستهدفة مع المحافظة على تعزز كفاءة الإنفاق.",
+    body: "نخطط وننفذ الحملات الترويجية عبر مختلف القنوات، مع متابعة الأداء وتحسينه باستمرار؛ لضمان الوصول الفعّال للفئة المستهدفة، وتعزيز كفاءة الإنفاق.",
+    items: ["الترويج عبر المنصات الرقمية", "الترويج عبر القنوات التقليدية", "الترويج عبر المؤثرين"] },
+  { num: "05", title: "القياس والتحليل", img: "assets/web/booth-wide.webp",
+    lead: "نرصد ونحلل النتائج، ونقدم المؤشرات لقياس الأداء الرقمي وتقديم التوصيات اللازمة بهدف التطوير",
+    body: "نحوّل البيانات إلى مؤشرات تساعد على فهم الأداء، وقياس الأثر، واتخاذ قرارات أكثر دقة.",
+    items: ["تقرير أداء منصات التواصل الرقمي", "إدارة الرصد والتقارير", "تقارير الاستماع والتحليل", "تقارير الحملات الترويجية"] }
 ];
 
 const SECTORS_AR = [
-  { name: "الثقافة", body: "نبني استراتيجيات اتصال تعزز حضور الجهات الثقافية، وتُبرز مبادراتها، وتنقل رسائلها إلى الجمهور بأثر يدوم.", clients: ["وزارة الثقافة", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"] },
-  { name: "الصحة", body: "نطوّر حلول اتصال تبني الوعي وتعزز الثقة وتبسّط الرسائل الصحية بطريقة تصل.", clients: ["وزارة الصحة", "الصحة القابضة"] },
-  { name: "الرياضة", body: "نبني تجارب رقمية تعمّق ارتباط الجمهور وترفع حضور الجهات الرياضية بمحتوى ومجتمع فاعل.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "نادي القادسية", "نادي الدرعية"] },
-  { name: "الترفيه", body: "ندير الاتصال الرقمي للفعاليات والمواسم بمرونة عالية، ونحوّل التجارب الترفيهية إلى وصول وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"] },
-  { name: "الخدمات التقنية", body: "نساعد الجهات التقنية على توصيل خدماتها بوضوح وتحسين تجربة المستخدم عبر اتصال رقمي فاعل.", clients: ["ثقة", "سيبراني", "علم", "موبايلي"] }
+  { name: "القطاع الحكومي العام", body: "نقدّم استراتيجيات اتصال تعزز حضور الجهات الحكومية، وتبرز مبادراتها ومشاريعها الوطنية بوضوح وموثوقية.", clients: ["وزارة الثقافة", "وزارة الصحة", "الهيئة العامة للترفيه"] },
+  { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"] },
+  { name: "القطاع الصحي", body: "نطوّر حلولًا اتصالية تدعم بناء الوعي، وتعزز الثقة، وتبسط الرسائل الصحية بأساليب مؤثرة.", clients: ["وزارة الصحة", "الصحة القابضة"] },
+  { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "نادي القادسية", "نادي الدرعية"] },
+  { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["رؤية السعودية 2030"] },
+  { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"] },
+  { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"] },
+  { name: "القطاع التقني", body: "نعزز ظهور الجهات التقنية من إيصال خدماتها بوضوح، وتعزيز تجربة المستفيد عبر تواصل رقمي فعّال.", clients: ["ثقة", "سبراني", "علم", "موبايلي"] },
+  { name: "القطاع غير الربحي", body: "نصيغ رسائل اتصالية تبرز الأثر الإنساني والمجتمعي، وتحفز المشاركة التطوعية والمبادرات الخيرية.", clients: ["مؤسسات القطاع غير الربحي"] }
 ];
 
 const STATS_AR = [
-  { target: 14, suffix: "B+", decimals: 0, label: "الوصول الرقمي السنوي" },
-  { target: 650, suffix: "+", decimals: 0, label: "الحسابات المُدارة" },
-  { target: 25, suffix: "K", decimals: 0, label: "تعاونات المؤثرين" },
-  { target: 9.4, suffix: "K", decimals: 1, label: "التقارير المُسلّمة" },
-  { target: 70, suffix: "K", decimals: 0, label: "المواد المنتَجة" },
-  { target: 160, suffix: "+", decimals: 0, label: "استراتيجيات التسويق والاتصال" },
-  { target: 51, suffix: "K", decimals: 0, label: "الردود على المجتمع" }
+  { target: 14, suffix: "B+", decimals: 0, label: "وصول رقمي سنوي" },
+  { target: 650, suffix: "+", decimals: 0, label: "إدارة حساب" },
+  { target: 25, suffix: "K", decimals: 0, label: "المؤثرين" },
+  { target: 9.4, suffix: "K", decimals: 1, label: "تقرير" },
+  { target: 70, suffix: "K", decimals: 0, label: "محتوى" },
+  { target: 160, suffix: "+", decimals: 0, label: "إستراتيجية تسويق وتواصل" },
+  { target: 51, suffix: "K", decimals: 0, label: "الردود" }
 ];
 
 const VALUES_AR = [
-  { title: "المسؤولية", body: "نغرس الإحساس بالمسؤولية في كل مهمة نتولاها، قائماً على الثقة المتبادلة والإيمان الكامل بمهارات بعضنا." },
-  { title: "المصداقية", body: "نعتمد الصدق والشفافية في جميع تعاملاتنا، داخلياً وخارجياً، ونثق أن هذا ما يحفظ جودتنا." },
-  { title: "المرونة", body: "نتكيف مع التغيير بسرعة واحترافية، ونلبي احتياجات عملائنا في كل وقت." },
-  { title: "الفعالية", body: "نعمل على تحقيق أهداف شركائنا بحلول إبداعية ومبادرة فاعلة واستجابة سريعة وتنفيذ احترافي." },
-  { title: "الإتقان", body: "نعمل بدقة وإنتاجية عالية، لأننا نؤمن بكياننا الواحد: نحن مرآة شركائنا، ونجاحهم نجاحنا." }
+  { title: "المسؤولية", body: "نرسّخ روح المسؤولية في أداء جميع مهامنا، والتي أتت بعد بناء الثقة المتبادلة والإيمان المطلق بمهارات وقدرات بعضنا البعض." },
+  { title: "المصداقية", body: "نستند على الأمانة والشفافية في كافة تعاملاتنا الداخلية والخارجية، ونثق بأنها تشكّل عاملًا فارقًا في استدامة جودتنا." },
+  { title: "المرونة", body: "نتكيّف مع مختلف المتغيّرات بسرعة واحترافية ونلبّي احتياجات عملائنا في كل الأوقات." },
+  { title: "الفعالية", body: "نسعى جاهدين لنحقق أهداف شركاؤنا من خلال خلق الحلول الإبداعية، والمبادرات الفاعلة، والتجاوب السريع، بالإضافة إلى اكتشاف سبل التطوير، والتنفيذ الاحترافي في تقديم أي خدمة." },
+  { title: "الإتقان", body: "نعمل بدقةٍ وإتقان وإنتاجيةٍ كبرى، لأننا نؤمن بمفهوم الكيان الواحد، نحن اليوم بمثابة مرآةً لشركائنا ونجاحهم نجاحٌ لنا." }
 ];
 
 const CASES_AR = [
-  { tab: "ليالي ورث", year: "2026 — المعهد الملكي للفنون التقليدية (ورث)", name: "ليالي ورث الرمضانية", body: "شاركت تاكت راعياً لليالي ورث الرمضانية، وهي فعالية ثقافية نظّمها المعهد الملكي للفنون التقليدية للاحتفاء بالتراث السعودي. تضمن البرنامج الحرف اليدوية والمسارات الإبداعية وتجارب حية أُقيمت لإحياء روح رمضان.", metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "مواد إبداعية" }], services: ["إدارة المشروع", "كتابة المحتوى", "التصميم", "التقارير اليومية والختامية", "المتابعة الحية للفعالية"], img: "assets/web/wirth-booth.jpg", shotLabel: "تصوير الفعالية — ليالي ورث الرمضانية" },
-  { tab: "منتدى الحج الإعلامي", year: "2026 — منتدى الحج الإعلامي", name: "منتدى الحج الإعلامي", body: "عملت تاكت شريكاً للاتصال الرقمي لبيئة إعلامية متكاملة تخدم الصحفيين المغطين لموسم الحج، بتقنيات تفاعلية، ومناطق إعلامية تستضيف مركز عمليات الحج الإعلامي الموحد، ومنصة للإحاطات الصحفية، ومعرض إبداعي عن تطور الخدمات المقدمة للحجاج.", metrics: [{ value: "2.2M", label: "الظهور" }, { value: "631K", label: "المشاهدات" }, { value: "6.2K", label: "التفاعلات" }, { value: "77", label: "مواد إبداعية" }], services: ["التغطية الإعلامية", "إدارة المشروع", "كتابة المحتوى", "الإنتاج"], img: "assets/web/crowd.jpg", shotLabel: "تغطية المركز الإعلامي — منتدى الحج الإعلامي" },
-  { tab: "ماراثون الرياض", year: "2026 — ماراثون الرياض", name: "ماراثون الرياض", body: "بصفتها شريكاً مساندًا لماراثون الرياض 2026، أدارت تاكت الاتصال الرقمي للحدث. أنتجنا محتوى تفاعلياً لتحفيز المشاركين والمتابعين، وغطّينا اليوم من لحظاته الأولى مروراً بمسارات السباق حتى حفل الرعاة — صورة حية وكاملة لأكبر حدث رياضي في العاصمة.", metrics: [{ value: "265,646", label: "الظهور" }, { value: "36,463+", label: "المشاهدات" }, { value: "8,228", label: "التفاعلات" }, { value: "116", label: "المنشورات" }], services: ["إدارة المشروع", "كتابة المحتوى", "التقارير الأسبوعية والشهرية والختامية", "التصميم والعروض", "مونتاج الفيديو", "إشراك المؤثرين"], img: "assets/web/wheel-visitors.jpg", shotLabel: "تغطية يوم السباق — ماراثون الرياض" },
-  { tab: "بنان", year: "2025 — بنان، أسبوع الحرف اليدوية الدولي السعودي", name: "معرض بنان", body: "بصفتها الشريك الرسمي للاتصال الرقمي لبنان، أبرزت تاكت جوهر أسبوع الحرف اليدوية الدولي السعودي 2025. سلّطت التغطية اليومية الضوء على الحرفيين وأعمالهم، بمحتوى إبداعي يربط التراث الثقافي السعودي بجمهور مهتم بالفنون التقليدية.", metrics: [{ value: "387K", label: "الظهور" }, { value: "17.7K", label: "المشاهدات" }, { value: "13K", label: "التفاعلات" }, { value: "125", label: "المنشورات" }], services: ["إدارة المشروع", "كتابة المحتوى", "التقارير الختامية", "التصميم", "التصوير", "مونتاج الفيديو"], img: "assets/web/calendar.jpg", shotLabel: "صور الحرفيين — معرض بنان" },
-  { tab: "عش بصحة", year: "2025 — المعرض العالمي للصحة", name: "مساحة عش بصحة", body: "بصفتها الشريك التسويقي لمساحة عش بصحة في المعرض العالمي للصحة 2025، أبرزت تاكت جناحاً توعوياً عبر محتوى رقمي تفاعلي يركّز على الأنشطة التي تشجع أنماط الحياة الصحية، ودفعت الزوار للتفاعل مع التجارب المتاحة على مدى أيام الملتقى.", metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }], services: ["إدارة المشروع", "كتابة المحتوى", "التقارير الختامية", "التصميم"], img: "assets/web/vr.jpg", shotLabel: "تجربة الجناح — مساحة عش بصحة" },
-  { tab: "منتدى الترجمة", year: "2025 — منتدى الترجمة الدولي", name: "منتدى الترجمة الدولي", body: "بصفتها شريك الاتصال الرقمي لمنتدى الترجمة الدولي 2025، أدارت تاكت الحضور الرقمي للحدث، وأنتجت محتوى متخصصاً حول الجلسات ووجهات نظر المترجمين والمختصين، وغطّت المنتدى على مدى أيامه.", metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }], services: ["إدارة المشروع", "كتابة المحتوى", "التقارير الختامية", "التصميم"], img: "assets/web/booth-screen.jpg", shotLabel: "تغطية الجلسات — منتدى الترجمة الدولي" }
+  { tab: "ليالي ورث", year: "2026 — المعهد الملكي للفنون التقليدية (ورث)", name: "المعهد الملكي للفنون التقليدية ( ورث ) 2026",
+    body: "جاءت شراكة تاكت بوصفها راعيًا لليالي وِرث الرمضانية ممثلة فعالية ثقافية ينظمها المعهد الملكي للفنون التقليدية للاحتفاء بالإرث السعودي. وتتضمن الفعالية أنشطة متنوعة مثل: الحرف اليدوية، المسارات الإبداعية، والتجارب الحية التي تُقام لإحياء الأجواء الرمضانية.",
+    metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "قطعة محتوى إبداعي" }],
+    services: ["إدارة المشروع", "كتابة المحتوى", "التصاميم", "تقرير يومي وختامي", "رصد يومي خلال الايفنت"],
+    img: "assets/web/wirth-nights.webp", shotLabel: "تصوير الفعالية — ليالي ورث الرمضانية" },
+  { tab: "منتدى الحج الإعلامي", year: "2024 — منتدى الحج الإعلامي", name: "منتدى الحج الإعلامي 2024",
+    body: "بصفتنا شريك التغطية الرقمية لمنتدى الحج الإعلامي 2024، تولت تاكت إدارة الحضور الرقمي للحدث عبر تغطية مباشرة ومكثفة لجلساته وفعالياته. ركزنا على نقل الصورة الحية للمنتدى الذي يجمع نخبة من الإعلاميين والمختصين، مع إبراز جهود المملكة وتطور منظومة الحج الإعلامية، وتقديم محتوى احترافي سريع يواكب مجريات الحدث لحظة بلحظة.",
+    metrics: [{ value: "13.5M", label: "الظهور" }, { value: "3.3M", label: "المشاهدات" }, { value: "87K", label: "التفاعلات" }, { value: "247", label: "المنشورات" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
+    img: "assets/web/crowd.webp", shotLabel: "تغطية المركز الإعلامي — منتدى الحج الإعلامي" },
+  { tab: "ماراثون الرياض", year: "2024 — ماراثون الرياض", name: "ماراثون الرياض 2024",
+    body: "بصفتنا الشريك التسويقي لماراثون الرياض 2024، عملت \"تاكت\" على تعزيز الحضور الرقمي لهذا الحدث الرياضي الأكبر من نوعه في المملكة. قمنا بتطوير استراتيجية تواصل متكاملة استهدفت استقطاب العدائين ومحبي الرياضة من مختلف أنحاء العالم، والترويج للمسارات المختلفة والفعاليات المصاحبة، مما ساهم في تشجيع المجتمع على تبني أسلوب حياة صحي، وتحقيق تفاعل واسع مع الماراثون.",
+    metrics: [{ value: "11.5M", label: "الظهور" }, { value: "3.1M", label: "المشاهدات" }, { value: "112K", label: "التفاعلات" }, { value: "186", label: "المنشورات" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
+    img: "assets/web/wheel-visitors.webp", shotLabel: "تغطية يوم السباق — ماراثون الرياض" },
+  { tab: "معرض بنان", year: "2024 — أسبوع الحرف اليدوية الدولي السعودي (بنان)", name: "معرض بنان 2024",
+    body: "بصفتنا الشريك التسويقي للأسبوع الدولي للحرف اليدوية (بنان) 2024، تولت تاكت إبراز هذا الحدث الثقافي المميز الذي يجمع الحرفيين من المملكة ومختلف دول العالم. ركّزنا على تقديم محتوى رقمي يسلّط الضوء على أصالة الحِرف اليدوية وتنوعها، والترويج للأجنحة والورش التفاعلية، مما ساهم في جذب الزوار والمهتمين بالفنون التقليدية، وتعزيز مكانة المعرض كمنصة عالمية للتراث والإبداع الحِرفي.",
+    metrics: [{ value: "11.5M", label: "الظهور" }, { value: "3.1M", label: "المشاهدات" }, { value: "112K", label: "التفاعلات" }, { value: "186", label: "المنشورات" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
+    img: "assets/web/banan-booth.webp", shotLabel: "صور الحرفيين — معرض بنان" },
+  { tab: "عش بصحة", year: "2024 — ملتقى الصحة العالمي", name: "مساحة عش بصحة",
+    body: "بصفتنا الشريك التسويقي لمساحة \"عش بصحة\" في ملتقى الصحة العالمي 2024، تولت \"تاكت\" مهمة إبراز هذا الجناح التوعوي الاستثنائي. من خلال إنتاج محتوى رقمي تفاعلي، ركزنا على الأنشطة والفعاليات التي تعزز تبني أنماط الحياة الصحية. هدفنا تحفيز زوار الملتقى على التفاعل مع التجارب المقدمة داخل المساحة طوال أيام انعقاد الملتقى، وترك بصمة توعوية تسهم في إحداث تغيير إيجابي ملموس في المجتمع.",
+    metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
+    img: "assets/web/vr.webp", shotLabel: "تجربة الجناح — مساحة عش بصحة" },
+  { tab: "ملتقى الترجمة", year: "2025 — ملتقى الترجمة الدولي", name: "ملتقى الترجمة الدولي 2025",
+    body: "بصفتنا شريك التواصل الرقمي لملتقى الترجمة الدولي 2025، تولت \"تاكت\" إدارة الحضور الرقمي للحدث، حيث قمنا بإنتاج محتوىً متخصص يبرز جلسات الملتقى ورؤى ضيوفه من المترجمين والمختصين. سلطنا الضوء بفاعلية على الدور المحوري للترجمة في نقل المعرفة وتقريب الثقافات، مع تقديم تغطية مكثفة واكبت تفاصيل الملتقى طوال أيامه، لتعكس القيمة المعرفية لهذا الحدث العالمي وتصل بها إلى الجمهور الرقمي.",
+    metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
+    img: "assets/web/booth-screen.webp", shotLabel: "تغطية الجلسات — منتدى الترجمة الدولي" }
 ];
 
 const AWARDS_AR = [
-  { title: "أفضل حملة تسويق رقمي", body: "لمسابقة المهارات الثقافية مع وزارة الثقافة — أكثر من 556 مليون ظهور و15.8 مليون تفاعل.", metricLabel: "ظهور" },
-  { title: "أفضل حملة إعلامية متكاملة", body: "لحملة موسم رمضان 1445 — أكثر من 245 مليون ظهور و55 مليون مشاهدة فيديو.", metricLabel: "مشاهدات الفيديو" },
-  { title: "أفضل استخدام للحملات التقليدية", body: "لحملة يوم التأسيس، من فكرة محلية إلى إنجاز عالمي، بأكثر من 1.1 مليار مشاهدة.", metricLabel: "مشاهدات" },
-  { title: "أفضل حملة تسويق عبر المؤثرين", body: "لحملة المؤثرين في ماراثون الرياض 2025، بأكثر من 41 مؤثراً وجذب أكثر من 40,000 مشارك.", metricLabel: "مشاركون" }
+  { title: "أفضل حملة تسويق رقمي", body: "عن مسابقة \"المهارات الثقافية\" بالتعاون مع وزارة الثقافة، محققة أكثر من 556 مليون ظهور و 15.8 مليون تفاعل.", metricLabel: "الظهور" },
+  { title: "أفضل حملة إعلامية متكاملة", body: "عن \"حملة موسم رمضان 1445\"، محققةً أكثر من 245 مليون ظهور و 55 مليون مشاهدة فيديو.", metricLabel: "مشاهدات الفيديو" },
+  { title: "أفضل استخدام للحملات التقليدية", body: "عن \"حملة يوم التأسيس\" (من فكرة محلية لإنجاز عالمي)، بوصول تجاوز 1.1 مليار مشاهدة.", metricLabel: "المشاهدات" },
+  { title: "أفضل حملة تسويق بالمؤثرين", body: "عن \"حملة المؤثرين لماراثون الرياض 2025\" (حملة إكسبو)، بمشاركة أكثر من 41 مؤثرًا واستقطاب أكثر من 40,000 مشارك.", metricLabel: "المشاركون" }
 ];
 
 const ISO_NAMES_AR = ["أنظمة إدارة المشاريع", "أنظمة إدارة المخاطر", "أنظمة إدارة الجودة", "الصحة والسلامة المهنية", "أنظمة الإدارة البيئية"];
@@ -2169,6 +2230,17 @@ const T_EN = {
   calLead: "The tact 2026 calendar brings together the key events and dates that organise your work and your days, across the Gregorian year and Hijri 1447 to 1448.",
   calDownload: "Download the calendar", calApp: "Get the app", calTap: "Replay the app intro",
   calDeskAlt: "The tact 2026 desk calendar", calIllusAlt: "Illustrations from the tact 2026 calendar",
+  calToday: "Today", calHijri: "Hijri", calDownloadFull: "Download the calendar (PDF)",
+  calYearKicker: "The year", calYearHead: "Twelve months, two calendars",
+  calPrev: "Previous month", calNext: "Next month", calNoOccasions: "No national occasions",
+  calKeyKicker: "Key dates", calKeyHead: "The occasions that shape the year",
+  calKeyNote: "Hijri dates follow the official moon-sighting announcement and may shift by a day.",
+  calIllusKicker: "Illustrations", calIllusHead: "A Kingdom drawn month by month",
+  calIllusLead: "Each month carries its own illustration: places, crafts and moments from across the Kingdom.",
+  calAppHead: "Keep the year with you",
+  calAppLead: "Download the PDF to print at your desk, or get the app for the dates on your phone.",
+  calDownloadOn: "Download on the", calGetItOn: "Get it on",
+  calPrintVer: "Print version", calPdf: "PDF ↓",
   company: "Company", pages: "Pages", studio: "Studio", accredited: "Accredited", localTime: "Local time",
   riyadh: "Riyadh", ksa: "Kingdom of Saudi Arabia", viewMaps: "View on Google Maps", contactUs: "Contact us",
   copyright: "© 2026 tact Digital Communications. All rights reserved.", crvat: "CR [number]  ·  VAT [number]", top: "Top",
@@ -2192,19 +2264,30 @@ const T_AR = {
   calLead: "تقويم تاكت 2026 وصل بأهم الأحداث والتواريخ اللي تنظّم أعمالكم وترتّب أيامكم، بالتاريخين الميلادي والهجري 1447 و1448.",
   calDownload: "حمّل التقويم", calApp: "حمّل التطبيق", calTap: "أعد عرض مقدمة التطبيق",
   calDeskAlt: "تقويم تاكت المكتبي 2026", calIllusAlt: "رسومات من تقويم تاكت 2026",
+  calToday: "اليوم", calHijri: "الهجري", calDownloadFull: "تحميل التقويم (PDF)",
+  calYearKicker: "على مدار العام", calYearHead: "اثنا عشر شهراً، بتقويمين",
+  calPrev: "الشهر السابق", calNext: "الشهر التالي", calNoOccasions: "لا توجد مناسبات وطنية",
+  calKeyKicker: "محطات بارزة", calKeyHead: "المناسبات التي تصنع إيقاع العام",
+  calKeyNote: "تعتمد التواريخ الهجرية على الرؤية الشرعية للهلال وقد تختلف بيوم واحد.",
+  calIllusKicker: "رسومات فنية", calIllusHead: "المملكة.. شهراً بعد شهر",
+  calIllusLead: "لكل شهر لوحته الخاصة: معالم، وحِرف، ولحظات من مختلف أرجاء المملكة.",
+  calAppHead: "ليكن عامك معك أينما كنت",
+  calAppLead: "حمّل نسخة PDF لطباعتها على مكتبك، أو احصل على التطبيق لتتابع مواعيدك على هاتفك.",
+  calDownloadOn: "حمّله من", calGetItOn: "احصل عليه عبر",
+  calPrintVer: "نسخة الطباعة", calPdf: "PDF ↓",
   company: "الشركة", pages: "الصفحات", studio: "الاستوديو", accredited: "الاعتمادات", localTime: "التوقيت المحلي",
   riyadh: "الرياض", ksa: "المملكة العربية السعودية", viewMaps: "الموقع على خرائط جوجل", contactUs: "تواصل معنا",
   copyright: "© 2026 تاكت للاتصال الرقمي. جميع الحقوق محفوظة.", crvat: "س.ت [رقم]  ·  الرقم الضريبي [رقم]", top: "أعلى",
   menu: "القائمة", close: "إغلاق", contact: "تواصل", startProject: "ابدأ مشروعاً",
-  heroKicker: "الرياض، المملكة العربية السعودية — منذ 2014", h1a: "نبني", h1b: "قيمة حقيقية", h1c: "من خلال الاتصال", h1d: "الرقمي",
-  heroLead: "شركة سعودية رائدة في الاتصال الرقمي — الاستراتيجية والمحتوى والحملات والقياس تحت سقف واحد، ينجزها فريق يبقى مع الحساب.",
+  heroKicker: "الرياض، المملكة العربية السعودية — منذ 2014", h1a: "نبني", h1b: "قيمة حقيقية", h1c: "من خلال التواصل", h1d: "الرقمي",
+  heroLead: "نبني قيمة حقيقية من خلال التواصل الرقمي — الاستراتيجية والمحتوى والحملات والقياس تحت سقف واحد، ينجزها فريق يبقى مع الحساب.",
   footerDesc: "شركة سعودية رائدة في الاتصال الرقمي — الاستراتيجية والمحتوى والحملات والقياس تحت سقف واحد، ينجزها فريق يبقى مع الحساب.",
   seeWork: "شاهد أعمالنا", watchPromo: "شاهد الفيلم التعريفي", heroPhotoCap: "عشر سنوات من تاكت — تفعيل، الرياض", annualReach: "الوصول الرقمي السنوي",
-  servicesKicker: "خدماتنا", whatWeDo: "ما نقوم به", servicesIntro: "خمس خدمات متكاملة. معظم شركائنا يبدأ بواحدة، وينتهي بإدارة حضوره الرقمي بالكامل معنا. اختر خدمة لقراءتها.",
+  servicesKicker: "خدماتنا", whatWeDo: "الخدمات", servicesIntro: "خمس خدمات متكاملة. معظم شركائنا يبدأ بواحدة، وينتهي بإدارة حضوره الرقمي بالكامل معنا. اختر خدمة لقراءتها.",
   numbersKicker: "تاكت بالأرقام", numbersHead: "عقد من العمل، محسوباً", numbersNote: "كل رقم أدناه تراكمي عبر الحسابات والحملات والفعاليات التي أدارتها تاكت منذ 2014.",
   sectorsKicker: "القطاعات", sectorsHead: "قطاعات نعرفها", sectorsIntro: "الثقافة والصحة والرياضة والترفيه والتقنية — لكل قطاع جمهوره ونبرته وإيقاعه.",
-  partnersKicker: "الشراكات", partnersHead: "شراكات تصنع الأثر", partnersIntro: "في تاكت نؤمن أن الشراكة الناجحة ليست حضوراً فقط — بل فرصة لخلق أثر يبقى بعد انتهاء الحدث.", servicesDelivered: "الخدمات المقدمة",
-  awardsKicker: "الجوائز — ديجيتال مينا 2025", awardsHead: "أربع جوائز لأعمال صُنعت في المملكة", awardsIntro: "عبر مسيرتنا، ومع عملائنا، قدنا حملات كبرى وحققنا أفضل النتائج — بمنهجية تضع العميل أولاً، وفريق يبحث عن النجاح في كل تحدٍ.",
+  partnersKicker: "الشراكات", partnersHead: "شراكات تصنع أثرًا", partnersIntro: "في تاكت، نؤمن أن الشراكة الناجحة ما تكون مجرد حضور، بل فرصة نصنع من خلالها أثرًا يمتد أبعد من الحدث.", servicesDelivered: "الخدمات المقدمة",
+  awardsKicker: "الجوائز — ديجيتال مينا 2025", awardsHead: "أربع جوائز لأعمال صُنعت في المملكة", awardsIntro: "خلال مسيرتنا الممتدة؛ وبالشراكة مع عملائنا، قدنا كبرى الحملات، وحققنا أفضل النتائج، بالاعتماد على منهجية تضع العميل أوّلًا، وتسخّر الخبرات والكفاءات لتحقيق المنجزات التي نفخر دومًا بتحقيقها، مع فريقنا الذي يبحث عن النجاح في كل تحدّي.",
   accredKicker: "الاعتمادات", accredHead: "معتمدون للعمل مع الجهات الحكومية", accredIntro: "خمسة أنظمة آيزو مدققة في إدارة المشاريع والمخاطر والجودة والسلامة والبيئة — وهي المعايير التي تطلبها الوزارات والهيئات والمواسم من شركائها.", viewCert: "عرض الشهادة",
   valuesKicker: "قيمنا", valuesHead: "قيم نؤمن بها، وأثر نصنعه", valuesIntro: "خمسة التزامات تشكّل طريقة عمل الفريق يوماً بيوم.",
   ctaHead: "تاكت، نصنع الأثر", ctaBody: "أرسل لنا موجزك ونعود إليك بخطة وفريق وجدول زمني."
@@ -2253,7 +2336,7 @@ const HS_CASES = [
 const HS0 = { slide: 0, prev: -1, dir: 1, paused: false, on: false };
 // Client logos as SVG: add the slot id here once its file is in assets/logos/<id>.svg
 const LOGO_SVG = {"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86};
-const logoItem = (name, id) => { const r = LOGO_SVG[id], has = !!r, span = !has || r <= 2 ? 2 : r <= 3.2 ? 3 : 6; return { name, id, hasSvg: has, noSvg: !has, svg: has ? "assets/logos/" + id + (id === "logo-cyberani" ? ".png" : ".svg") : "", svgBg: has ? "url(assets/logos/" + id + (id === "logo-cyberani" ? ".png" : ".svg") + ")" : "none", span: "span " + span, w: span === 6 ? "100%" : span === 3 ? "190px" : "" }; };
+const logoItem = (name, id) => { const r = LOGO_SVG[id], has = !!r, span = !has || r <= 2 ? 2 : r <= 3.2 ? 3 : 6; return { name, id, hasSvg: has, noSvg: !has, svg: has ? "assets/logos/" + id + (id === "logo-cyberani" ? ".webp" : ".svg") : "", svgBg: has ? "url(assets/logos/" + id + (id === "logo-cyberani" ? ".webp" : ".svg") + ")" : "none", span: "span " + span, w: span === 6 ? "100%" : span === 3 ? "190px" : "" }; };
 const ROUTES = ["home", "services", "sectors", "work", "about", "leadership", "history", "why", "calendar", "contact", "stories"];
 class Component extends DCLogic {
   state = { lang: (() => { try { return localStorage.getItem("tact-lang") || "en"; } catch (e) { return "en"; } })(), page: (() => { try { const m = /^#\/([a-z]+)$/.exec(location.hash); if (m && ROUTES.includes(m[1])) return m[1]; const s = sessionStorage.getItem("tact-page"); return s && (ROUTES.includes(s) || s === "legal") ? s : "home"; } catch (e) { return "home"; } })(), legalIdx: (() => { try { return +(sessionStorage.getItem("tact-legal") || 0); } catch (e) { return 0; } })(), openSector: 0, openRow: 1, caseIdx: 0, t: 0, intro: (() => { try { return !window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return true; } })(), w: typeof window !== "undefined" ? window.innerWidth : 1200, menuOpen: false, slide: 0, hoverService: -1 };
@@ -2367,7 +2450,7 @@ class Component extends DCLogic {
         tr: act ? "opacity .8s ease " + (620 + k * 110) + "ms, transform 1s " + HS_EO + " " + (620 + k * 110) + "ms" : prev ? "opacity .35s ease, transform .5s " + HS_IO : "opacity .2s ease" });
       const m = s.m || {}, dd = d * rtl;
       return { i, label: s.label, kicker: s.kicker, isHead: !!s.head, isCase: !s.head,
-        bg: "background-image: url(assets/web/" + s.img + ".jpg)", z: act ? 3 : prev ? 2 : 1,
+        bg: "background-image: url(assets/web/" + s.img + ".webp)", z: act ? 3 : prev ? 2 : 1,
         clip: act || prev || R ? "inset(0 0 0 0)" : dd > 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
         clipT: act && !R ? "clip-path 1.2s " + HS_IO : "none",
         kb: R || s.head ? "none" : act ? "scale(1)" : prev ? "translateX(" + (-8 * dd) + "%) scale(1.02)" : "scale(1.16)",
@@ -3119,17 +3202,31 @@ class Component extends DCLogic {
   }
 
   cpVals() {
-    const M = [
+    const ar = this.state.lang === "ar";
+    const M_EN = [
       ["January", "Jan", "Rajab, Sha'ban 1447"], ["February", "Feb", "Sha'ban, Ramadan 1447"], ["March", "Mar", "Ramadan, Shawwal 1447"],
       ["April", "Apr", "Shawwal, Dhu al-Qa'dah 1447"], ["May", "May", "Dhu al-Qa'dah, Dhu al-Hijjah 1447"], ["June", "Jun", "Dhu al-Hijjah 1447, Muharram 1448"],
       ["July", "Jul", "Muharram, Safar 1448"], ["August", "Aug", "Safar, Rabi' al-Awwal 1448"], ["September", "Sep", "Rabi' al-Awwal, Rabi' al-Thani 1448"],
       ["October", "Oct", "Rabi' al-Thani, Jumada al-Ula 1448"], ["November", "Nov", "Jumada al-Ula, Jumada al-Akhirah 1448"], ["December", "Dec", "Jumada al-Akhirah, Rajab 1448"]
     ];
-    const K = [
+    const M_AR = [
+      ["يناير", "يناير", "رجب، شعبان 1447"], ["فبراير", "فبراير", "شعبان، رمضان 1447"], ["مارس", "مارس", "رمضان، شوال 1447"],
+      ["أبريل", "أبريل", "شوال، ذو القعدة 1447"], ["مايو", "مايو", "ذو القعدة، ذو الحجة 1447"], ["يونيو", "يونيو", "ذو الحجة 1447، محرم 1448"],
+      ["يوليو", "يوليو", "محرم، صفر 1448"], ["أغسطس", "أغسطس", "صفر، ربيع الأول 1448"], ["سبتمبر", "سبتمبر", "ربيع الأول، ربيع الآخر 1448"],
+      ["أكتوبر", "أكتوبر", "ربيع الآخر، جمادى الأولى 1448"], ["نوفمبر", "نوفمبر", "جمادى الأولى، جمادى الآخرة 1448"], ["ديسمبر", "ديسمبر", "جمادى الآخرة، رجب 1448"]
+    ];
+    const M = ar ? M_AR : M_EN;
+    const K_EN = [
       [1, 18, "Ramadan begins", "1 Ramadan 1447"], [1, 22, "Founding Day", "National occasion"], [2, 11, "Flag Day", "National occasion"],
       [2, 20, "Eid al-Fitr", "1 Shawwal 1447"], [4, 26, "Day of Arafah", "9 Dhu al-Hijjah 1447"], [4, 27, "Eid al-Adha", "10 Dhu al-Hijjah 1447"],
       [5, 16, "Islamic New Year", "1 Muharram 1448"], [8, 23, "Saudi National Day", "National occasion"]
     ];
+    const K_AR = [
+      [1, 18, "بداية شهر رمضان المبارك", "1 رمضان 1447"], [1, 22, "يوم التأسيس", "مناسبة وطنية"], [2, 11, "يوم العلم", "مناسبة وطنية"],
+      [2, 20, "عيد الفطر المبارك", "1 شوال 1447"], [4, 26, "يوم عرفة", "9 ذو الحجة 1447"], [4, 27, "عيد الأضحى المبارك", "10 ذو الحجة 1447"],
+      [5, 16, "رأس السنة الهجرية", "1 محرم 1448"], [8, 23, "اليوم الوطني السعودي", "مناسبة وطنية"]
+    ];
+    const K = ar ? K_AR : K_EN;
     const a = this.state.cpA ?? (new Date().getFullYear() === 2026 ? new Date().getMonth() : 1), b = 0, mod = (n) => (n + 12) % 12;
     const build = (i) => {
       const off = new Date(2026, i, 1).getDay(), len = new Date(2026, i + 1, 0).getDate(), ev = K.filter((k) => k[0] === i);
@@ -3143,9 +3240,11 @@ class Component extends DCLogic {
       return { num: String(i + 1).padStart(2, "0"), name: M[i][0], hijri: M[i][2], cells, cellsB, events: ev.map((k) => ({ day: k[1] + " " + M[i][1], title: k[2] })), none: !ev.length };
     };
     return {
-      weekdays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      prevArrow: ar ? "→" : "←",
+      nextArrow: ar ? "←" : "→",
+      weekdays: ar ? ["أحد", "إثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"] : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       aNum: String(a + 1).padStart(2, "0"),
-      aShift: (-Math.min(a, 9) * 396) + "px",
+      aShift: (ar ? (Math.min(a, 9) * 396) : (-Math.min(a, 9) * 396)) + "px",
       aPrev: () => this.setState({ cpA: mod(a - 1) }), aNext: () => this.setState({ cpA: mod(a + 1) }),
       toApp: (e) => { if (e && e.preventDefault) e.preventDefault(); const el = document.getElementById("cal-app-a"); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" }); },
       monthsA: M.map((_, i) => { const on = i === a; return { ...build(i), bg: on ? "#f7f5f2" : "#323234", ink: on ? "#282829" : "#f7f5f2", op: on ? "1" : ".82", rule: on ? "rgba(40,40,41,.14)" : "rgba(247,245,242,.14)", pick: () => this.setState({ cpA: i }) }; }),
@@ -3157,12 +3256,22 @@ class Component extends DCLogic {
       heroRings: Array.from({ length: 11 }, (_, i) => i),
       today: (() => {
         const now = new Date(), t = now.getFullYear() === 2026 ? now : new Date(2026, 0, 1), mi = t.getMonth(), dd = t.getDate();
-        const off = new Date(2026, mi, 1).getDay(), len = new Date(2026, mi + 1, 0).getDate(), WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-        let hijri = ""; try { hijri = new Intl.DateTimeFormat("en-u-ca-islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }).format(t).replace(/ AH$/, ""); } catch (e) {}
+        const off = new Date(2026, mi, 1).getDay(), len = new Date(2026, mi + 1, 0).getDate();
+        const WD = ar ? ["أحد", "إثن", "ثلا", "أرب", "خمي", "جمع", "سبت"] : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        let hijri = "";
+        try { hijri = new Intl.DateTimeFormat(ar ? "ar-SA-u-ca-islamic-umalqura" : "en-u-ca-islamic-umalqura", { day: "numeric", month: "long", year: "numeric" }).format(t).replace(/ AH$/, "").replace(/ هـ$/, "") + (ar ? " هـ" : ""); } catch (e) {}
         const cells = []; for (let j = 0; j < off; j++) cells.push({ d: "", bg: "transparent", ink: "inherit", fw: "400" });
         for (let d = 1; d <= len; d++) cells.push({ d, bg: d === dd ? "#f15d2a" : "transparent", ink: d === dd ? "#fff" : (d < dd ? "rgba(40,40,41,.35)" : "#282829"), fw: d === dd ? "600" : "400" });
-        return { day: String(dd).padStart(2, "0"), month: M[mi][0], weekday: t.toLocaleDateString("en-GB", { weekday: "long" }), hijri, long: dd + " " + M[mi][0] + " 2026", cells, len,
-          ribbon: Array.from({ length: len }, (_, k) => ({ d: k + 1, w: WD[(off + k) % 7].toUpperCase(), bg: k + 1 === dd ? "#f15d2a" : "transparent", ink: k + 1 === dd ? "#fff" : (k + 1 < dd ? "rgba(247,245,242,.35)" : "#f7f5f2") })) };
+        return {
+          day: String(dd).padStart(2, "0"),
+          month: M[mi][0],
+          weekday: ar ? t.toLocaleDateString("ar-SA", { weekday: "long" }) : t.toLocaleDateString("en-GB", { weekday: "long" }),
+          hijri,
+          long: dd + " " + M[mi][0] + " 2026",
+          cells,
+          len,
+          ribbon: Array.from({ length: len }, (_, k) => ({ d: k + 1, w: WD[(off + k) % 7], bg: k + 1 === dd ? "#f15d2a" : "transparent", ink: k + 1 === dd ? "#fff" : (k + 1 < dd ? "rgba(247,245,242,.35)" : "#f7f5f2") }))
+        };
       })(),
       keyDates: K.map((k) => ({ short: k[1] + " " + M[k[0]][1], month: M[k[0]][0], day: String(k[1]), title: k[2], hijri: k[3] }))
     };
@@ -3275,6 +3384,8 @@ class Component extends DCLogic {
     const STATS = ar ? STATS_AR : STATS_EN;
     const CASES = ar ? CASES_AR : CASES_EN;
     const VALUES = ar ? VALUES_AR : VALUES_EN;
+    const LEADERS = ar ? LEADERS_AR : LEADERS_EN;
+    const STORIES = ar ? STORIES_AR : STORIES_EN;
     const TX = ar ? T_AR : T_EN;
     const { page, openSector, caseIdx, t, w, menuOpen } = this.state;
     const accent = this.props.accentColor ?? "#f15d2a";
@@ -3361,11 +3472,11 @@ class Component extends DCLogic {
       timeline: TIMELINE.map((t, i) => ({ ...t, num: String(i + 1).padStart(2, "0"), img: TL_IMG[i % TL_IMG.length], order: i % 2 ? -1 : 0 })),
       goLeadership: this.go("leadership"),
       ...(() => {
-        const nar = w < 1040, ai = this.state.abIdx || 0, words = (this.state.lang === "ar" ? (x) => ((window.TACT_AR || {})[x] ?? x) : (x) => x)(AB_STATEMENT).split(" ");
+        const nar = w < 1040, ai = this.state.abIdx || 0, words = (this.state.lang === "ar" ? "حققت المملكة قفزات نوعية في الوعي على كافة الأصعدة خلال العقد الماضي، وكان هذا الزخم أساس انطلاقتنا. ومن خلال شراكاتنا في مختلف القطاعات نتطلع إلى بناء مجتمعات رقمية فعّالة تسهم في تحقيق رؤية السعودية 2030." : AB_STATEMENT).split(" ");
         return {
           abWords: words.map((t, i) => ({ t, c: i >= words.length - 3 ? "#f15d2a" : "inherit" })),
           abValDir: nar ? "column" : "row", abValNum: "0" + (ai + 1),
-          abVals: AB_VALUES.map((v, i) => { const on = i === ai; return { ...v, num: "0" + (i + 1), flex: on ? (nar ? 5 : 4) : 1, bg: on ? "#f15d2a" : "rgba(247,245,242,.04)", bd: on ? "#f15d2a" : "rgba(247,245,242,.16)", fg: on ? "#ffffff" : "#f7f5f2", vOp: !nar && !on ? 1 : 0, tOp: nar || on ? 1 : 0, bOp: on ? 1 : 0, bDisp: on || !nar ? "block" : "none", numDisp: nar && !on ? "none" : "block", exp: on ? "true" : "false", minW: on ? "0" : "min(30ch, 60vw)", go: () => this.goAbVal(i) }; })
+          abVals: (ar ? VALUES_AR : AB_VALUES).map((v, i) => { const on = i === ai; return { ...v, num: "0" + (i + 1), flex: on ? (nar ? 5 : 4) : 1, bg: on ? "#f15d2a" : "rgba(247,245,242,.04)", bd: on ? "#f15d2a" : "rgba(247,245,242,.16)", fg: on ? "#ffffff" : "#f7f5f2", vOp: !nar && !on ? 1 : 0, tOp: nar || on ? 1 : 0, bOp: on ? 1 : 0, bDisp: on || !nar ? "block" : "none", numDisp: nar && !on ? "none" : "block", exp: on ? "true" : "false", minW: on ? "0" : "min(30ch, 60vw)", go: () => this.goAbVal(i) }; })
         };
       })(),
       whyItems: WHY,
@@ -3413,7 +3524,7 @@ class Component extends DCLogic {
         const si = this.state.storyIdx || 0, on = !!this.state.storyBar, pad = (n) => String(n).padStart(2, "0");
         return {
           stories: STORIES.map((st, i) => {
-            const k = STORY_STATS[i] || { to: st.services.length, label: "services delivered" };
+            const stStats = ar ? STORY_STATS_AR : STORY_STATS; const k = stStats[i] || { to: st.services.length, label: ar ? "الخدمات المقدمة" : "services delivered" };
             const body = (this.state.lang === "ar" ? (x) => ((window.TACT_AR || {})[x] ?? x) : (x) => x)(st.body), q = body.search(/[?؟] /), d = body.search(/[.؛] /);
             const cut = q > 0 && q < 260 ? q + 1 : (d > 0 ? d + 1 : body.length);
             const dark = i % 2 === 1;
@@ -3432,8 +3543,12 @@ class Component extends DCLogic {
       })(),
       founder: (() => { const l = LEADERS[0]; return { ...l, imgUrl: l.img ? "url(" + l.img + ")" : "none", slotLabel: l.img ? "none" : "block" }; })(),
       ceo: (() => { const l = LEADERS[1]; return { ...l, nameShown: l.name || "Name to be added", nameOp: l.name ? "1" : ".62", imgUrl: l.img ? "url(" + l.img + ")" : "none", slotLabel: l.img ? "none" : "block" }; })(),
-      leaders: LEADERS.slice(2).map((l, i) => ({ ...l, num: String(i + 1).padStart(2, "0"), nameShown: l.name || "Name to be added", nameOp: l.name ? "1" : ".62", imgUrl: l.img ? "url(" + l.img + ")" : "none", slotLabel: l.img ? "none" : "block" })),
+      leaders: LEADERS.slice(2).map((l, i) => ({ ...l, num: String(i + 1).padStart(2, "0"), nameShown: l.name || "Name to be added", nameOp: l.name ? "1" : ".62", imgUrl: l.img ? "url(" + l.img + ")" : "none", iconDisplay: l.isIcon ? "flex" : "none", slotLabel: l.img || l.isIcon ? "none" : "block" })),
       goHome: this.go("home"), goContact: this.go("contact"), goCalendar: this.go("calendar"),
+      magLabel: ar ? "نصنع الأثر" : "We make an impact", magCta: ar ? "ابدأ مشروعك" : "Start a project",
+      magWords: (ar ? "نصنع الأثر" : "We make an impact").split(" ").map((w, wi) => ({ chars: (ar ? [w] : w.split("")).map((ch) => ({ ch, ink: wi >= (ar ? 1 : 2) ? "#f15d2a" : "#f7f5f2" })) })),
+      magMove: (e) => { if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return; e.currentTarget.querySelectorAll("[data-mag]").forEach((s) => { const r = s.getBoundingClientRect(), dx = r.left + r.width / 2 - e.clientX, dy = r.top + r.height / 2 - e.clientY, d = Math.hypot(dx, dy), f = Math.max(0, 1 - d / 220); s.style.transform = f ? "translate(" + (dx / (d || 1) * f * 34).toFixed(1) + "px," + (dy / (d || 1) * f * 34).toFixed(1) + "px) rotate(" + (dx / (d || 1) * f * 8).toFixed(1) + "deg)" : ""; }); },
+      magLeave: (e) => e.currentTarget.querySelectorAll("[data-mag]").forEach((s) => { s.style.transform = ""; }),
       calLabel: ar ? "تقويم تاكت" : "tact Calendar",
       ...(() => { const n = new Date(), d = n.getFullYear() === 2026 ? n : new Date(2026, 0, 1), nx = new Date(d.getTime() + 864e5); return { calDay: String(d.getDate()).padStart(2, "0"), calNext: String(nx.getDate()).padStart(2, "0") }; })(),
       calBd: page === "calendar" ? "#f15d2a" : (onDark ? "rgba(247,245,242,.28)" : "rgba(40,40,41,.18)"),
@@ -3524,15 +3639,15 @@ class Component extends DCLogic {
         const si = this.state.secIdx || 0, pad = (n) => String(n).padStart(2, "0"), wide = (w || window.innerWidth) >= 900 && window.innerHeight >= 600;
         const cnt = (c) => c.length ? (ar ? (c.length === 1 ? "عميل واحد" : c.length + " عملاء") : c.length + (c.length === 1 ? " client" : " clients")) : "";
         const ink = (b) => /^\[/.test(b) ? "rgba(247,245,242,.45)" : "rgba(247,245,242,.78)";
-        const cur = SECTOR_PAGE[si];
+        const secPage = ar ? SECTOR_PAGE_AR : SECTOR_PAGE; const cur = secPage[si];
         const lg = (c) => c.map((n) => logoItem(n, "logo-" + String(n).toLowerCase().replace(/[^a-z0-9]+/g, "-")));
         return {
-          secWide: wide, secNarrow: !wide, secTotal: pad(SECTOR_PAGE.length),
-          secDrum: SECTOR_PAGE.map((x, i) => ({ name: x.name, num: pad(i + 1), go: () => this.goSector(i) })),
+          secWide: wide, secNarrow: !wide, secTotal: pad(secPage.length),
+          secDrum: secPage.map((x, i) => ({ name: x.name, num: pad(i + 1), go: () => this.goSector(i) })),
           secCur: { ...cur, logos: lg(cur.clients), num: pad(si + 1), count: cnt(cur.clients), bodyInk: ink(cur.body), cliDisp: cur.clients.length ? "flex" : "none" },
-          secTicks: SECTOR_PAGE.map((_, i) => ({ bg: i <= si ? "#f15d2a" : "rgba(247,245,242,.14)" })),
-          secList: SECTOR_PAGE.map((x, i) => ({ ...x, logos: lg(x.clients), num: pad(i + 1), bodyInk: ink(x.body) })),
-          rows: SECTOR_PAGE.map((x, i) => {
+          secTicks: secPage.map((_, i) => ({ bg: i <= si ? "#f15d2a" : "rgba(247,245,242,.14)" })),
+          secList: secPage.map((x, i) => ({ ...x, logos: lg(x.clients), num: pad(i + 1), bodyInk: ink(x.body) })),
+          rows: secPage.map((x, i) => {
             const on = this.state.rowHov === i, has = x.clients.length > 0;
             const base = x.clients.map((n) => { const id = "logo-" + String(n).toLowerCase().replace(/[^a-z0-9]+/g, "-"), r = LOGO_SVG[id];
               if (!r) return { name: n, w: 0, h: 40, bg: "transparent", txt: n, f: "none" };
@@ -3548,7 +3663,7 @@ class Component extends DCLogic {
           })
         };
       })(),
-      sectorRows: SECTOR_PAGE.map((s, i) => {
+      sectorRows: (ar ? SECTOR_PAGE_AR : SECTOR_PAGE).map((s, i) => {
         const open = i === this.state.openRow;
         return {
           ...s,
@@ -3653,13 +3768,13 @@ class Component extends DCLogic {
         { title: "Best integrated media campaign", body: "For the Ramadan Season 1445 campaign — over 245 million impressions and 55 million video views.", metricLabel: "Video views" },
         { title: "Best use of traditional campaigns", body: "For the Founding Day campaign, from a local idea to a global achievement, reaching over 1.1 billion views.", metricLabel: "Views" },
         { title: "Best influencer marketing campaign", body: "For the Riyadh Marathon 2025 influencer campaign, with over 41 influencers and more than 40,000 participants attracted.", metricLabel: "Participants attracted" }
-      ]).map((a, i) => ({ ...a, img: "assets/awards/award-" + (i + 1) + ".png", slot: "award-" + (i + 1), slotLabel: ar ? "صورة الجائزة" : "Award image", metric: this.cnt(["556M", "55M", "1.1B", "40K+"][i], "awards") })),
+      ]).map((a, i) => ({ ...a, img: "assets/awards/award-" + (i + 1) + ".webp", slot: "award-" + (i + 1), slotLabel: ar ? "صورة الجائزة" : "Award image", metric: this.cnt(["556M", "55M", "1.1B", "40K+"][i], "awards") })),
       isoRows: [
-        { code: "ISO 21500:2021", name: "Project management systems", bg: "background-image: url(assets/iso/iso-21500.gif);", pdf: "assets/iso/iso-21500.pdf", thumb: "assets/iso/cert-21500.jpg" },
-        { code: "ISO 31000:2018", name: "Risk management systems", bg: "background-image: url(assets/iso/iso-31000.png);", pdf: "assets/iso/iso-31000.pdf", thumb: "assets/iso/cert-31000.jpg" },
-        { code: "ISO 9001:2015", name: "Quality management systems", bg: "background-image: url(assets/iso/iso-9001.jpg);", pdf: "assets/iso/iso-9001.pdf", thumb: "assets/iso/cert-9001.jpg" },
-        { code: "ISO 45001:2018", name: "Occupational health & safety", bg: "background-image: url(assets/iso/iso-45001.png);", pdf: "assets/iso/iso-45001.pdf", thumb: "assets/iso/cert-45001.jpg" },
-        { code: "ISO 14001:2015", name: "Environmental management systems", bg: "background-image: url(assets/iso/iso-14001.jpg);", pdf: "assets/iso/iso-14001.pdf", thumb: "assets/iso/cert-14001.jpg" }
+        { code: "ISO 21500:2021", name: "Project management systems", bg: "background-image: url(assets/iso/iso-21500.webp);", pdf: "assets/iso/iso-21500.pdf", thumb: "assets/iso/cert-21500.webp" },
+        { code: "ISO 31000:2018", name: "Risk management systems", bg: "background-image: url(assets/iso/iso-31000.webp);", pdf: "assets/iso/iso-31000.pdf", thumb: "assets/iso/cert-31000.webp" },
+        { code: "ISO 9001:2015", name: "Quality management systems", bg: "background-image: url(assets/iso/iso-9001.webp);", pdf: "assets/iso/iso-9001.pdf", thumb: "assets/iso/cert-9001.webp" },
+        { code: "ISO 45001:2018", name: "Occupational health & safety", bg: "background-image: url(assets/iso/iso-45001.webp);", pdf: "assets/iso/iso-45001.pdf", thumb: "assets/iso/cert-45001.webp" },
+        { code: "ISO 14001:2015", name: "Environmental management systems", bg: "background-image: url(assets/iso/iso-14001.webp);", pdf: "assets/iso/iso-14001.pdf", thumb: "assets/iso/cert-14001.webp" }
       ].map((r, i) => ({ ...r, name: ar ? ISO_NAMES_AR[i] : r.name })),
       awards: [
         { title: "Best digital marketing campaign", body: "For the Cultural Skills competition with the Ministry of Culture — over 556 million impressions and 15.8 million engagements." },
@@ -3689,19 +3804,27 @@ class Component extends DCLogic {
         };
       }),
       activeValue: { ...VALUES[this.state.valueIdx || 0], num: "0" + ((this.state.valueIdx || 0) + 1) },
-      values: [
+      values: ar ? VALUES_AR : [
         { title: "Responsibility", body: "We embed a sense of responsibility in every task we take on, built on mutual trust and full belief in each other's skills." },
         { title: "Credibility", body: "We rely on honesty and transparency in all our dealings, inside and out, and trust that this is what sustains our quality." },
         { title: "Flexibility", body: "We adapt to change quickly and professionally, and meet our clients' needs at all times." },
         { title: "Effectiveness", body: "We work to achieve our partners' goals through creative solutions, active initiative, fast response and professional execution." },
         { title: "Mastery", body: "We work with precision and high productivity, because we believe in one entity: we are a mirror of our partners, and their success is ours." }
       ],
-      core: [
+      core: ar ? [
+        { label: "الغاية", body: "تمكين الجميع من تحقيق أهدافهم وطموحاتهم عبر تواصل رقمي متنوع وممتد." },
+        { label: "الرؤية", body: "أن نكون المزوّد الرائد لحلول التسويق والتواصل الرقمي في المملكة العربية السعودية وخارجها، على المستويين الإقليمي والدولي." },
+        { label: "الرسالة", body: "تقديم حلول تسويق وتواصل رقمي مبتكرة وفعّالة تلبي احتياجات عملائنا وتساعدهم على تحقيق أهداف أعمالهم." }
+      ] : [
         { label: "Purpose", body: "To empower everyone to achieve their goals and ambitions through diverse and expanded digital communication." },
         { label: "Vision", body: "To be the leading provider of digital marketing and communication solutions in the Kingdom of Saudi Arabia and beyond, on a regional and international scale." },
         { label: "Mission", body: "To deliver innovative and effective digital marketing and communication solutions that meet the needs of our clients and help them achieve their business goals." }
       ],
-      formFields: [
+      formFields: ar ? [
+        { label: "الاسم", placeholder: "اسمك الكامل" },
+        { label: "الجهة", placeholder: "الجهة أو الشركة" },
+        { label: "البريد الإلكتروني", placeholder: "you@organisation.sa" }
+      ] : [
         { label: "Name", placeholder: "Your full name" },
         { label: "Organisation", placeholder: "Entity or company" },
         { label: "Email", placeholder: "you@organisation.sa" }
