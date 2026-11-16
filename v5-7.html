@@ -434,7 +434,9 @@
                 </h2>
                 <sc-if value="{{ s.isHead }}" hint-placeholder-val="{{ true }}">
                   <div style="display: flex; flex-wrap: wrap; gap: 22px 40px; align-items: center; opacity: {{ s.f2.op }}; transform: {{ s.f2.tf }}; transition: {{ s.f2.tr }};">
-                    <p data-hs-lead="" style="margin: 0; max-width: 46ch; font-size: 16.5px; line-height: 1.7; color: rgba(247,245,242,.82);">{{ t.heroLead }}</p>
+                    <sc-if value="{{ t.heroLead }}">
+                      <p data-hs-lead="" style="margin: 0; max-width: 46ch; font-size: 16.5px; line-height: 1.7; color: rgba(247,245,242,.82);">{{ t.heroLead }}</p>
+                    </sc-if>
                     <button type="button" data-hs-nodrag="" onClick="{{ goWork }}" style="pointer-events: auto; border: 0; font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; background: #f15d2a; color: #fff; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; transition: background .3s ease, color .3s ease, transform .45s cubic-bezier(.23,1,.32,1);" style-hover="background: #f7f5f2; color: #282829; transform: translateY(-3px);">{{ t.seeWork }} <span>{{ arrow }}</span></button>
                   </div>
                 </sc-if>
@@ -2280,7 +2282,7 @@ const T_AR = {
   copyright: "© 2026 تاكت للاتصال الرقمي. جميع الحقوق محفوظة.", crvat: "س.ت [رقم]  ·  الرقم الضريبي [رقم]", top: "أعلى",
   menu: "القائمة", close: "إغلاق", contact: "تواصل", startProject: "ابدأ مشروعاً",
   heroKicker: "الرياض، المملكة العربية السعودية — منذ 2014", h1a: "نبني", h1b: "قيمة حقيقية", h1c: "من خلال التواصل", h1d: "الرقمي",
-  heroLead: "نبني قيمة حقيقية من خلال التواصل الرقمي — الاستراتيجية والمحتوى والحملات والقياس تحت سقف واحد، ينجزها فريق يبقى مع الحساب.",
+  heroLead: "",
   footerDesc: "شركة سعودية رائدة في الاتصال الرقمي — الاستراتيجية والمحتوى والحملات والقياس تحت سقف واحد، ينجزها فريق يبقى مع الحساب.",
   seeWork: "شاهد أعمالنا", watchPromo: "شاهد الفيلم التعريفي", heroPhotoCap: "عشر سنوات من تاكت — تفعيل، الرياض", annualReach: "الوصول الرقمي السنوي",
   servicesKicker: "خدماتنا", whatWeDo: "الخدمات", servicesIntro: "خمس خدمات متكاملة. معظم شركائنا يبدأ بواحدة، وينتهي بإدارة حضوره الرقمي بالكامل معنا. اختر خدمة لقراءتها.",
