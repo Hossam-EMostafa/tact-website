@@ -571,11 +571,13 @@
             </div>
           </div>
           <h3 data-swap="" style="--sd: 1; margin: 0 0 16px; font-size: clamp(22px, 2.4vw, 32px); letter-spacing: -.03em; line-height: 1.1; font-weight: 600;">{{ activeService.title }}</h3>
-          <p data-swap="" style="--sd: 2; margin: 0 0 16px; font-size: clamp(16px, 1.8vw, 21px); line-height: 1.55; color: #282829; max-width: 46ch;">{{ activeService.lead }}</p>
-          <p data-swap="" style="--sd: 3; margin: 0 0 28px; font-size: 15px; line-height: 1.75; color: rgba(40,40,41,.7); max-width: 52ch;">{{ activeService.body }}</p>
-          <div data-swap="" style="--sd: 4; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 10px;">
-            <sc-for list="{{ activeService.items }}" as="it" hint-placeholder-count="4">
-              <div style="border-top: 1px solid rgba(40,40,41,.18); padding-top: 10px; font-size: 13.5px; font-weight: 500; line-height: 1.4; transition: border-color .25s, padding-left .25s, color .25s;" style-hover="border-color: #f15d2a; padding-left: 8px; color: #f15d2a;">{{ it }}</div>
+          <p data-swap="" style="--sd: 2; margin: 0 0 24px; font-size: 15.5px; line-height: 1.75; color: rgba(40,40,41,.75); max-width: 54ch;">{{ activeService.body }}</p>
+          <div data-swap="" style="--sd: 3; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px;">
+            <sc-for list="{{ activeService.subServices }}" as="sub" hint-placeholder-count="4">
+              <div style="border-top: 1px solid rgba(40,40,41,.18); padding-top: 10px; transition: border-color .25s ease;" style-hover="border-color: #f15d2a;">
+                <div style="font-size: 14px; font-weight: 600; color: #282829; margin-bottom: 4px;">{{ sub.title }}</div>
+                <div style="font-size: 12.5px; line-height: 1.55; color: rgba(40,40,41,.68);">{{ sub.desc }}</div>
+              </div>
             </sc-for>
           </div>
         </div>
@@ -819,13 +821,20 @@
     <section data-sv="0" data-screen-label="Service 01" style="position: relative; height: {{ svH }}; background: #f7f5f2; color: #282829;">
       <div data-lines="" style="position: {{ svPos }}; top: 0; min-height: {{ svInnerH }}; box-sizing: border-box; padding: clamp(84px, 11vh, 120px) 28px clamp(40px, 6vh, 64px); display: flex; align-items: center;">
         <div style="max-width: 1320px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px 56px; align-items: center;">
-          <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0;">
+          <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0;">
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv0.num }}</span><span style="color: rgba(40,40,41,.74);">/ 05</span></div>
-            <h2 style="margin: 0; font-size: clamp(36px, 4.6vw, 72px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ sv0.title }}</h2>
-            <p style="margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; letter-spacing: -.01em; font-weight: 500; max-width: 46ch; text-wrap: pretty;">{{ sv0.lead }}</p>
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.75; color: rgba(40,40,41,.74); max-width: 58ch; text-wrap: pretty;">{{ sv0.body }}</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-              <sc-for list="{{ sv0.items }}" as="it" hint-placeholder-count="4"><span style="border: 1px solid rgba(40,40,41,.2); border-radius: 99px; padding: 9px 15px; font-size: 13px; font-weight: 500; transition: border-color .25s ease, color .25s ease, transform .3s cubic-bezier(.23,1,.32,1);" style-hover="border-color: #f15d2a; color: #f15d2a; transform: translateY(-2px);">{{ it }}</span></sc-for>
+            <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv0.title }}</h2>
+            <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(40,40,41,.74); max-width: 54ch; text-wrap: pretty;">{{ sv0.body }}</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+              <sc-for list="{{ sv0.subServices }}" as="sub" hint-placeholder-count="3">
+                <div style="background: rgba(40,40,41,.03); border: 1px solid rgba(40,40,41,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.04); transform: translateY(-2px);">
+                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
+                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
+                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  </div>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                </div>
+              </sc-for>
             </div>
           </div>
           <div style="order: 2; display: grid; min-width: 0;">
@@ -844,13 +853,20 @@
     <section data-sv="1" data-screen-label="Service 02" style="position: relative; height: {{ svH }}; background: #282829; color: #f7f5f2;">
       <div data-lines="" style="position: {{ svPos }}; top: 0; min-height: {{ svInnerH }}; box-sizing: border-box; padding: clamp(84px, 11vh, 120px) 28px clamp(40px, 6vh, 64px); display: flex; align-items: center;">
         <div style="max-width: 1320px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px 56px; align-items: center;">
-          <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0;">
+          <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0;">
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv1.num }}</span><span style="color: rgba(247,245,242,.74);">/ 05</span></div>
-            <h2 style="margin: 0; font-size: clamp(36px, 4.6vw, 72px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ sv1.title }}</h2>
-            <p style="margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; letter-spacing: -.01em; font-weight: 500; max-width: 46ch; text-wrap: pretty;">{{ sv1.lead }}</p>
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.75; color: rgba(247,245,242,.74); max-width: 58ch; text-wrap: pretty;">{{ sv1.body }}</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-              <sc-for list="{{ sv1.items }}" as="it" hint-placeholder-count="4"><span style="border: 1px solid rgba(247,245,242,.2); border-radius: 99px; padding: 9px 15px; font-size: 13px; font-weight: 500; transition: border-color .25s ease, color .25s ease, transform .3s cubic-bezier(.23,1,.32,1);" style-hover="border-color: #f15d2a; color: #f15d2a; transform: translateY(-2px);">{{ it }}</span></sc-for>
+            <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv1.title }}</h2>
+            <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(247,245,242,.74); max-width: 54ch; text-wrap: pretty;">{{ sv1.body }}</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+              <sc-for list="{{ sv1.subServices }}" as="sub" hint-placeholder-count="3">
+                <div style="background: rgba(247,245,242,.03); border: 1px solid rgba(247,245,242,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.06); transform: translateY(-2px);">
+                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
+                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
+                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #f7f5f2; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  </div>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(247,245,242,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                </div>
+              </sc-for>
             </div>
           </div>
           <div style="order: 0; display: grid; min-width: 0;">
@@ -868,13 +884,20 @@
     <section data-sv="2" data-screen-label="Service 03" style="position: relative; height: {{ svH }}; background: #f7f5f2; color: #282829;">
       <div data-lines="" style="position: {{ svPos }}; top: 0; min-height: {{ svInnerH }}; box-sizing: border-box; padding: clamp(84px, 11vh, 120px) 28px clamp(40px, 6vh, 64px); display: flex; align-items: center;">
         <div style="max-width: 1320px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px 56px; align-items: center;">
-          <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0;">
+          <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0;">
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv2.num }}</span><span style="color: rgba(40,40,41,.74);">/ 05</span></div>
-            <h2 style="margin: 0; font-size: clamp(36px, 4.6vw, 72px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ sv2.title }}</h2>
-            <p style="margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; letter-spacing: -.01em; font-weight: 500; max-width: 46ch; text-wrap: pretty;">{{ sv2.lead }}</p>
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.75; color: rgba(40,40,41,.74); max-width: 58ch; text-wrap: pretty;">{{ sv2.body }}</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-              <sc-for list="{{ sv2.items }}" as="it" hint-placeholder-count="4"><span style="border: 1px solid rgba(40,40,41,.2); border-radius: 99px; padding: 9px 15px; font-size: 13px; font-weight: 500; transition: border-color .25s ease, color .25s ease, transform .3s cubic-bezier(.23,1,.32,1);" style-hover="border-color: #f15d2a; color: #f15d2a; transform: translateY(-2px);">{{ it }}</span></sc-for>
+            <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv2.title }}</h2>
+            <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(40,40,41,.74); max-width: 54ch; text-wrap: pretty;">{{ sv2.body }}</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+              <sc-for list="{{ sv2.subServices }}" as="sub" hint-placeholder-count="3">
+                <div style="background: rgba(40,40,41,.03); border: 1px solid rgba(40,40,41,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.04); transform: translateY(-2px);">
+                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
+                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
+                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  </div>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                </div>
+              </sc-for>
             </div>
           </div>
           <div style="order: 2; display: grid; min-width: 0;">
@@ -897,13 +920,20 @@
     <section data-sv="3" data-screen-label="Service 04" style="position: relative; height: {{ svH }}; background: #282829; color: #f7f5f2;">
       <div data-lines="" style="position: {{ svPos }}; top: 0; min-height: {{ svInnerH }}; box-sizing: border-box; padding: clamp(84px, 11vh, 120px) 28px clamp(40px, 6vh, 64px); display: flex; align-items: center;">
         <div style="max-width: 1320px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px 56px; align-items: center;">
-          <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0;">
+          <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0;">
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv3.num }}</span><span style="color: rgba(247,245,242,.74);">/ 05</span></div>
-            <h2 style="margin: 0; font-size: clamp(36px, 4.6vw, 72px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ sv3.title }}</h2>
-            <p style="margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; letter-spacing: -.01em; font-weight: 500; max-width: 46ch; text-wrap: pretty;">{{ sv3.lead }}</p>
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.75; color: rgba(247,245,242,.74); max-width: 58ch; text-wrap: pretty;">{{ sv3.body }}</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-              <sc-for list="{{ sv3.items }}" as="it" hint-placeholder-count="4"><span style="border: 1px solid rgba(247,245,242,.2); border-radius: 99px; padding: 9px 15px; font-size: 13px; font-weight: 500; transition: border-color .25s ease, color .25s ease, transform .3s cubic-bezier(.23,1,.32,1);" style-hover="border-color: #f15d2a; color: #f15d2a; transform: translateY(-2px);">{{ it }}</span></sc-for>
+            <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv3.title }}</h2>
+            <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(247,245,242,.74); max-width: 54ch; text-wrap: pretty;">{{ sv3.body }}</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+              <sc-for list="{{ sv3.subServices }}" as="sub" hint-placeholder-count="3">
+                <div style="background: rgba(247,245,242,.03); border: 1px solid rgba(247,245,242,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.06); transform: translateY(-2px);">
+                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
+                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
+                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #f7f5f2; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  </div>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(247,245,242,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                </div>
+              </sc-for>
             </div>
           </div>
           <div style="order: 0; display: grid; min-width: 0;">
@@ -925,13 +955,20 @@
     <section data-sv="4" data-screen-label="Service 05" style="position: relative; height: {{ svH }}; background: #f7f5f2; color: #282829;">
       <div data-lines="" style="position: {{ svPos }}; top: 0; min-height: {{ svInnerH }}; box-sizing: border-box; padding: clamp(84px, 11vh, 120px) 28px clamp(40px, 6vh, 64px); display: flex; align-items: center;">
         <div style="max-width: 1320px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px 56px; align-items: center;">
-          <div style="display: flex; flex-direction: column; gap: 20px; min-width: 0;">
+          <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0;">
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv4.num }}</span><span style="color: rgba(40,40,41,.74);">/ 05</span></div>
-            <h2 style="margin: 0; font-size: clamp(36px, 4.6vw, 72px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ sv4.title }}</h2>
-            <p style="margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; letter-spacing: -.01em; font-weight: 500; max-width: 46ch; text-wrap: pretty;">{{ sv4.lead }}</p>
-            <p style="margin: 0; font-size: 15.5px; line-height: 1.75; color: rgba(40,40,41,.74); max-width: 58ch; text-wrap: pretty;">{{ sv4.body }}</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
-              <sc-for list="{{ sv4.items }}" as="it" hint-placeholder-count="4"><span style="border: 1px solid rgba(40,40,41,.2); border-radius: 99px; padding: 9px 15px; font-size: 13px; font-weight: 500; transition: border-color .25s ease, color .25s ease, transform .3s cubic-bezier(.23,1,.32,1);" style-hover="border-color: #f15d2a; color: #f15d2a; transform: translateY(-2px);">{{ it }}</span></sc-for>
+            <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv4.title }}</h2>
+            <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(40,40,41,.74); max-width: 54ch; text-wrap: pretty;">{{ sv4.body }}</p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+              <sc-for list="{{ sv4.subServices }}" as="sub" hint-placeholder-count="3">
+                <div style="background: rgba(40,40,41,.03); border: 1px solid rgba(40,40,41,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.04); transform: translateY(-2px);">
+                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
+                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
+                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  </div>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                </div>
+              </sc-for>
             </div>
           </div>
           <div style="order: 2; display: grid; min-width: 0;">
@@ -1575,8 +1612,6 @@
             <p style="margin: 0; font-size: 16px; line-height: 1.7; color: rgba(247,245,242,.72); max-width: 52ch;">{{ t.calAppLead }}</p>
           </div>
           <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;">
-            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f7f5f2; color: #282829; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f15d2a; color: #fff;"><span style="font-size: 11px; opacity: .7;">{{ t.calDownloadOn }}</span><span style="font-size: 18px; font-weight: 600;">App Store</span></a>
-            <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f7f5f2; color: #282829; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f15d2a; color: #fff;"><span style="font-size: 11px; opacity: .7;">{{ t.calGetItOn }}</span><span style="font-size: 18px; font-weight: 600;">Google Play</span></a>
             <a href="#/calendar" style="display: inline-flex; flex-direction: column; gap: 2px; background: #f15d2a; color: #fff; padding: 12px 22px; border-radius: 14px; min-width: 170px;" style-hover="background: #f7f5f2; color: #282829;"><span style="font-size: 11px; opacity: .85;">{{ t.calPrintVer }}</span><span style="font-size: 18px; font-weight: 600;">{{ t.calPdf }}</span></a>
           </div>
         </div>
@@ -1953,34 +1988,149 @@ const CASES_EN = [
 
 const SERVICES_EN = [
   {
-    num: "01", title: "Digital platform management", img: "assets/web/booth-screen.webp",
+    num: "01",
+    title: "Digital platform management",
+    img: "assets/web/booth-screen.webp",
     lead: "We manage your presence across digital platforms with a clear strategy, consistent publishing and real engagement with your audience.",
-    body: "A dedicated team owns the account: the annual strategy, the monthly content calendar, publishing across every platform, and community management in your voice. Objectives are set before a single post goes out, so what we publish is measured against what you set out to achieve.",
-    items: ["Digital communication strategy", "Communication plans", "Social account management", "Digital community management"]
+    body: "We manage digital platforms through an integrated strategy combining planning, operation, and monitoring to enhance brand presence and build effective engagement.",
+    items: [
+      "Communication strategies & plans",
+      "Digital platform account management",
+      "Digital community management"
+    ],
+    subServices: [
+      {
+        title: "Communication strategies & plans",
+        desc: "Setting the strategic framework from understanding goals and audience to defining messages, channels, priorities, and actionable roadmaps."
+      },
+      {
+        title: "Digital platform account management",
+        desc: "End-to-end account management from content planning, production, and publishing to performance monitoring and continuous enhancement."
+      },
+      {
+        title: "Digital community management",
+        desc: "Active audience management monitoring inquiries and comments with rapid response under approved organizational policies."
+      }
+    ]
   },
   {
-    num: "02", title: "Creative content production", img: "assets/web/calendar.webp",
+    num: "02",
+    title: "Creative content production",
+    img: "assets/web/calendar.webp",
     lead: "We create content that carries the identity and the messages in a creative way, serving marketing and communication goals.",
-    body: "From the idea to the finished asset: creative concepts, copy written to a defined tone of voice in Arabic and English, art direction across every format, and motion graphics that make a message travel. Content is built to reinforce brand recall, not just to fill a slot.",
-    items: ["Creative ideation", "Copywriting", "Visual content design", "Motion graphics"]
+    body: "We develop content combining concept, strategy, and execution to deliver impactful messages and experiences aligned with creative goals.",
+    items: [
+      "Visual content",
+      "Creative concepts",
+      "Content strategy & editorial guidelines",
+      "Content development"
+    ],
+    subServices: [
+      {
+        title: "Visual content",
+        desc: "Integrated content translating ideas into powerful visual and textual narratives, spanning design, video, and diverse digital formats."
+      },
+      {
+        title: "Creative concepts",
+        desc: "Innovating concepts and creative directions for campaigns and initiatives that drive high engagement and lasting resonance."
+      },
+      {
+        title: "Content strategy & editorial guidelines",
+        desc: "Formulating content strategies, tone-of-voice guides, and editorial standards to ensure brand consistency and sustained quality."
+      },
+      {
+        title: "Content development",
+        desc: "Producing editorial and creative copywriting across all formats, from narrative scripts to recurring content and campaign copy."
+      }
+    ]
   },
   {
-    num: "03", title: "Coverage & production", img: "assets/web/crowd.webp",
+    num: "03",
+    title: "Coverage & production",
+    img: "assets/web/crowd.webp",
     lead: "We deliver integrated production for documenting presence at local, regional and international events.",
-    body: "Crews, equipment and editors mobilised around your calendar — event coverage, photography, live streaming and post-production, with same-day delivery when the moment demands it. The output documents the event and gives you a library to publish from afterwards.",
-    items: ["Creative production", "Event coverage", "Photography sessions", "Live streaming"]
+    body: "We produce visual media that captures the moment and amplifies its impact, from concept to post-production, meeting the highest technical standards.",
+    items: [
+      "Media production",
+      "Event & conference coverage",
+      "Live broadcasting",
+      "Video editing"
+    ],
+    subServices: [
+      {
+        title: "Media production",
+        desc: "Producing visual and audio content while managing the complete production cycle in full alignment with campaign objectives."
+      },
+      {
+        title: "Event & conference coverage",
+        desc: "Documenting events and conferences with high aesthetic sensibility to reflect impact and ensure sustained presence."
+      },
+      {
+        title: "Live broadcasting",
+        desc: "Delivering professional multi-platform live streaming services supported by technical setups that guarantee stability and quality."
+      },
+      {
+        title: "Video editing",
+        desc: "Producing event highlight reels and professional, publish-ready video cuts optimized for diverse social platforms."
+      }
+    ]
   },
   {
-    num: "04", title: "Promotional campaigns", img: "assets/web/wheel-visitors.webp",
+    num: "04",
+    title: "Promotional campaigns",
+    img: "assets/web/wheel-visitors.webp",
     lead: "We plan, execute and buy media across channels, and keep optimising campaigns for higher reach among the target audience while protecting spend efficiency.",
-    body: "Media planning and buying across digital, traditional and influencer channels, with KPIs agreed up front. Campaigns are optimised in flight — audiences, creative and budget allocation — so reach grows without the cost per result drifting.",
-    items: ["Planning, execution & monitoring", "Digital platform promotion", "Traditional channel promotion", "Influencer marketing"]
+    body: "We plan and execute promotional campaigns across diverse channels, monitoring and optimizing performance continuously to ensure reach and spend efficiency.",
+    items: [
+      "Digital platform promotion",
+      "Traditional channel promotion",
+      "Influencer marketing"
+    ],
+    subServices: [
+      {
+        title: "Digital platform promotion",
+        desc: "Managing targeted ad campaigns across digital platforms with data-driven audience targeting and performance optimization."
+      },
+      {
+        title: "Traditional channel promotion",
+        desc: "Executing campaigns across traditional outdoor and broadcast media within an integrated communication blueprint."
+      },
+      {
+        title: "Influencer marketing",
+        desc: "Managing influencer partnerships from strategy and talent selection to execution, launch, tracking, and ROI analysis."
+      }
+    ]
   },
   {
-    num: "05", title: "Measurement & analytics", img: "assets/web/booth-wide.webp",
+    num: "05",
+    title: "Measurement & analytics",
+    img: "assets/web/booth-wide.webp",
     lead: "We monitor and analyse results, and report the indicators that measure digital performance — with the recommendations needed to improve it.",
-    body: "Professional monitoring and listening tools feed reporting on platform performance and campaign outcomes. Every report closes with recommendations, so the next cycle of work starts from evidence rather than assumption.",
-    items: ["Monitoring & reporting", "Social listening & analysis", "Platform performance reports", "Campaign reports"]
+    body: "We transform data into indicators that clarify performance, measure impact, and empower precise decision-making.",
+    items: [
+      "Social media performance reports",
+      "Monitoring & reporting",
+      "Social listening & analysis",
+      "Promotional campaign reports"
+    ],
+    subServices: [
+      {
+        title: "Social media performance reports",
+        desc: "Periodic reports measuring reach, engagement, follower dynamics, and benchmarks to drive continuous enhancement."
+      },
+      {
+        title: "Monitoring & reporting",
+        desc: "Real-time tracking of brand mentions and events across social media platforms accompanied by actionable analytical metrics."
+      },
+      {
+        title: "Social listening & analysis",
+        desc: "Analyzing public sentiment and conversation trends through social listening tools to safeguard digital reputation."
+      },
+      {
+        title: "Promotional campaign reports",
+        desc: "Evaluating campaign outcomes with clear indicators and recommendations to maximize budget efficiency and hit targets."
+      }
+    ]
   }
 ];
 
@@ -2032,9 +2182,9 @@ const STORIES_AR = [
     services: ["إدارة الحسابات", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الإعلامية", "الحملات المدفوعة", "التسويق بالمؤثرين"] },
   { client: "وزارة الصحة", title: "وزارة الصحة: نبضٌ رقمي لا يتوقف",
     body: "كيف تدير التواصل الفعّال لقطاع يمس حياة الملايين يومياً؟ التحدي مع وزارة الصحة لم يكن مجرد إدارة حسابات، بل بناء وتجهيز مركز إعلامي متكامل داخل مقر الوزارة في وقت قياسي. استقطبنا 60 كفاءة احترافية، وقمنا بتأهيلهم وإدارة سير عملهم بسلاسة تامة لضمان استمرارية العمل بكفاءة لا مثيل لها، مما أثمر عن رفع الهوية الرقمية للوزارة وتعزيز صورتها الذهنية بشكل غير مسبوق.",
-    services: ["إدارة المجتمعات الرقمية", "المحتوى الإبداعي", "التصاميم الإبداعية", "الاستراتيجيات الرقمية", "التغطيات الميدانية والإعلامية", "الرصد والتقارير"] },
-  { client: "موسم الرياض", title: "موسم الرياض: إدارة الزخم لأكبر حدث ترفيهي",
-    body: "إدارة منصات أكبر حدث ترفيهي في المنطقة تعني العمل تحت ضغط مستمر وسرعة استجابة فائقة. واجهنا تحدي التعامل مع وتيرة نشر جنونية تجاوزت 70 منشوراً يومياً على مدار 7 مواسم ترفيهية متنوعة، لنقل فعاليات وأجواء أكبر وأضخم حدث ترفيهي في المنطقة. الحل كان بتخصيص فريق من 15 خبيراً يعملون من قلب الحدث على مدار الساعة (24/7)، لضمان تفاعل جماهيري لحظي، وتنفيذ حملات إعلانية ضخمة عززت من نجاح الموسم عالمياً.",
+    services: ["إدارة المجتمعات الرقمية", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الإعلامية", "الحملات المدفوعة", "التسويق بالمؤثرين"] },
+  { client: "موسم الرياض", title: "الهيئة العامة للترفيه (موسم الرياض): ندير الخيال على مدار الساعة",
+    body: "منذ عام 2019، تشرفنا بأن نكون الشريك الموثوق لرحلة نجاح \"موسم الرياض\". التحدي كان هائلاً: إنتاج معدل 70 منشوراً يومياً بجودة إبداعية فائقة لتغطية أضخم حدث ترفيهي في المنطقة. الحل كان بتخصيص فريق من 15 خبيراً يعملون من قلب الحدث على مدار الساعة (24/7)، لضمان تفاعل جماهيري لحظي، وتنفيذ حملات إعلانية ضخمة عززت من نجاح الموسم عالمياً.",
     services: ["إدارة المجتمعات الرقمية", "المحتوى الإبداعي", "التصاميم الإبداعية", "التغطيات الإعلامية", "الحملات المدفوعة", "التسويق بالمؤثرين"] },
   { client: "نادي القادسية", title: "نادي القادسية: عودة الفرسان إلى الصدارة الرقمية",
     body: "كيف تعيد إحياء الشغف الجماهيري لنادٍ عريق بعد غياب؟ بدأنا مع نادي القادسية في 2023 بحساب رئيسي واحد، وواجهنا تحدي قلة القاعدة الجماهيرية وصعوبة الوصول إليها. ابتكرنا استراتيجية توسعية شملت إنشاء أكثر من 20 حساباً متخصصاً بمختلف اللغات لتغطية كافة أقسام النادي. النتيجة؟ انتعاشة تاريخية لشعبية النادي محلياً وعالمياً، وبناء مجتمع رياضي ينبض بالحياة.",
@@ -2103,26 +2253,151 @@ const VALUES_EN = [
 const LABELS_AR = { calendar: "تقويم تاكت", company: "الشركة", home: "الرئيسية", services: "خدماتنا", sectors: "القطاعات", work: "شراكاتنا", career: "التوظيف", contact: "تواصل معنا", about: "عن تاكت", history: "مسيرتنا", leadership: "القيادة", stories: "قصص نجاح", why: "لماذا تاكت؟" };
 
 const SERVICES_AR = [
-  { num: "01", title: "إدارة منصات التواصل الرقمي", img: "assets/web/booth-screen.webp",
+  {
+    num: "01",
+    title: "إدارة منصات التواصل الرقمي",
+    img: "assets/web/booth-screen.webp",
     lead: "ندير الظهور في المنصات الرقمية باستراتيجية واضحة ونشر مستمر وتفاعل فعّال مع جمهورك.",
     body: "ندير المنصات الرقمية عبر إستراتيجية متكاملة تجمع بين التخطيط، والتشغيل، والمتابعة، لتعزيز ظهور العلامة، وبناء تواصل فعّال مع جمهورها.",
-    items: ["إستراتيجيات وخطط التواصل", "إدارة حسابات منصات التواصل الرقمي", "إدارة المجتمعات الرقمية"] },
-  { num: "02", title: "صناعة المحتوى الإبداعي", img: "assets/web/calendar.webp",
+    items: [
+      "إستراتيجيات وخطط التواصل",
+      "إدارة حسابات منصات التواصل الرقمي",
+      "إدارة المجتمعات الرقمية"
+    ],
+    subServices: [
+      {
+        title: "إستراتيجيات وخطط التواصل",
+        desc: "نضع الإطار الإستراتيجي لتواصلك، بدءًا من فهم الأهداف والجمهور، وصولًا إلى تحديد الرسائل والقنوات والأولويات، وبناء خطط تواصل متكاملة تدعم أهدافك، وتوجّه حضورك."
+      },
+      {
+        title: "إدارة حسابات منصات التواصل الرقمي",
+        desc: "ندير حساباتك بشكل متكامل، من تخطيط المحتوى وإنتاجه ونشره، إلى متابعة التفاعل والأداء وتطوير المحتوى، بما يضمن حضورًا متناسقًا ومستمرًا عبر مختلف المنصات."
+      },
+      {
+        title: "إدارة المجتمعات الرقمية",
+        desc: "ندير تفاعل الجمهور عبر متابعة الرسائل والاستفسارات والتعليقات، والاستجابة السريعة وفق سياسات معتمدة، بما يعزز تجربة التواصل الفعّال."
+      }
+    ]
+  },
+  {
+    num: "02",
+    title: "صناعة المحتوى الإبداعي",
+    img: "assets/web/calendar.webp",
     lead: "نبتكر محتوى يعكس الهوية والرسائل بشكل إبداعي يخدم أهداف التسويق والتواصل",
     body: "نطوّر محتوى يجمع بين الفكرة، والإستراتيجية، والتنفيذ، ليقدم رسائل مؤثرة وتجارب تواكب الأهداف الإبداعية.",
-    items: ["المحتوى المرئي", "المحتوى الإبداعي", "إستراتيجيات المحتوى والأدلة", "صناعة المحتوى"] },
-  { num: "03", title: "التغطيات والإنتاج الفني", img: "assets/web/crowd.webp",
+    items: [
+      "المحتوى المرئي",
+      "المحتوى الإبداعي",
+      "إستراتيجيات المحتوى والأدلة",
+      "صناعة المحتوى"
+    ],
+    subServices: [
+      {
+        title: "المحتوى المرئي",
+        desc: "نطوّر محتوى متكاملًا يحوّل الأفكار إلى رسائل بصرية ونصية مؤثرة، تشمل التصاميم، والفيديو، ومختلف أشكال المحتوى الرقمي."
+      },
+      {
+        title: "المحتوى الإبداعي",
+        desc: "ابتكار الأفكار والمفاهيم الإبداعية للحملات والمبادرات، وتحويلها إلى محتوى يحقق التفاعل والأثر."
+      },
+      {
+        title: "إستراتيجيات المحتوى والأدلة",
+        desc: "إعداد إستراتيجيات المحتوى، والأدلة التحريرية، وأدلة المحتوى، لضمان اتساق الرسائل، واستدامة جودتها."
+      },
+      {
+        title: "صناعة المحتوى",
+        desc: "إنتاج المحتوى التحريري والإبداعي بمختلف أشكاله، من النصوص والسيناريوهات إلى المحتوى الدوري ورسائل الحملات."
+      }
+    ]
+  },
+  {
+    num: "03",
+    title: "التغطيات والإنتاج الفني",
+    img: "assets/web/crowd.webp",
     lead: "نقدم حلول إنتاج متكاملة لتوثيق الحضور في الأحداث والفعاليات المحلية والإقليمية والدولية.",
     body: "ننتج مواد بصرية توثق اللحظة وتعزز أثرها، من الفكرة وحتى التنفيذ، بأعلى المعايير الإبداعية والتقنية.",
-    items: ["الإنتاج الفني", "تغطية الفعاليات و المؤتمرات", "البث المباشر للفعاليات المؤتمرات", "مونتاج فيديوهات"] },
-  { num: "04", title: "الحملات الترويجية", img: "assets/web/wheel-visitors.webp",
+    items: [
+      "الإنتاج الفني",
+      "تغطية الفعاليات و المؤتمرات",
+      "البث المباشر للفعاليات المؤتمرات",
+      "مونتاج فيديوهات"
+    ],
+    subServices: [
+      {
+        title: "الإنتاج الفني",
+        desc: "إنتاج المحتوى المرئي والسمعي، وإدارة مراحل الإنتاج كاملة بما يخدم أهداف الحملة."
+      },
+      {
+        title: "تغطية الفعاليات و المؤتمرات",
+        desc: "توثيق الفعاليات والمؤتمرات بأسلوب يعكس الأثر ويعزز استمرارية الحضور."
+      },
+      {
+        title: "البث المباشر للفعاليات المؤتمرات",
+        desc: "تنفيذ خدمات البث المباشر باحترافية عالية عبر مختلف المنصات، مع تجهيزات تقنية تضمن جودة واستقرار البث."
+      },
+      {
+        title: "مونتاج فيديوهات",
+        desc: "إنتاج فيديوهات تلخص أبرز لحظات الفعاليات والمؤتمرات، وإنتاج محتوى احترافي جاهز للنشر عبر مختلف المنصات."
+      }
+    ]
+  },
+  {
+    num: "04",
+    title: "الحملات الترويجية",
+    img: "assets/web/wheel-visitors.webp",
     lead: "نقوم بتخطيط وتنفيذ وشراء المساحات الإعلانية في مختلف القنوات ونعمل على التحسين والتطوير المستمر للحملات لضمان وصول اعلى للفئة المستهدفة مع المحافظة على تعزز كفاءة الإنفاق.",
     body: "نخطط وننفذ الحملات الترويجية عبر مختلف القنوات، مع متابعة الأداء وتحسينه باستمرار؛ لضمان الوصول الفعّال للفئة المستهدفة، وتعزيز كفاءة الإنفاق.",
-    items: ["الترويج عبر المنصات الرقمية", "الترويج عبر القنوات التقليدية", "الترويج عبر المؤثرين"] },
-  { num: "05", title: "القياس والتحليل", img: "assets/web/booth-wide.webp",
+    items: [
+      "الترويج عبر المنصات الرقمية",
+      "الترويج عبر القنوات التقليدية",
+      "الترويج عبر المؤثرين"
+    ],
+    subServices: [
+      {
+        title: "الترويج عبر المنصات الرقمية",
+        desc: "إدارة الحملات الإعلانية عبر مختلف القنوات الرقمية، مع تحسين الاستهداف ورفع كفاءة الأداء."
+      },
+      {
+        title: "الترويج عبر القنوات التقليدية",
+        desc: "تنفيذ الحملات عبر القنوات التقليدية ضمن خطة اتصال متكاملة تعزز انتشار الرسائل."
+      },
+      {
+        title: "الترويج عبر المؤثرين",
+        desc: "ندير حملات المؤثرين من بناء الإستراتيجية، واختيار المؤثرين، إلى إدارة التنفيذ، وإطلاق الحملة، وقياس النتائج، وتحليل الأداء لضمان تحقيق أهدافها."
+      }
+    ]
+  },
+  {
+    num: "05",
+    title: "القياس والتحليل",
+    img: "assets/web/booth-wide.webp",
     lead: "نرصد ونحلل النتائج، ونقدم المؤشرات لقياس الأداء الرقمي وتقديم التوصيات اللازمة بهدف التطوير",
     body: "نحوّل البيانات إلى مؤشرات تساعد على فهم الأداء، وقياس الأثر، واتخاذ قرارات أكثر دقة.",
-    items: ["تقرير أداء منصات التواصل الرقمي", "إدارة الرصد والتقارير", "تقارير الاستماع والتحليل", "تقارير الحملات الترويجية"] }
+    items: [
+      "تقرير أداء منصات التواصل الرقمي",
+      "إدارة الرصد والتقارير",
+      "تقارير الاستماع والتحليل",
+      "تقارير الحملات الترويجية"
+    ],
+    subServices: [
+      {
+        title: "تقرير أداء منصات التواصل الرقمي",
+        desc: "تقارير دورية تقيس الوصول، والتفاعل، ونمو المتابعين، ومؤشرات الأداء لدعم التطوير المستمر."
+      },
+      {
+        title: "إدارة الرصد والتقارير",
+        desc: "رصد لحظي لكل ما يتعلق بموضوع، أو حدث معين في منصات التواصل الاجتماعي مع تقارير تحليلية، ومؤشرات قابلة للقياس."
+      },
+      {
+        title: "تقارير الاستماع والتحليل",
+        desc: "تحليل الانطباعات واتجاهات الجمهور باستخدام أدوات الاستماع الاجتماعي، لفهم الرأي العام وقياس السمعة الرقمية."
+      },
+      {
+        title: "تقارير الحملات الترويجية",
+        desc: "قياس أداء الحملات وتحليل نتائجها، مع مؤشرات واضحة وتوصيات تعزز كفاءة الإنفاق وتحقيق الأهداف."
+      }
+    ]
+  }
 ];
 
 const SECTORS_AR = [
@@ -2161,28 +2436,28 @@ const CASES_AR = [
     metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "قطعة محتوى إبداعي" }],
     services: ["إدارة المشروع", "كتابة المحتوى", "التصاميم", "تقرير يومي وختامي", "رصد يومي خلال الايفنت"],
     img: "assets/web/wirth-nights.webp", shotLabel: "تصوير الفعالية — ليالي ورث الرمضانية" },
-  { tab: "منتدى الحج الإعلامي", year: "2024 — منتدى الحج الإعلامي", name: "منتدى الحج الإعلامي 2024",
-    body: "بصفتنا شريك التغطية الرقمية لمنتدى الحج الإعلامي 2024، تولت تاكت إدارة الحضور الرقمي للحدث عبر تغطية مباشرة ومكثفة لجلساته وفعالياته. ركزنا على نقل الصورة الحية للمنتدى الذي يجمع نخبة من الإعلاميين والمختصين، مع إبراز جهود المملكة وتطور منظومة الحج الإعلامية، وتقديم محتوى احترافي سريع يواكب مجريات الحدث لحظة بلحظة.",
-    metrics: [{ value: "13.5M", label: "الظهور" }, { value: "3.3M", label: "المشاهدات" }, { value: "87K", label: "التفاعلات" }, { value: "247", label: "المنشورات" }],
-    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
-    img: "assets/web/crowd.webp", shotLabel: "تغطية المركز الإعلامي — منتدى الحج الإعلامي" },
-  { tab: "ماراثون الرياض", year: "2024 — ماراثون الرياض", name: "ماراثون الرياض 2024",
-    body: "بصفتنا الشريك التسويقي لماراثون الرياض 2024، عملت \"تاكت\" على تعزيز الحضور الرقمي لهذا الحدث الرياضي الأكبر من نوعه في المملكة. قمنا بتطوير استراتيجية تواصل متكاملة استهدفت استقطاب العدائين ومحبي الرياضة من مختلف أنحاء العالم، والترويج للمسارات المختلفة والفعاليات المصاحبة، مما ساهم في تشجيع المجتمع على تبني أسلوب حياة صحي، وتحقيق تفاعل واسع مع الماراثون.",
-    metrics: [{ value: "11.5M", label: "الظهور" }, { value: "3.1M", label: "المشاهدات" }, { value: "112K", label: "التفاعلات" }, { value: "186", label: "المنشورات" }],
-    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
+  { tab: "ملتقى إعلام الحج", year: "2026 — ملتقى إعلام الحج", name: "ملتقى إعلام الحج 2026",
+    body: "في ملتقى إعلام الحج مثلت شراكة تاكت شريك التواصل الرقمي بمجتمع وبيئة إعلامية متكاملة، تدعم الإعلاميين في إنجاز تغطياتهم لموسم الحج عبر تقنيات تفاعلية، ومناطق إعلامية داعمة، تضم مقرًا لمركز العمليات الإعلامي الموحّد للحج، ومنصة الإيجاز الصحفي، بالإضافة إلى معرض إبداعي يبرز التحوّل في الخدمات المقدمة لضيوف الرحمن.",
+    metrics: [{ value: "2.2M", label: "الظهور" }, { value: "631K", label: "المشاهدات" }, { value: "6.2K", label: "التفاعلات" }, { value: "77", label: "قطعة محتوى إبداعي" }],
+    services: ["التغطيات الإعلامية", "إدارة مشروع", "كتابة محتوى", "الإنتاج"],
+    img: "assets/web/crowd.webp", shotLabel: "تغطية المركز الإعلامي — ملتقى إعلام الحج" },
+  { tab: "ماراثون الرياض", year: "2026 — ماراثون الرياض", name: "ماراثون الرياض 2026",
+    body: 'بصفتنا الشريك الداعم لماراثون الرياض 2026، تولت "تاكت" مسؤولية إدارة التواصل الرقمي للحدث، حيث ابتكرنا محتوى تفاعلياً يحفز المشاركين والمتابعين ،واكبنا الحدث منذ لحظات البداية ، مروراً بأجواء السباق ومساراته، وصولاً إلى تتويج الرعاة، لنقدم تغطية لحظية وشاملة تعكس ضخامة هذا الحدث الرياضي الأبرز في العاصمة.',
+    metrics: [{ value: "265,646", label: "الظهور" }, { value: "36,463+", label: "المشاهدات" }, { value: "8,228", label: "التفاعلات" }, { value: "116", label: "المنشورات" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير أسبوعية وشهرية وختامية", "تصاميم وعروض تقديمية", "مونتاج فيديوهات", "التفاعل مع المؤثرين"],
     img: "assets/web/wheel-visitors.webp", shotLabel: "تغطية يوم السباق — ماراثون الرياض" },
-  { tab: "معرض بنان", year: "2024 — أسبوع الحرف اليدوية الدولي السعودي (بنان)", name: "معرض بنان 2024",
-    body: "بصفتنا الشريك التسويقي للأسبوع الدولي للحرف اليدوية (بنان) 2024، تولت تاكت إبراز هذا الحدث الثقافي المميز الذي يجمع الحرفيين من المملكة ومختلف دول العالم. ركّزنا على تقديم محتوى رقمي يسلّط الضوء على أصالة الحِرف اليدوية وتنوعها، والترويج للأجنحة والورش التفاعلية، مما ساهم في جذب الزوار والمهتمين بالفنون التقليدية، وتعزيز مكانة المعرض كمنصة عالمية للتراث والإبداع الحِرفي.",
-    metrics: [{ value: "11.5M", label: "الظهور" }, { value: "3.1M", label: "المشاهدات" }, { value: "112K", label: "التفاعلات" }, { value: "186", label: "المنشورات" }],
-    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
+  { tab: "معرض بنان", year: "2025 — أسبوع الحرف اليدوية الدولي السعودي (بنان)", name: 'معرض "بنان" الأسبوع السعودي الدولي للحرف اليدوية 2025',
+    body: 'بصفتنا الشريك الرسمي للتواصل الرقمي لمعرض "بنان"، تولت "تاكت" مهمة إبراز جوهر الأسبوع السعودي الدولي للحرف اليدوية 2025. قدمنا تغطية يومية مكثفة سلطت الضوء على الحرفيين المبدعين ومنتجاتهم الفريدة، مع إنتاج محتوى إبداعي يربط بين أصالة الهوية الثقافية السعودية وتطلعات الجمهور المهتم بالفنون التقليدية، مما أسهم في استقطاب شريحة واسعة من المهتمين، وتوثيق هذا المحفل الثقافي بأسلوب بصري وفني مميز.',
+    metrics: [{ value: "387K", label: "الظهور" }, { value: "17.7K", label: "المشاهدات" }, { value: "13K", label: "التفاعلات" }, { value: "125", label: "المنشورات" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم", "التصوير", "مونتاج فيديوهات"],
     img: "assets/web/banan-booth.webp", shotLabel: "صور الحرفيين — معرض بنان" },
-  { tab: "عش بصحة", year: "2024 — ملتقى الصحة العالمي", name: "مساحة عش بصحة",
-    body: "بصفتنا الشريك التسويقي لمساحة \"عش بصحة\" في ملتقى الصحة العالمي 2024، تولت \"تاكت\" مهمة إبراز هذا الجناح التوعوي الاستثنائي. من خلال إنتاج محتوى رقمي تفاعلي، ركزنا على الأنشطة والفعاليات التي تعزز تبني أنماط الحياة الصحية. هدفنا تحفيز زوار الملتقى على التفاعل مع التجارب المقدمة داخل المساحة طوال أيام انعقاد الملتقى، وترك بصمة توعوية تسهم في إحداث تغيير إيجابي ملموس في المجتمع.",
+  { tab: "عش بصحة", year: "2025 — ملتقى الصحة العالمي", name: "مساحة عش بصحة في ملتقى الصحة 2025",
+    body: 'بصفتنا الشريك التسويقي لمساحة "عش بصحة" في ملتقى الصحة العالمي 2025، تولت "تاكت" مهمة إبراز هذا الجناح التوعوي الاستثنائي. من خلال إنتاج محتوى رقمي تفاعلي، ركزنا على الأنشطة والفعاليات التي تعزز تبني أنماط الحياة الصحية. هدفنا تحفيز زوار الملتقى على التفاعل مع التجارب المقدمة داخل المساحة طوال أيام انعقاد الملتقى، وترك بصمة توعوية تسهم في إحداث تغيير إيجابي ملموس في المجتمع.',
     metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }],
     services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
     img: "assets/web/vr.webp", shotLabel: "تجربة الجناح — مساحة عش بصحة" },
   { tab: "ملتقى الترجمة", year: "2025 — ملتقى الترجمة الدولي", name: "ملتقى الترجمة الدولي 2025",
-    body: "بصفتنا شريك التواصل الرقمي لملتقى الترجمة الدولي 2025، تولت \"تاكت\" إدارة الحضور الرقمي للحدث، حيث قمنا بإنتاج محتوىً متخصص يبرز جلسات الملتقى ورؤى ضيوفه من المترجمين والمختصين. سلطنا الضوء بفاعلية على الدور المحوري للترجمة في نقل المعرفة وتقريب الثقافات، مع تقديم تغطية مكثفة واكبت تفاصيل الملتقى طوال أيامه، لتعكس القيمة المعرفية لهذا الحدث العالمي وتصل بها إلى الجمهور الرقمي.",
+    body: 'بصفتنا شريك التواصل الرقمي لملتقى الترجمة الدولي 2025، تولت "تاكت" إدارة الحضور الرقمي للحدث، حيث قمنا بإنتاج محتوىً متخصص يبرز جلسات الملتقى ورؤى ضيوفه من المترجمين والمختصين. سلطنا الضوء بفاعلية على الدور المحوري للترجمة في نقل المعرفة وتقريب الثقافات، مع تقديم تغطية مكثفة واكبت تفاصيل الملتقى طوال أيامه، لتعكس القيمة المعرفية لهذا الحدث العالمي وتصل بها إلى الجمهور الرقمي.',
     metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }],
     services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
     img: "assets/web/booth-screen.webp", shotLabel: "تغطية الجلسات — منتدى الترجمة الدولي" }
