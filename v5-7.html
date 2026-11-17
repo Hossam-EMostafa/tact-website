@@ -1952,7 +1952,8 @@ const SECTORS_EN = [
   { name: "Health", body: "We develop communication solutions that build awareness, strengthen trust and simplify health messaging in ways that land.", clients: ["Ministry of Health", "Health Holding"] },
   { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Al-Qadsiah Club", "Diriyah Club"] },
   { name: "Entertainment", body: "We run digital communication for events and seasons with high flexibility, turning entertainment experiences into wide reach and engagement.", clients: ["Riyadh Season", "Jeddah Season", "Diriyah Season"] },
-  { name: "Technology services", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"] }
+  { name: "Technology services", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"] },
+  { name: "Financial sector", body: "We develop communication solutions for financial institutions that simplify concepts and build trust and transparency.", clients: ["Al Rajhi Bank", "Saudi Payments", "Saudi Banks", "Social Development Bank", "Mada"] }
 ];
 
 const SECTOR_PAGE_AR = [
@@ -1963,7 +1964,7 @@ const SECTOR_PAGE_AR = [
   { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["رؤية السعودية 2030"], wins: [] },
   { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"], wins: [] },
   { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"], wins: [] },
-  { name: "القطاع المالي", body: "نطوّر حلولًا اتصالية للمؤسسات والجهات المالية تبسط المفاهيم وتعزز الثقة والشفافية.", clients: [], wins: [] },
+  { name: "القطاع المالي", body: "نطوّر حلولًا اتصالية للمؤسسات والجهات المالية تبسط المفاهيم وتعزز الثقة والشفافية.", clients: ["مصرف الراجحي", "المدفوعات السعودية", "البنوك السعودية", "بنك التنمية الاجتماعية", "مدى"], wins: [] },
   { name: "القطاع الصحي", body: "نطوّر حلولًا اتصالية تدعم بناء الوعي، وتعزز الثقة، وتبسط الرسائل الصحية بأساليب مؤثرة.", clients: ["وزارة الصحة", "الصحة القابضة"], wins: [] },
   { name: "القطاع غير الربحي", body: "نصيغ رسائل اتصالية تبرز الأثر الإنساني والمجتمعي، وتحفز المشاركة التطوعية والمبادرات الخيرية.", clients: [], wins: [] }
 ];
@@ -1976,7 +1977,7 @@ const SECTOR_PAGE = [
   { name: "Vision realization programs", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Entertainment", body: "We run digital communication for events and seasons with high flexibility, turning entertainment experiences into wide reach and engagement.", clients: ["Riyadh Season", "Jeddah Season", "Diriyah Season"], wins: [] },
   { name: "PIF companies", body: "[Copy to come.]", clients: [], wins: [] },
-  { name: "Financial sector", body: "[Copy to come.]", clients: [], wins: [] },
+  { name: "Financial sector", body: "We develop communication solutions for financial institutions that simplify concepts and build trust and transparency.", clients: ["Al Rajhi Bank", "Saudi Payments", "Saudi Banks", "Social Development Bank", "Mada"], wins: [] },
   { name: "Health", body: "We develop communication solutions that build awareness, strengthen trust and simplify health messaging in ways that land.", clients: ["Ministry of Health", "Health Holding"], wins: [] },
   { name: "Non-profit sector", body: "[Copy to come.]", clients: [], wins: [] }
 ];
@@ -2424,6 +2425,7 @@ const SECTORS_AR = [
   { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"] },
   { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"] },
   { name: "القطاع التقني", body: "نعزز ظهور الجهات التقنية من إيصال خدماتها بوضوح، وتعزيز تجربة المستفيد عبر تواصل رقمي فعّال.", clients: ["ثقة", "سبراني", "علم", "موبايلي"] },
+  { name: "القطاع المالي", body: "نطوّر حلولًا اتصالية للمؤسسات والجهات المالية تبسط المفاهيم وتعزز الثقة والشفافية.", clients: ["مصرف الراجحي", "المدفوعات السعودية", "البنوك السعودية", "بنك التنمية الاجتماعية", "مدى"] },
   { name: "القطاع غير الربحي", body: "نصيغ رسائل اتصالية تبرز الأثر الإنساني والمجتمعي، وتحفز المشاركة التطوعية والمبادرات الخيرية.", clients: ["مؤسسات القطاع غير الربحي"] }
 ];
 
@@ -2629,8 +2631,21 @@ const HS_CASES = [
 ];
 const HS0 = { slide: 0, prev: -1, dir: 1, paused: false, on: false };
 // Client logos as SVG: add the slot id here once its file is in assets/logos/<id>.svg
-const LOGO_SVG = {"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5};
+const LOGO_SVG = {"logo-alrajhi-bank":2.81,"logo-mada":3.0,"logo-saudi-banks":2.61,"logo-saudi-payments":1.56,"logo-social-development-bank":1.36,"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5};
 const CLIENT_LOGOMAP = {
+  "al rajhi bank": "logo-alrajhi-bank",
+  "alrajhi bank": "logo-alrajhi-bank",
+  "مصرف الراجحي": "logo-alrajhi-bank",
+  "بنك الراجحي": "logo-alrajhi-bank",
+  "mada": "logo-mada",
+  "مدى": "logo-mada",
+  "saudi banks": "logo-saudi-banks",
+  "البنوك السعودية": "logo-saudi-banks",
+  "لجنة الإعلام والتوعية المصرفية": "logo-saudi-banks",
+  "saudi payments": "logo-saudi-payments",
+  "المدفوعات السعودية": "logo-saudi-payments",
+  "social development bank": "logo-social-development-bank",
+  "بنك التنمية الاجتماعية": "logo-social-development-bank",
   "ministry of culture": "logo-ministry-of-culture",
   "وزارة الثقافة": "logo-ministry-of-culture",
   "ministry of health": "logo-ministry-of-health",
@@ -2698,16 +2713,25 @@ const clientLogoId = (name) => {
   }
   return "logo-" + key.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 };
+const LOGO_WEBP = {
+  "logo-cyberani": true,
+  "logo-alrajhi-bank": true,
+  "logo-mada": true,
+  "logo-saudi-banks": true,
+  "logo-saudi-payments": true,
+  "logo-social-development-bank": true
+};
 const logoItem = (name, id) => {
   const actualId = (id && id !== "logo-" && id !== "logo") ? id : clientLogoId(name);
   const r = LOGO_SVG[actualId], has = !!r, span = !has || r <= 2 ? 2 : r <= 3.2 ? 3 : 6;
+  const ext = LOGO_WEBP[actualId] ? ".webp" : ".svg";
   return {
     name,
     id: actualId,
     hasSvg: has,
     noSvg: !has,
-    svg: has ? "assets/logos/" + actualId + (actualId === "logo-cyberani" ? ".webp" : ".svg") : "",
-    svgBg: has ? "url(assets/logos/" + actualId + (actualId === "logo-cyberani" ? ".webp" : ".svg") + ")" : "none",
+    svg: has ? "assets/logos/" + actualId + ext : "",
+    svgBg: has ? "url(assets/logos/" + actualId + ext + ")" : "none",
     span: "span " + span,
     w: span === 6 ? "100%" : span === 3 ? "190px" : ""
   };
