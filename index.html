@@ -169,7 +169,7 @@
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { line-height: 1.08 !important; }
   [dir="rtl"] h1:not([data-lines]) { font-size: clamp(34px, 4.8vw, 76px) !important; line-height: 1.1 !important; padding-bottom: .06em; }
   [dir="rtl"] [data-ab-intro] { max-width: 95ch !important; font-size: clamp(19px, 1.5vw, 23px) !important; line-height: 1.85 !important; }
-  [dir="rtl"] [data-ab-words] p { font-size: clamp(28px, 3.2vw, 64px) !important; }
+  [dir="rtl"] [data-ab-words] p { font-size: clamp(18px, 1.9vw, 28px) !important; line-height: 1.85 !important; text-align: justify !important; text-justify: inter-word !important; }
   [dir="rtl"] [data-ab-card] h2 { font-size: clamp(48px, 8vw, 140px) !important; line-height: 1.3 !important; }
   [dir="rtl"] [data-ar-mq] { font-size: clamp(44px, 6.4vw, 104px) !important; line-height: 1.55 !important; }
   [dir="rtl"] h2 { line-height: 1.32 !important; }
@@ -501,7 +501,9 @@
           <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a; margin: 0 0 20px;">{{ t.servicesKicker }}</p>
           <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.whatWeDo }}</h2>
         </div>
-        <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(40,40,41,.66); max-width: 44ch;">{{ t.servicesIntro }}</p>
+        <sc-if value="{{ t.servicesIntro }}">
+          <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(40,40,41,.66); max-width: 44ch;">{{ t.servicesIntro }}</p>
+        </sc-if>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 56px; align-items: start;">
         <div style="display: flex; flex-direction: column;">
@@ -591,19 +593,25 @@
       <div style="position: relative; max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 64px; align-items: start;">
         <div>
           <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0 0 22px;">{{ t.numbersKicker }}</p>
-          <h2 data-reveal="" style="font-size: clamp(30px, 3.8vw, 52px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0 0 34px; max-width: 18ch;">{{ t.numbersHead }}</h2>
+          <sc-if value="{{ t.numbersHead }}">
+            <h2 data-reveal="" style="font-size: clamp(30px, 3.8vw, 52px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0 0 34px; max-width: 18ch;">{{ t.numbersHead }}</h2>
+          </sc-if>
           <div>
             <div style="font-size: clamp(34px, 4.6vw, 72px); font-weight: 600; letter-spacing: -.045em; line-height: .95; color: #f15d2a; font-variant-numeric: tabular-nums; white-space: nowrap;">{{ statsHero.shown }}</div>
             <div style="margin-top: 14px; font-size: 15px; letter-spacing: .01em; color: rgba(247,245,242,.75);">{{ statsHero.labelYear }}</div>
           </div>
-          <p style="margin: 30px 0 0; max-width: 38ch; font-size: 14.5px; line-height: 1.7; color: rgba(247,245,242,.6);">{{ t.numbersNote }}</p>
+          <sc-if value="{{ t.numbersNote }}">
+            <p style="margin: 30px 0 0; max-width: 38ch; font-size: 14.5px; line-height: 1.7; color: rgba(247,245,242,.6);">{{ t.numbersNote }}</p>
+          </sc-if>
         </div>
         <div data-count-group="numbers" style="display: flex; flex-direction: column;">
           <sc-for list="{{ statsRows }}" as="st" hint-placeholder-count="6">
-            <div class="stat-row" data-reveal="" style="position: relative; border-bottom: 1px solid rgba(247,245,242,.18); padding: 20px 0 18px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: baseline; transition: padding-left .3s, background .3s;" style-hover="padding-left: 14px; background: rgba(247,245,242,.05);">
-              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; color: rgba(247,245,242,.45);">{{ st.num }}</span>
+            <div class="stat-row" data-reveal="" style="position: relative; border-bottom: 1px solid rgba(247,245,242,.18); padding: 20px 0 18px; display: grid; grid-template-columns: {{ st.gridCols }}; gap: 18px; align-items: baseline; transition: padding-left .3s, background .3s;" style-hover="padding-left: 14px; background: rgba(247,245,242,.05);">
+              <sc-if value="{{ st.num }}">
+                <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; color: rgba(247,245,242,.45);">{{ st.num }}</span>
+              </sc-if>
               <span style="font-size: 15px; line-height: 1.4; color: rgba(247,245,242,.82);">{{ st.label }}</span>
-              <span class="stat-n" style="font-size: clamp(34px, 9vw, 62px); font-weight: 600; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums">{{ st.shown }}</span>
+              <span class="stat-n" dir="{{ isAr ? 'rtl' : 'ltr' }}" style="font-size: clamp(34px, 9vw, 62px); font-weight: 600; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums">{{ st.shown }}</span>
               <span style="position: absolute; left: 0; bottom: -1px; height: 2px; background: #4cc0af; width: {{ st.bar }}; transition: width 1.2s cubic-bezier(.2,.75,.2,1);"></span>
             </div>
           </sc-for>
@@ -634,7 +642,9 @@
       <div style="position: relative; max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px;">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;">
           <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0;">{{ t.sectorsKicker }}</p>
-          <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.sectorsHead }}</h2>
+          <sc-if value="{{ t.sectorsHead }}">
+            <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.sectorsHead }}</h2>
+          </sc-if>
         </div>
         <div style="position: relative; width: {{ orbW }}px; height: {{ orbW }}px;">
           <div style="position: absolute; left: 50%; top: 50%; width: 620px; height: 620px; margin: -310px 0 0 -310px; transform: scale({{ orbS }}); direction: ltr;">
@@ -687,7 +697,9 @@
             <div data-swap="img" style="position: absolute; inset: 0; width: 100%; height: 100%;"><div data-case-drift="" role="img" aria-label="{{ activeCase.name }}" style="width: 100%; height: 100%; {{ activeCase.imgBg }}"></div></div>
             <div data-case-shade="" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.15) 0%, rgba(40,40,41,.8) 100%);"></div>
             <div data-case-spot="" style="position: absolute; inset: 0; pointer-events: none; background: radial-gradient(380px circle at var(--px, 50%) var(--py, 50%), rgba(255,255,255,.22), transparent 65%); mix-blend-mode: soft-light;"></div>
-            <span data-case-cap="" style="position: absolute; left: 20px; bottom: 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,245,242,.8); max-width: 80%;">{{ activeCase.shotLabel }}</span>
+            <sc-if value="{{ activeCase.shotLabel }}">
+              <span data-case-cap="" style="position: absolute; left: 20px; bottom: 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(247,245,242,.8); max-width: 80%;">{{ activeCase.shotLabel }}</span>
+            </sc-if>
           </div>
 
           <div style="min-height: 560px; padding-block: 40px 44px; padding-inline: 44px; border-inline-start: 3px solid #4cc0af; display: flex; flex-direction: column;">
@@ -750,7 +762,9 @@
             <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0 0 16px;">{{ t.accredKicker }}</p>
             <h2 data-reveal="" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; font-weight: 600; margin: 0; max-width: 22ch;">{{ t.accredHead }}</h2>
           </div>
-          <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.7); max-width: 44ch;">{{ t.accredIntro }}</p>
+          <sc-if value="{{ t.accredIntro }}">
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.7); max-width: 44ch;">{{ t.accredIntro }}</p>
+          </sc-if>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 252px), 1fr));">
           <sc-for list="{{ isoRows }}" as="iso" hint-placeholder-count="5">
@@ -774,7 +788,9 @@
             <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0 0 20px;">{{ t.valuesKicker }}</p>
             <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.valuesHead }}</h2>
           </div>
-          <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(247,245,242,.65); max-width: 40ch;">{{ t.valuesIntro }}</p>
+          <sc-if value="{{ t.valuesIntro }}">
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(247,245,242,.65); max-width: 40ch;">{{ t.valuesIntro }}</p>
+          </sc-if>
         </div>
       </div>
       <div style="position: relative; border-top: 1px solid rgba(247,245,242,.18); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1px; background: rgba(247,245,242,.18);">
@@ -1138,9 +1154,11 @@
             <p style="margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #f15d2a;">{{ tx.k30 }}</p>
           </div>
           <h1 style="margin: 0; max-width: 13ch; font-size: clamp(44px, 7.4vw, 124px); line-height: 1.06; letter-spacing: -.05em; font-weight: 600; text-wrap: balance;">{{ tx.k31 }}</h1>
-          <div style="border-top: 1px solid rgba(247,245,242,.2); padding-top: 24px;">
-            <p data-ab-intro="" style="margin: 0; max-width: 58ch; font-size: 17px; line-height: 1.75; color: rgba(247,245,242,.78); text-wrap: pretty;">{{ tx.k32 }}</p>
-          </div>
+          <sc-if value="{{ isEn }}">
+            <div style="border-top: 1px solid rgba(247,245,242,.2); padding-top: 24px;">
+              <p data-ab-intro="" style="margin: 0; max-width: 58ch; font-size: 17px; line-height: 1.75; color: rgba(247,245,242,.78); text-wrap: pretty;">{{ tx.k32 }}</p>
+            </div>
+          </sc-if>
         </div>
       </div>
     </section>
@@ -1446,7 +1464,9 @@
             <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0 0 16px;">{{ t.accredKicker }}</p>
             <h2 data-reveal="" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; font-weight: 600; margin: 0; max-width: 22ch;">{{ t.accredHead }}</h2>
           </div>
-          <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.7); max-width: 44ch;">{{ t.accredIntro }}</p>
+          <sc-if value="{{ t.accredIntro }}">
+            <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.7); max-width: 44ch;">{{ t.accredIntro }}</p>
+          </sc-if>
         </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 252px), 1fr));">
           <sc-for list="{{ isoRows }}" as="iso" hint-placeholder-count="5">
@@ -2437,39 +2457,39 @@ const CASES_AR = [
     body: "جاءت شراكة تاكت بوصفها راعيًا لليالي وِرث الرمضانية ممثلة فعالية ثقافية ينظمها المعهد الملكي للفنون التقليدية للاحتفاء بالإرث السعودي. وتتضمن الفعالية أنشطة متنوعة مثل: الحرف اليدوية، المسارات الإبداعية، والتجارب الحية التي تُقام لإحياء الأجواء الرمضانية.",
     metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "قطعة محتوى إبداعي" }],
     services: ["إدارة المشروع", "كتابة المحتوى", "التصاميم", "تقرير يومي وختامي", "رصد يومي خلال الايفنت"],
-    img: "assets/web/wirth-nights.webp", shotLabel: "تصوير الفعالية — ليالي ورث الرمضانية" },
+    img: "assets/web/wirth-nights-new.png", shotLabel: "" },
   { tab: "ملتقى إعلام الحج", year: "2026 — ملتقى إعلام الحج", name: "ملتقى إعلام الحج 2026",
     body: "في ملتقى إعلام الحج مثلت شراكة تاكت شريك التواصل الرقمي بمجتمع وبيئة إعلامية متكاملة، تدعم الإعلاميين في إنجاز تغطياتهم لموسم الحج عبر تقنيات تفاعلية، ومناطق إعلامية داعمة، تضم مقرًا لمركز العمليات الإعلامي الموحّد للحج، ومنصة الإيجاز الصحفي، بالإضافة إلى معرض إبداعي يبرز التحوّل في الخدمات المقدمة لضيوف الرحمن.",
     metrics: [{ value: "2.2M", label: "الظهور" }, { value: "631K", label: "المشاهدات" }, { value: "6.2K", label: "التفاعلات" }, { value: "77", label: "قطعة محتوى إبداعي" }],
     services: ["التغطيات الإعلامية", "إدارة مشروع", "كتابة محتوى", "الإنتاج"],
-    img: "assets/web/crowd.webp", shotLabel: "تغطية المركز الإعلامي — ملتقى إعلام الحج" },
+    img: "assets/web/hajj-new.jpg", shotLabel: "" },
   { tab: "ماراثون الرياض", year: "2026 — ماراثون الرياض", name: "ماراثون الرياض 2026",
     body: 'بصفتنا الشريك الداعم لماراثون الرياض 2026، تولت "تاكت" مسؤولية إدارة التواصل الرقمي للحدث، حيث ابتكرنا محتوى تفاعلياً يحفز المشاركين والمتابعين ،واكبنا الحدث منذ لحظات البداية ، مروراً بأجواء السباق ومساراته، وصولاً إلى تتويج الرعاة، لنقدم تغطية لحظية وشاملة تعكس ضخامة هذا الحدث الرياضي الأبرز في العاصمة.',
     metrics: [{ value: "265,646", label: "الظهور" }, { value: "36,463+", label: "المشاهدات" }, { value: "8,228", label: "التفاعلات" }, { value: "116", label: "المنشورات" }],
     services: ["إدارة مشروع", "كتابة محتوى", "تقارير أسبوعية وشهرية وختامية", "تصاميم وعروض تقديمية", "مونتاج فيديوهات", "التفاعل مع المؤثرين"],
-    img: "assets/web/wheel-visitors.webp", shotLabel: "تغطية يوم السباق — ماراثون الرياض" },
+    img: "assets/web/riyadh-marathon-new.jpg", shotLabel: "" },
   { tab: "معرض بنان", year: "2025 — أسبوع الحرف اليدوية الدولي السعودي (بنان)", name: 'معرض "بنان" الأسبوع السعودي الدولي للحرف اليدوية 2025',
     body: 'بصفتنا الشريك الرسمي للتواصل الرقمي لمعرض "بنان"، تولت "تاكت" مهمة إبراز جوهر الأسبوع السعودي الدولي للحرف اليدوية 2025. قدمنا تغطية يومية مكثفة سلطت الضوء على الحرفيين المبدعين ومنتجاتهم الفريدة، مع إنتاج محتوى إبداعي يربط بين أصالة الهوية الثقافية السعودية وتطلعات الجمهور المهتم بالفنون التقليدية، مما أسهم في استقطاب شريحة واسعة من المهتمين، وتوثيق هذا المحفل الثقافي بأسلوب بصري وفني مميز.',
     metrics: [{ value: "387K", label: "الظهور" }, { value: "17.7K", label: "المشاهدات" }, { value: "13K", label: "التفاعلات" }, { value: "125", label: "المنشورات" }],
     services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم", "التصوير", "مونتاج فيديوهات"],
-    img: "assets/web/banan-booth.webp", shotLabel: "صور الحرفيين — معرض بنان" },
+    img: "assets/web/banan-booth.webp", shotLabel: "" },
   { tab: "عش بصحة", year: "2025 — ملتقى الصحة العالمي", name: "مساحة عش بصحة في ملتقى الصحة 2025",
     body: 'بصفتنا الشريك التسويقي لمساحة "عش بصحة" في ملتقى الصحة العالمي 2025، تولت "تاكت" مهمة إبراز هذا الجناح التوعوي الاستثنائي. من خلال إنتاج محتوى رقمي تفاعلي، ركزنا على الأنشطة والفعاليات التي تعزز تبني أنماط الحياة الصحية. هدفنا تحفيز زوار الملتقى على التفاعل مع التجارب المقدمة داخل المساحة طوال أيام انعقاد الملتقى، وترك بصمة توعوية تسهم في إحداث تغيير إيجابي ملموس في المجتمع.',
     metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }],
     services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
-    img: "assets/web/vr.webp", shotLabel: "تجربة الجناح — مساحة عش بصحة" },
+    img: "assets/web/live-well-new.jpg", shotLabel: "" },
   { tab: "ملتقى الترجمة", year: "2025 — ملتقى الترجمة الدولي", name: "ملتقى الترجمة الدولي 2025",
     body: 'بصفتنا شريك التواصل الرقمي لملتقى الترجمة الدولي 2025، تولت "تاكت" إدارة الحضور الرقمي للحدث، حيث قمنا بإنتاج محتوىً متخصص يبرز جلسات الملتقى ورؤى ضيوفه من المترجمين والمختصين. سلطنا الضوء بفاعلية على الدور المحوري للترجمة في نقل المعرفة وتقريب الثقافات، مع تقديم تغطية مكثفة واكبت تفاصيل الملتقى طوال أيامه، لتعكس القيمة المعرفية لهذا الحدث العالمي وتصل بها إلى الجمهور الرقمي.',
     metrics: [{ value: "27K", label: "الظهور" }, { value: "4.5K", label: "المشاهدات" }, { value: "270", label: "التفاعلات" }, { value: "19", label: "المنشورات" }],
     services: ["إدارة مشروع", "كتابة محتوى", "تقارير ختامية", "التصاميم"],
-    img: "assets/web/booth-screen.webp", shotLabel: "تغطية الجلسات — منتدى الترجمة الدولي" }
+    img: "assets/web/translation-forum-new.jpg", shotLabel: "" }
 ];
 
 const AWARDS_AR = [
-  { title: "أفضل حملة تسويق رقمي", body: "عن مسابقة \"المهارات الثقافية\" بالتعاون مع وزارة الثقافة، محققة أكثر من 556 مليون ظهور و 15.8 مليون تفاعل.", metricLabel: "الظهور" },
-  { title: "أفضل حملة إعلامية متكاملة", body: "عن \"حملة موسم رمضان 1445\"، محققةً أكثر من 245 مليون ظهور و 55 مليون مشاهدة فيديو.", metricLabel: "مشاهدات الفيديو" },
-  { title: "أفضل استخدام للحملات التقليدية", body: "عن \"حملة يوم التأسيس\" (من فكرة محلية لإنجاز عالمي)، بوصول تجاوز 1.1 مليار مشاهدة.", metricLabel: "المشاهدات" },
-  { title: "أفضل حملة تسويق بالمؤثرين", body: "عن \"حملة المؤثرين لماراثون الرياض 2025\" (حملة إكسبو)، بمشاركة أكثر من 41 مؤثرًا واستقطاب أكثر من 40,000 مشارك.", metricLabel: "المشاركون" }
+  { title: "أفضل استخدام للحملات التقليدية", body: "عن \"حملة يوم التأسيس\" (من فكرة محلية لإنجاز عالمي)، بوصول تجاوز 1.1 مليار مشاهدة.", metricLabel: "المشاهدات", metric: "1.1B", img: "assets/awards/award-3.webp" },
+  { title: "أفضل حملة إعلامية متكاملة", body: "عن \"حملة موسم رمضان 1445\"، محققةً أكثر من 245 مليون ظهور و 55 مليون مشاهدة فيديو.", metricLabel: "مشاهدات الفيديو", metric: "55M", img: "assets/awards/award-2.webp" },
+  { title: "أفضل حملة تسويق رقمي", body: "عن مسابقة \"المهارات الثقافية\" بالتعاون مع وزارة الثقافة، محققة أكثر من 556 مليون ظهور و 15.8 مليون تفاعل.", metricLabel: "الظهور", metric: "556M", img: "assets/awards/award-1.webp" },
+  { title: "أفضل حملة تسويق بالمؤثرين", body: "عن \"حملة المؤثرين لماراثون الرياض 2025\" (حملة إكسبو)، بمشاركة أكثر من 41 مؤثرًا واستقطاب أكثر من 40,000 مشارك.", metricLabel: "المشاركون", metric: "40K+", img: "assets/awards/award-4.webp" }
 ];
 
 const ISO_NAMES_AR = ["أنظمة إدارة المشاريع", "أنظمة إدارة المخاطر", "أنظمة إدارة الجودة", "الصحة والسلامة المهنية", "أنظمة الإدارة البيئية"];
@@ -2562,13 +2582,13 @@ const T_AR = {
   heroLead: "",
   footerDesc: "شركة سعودية رائدة في الاتصال الرقمي — الاستراتيجية والمحتوى والحملات والقياس تحت سقف واحد، ينجزها فريق يبقى مع الحساب.",
   seeWork: "شاهد أعمالنا", watchPromo: "شاهد الفيلم التعريفي", heroPhotoCap: "عشر سنوات من تاكت — تفعيل، الرياض", annualReach: "الوصول الرقمي السنوي",
-  servicesKicker: "خدماتنا", whatWeDo: "الخدمات", servicesIntro: "خمس خدمات متكاملة. معظم شركائنا يبدأ بواحدة، وينتهي بإدارة حضوره الرقمي بالكامل معنا. اختر خدمة لقراءتها.",
-  numbersKicker: "تاكت بالأرقام", numbersHead: "عقد من العمل، محسوباً", numbersNote: "كل رقم أدناه تراكمي عبر الحسابات والحملات والفعاليات التي أدارتها تاكت منذ 2014.",
-  sectorsKicker: "القطاعات", sectorsHead: "قطاعات نعرفها", sectorsIntro: "الثقافة والصحة والرياضة والترفيه والتقنية — لكل قطاع جمهوره ونبرته وإيقاعه.",
+  servicesKicker: "خدماتنا", whatWeDo: "الخدمات", servicesIntro: "",
+  numbersKicker: "تاكت بالأرقام", numbersHead: "", numbersNote: "",
+  sectorsKicker: "القطاعات", sectorsHead: "", sectorsIntro: "الثقافة والصحة والرياضة والترفيه والتقنية — لكل قطاع جمهوره ونبرته وإيقاعه.",
   partnersKicker: "الشراكات", partnersHead: "شراكات تصنع أثرًا", partnersIntro: "في تاكت، نؤمن أن الشراكة الناجحة ما تكون مجرد حضور، بل فرصة نصنع من خلالها أثرًا يمتد أبعد من الحدث.", servicesDelivered: "الخدمات المقدمة",
-  awardsKicker: "الجوائز — ديجيتال مينا 2025", awardsHead: "أربع جوائز لأعمال صُنعت في المملكة", awardsIntro: "خلال مسيرتنا الممتدة؛ وبالشراكة مع عملائنا، قدنا كبرى الحملات، وحققنا أفضل النتائج، بالاعتماد على منهجية تضع العميل أوّلًا، وتسخّر الخبرات والكفاءات لتحقيق المنجزات التي نفخر دومًا بتحقيقها، مع فريقنا الذي يبحث عن النجاح في كل تحدّي.",
-  accredKicker: "الاعتمادات", accredHead: "معتمدون للعمل مع الجهات الحكومية", accredIntro: "خمسة أنظمة آيزو مدققة في إدارة المشاريع والمخاطر والجودة والسلامة والبيئة — وهي المعايير التي تطلبها الوزارات والهيئات والمواسم من شركائها.", viewCert: "عرض الشهادة",
-  valuesKicker: "قيمنا", valuesHead: "قيم نؤمن بها، وأثر نصنعه", valuesIntro: "خمسة التزامات تشكّل طريقة عمل الفريق يوماً بيوم.",
+  awardsKicker: "الجوائز — حفل جوائز الإعلام الرقمي 2025", awardsHead: "أربع جوائز لأعمال صُنعت في المملكة", awardsIntro: "خلال مسيرتنا الممتدة؛ وبالشراكة مع عملائنا، قدنا كبرى الحملات، وحققنا أفضل النتائج، بالاعتماد على منهجية تضع العميل أوّلًا، وتسخّر الخبرات والكفاءات لتحقيق المنجزات التي نفخر دومًا بتحقيقها، مع فريقنا الذي يبحث عن النجاح في كل تحدّي.",
+  accredKicker: "الاعتمادات", accredHead: "معتمدون للعمل مع الجهات الحكومية", accredIntro: "", viewCert: "عرض الشهادة",
+  valuesKicker: "قيمنا", valuesHead: "قيم نؤمن بها، وأثر نصنعه", valuesIntro: "",
   ctaHead: "تاكت، نصنع الأثر", ctaBody: "أرسل لنا موجزك ونعود إليك بخطة وفريق وجدول زمني."
 };
 
@@ -2608,7 +2628,7 @@ const trAr = (v) => { const D = window.TACT_AR || {}; const walk = (x, d) => { i
 const HS_EO = "cubic-bezier(.23,1,.32,1)", HS_IO = "cubic-bezier(.77,0,.175,1)", HS_DUR = 6500;
 const HS_CASES = [
   { img: "giveaway", label: "Wirth Ramadan Nights", labelAr: "ليالي ورث الرمضانية", kicker: "2026 — Royal Institute of Traditional Arts (Wirth)", kickerAr: "2026 — المعهد الملكي للفنون التقليدية (ورث)", lines: ["Wirth Ramadan", "Nights"], linesAr: ["ليالي ورث", "الرمضانية"], m: { to: 5.2, dec: 1, pre: "", suf: "M", l: "Impressions", lAr: "ظهور" }, sub: [["1.2M", "Views", "مشاهدة"], ["43K", "Engagements", "تفاعل"], ["155", "Creative pieces", "عمل إبداعي"]] },
-  { img: "crowd", label: "Cultural Skills", labelAr: "المهارات الثقافية", kicker: "Ministry of Culture — Best digital marketing campaign, Digital MENA 2025", kickerAr: "وزارة الثقافة — أفضل حملة تسويق رقمي، ديجيتال مينا 2025", lines: ["Cultural Skills", "competition"], linesAr: ["مسابقة", "المهارات الثقافية"], m: { to: 556, dec: 0, pre: "", suf: "M", l: "Impressions", lAr: "ظهور" }, sub: [["15.8M", "Engagements", "تفاعل"]] },
+  { img: "crowd", label: "Cultural Skills", labelAr: "المهارات الثقافية", kicker: "Ministry of Culture — Best digital marketing campaign, Digital MENA 2025", kickerAr: "وزارة الثقافة — أفضل حملة تسويق رقمي، حفل جوائز الإعلام الرقمي 2025", lines: ["Cultural Skills", "competition"], linesAr: ["مسابقة", "المهارات الثقافية"], m: { to: 556, dec: 0, pre: "", suf: "M", l: "Impressions", lAr: "ظهور" }, sub: [["15.8M", "Engagements", "تفاعل"]] },
   { img: "booth-wide", label: "Riyadh Season", labelAr: "موسم الرياض", kicker: "General Entertainment Authority — since 2019", kickerAr: "الهيئة العامة للترفيه — منذ 2019", lines: ["Riyadh Season,", "around the clock"], linesAr: ["موسم الرياض،", "على مدار الساعة"], m: { to: 70, dec: 0, pre: "", suf: "", l: "Posts a day, on average", lAr: "منشوراً يومياً في المتوسط" }, sub: [["15", "Specialists on site, 24/7", "متخصصاً في الموقع على مدار الساعة"]] },
   { img: "ten-lit", label: "Ten years of tact", labelAr: "عشر سنوات من تاكت", kicker: "Ten years of tact — activation, Riyadh", kickerAr: "عشر سنوات من تاكت — تفعيل، الرياض", lines: ["Ten years", "of tact"], linesAr: ["عشر سنوات", "من تاكت"], m: { to: 14, dec: 0, pre: "+", suf: "B", l: "Annual digital reach", lAr: "وصول رقمي سنوي" }, sub: [] }
 ];
@@ -3810,7 +3830,7 @@ class Component extends DCLogic {
     const tNum = counts.numbers || 0;
     return {
       ...this.hsVals(ar, TX),
-      t: TX, ar, tx: TX_STATIC,
+      t: TX, ar, isAr: ar, isEn: !ar, tx: TX_STATIC,
       calPieces: CAL_PIECES, calLetters: CAL_LETTERS, replayCal: () => this.replayCal(),
       calMonths: CAL_MONTHS.map((m, i) => { const cur = new Date().getFullYear() === 2026 && new Date().getMonth() === i, sh = CAL_SHAPES[i], ring = sh[0] === "ring", hv = this.state.calHov === i; const base = { num: String(i + 1).padStart(2, "0"), name: ar ? m[1] : m[0], hijri: ar ? m[3] : m[2], day: ar ? m[5] : m[4], hasDay: !!m[4], bg: cur ? "#282829" : "#f15d2a", ink: "#fff", r: sh[2], br: ring ? "50%" : sh[0], sbg: ring ? "transparent" : (cur && sh[1] === "#282829" ? "#f15d2a" : sh[1]), bd: ring ? "3px solid " + (cur && sh[1] === "#282829" ? "#f15d2a" : sh[1]) : "0px solid transparent", enter: () => this.setState({ calHov: i }), leave: () => this.setState((st) => (st.calHov === i ? { calHov: null } : null)) }; return hv ? { ...base, bg: sh[1], ink: sh[1] === "#282829" ? "#fff" : "#282829", sbg: ring ? "transparent" : "#f15d2a", bd: ring ? "3px solid #f15d2a" : "0px solid transparent" } : base; }),
       arrow: ar ? "←" : "→",
@@ -3881,7 +3901,7 @@ class Component extends DCLogic {
       timeline: TIMELINE.map((t, i) => ({ ...t, num: String(i + 1).padStart(2, "0"), img: TL_IMG[i % TL_IMG.length], order: i % 2 ? -1 : 0 })),
       goLeadership: this.go("leadership"),
       ...(() => {
-        const nar = w < 1040, ai = this.state.abIdx || 0, words = (this.state.lang === "ar" ? "حققت المملكة قفزات نوعية في الوعي على كافة الأصعدة خلال العقد الماضي، وكان هذا الزخم أساس انطلاقتنا. ومن خلال شراكاتنا في مختلف القطاعات نتطلع إلى بناء مجتمعات رقمية فعّالة تسهم في تحقيق رؤية السعودية 2030." : AB_STATEMENT).split(" ");
+        const nar = w < 1040, ai = this.state.abIdx || 0, words = (this.state.lang === "ar" ? "تأسست tact عام 2014 برؤية سبّاقة وواعدة تستند على مسار استراتيجي واضح، وأهداف مدروسة تستشرف المستقبل التواصلي، حيث تميزت في تنفيذ الخدمات الاتصالية التي تتمثل في التخطيط وبناء الاستراتيجيات وتقديم الاستشارات لكافة مشاريع التواصل في كبرى الجهات الحكومية والشركات الخاصة والمؤسسات غير الربحية على أكمل وجه، بأيدي فريق عمل محترف يتكوّن من 250 موظفًا مؤهلًا ومتميزًا، واقتناص احتياجات سوق العمل الاتصالي في المملكة وتلبيتها بكل كفاءة في تنفيذ وإدارة المشاريع التسويقية والاتصالية بأنواعها من خلال العمل وفق أفضل الممارسات والأدوات الحديثة واستقطاب المزيد من الكفاءات وأصحاب الخبرة، واليوم نتطلع بطموح ممتد لنكون ذراع التواصل الفعّال للمشاريع الوطنية وضمان سير مراحل عملها بسلاسةٍ واحترافية؛ للمساهمة في تحقيق تطلعات رؤية السعودية 2030 على كافة المجالات والأصعدة." : AB_STATEMENT).split(" ");
         return {
           abWords: words.map((t, i) => ({ t, c: i >= words.length - 3 ? "#f15d2a" : "inherit" })),
           abValDir: nar ? "column" : "row", abValNum: "0" + (ai + 1),
@@ -4038,12 +4058,19 @@ class Component extends DCLogic {
       })(),
       stats: STATS.map((s) => ({ shown: (s.decimals ? (s.target * tNum).toFixed(s.decimals) : this.fmt(s.target * tNum)) + s.suffix, label: s.label })),
       statsHero: { shown: "+" + Math.round(14 * tNum) + "B", label: STATS[0].label, labelYear: ar ? STATS[0].label : STATS[0].label + " each year" },
-      statsRows: STATS.slice(1).map((s, i) => ({
-        shown: (s.decimals ? (s.target * tNum).toFixed(s.decimals) : this.fmt(s.target * tNum)) + s.suffix,
-        label: s.label,
-        num: "0" + (i + 2),
-        bar: (100 * tNum).toFixed(1) + "%"
-      })),
+      statsRows: STATS.slice(1).map((s, i) => {
+        const v = s.decimals ? (s.target * tNum).toFixed(s.decimals) : this.fmt(s.target * tNum);
+        let shown = v + s.suffix;
+        if (ar && s.prefix) shown = s.prefix + v;
+        else if (ar && s.suffix === "+") shown = "+" + v;
+        return {
+          shown,
+          label: s.label,
+          num: ar ? "" : "0" + (i + 2),
+          gridCols: ar ? "minmax(0, 1fr) auto" : "auto minmax(0, 1fr) auto",
+          bar: (100 * tNum).toFixed(1) + "%"
+        };
+      }),
       ...(() => {
         const si = this.state.secIdx || 0, pad = (n) => String(n).padStart(2, "0"), wide = (w || window.innerWidth) >= 900 && window.innerHeight >= 600;
         const cnt = (c) => c.length ? (ar ? (c.length === 1 ? "عميل واحد" : c.length + " عملاء") : c.length + (c.length === 1 ? " client" : " clients")) : "";
@@ -4174,11 +4201,11 @@ class Component extends DCLogic {
       activeCase: { ...CASES[caseIdx], imgBg: "background-image: url(" + CASES[caseIdx].img + "); background-size: cover; background-position: center;", metrics: CASES[caseIdx].metrics.map((m) => ({ value: this.cnt(m.value, "cases"), label: m.label })) },
       heroReach: "+" + Number(this.cnt("14000000000").replace(/[^\d]/g, "") || 0).toLocaleString("en-US"),
       awardRows: (ar ? AWARDS_AR : [
-        { title: "Best digital marketing campaign", body: "For the Cultural Skills competition with the Ministry of Culture — over 556 million impressions and 15.8 million engagements.", metricLabel: "Impressions" },
-        { title: "Best integrated media campaign", body: "For the Ramadan Season 1445 campaign — over 245 million impressions and 55 million video views.", metricLabel: "Video views" },
-        { title: "Best use of traditional campaigns", body: "For the Founding Day campaign, from a local idea to a global achievement, reaching over 1.1 billion views.", metricLabel: "Views" },
-        { title: "Best influencer marketing campaign", body: "For the Riyadh Marathon 2025 influencer campaign, with over 41 influencers and more than 40,000 participants attracted.", metricLabel: "Participants attracted" }
-      ]).map((a, i) => ({ ...a, img: "assets/awards/award-" + (i + 1) + ".webp", slot: "award-" + (i + 1), slotLabel: ar ? "صورة الجائزة" : "Award image", metric: this.cnt(["556M", "55M", "1.1B", "40K+"][i], "awards") })),
+        { title: "Best digital marketing campaign", body: "For the Cultural Skills competition with the Ministry of Culture — over 556 million impressions and 15.8 million engagements.", metricLabel: "Impressions", metric: "556M", img: "assets/awards/award-1.webp" },
+        { title: "Best integrated media campaign", body: "For the Ramadan Season 1445 campaign — over 245 million impressions and 55 million video views.", metricLabel: "Video views", metric: "55M", img: "assets/awards/award-2.webp" },
+        { title: "Best use of traditional campaigns", body: "For the Founding Day campaign, from a local idea to a global achievement, reaching over 1.1 billion views.", metricLabel: "Views", metric: "1.1B", img: "assets/awards/award-3.webp" },
+        { title: "Best influencer marketing campaign", body: "For the Riyadh Marathon 2025 influencer campaign, with over 41 influencers and more than 40,000 participants attracted.", metricLabel: "Participants attracted", metric: "40K+", img: "assets/awards/award-4.webp" }
+      ]).map((a, i) => ({ ...a, img: a.img || ("assets/awards/award-" + (i + 1) + ".webp"), slot: "award-" + (i + 1), slotLabel: ar ? "صورة الجائزة" : "Award image", metric: this.cnt(a.metric || ["556M", "55M", "1.1B", "40K+"][i], "awards") })),
       isoRows: [
         { code: "ISO 21500:2021", name: "Project management systems", bg: "background-image: url(assets/iso/iso-21500.webp);", pdf: "assets/iso/iso-21500.pdf", thumb: "assets/iso/cert-21500.webp" },
         { code: "ISO 31000:2018", name: "Risk management systems", bg: "background-image: url(assets/iso/iso-31000.webp);", pdf: "assets/iso/iso-31000.pdf", thumb: "assets/iso/cert-31000.webp" },
