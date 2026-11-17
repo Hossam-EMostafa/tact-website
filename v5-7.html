@@ -673,6 +673,29 @@
       </div>
     </section>
 
+    <section style="position: relative; background: #282829; color: #f7f5f2; padding: 110px 0 0; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.04) 0 1px, transparent 1px 16px);"></div>
+      <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 0 28px 52px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 40px; align-items: end;">
+          <div>
+            <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0 0 20px;">{{ t.valuesKicker }}</p>
+            <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.valuesHead }}</h2>
+          </div>
+          <sc-if value="{{ t.valuesIntro }}">
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(247,245,242,.65); max-width: 40ch;">{{ t.valuesIntro }}</p>
+          </sc-if>
+        </div>
+      </div>
+      <div style="position: relative; border-top: 1px solid rgba(247,245,242,.18); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1px; background: rgba(247,245,242,.18);">
+        <sc-for list="{{ valueList }}" as="v" hint-placeholder-count="5">
+          <div class="val-card" style="background: #282829; color: #f7f5f2; padding: 30px 28px 34px; display: flex; flex-direction: column; gap: 12px; transition: color .4s ease;" style-hover="color: #282829;">
+            <h3 style="margin: 0; font-size: 21px; line-height: 1.15; letter-spacing: -.025em; font-weight: 600; color: inherit;">{{ v.title }}</h3>
+            <p style="margin: 0; font-size: 14px; line-height: 1.65; color: inherit; opacity: .85;">{{ v.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
     <section style="position: relative; background: #f7f5f2; color: #282829; padding: 110px 28px; overflow: hidden;">
       <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(40,40,41,.035) 0 1px, transparent 1px 16px);"></div>
       <div style="position: relative; max-width: 1320px; margin: 0 auto;">
@@ -783,28 +806,6 @@
       </div>
     </section>
 
-    <section style="position: relative; background: #282829; color: #f7f5f2; padding: 110px 0 0; overflow: hidden;">
-      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.04) 0 1px, transparent 1px 16px);"></div>
-      <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 0 28px 52px;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 40px; align-items: end;">
-          <div>
-            <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0 0 20px;">{{ t.valuesKicker }}</p>
-            <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.valuesHead }}</h2>
-          </div>
-          <sc-if value="{{ t.valuesIntro }}">
-            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgba(247,245,242,.65); max-width: 40ch;">{{ t.valuesIntro }}</p>
-          </sc-if>
-        </div>
-      </div>
-      <div style="position: relative; border-top: 1px solid rgba(247,245,242,.18); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1px; background: rgba(247,245,242,.18);">
-        <sc-for list="{{ valueList }}" as="v" hint-placeholder-count="5">
-          <div class="val-card" style="background: #282829; color: #f7f5f2; padding: 30px 28px 34px; display: flex; flex-direction: column; gap: 12px; transition: color .4s ease;" style-hover="color: #282829;">
-            <h3 style="margin: 0; font-size: 21px; line-height: 1.15; letter-spacing: -.025em; font-weight: 600; color: inherit;">{{ v.title }}</h3>
-            <p style="margin: 0; font-size: 14px; line-height: 1.65; color: inherit; opacity: .85;">{{ v.body }}</p>
-          </div>
-        </sc-for>
-      </div>
-    </section>
   </main>
   </sc-if>
 
