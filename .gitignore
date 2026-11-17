@@ -13,3 +13,4 @@ backups/
 *.key
 .~lock.*
 scripts/
+.vercel
