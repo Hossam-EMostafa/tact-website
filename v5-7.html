@@ -437,87 +437,32 @@
   <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
   <main>
     <section data-hs-sec="" data-screen-label="Home hero" style="position: relative; background: #282829; color: #f7f5f2; overflow: hidden;">
-      <div data-hs-stage="" tabindex="0" role="region" aria-roledescription="carousel" aria-label="tact highlights" onKeyDown="{{ hsKey }}" onPointerDown="{{ hsDown }}" onPointerMove="{{ hsHover }}" onPointerEnter="{{ hsEnter }}" onPointerLeave="{{ hsLeave }}" style="position: relative; height: 100vh; min-height: 640px; max-height: 980px; overflow: hidden; background: #282829; color: #f7f5f2; touch-action: pan-y; user-select: none; cursor: {{ hsCursor }};">
-        <div data-hs-drag="img" style="position: absolute; inset: 0;">
-          <sc-for list="{{ hsSlides }}" as="s" hint-placeholder-count="5">
-            <div style="position: absolute; inset: 0; z-index: {{ s.z }}; clip-path: {{ s.clip }}; transition: {{ s.clipT }}; overflow: hidden;">
-              <div role="img" aria-label="{{ s.label }}" style="position: absolute; inset: -3%; background-size: cover; background-position: center; {{ s.bg }}; transform: {{ s.kb }}; transition: {{ s.kbT }};"></div>
-              <sc-if value="{{ s.isHead }}" hint-placeholder-val="{{ false }}">
-                <img src="assets/web/hero-tact.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
-                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.5) 0%, rgba(40,40,41,0) 28%);"></div>
-                <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: linear-gradient(180deg, rgba(40,40,41,0) 0%, rgba(40,40,41,.78) 100%); pointer-events: none;"></div>
-              </sc-if>
-              <sc-if value="{{ s.isCase }}" hint-placeholder-val="{{ true }}">
-                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.55) 0%, rgba(40,40,41,.12) 32%, rgba(40,40,41,.5) 62%, rgba(40,40,41,.94) 100%);"></div>
-                <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(40,40,41,.6) 0%, rgba(40,40,41,0) 60%);"></div>
-              </sc-if>
-            </div>
-          </sc-for>
-        </div>
-
-        <div style="position: absolute; top: 0; left: 0; right: 0; z-index: 6; pointer-events: none;">
-          <div style="max-width: 1320px; margin: 0 auto; padding: 108px 28px 0; display: flex; justify-content: flex-end;">
-            <p style="margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; color: rgba(247,245,242,.8); font-variant-numeric: tabular-nums;" dir="ltr"><span style="color: #f7f5f2;">{{ hsNow }}</span> / 05</p>
+      <div style="position: relative; height: 100vh; min-height: 640px; max-height: 980px; overflow: hidden; background: #282829; color: #f7f5f2; user-select: none;">
+        <div style="position: absolute; inset: 0;">
+          <div style="position: absolute; inset: 0; z-index: 1; overflow: hidden;">
+            <video data-hs-video="" autoplay muted loop playsinline poster="assets/web/hero-tact.webp" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+              <source src="assets/web/hero-tact.mp4" type="video/mp4">
+            </video>
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(40,40,41,.5) 0%, rgba(40,40,41,0) 28%); pointer-events: none;"></div>
+            <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 62%; background: linear-gradient(180deg, rgba(40,40,41,0) 0%, rgba(40,40,41,.78) 100%); pointer-events: none;"></div>
           </div>
         </div>
 
-        <div data-hs-drag="txt" style="position: absolute; inset: 0; z-index: 5; pointer-events: none;">
-          <sc-for list="{{ hsSlides }}" as="s" hint-placeholder-count="5">
-            <div data-hs-text="{{ s.i }}" aria-hidden="{{ s.ah }}" style="position: absolute; left: 0; right: 0; top: 150px; bottom: 138px; display: flex; flex-direction: column; justify-content: safe flex-end;">
-              <div style="width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 28px; box-sizing: border-box;">
-                <p style="margin: 0 0 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #4cc0af; max-width: 60ch; opacity: {{ s.f1.op }}; transform: {{ s.f1.tf }}; transition: {{ s.f1.tr }};">{{ s.kicker }}</p>
-                <h2 style="margin: 0 0 24px; font-size: clamp(28px, min(4.8vw, 8vh), 80px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600;">
-                  <sc-for list="{{ s.lines }}" as="ln" hint-placeholder-count="3">
-                    <span style="display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em;"><span style="display: block; color: {{ ln.color }}; opacity: {{ ln.op }}; transform: {{ ln.tf }}; transition: {{ ln.tr }};">{{ ln.text }}</span></span>
-                  </sc-for>
-                </h2>
-                <sc-if value="{{ s.isHead }}" hint-placeholder-val="{{ true }}">
-                  <div style="display: flex; flex-wrap: wrap; gap: 22px 40px; align-items: center; opacity: {{ s.f2.op }}; transform: {{ s.f2.tf }}; transition: {{ s.f2.tr }};">
-                    <sc-if value="{{ t.heroLead }}">
-                      <p data-hs-lead="" style="margin: 0; max-width: 46ch; font-size: 16.5px; line-height: 1.7; color: rgba(247,245,242,.82);">{{ t.heroLead }}</p>
-                    </sc-if>
-                    <button type="button" data-hs-nodrag="" onClick="{{ goWork }}" style="pointer-events: auto; border: 0; font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; background: #f15d2a; color: #fff; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; transition: background .3s ease, color .3s ease, transform .45s cubic-bezier(.23,1,.32,1);" style-hover="background: #f7f5f2; color: #282829; transform: translateY(-3px);">{{ t.seeWork }} <span>{{ arrow }}</span></button>
-                  </div>
+        <div style="position: absolute; inset: 0; z-index: 5; pointer-events: none;">
+          <div data-hs-text="" style="position: absolute; left: 0; right: 0; top: 150px; bottom: 80px; display: flex; flex-direction: column; justify-content: safe flex-end;">
+            <div style="width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 28px; box-sizing: border-box;">
+              <p style="margin: 0 0 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #4cc0af; max-width: 60ch;">{{ heroKicker }}</p>
+              <h1 style="margin: 0 0 24px; font-size: clamp(28px, min(4.8vw, 8vh), 80px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600;">
+                <sc-for list="{{ heroLines }}" as="ln">
+                  <span style="display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em;"><span style="color: {{ ln.color }};">{{ ln.text }}</span></span>
+                </sc-for>
+              </h1>
+              <div style="display: flex; flex-wrap: wrap; gap: 22px 40px; align-items: center;">
+                <sc-if value="{{ t.heroLead }}">
+                  <p data-hs-lead="" style="margin: 0; max-width: 46ch; font-size: 16.5px; line-height: 1.7; color: rgba(247,245,242,.82);">{{ t.heroLead }}</p>
                 </sc-if>
-                <sc-if value="{{ s.isCase }}" hint-placeholder-val="{{ false }}">
-                  <div style="display: flex; flex-wrap: wrap; gap: 20px 0; align-items: flex-end; opacity: {{ s.f2.op }}; transform: {{ s.f2.tf }}; transition: {{ s.f2.tr }};">
-                    <div style="padding-inline-end: 40px;">
-                      <div data-hs-to="{{ s.mTo }}" data-dec="{{ s.mDec }}" data-pre="{{ s.mPre }}" data-suf="{{ s.mSuf }}" dir="ltr" style="width: fit-content; font-size: clamp(34px, min(5vw, 7.5vh), 80px); font-weight: 600; letter-spacing: -.05em; line-height: .9; color: #f15d2a; font-variant-numeric: tabular-nums;">{{ s.mText }}</div>
-                      <div style="margin-top: 10px; font-size: 14px; color: rgba(247,245,242,.8);">{{ s.mLabel }}</div>
-                    </div>
-                    <sc-for list="{{ s.sub }}" as="m" hint-placeholder-count="2">
-                      <div data-hs-sub="" style="border-inline-start: 1px solid rgba(247,245,242,.25); padding-block: 0 4px; padding-inline: 22px 32px;">
-                        <div dir="ltr" style="width: fit-content; font-size: clamp(22px, 2.1vw, 32px); font-weight: 600; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums;">{{ m.v }}</div>
-                        <div style="margin-top: 8px; font-size: 13px; color: rgba(247,245,242,.75);">{{ m.l }}</div>
-                      </div>
-                    </sc-for>
-                  </div>
-                </sc-if>
+                <button type="button" onClick="{{ goWork }}" style="pointer-events: auto; border: 0; font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; background: #f15d2a; color: #fff; font-size: 15px; font-weight: 600; padding: 16px 26px; border-radius: 99px; transition: background .3s ease, color .3s ease, transform .45s cubic-bezier(.23,1,.32,1);" style-hover="background: #f7f5f2; color: #282829; transform: translateY(-3px);">{{ t.seeWork }} <span>{{ arrow }}</span></button>
               </div>
-            </div>
-          </sc-for>
-        </div>
-
-        <div data-hs-nodrag="" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 7; border-top: 1px solid rgba(247,245,242,.16); background: linear-gradient(0deg, rgba(40,40,41,.6), rgba(40,40,41,0)); cursor: default;">
-          <div style="max-width: 1320px; margin: 0 auto; padding: 0 28px; display: flex; gap: 20px; align-items: stretch; justify-content: space-between;">
-            <div style="display: flex; flex: 1 1 auto; min-width: 0;">
-              <sc-for list="{{ hsSegs }}" as="g" hint-placeholder-count="5">
-                <button onClick="{{ g.go }}" aria-current="{{ g.cur }}" aria-label="{{ g.aria }}" style="flex: 1 1 0; min-width: 0; border: 0; background: transparent; color: {{ g.ink }}; font-family: inherit; text-align: start; padding-block: 22px 24px; padding-inline: 0 16px; cursor: pointer; display: flex; flex-direction: column; gap: 8px; transition: color .3s ease;" style-hover="color: #f7f5f2;">
-                  <span style="position: relative; display: block; height: 2px; background: rgba(247,245,242,.2); overflow: hidden;">
-                    <span style="position: absolute; inset: 0; background: #f7f5f2; transform-origin: {{ hsOrigin }}; transform: {{ g.fill }}; transition: transform .5s cubic-bezier(.23,1,.32,1);"></span>
-                    <span data-hs-live="" style="position: absolute; inset: 0; background: #f15d2a; transform-origin: {{ hsOrigin }}; transform: scaleX(0);"></span>
-                  </span>
-                  <span style="display: flex; gap: 10px; align-items: baseline; min-width: 0;">
-                    <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: .14em;">{{ g.num }}</span>
-                    <span style="font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ g.label }}</span>
-                  </span>
-                </button>
-              </sc-for>
-            </div>
-            <div style="display: flex; gap: 10px; align-items: center; flex: 0 0 auto;">
-              <button onClick="{{ hsToggle }}" aria-label="{{ hsPauseLabel }}" style="width: 48px; height: 48px; border: 1px solid rgba(247,245,242,.3); background: transparent; color: #f7f5f2; border-radius: 99px; cursor: pointer; font-family: inherit; font-size: 12px; display: flex; align-items: center; justify-content: center; transition: background .25s ease, border-color .25s ease;" style-hover="background: rgba(247,245,242,.12);">{{ hsPauseIcon }}</button>
-              <button onClick="{{ hsPrevBtn }}" aria-label="Previous slide" style="width: 48px; height: 48px; border: 1px solid rgba(247,245,242,.3); background: transparent; color: #f7f5f2; border-radius: 99px; cursor: pointer; font-family: inherit; font-size: 17px; display: flex; align-items: center; justify-content: center; transition: background .25s ease, border-color .25s ease, color .25s ease;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff;">{{ hsPrevArrow }}</button>
-              <button onClick="{{ hsNextBtn }}" aria-label="Next slide" style="width: 48px; height: 48px; border: 1px solid rgba(247,245,242,.3); background: transparent; color: #f7f5f2; border-radius: 99px; cursor: pointer; font-family: inherit; font-size: 17px; display: flex; align-items: center; justify-content: center; transition: background .25s ease, border-color .25s ease, color .25s ease;" style-hover="background: #f15d2a; border-color: #f15d2a; color: #fff;">{{ hsNextArrow }}</button>
             </div>
           </div>
         </div>
@@ -2788,131 +2733,53 @@ class Component extends DCLogic {
   hsS() { return { ...HS0, ...(this.state.hs || {}) }; }
   hsSet(p) { this.setState((s) => ({ hs: { ...HS0, ...(s.hs || {}), ...p } })); }
   hsMount() {
-    this._hsRed = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-    this._hsFine = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
-    this._hsEl = 0; this._hsP = { slide: 0, on: false };
-    this._hsTick = (t) => {
-      const dt = this._hsLt ? Math.min(64, t - this._hsLt) : 16; this._hsLt = t;
-      const sec = document.querySelector("[data-hs-sec]");
-      if (sec) {
-        const vh = window.innerHeight, r = sec.getBoundingClientRect(), seen = Math.min(r.bottom, vh) - Math.max(r.top, 0);
-        this._hsVis = seen > 0;
-        const h = this.hsS();
-        if (!h.on && !this.state.intro && r.height > 0 && seen >= Math.min(r.height, vh) * 0.55) this.hsSet({ on: true });
-        if (h.on && this._hsVis && !h.paused && !this._hsDrag && !document.hidden) this._hsEl += dt;
-        const p = Math.max(0, Math.min(1, this._hsEl / HS_DUR));
-        document.querySelectorAll("[data-hs-live]").forEach((l, i) => { l.style.transform = "scaleX(" + (i === h.slide ? p : 0).toFixed(4) + ")"; });
-        if (p >= 1) { this._hsEl = 0; this.hsGo((h.slide + 1) % 5, 1); }
-        this.hsVideo();
-      } else this._hsVis = false;
-      this._hsRaf = requestAnimationFrame(this._hsTick);
-    };
-    this._hsRaf = requestAnimationFrame(this._hsTick);
+    this._hsVis = true;
+    this.hsVideo();
+    window.addEventListener("scroll", () => this.hsVideo(), { passive: true });
+    window.addEventListener("visibilitychange", () => this.hsVideo(), { passive: true });
   }
-  hsUnmount() { cancelAnimationFrame(this._hsRaf); window.removeEventListener("pointermove", this.hsMove); }
+  hsUnmount() {
+    const v = document.querySelector("[data-hs-video]");
+    if (v && !v.paused) v.pause();
+  }
   hsVideo() {
     const v = document.querySelector("[data-hs-video]"); if (!v) return;
     v.muted = true; v.defaultMuted = true;
-    const want = this.hsS().slide === 0 && this._hsVis && !document.hidden;
-    if (want && v.paused) { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); }
-    else if (!want && !v.paused) v.pause();
+    const r = v.getBoundingClientRect();
+    const vis = r.bottom > 0 && r.top < window.innerHeight && !document.hidden;
+    if (vis && v.paused) { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    else if (!vis && !v.paused) v.pause();
   }
   hsUpdate() {
-    const h = this.hsS(), p = this._hsP || {};
-    if (h.on && (h.slide !== p.slide || !p.on)) {
-      const idx = h.slide;
-      setTimeout(() => document.querySelectorAll('[data-hs-text="' + idx + '"] [data-hs-to]').forEach((el) => this.hsCount(el, 1500)), 620);
-    }
-    this._hsP = { slide: h.slide, on: h.on };
-  }
-  hsCount(el, dur) {
-    const to = parseFloat(el.getAttribute("data-hs-to")), dec = +el.getAttribute("data-dec") || 0, pre = el.getAttribute("data-pre") || "", suf = el.getAttribute("data-suf") || "";
-    const tn = el.querySelector(".sc-interp") || el;
-    if (this._hsRed) { tn.textContent = pre + to.toFixed(dec) + suf; return; }
-    const t0 = performance.now();
-    const step = (now) => { const q = Math.min(1, (now - t0) / dur), e = q >= 1 ? 1 : 1 - Math.pow(2, -10 * q); tn.textContent = pre + (to * e).toFixed(dec) + suf; if (q < 1) requestAnimationFrame(step); };
-    requestAnimationFrame(step);
-  }
-  hsGo(i, d) {
-    const h = this.hsS(); if (i === h.slide) return;
-    this._hsEl = 0;
-    const apply = () => this.setState((s) => { const c = { ...HS0, ...(s.hs || {}) }; return { hs: { ...c, prev: c.slide, slide: i } }; });
-    if (d !== h.dir) { this.hsSet({ dir: d }); requestAnimationFrame(apply); } else apply();
-  }
-  hsMove = (e) => {
-    const d = this._hsDrag; if (!d) return;
-    d.dx = e.clientX - d.x;
-    const damp = d.dx / (1 + Math.abs(d.dx) / 500);
-    const img = document.querySelector('[data-hs-drag="img"]'), txt = document.querySelector('[data-hs-drag="txt"]');
-    if (img) img.style.transform = "translate3d(" + (damp * 0.4).toFixed(1) + "px,0,0) scale(1.02)";
-    if (txt) txt.style.transform = "translate3d(" + (damp * 0.18).toFixed(1) + "px,0,0)";
-    this.hsCursor(e);
-  };
-  hsUp = () => {
-    window.removeEventListener("pointermove", this.hsMove);
-    const d = this._hsDrag; this._hsDrag = null; if (!d) return;
-    const cur = document.querySelector("[data-hs-cursor]"); if (cur) cur.style.scale = this._hsIn ? "1" : ".4";
-    document.querySelectorAll("[data-hs-drag]").forEach((el) => { el.style.transition = "transform .7s " + HS_EO; el.style.transform = ""; });
-    const v = Math.abs(d.dx) / Math.max(1, performance.now() - d.t);
-    if (Math.abs(d.dx) > 90 || (v > 0.45 && Math.abs(d.dx) > 24)) {
-      const s = this.hsS().slide, fwd = this.state.lang === "ar" ? d.dx > 0 : d.dx < 0;
-      if (fwd) this.hsGo((s + 1) % 5, 1); else this.hsGo((s + 4) % 5, -1);
-    }
-  };
-  hsCursor(e) {
-    const cur = document.querySelector("[data-hs-cursor]"), stage = document.querySelector("[data-hs-stage]");
-    if (!cur || !stage || !this._hsFine) return;
-    const r = stage.getBoundingClientRect();
-    cur.style.transform = "translate3d(" + (e.clientX - r.left).toFixed(0) + "px," + (e.clientY - r.top).toFixed(0) + "px,0)";
-    const over = e.target && e.target.closest && e.target.closest("[data-hs-nodrag]");
-    cur.style.opacity = over ? "0" : "1";
+    this.hsVideo();
   }
   hsVals(ar, TX) {
-    const h = this.hsS(), R = this._hsRed, a = h.slide, pa = h.prev, d = h.dir, on = h.on;
-    const all = [{ head: true, img: "wirth-booth", label: "tact", kicker: TX.heroKicker, lines: [[TX.h1a], [TX.h1b, 1], [TX.h1c], [TX.h1d]] }].concat(HS_CASES.map((c) => ({ img: c.img, label: ar ? c.labelAr : c.label, kicker: ar ? c.kickerAr : c.kicker, lines: (ar ? c.linesAr : c.lines).map((x) => [x]), m: c.m, sub: c.sub })));
-    const rtl = ar ? -1 : 1;
-    const hsSlides = all.map((s, i) => {
-      const act = i === a, prev = i === pa && !act, live = act && on;
-      const lines = s.lines.map((ln, j) => ({ text: ln[0], color: ln[1] ? "#f15d2a" : "inherit", op: prev ? 0 : 1,
-        tf: live || (R && act) ? "none" : prev ? "translateY(-135%)" : "translateY(112%)",
-        tr: R ? "none" : act ? "transform 1.15s " + HS_EO + " " + (420 + j * 95) + "ms" : prev ? "transform .6s " + HS_IO + ", opacity .45s ease" : "none" }));
-      const fade = (k) => ({ op: live || (R && act) ? 1 : 0, tf: live || R ? "none" : prev ? "translateY(-10px)" : "translateY(18px)",
-        tr: act ? "opacity .8s ease " + (620 + k * 110) + "ms, transform 1s " + HS_EO + " " + (620 + k * 110) + "ms" : prev ? "opacity .35s ease, transform .5s " + HS_IO : "opacity .2s ease" });
-      const m = s.m || {}, dd = d * rtl;
-      return { i, label: s.label, kicker: s.kicker, isHead: !!s.head, isCase: !s.head,
-        bg: "background-image: url(assets/web/" + s.img + ".webp)", z: act ? 3 : prev ? 2 : 1,
-        clip: act || prev || R ? "inset(0 0 0 0)" : dd > 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
-        clipT: act && !R ? "clip-path 1.2s " + HS_IO : "none",
-        kb: R || s.head ? "none" : act ? "scale(1)" : prev ? "translateX(" + (-8 * dd) + "%) scale(1.02)" : "scale(1.16)",
-        kbT: R ? "none" : act ? "transform 8s " + HS_EO : prev ? "transform 1.2s " + HS_IO : "none",
-        ah: act ? "false" : "true", lines, f1: fade(0), f2: fade(1),
-        mTo: String(m.to || 0), mDec: String(m.dec || 0), mPre: m.pre || "", mSuf: m.suf || "",
-        mText: s.m ? m.pre + m.to.toFixed(m.dec) + m.suf : "", mLabel: ar ? m.lAr : m.l,
-        sub: (s.sub || []).map((x) => ({ v: x[0], l: ar ? x[2] : x[1] })) };
-    });
     return {
-      hsSlides, hsNow: "0" + (a + 1), hsOrigin: ar ? "100% 50%" : "0 50%",
-      hsCursor: "auto", hsDragLabel: ar ? "اسحب" : "Drag",
-      hsSegs: all.map((s, i) => ({ num: "0" + (i + 1), label: s.label, aria: (ar ? "الشريحة " : "Slide ") + (i + 1) + ": " + s.label,
-        fill: i < a ? "scaleX(1)" : "scaleX(0)", cur: i === a ? "true" : "false", ink: i === a ? "#f7f5f2" : "rgba(247,245,242,.6)",
-        go: () => this.hsGo(i, i > a ? 1 : -1) })),
-      hsPrevArrow: ar ? "→" : "←", hsNextArrow: ar ? "←" : "→",
-      hsNextBtn: () => this.hsGo((a + 1) % 5, 1), hsPrevBtn: () => this.hsGo((a + 4) % 5, -1),
-      hsKey: (e) => { const nx = ar ? "ArrowLeft" : "ArrowRight", pv = ar ? "ArrowRight" : "ArrowLeft"; if (e.key === nx) { e.preventDefault(); this.hsGo((a + 1) % 5, 1); } else if (e.key === pv) { e.preventDefault(); this.hsGo((a + 4) % 5, -1); } },
-      hsDown: (e) => {
-        if (e.button !== 0 || (e.target.closest && e.target.closest("[data-hs-nodrag]"))) return;
-        this._hsDrag = { x: e.clientX, t: performance.now(), dx: 0 };
-        document.querySelectorAll("[data-hs-drag]").forEach((el) => { el.style.transition = "none"; });
-        const cur = document.querySelector("[data-hs-cursor]"); if (cur) cur.style.scale = ".72";
-        window.addEventListener("pointermove", this.hsMove);
-        window.addEventListener("pointerup", this.hsUp, { once: true });
-      },
-      hsHover: (e) => { if (!this._hsDrag) this.hsCursor(e); },
-      hsEnter: (e) => { this._hsIn = true; const c = document.querySelector("[data-hs-cursor]"); if (c && this._hsFine) c.style.scale = "1"; this.hsCursor(e); },
-      hsLeave: () => { this._hsIn = false; const c = document.querySelector("[data-hs-cursor]"); if (c) { c.style.opacity = "0"; c.style.scale = ".4"; } },
-      hsToggle: () => this.hsSet({ paused: !h.paused }),
-      hsPauseLabel: h.paused ? (ar ? "تشغيل العرض" : "Play slideshow") : (ar ? "إيقاف العرض مؤقتاً" : "Pause slideshow"),
-      hsPauseIcon: h.paused ? "▶" : "❚❚"
+      heroKicker: TX.heroKicker,
+      heroLines: [
+        { text: TX.h1a, color: "inherit" },
+        { text: TX.h1b, color: "#f15d2a" },
+        { text: TX.h1c, color: "inherit" },
+        { text: TX.h1d, color: "inherit" }
+      ],
+      hsSlides: [],
+      hsSegs: [],
+      hsNow: "01",
+      hsOrigin: ar ? "100% 50%" : "0 50%",
+      hsCursor: "auto",
+      hsDragLabel: "",
+      hsPrevArrow: ar ? "→" : "←",
+      hsNextArrow: ar ? "←" : "→",
+      hsNextBtn: () => {},
+      hsPrevBtn: () => {},
+      hsKey: () => {},
+      hsDown: () => {},
+      hsHover: () => {},
+      hsEnter: () => {},
+      hsLeave: () => {},
+      hsToggle: () => {},
+      hsPauseLabel: "",
+      hsPauseIcon: ""
     };
   }
   componentDidMount() {
