@@ -1243,8 +1243,13 @@
     <sc-for list="{{ stories }}" as="st" hint-placeholder-count="2">
       <section data-st="" data-screen-label="Story {{ st.num }}" style="position: relative; background: {{ st.bg }}; color: {{ st.fg }}; padding: clamp(84px, 13vh, 150px) 28px;">
         <div style="max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 48px 96px; align-items: start;">
-          <div style="position: sticky; top: 110px; display: flex; flex-direction: column; gap: 22px;">
+          <div style="position: sticky; top: 110px; display: flex; flex-direction: column; gap: 20px;">
             <div style="display: flex; gap: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="color: #f15d2a;">{{ st.num }}</span><span style="color: {{ st.sub }};">/ {{ st.total }}</span></div>
+            <sc-if value="{{ st.logo }}">
+              <div style="display: flex; align-items: center; min-height: 52px; margin: 2px 0 4px;">
+                <img src="{{ st.logo }}" alt="{{ st.client }}" style="max-height: 56px; max-width: 180px; width: auto; height: auto; object-fit: contain; display: block;" loading="lazy" />
+              </div>
+            </sc-if>
             <p style="margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; line-height: 1.6; color: {{ st.sub }}; max-width: 34ch;">{{ st.client }}</p>
             <div>
               <div style="display: flex; align-items: baseline; font-size: clamp(96px, 14vw, 220px); font-weight: 600; letter-spacing: -.06em; line-height: 1; color: #f15d2a; font-variant-numeric: tabular-nums;"><span data-st-num="" data-to="{{ st.to }}" data-from="{{ st.from }}"></span><span>{{ st.suf }}</span></div>
@@ -1252,8 +1257,8 @@
             </div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 32px; min-width: 0;">
-            <h2 style="margin: 0; font-size: clamp(34px, 4.6vw, 72px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ st.title }}</h2>
-            <p style="margin: 0; font-size: clamp(21px, 2.1vw, 29px); line-height: 1.42; letter-spacing: -.02em; font-weight: 500; text-wrap: pretty;">{{ st.lead }}</p>
+            <h2 style="margin: 0; font-size: clamp(26px, 2.8vw, 42px); line-height: 1.25; letter-spacing: -.025em; font-weight: 600; text-wrap: balance;">{{ st.title }}</h2>
+            <p style="margin: 0; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.55; letter-spacing: -.015em; font-weight: 500; text-wrap: pretty;">{{ st.lead }}</p>
             <p style="margin: 0; font-size: 16.5px; line-height: 1.8; color: {{ st.sub }}; max-width: 62ch; text-wrap: pretty;">{{ st.rest }}</p>
             <div>
               <p style="margin: 0 0 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: {{ st.sub }};">{{ tx.k45 }}</p>
@@ -2238,6 +2243,17 @@ const STORY_STATS = [
   null,
   null,
   { to: 12, suf: "+", label: "digital products, each with its own identity" }
+];
+
+const STORY_LOGOS = [
+  "assets/stories/ministry-of-culture.webp",
+  "assets/stories/diriyah-company.webp",
+  "assets/stories/ministry-of-health.webp",
+  "assets/stories/riyadh-season.webp",
+  "assets/stories/qadsiah.webp",
+  "assets/stories/sport-for-all.webp",
+  "assets/stories/traditional-arts.webp",
+  "assets/stories/thiqah.webp"
 ];
 
 const LEADERS_EN = [
@@ -3954,8 +3970,8 @@ class Component extends DCLogic {
             const stStats = ar ? STORY_STATS_AR : STORY_STATS; const k = stStats[i] || { to: st.services.length, label: ar ? "الخدمات المقدمة" : "services delivered" };
             const body = (this.state.lang === "ar" ? (x) => ((window.TACT_AR || {})[x] ?? x) : (x) => x)(st.body), q = body.search(/[?؟] /), d = body.search(/[.؛] /);
             const cut = q > 0 && q < 260 ? q + 1 : (d > 0 ? d + 1 : body.length);
-            const dark = i % 2 === 1;
-            return { ...st, num: pad(i + 1), total: pad(STORIES.length), to: k.to, from: k.from || 0, suf: k.suf || "", statLabel: k.label, statShort: k.to + (k.suf || ""),
+            const dark = i % 2 === 1, logo = STORY_LOGOS[i] || "";
+            return { ...st, logo, num: pad(i + 1), total: pad(STORIES.length), to: k.to, from: k.from || 0, suf: k.suf || "", statLabel: k.label, statShort: k.to + (k.suf || ""),
               lead: body.slice(0, cut), rest: body.slice(cut + 1),
               svc: st.services.map((t, j) => ({ t, n: pad(j + 1) })),
               bg: dark ? "#282829" : "#f7f5f2", fg: dark ? "#f7f5f2" : "#282829", sub: dark ? "rgba(247,245,242,.72)" : "rgba(40,40,41,.74)", line: dark ? "rgba(247,245,242,.16)" : "rgba(40,40,41,.14)",
