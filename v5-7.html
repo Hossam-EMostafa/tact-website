@@ -2614,8 +2614,89 @@ const HS_CASES = [
 ];
 const HS0 = { slide: 0, prev: -1, dir: 1, paused: false, on: false };
 // Client logos as SVG: add the slot id here once its file is in assets/logos/<id>.svg
-const LOGO_SVG = {"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86};
-const logoItem = (name, id) => { const r = LOGO_SVG[id], has = !!r, span = !has || r <= 2 ? 2 : r <= 3.2 ? 3 : 6; return { name, id, hasSvg: has, noSvg: !has, svg: has ? "assets/logos/" + id + (id === "logo-cyberani" ? ".webp" : ".svg") : "", svgBg: has ? "url(assets/logos/" + id + (id === "logo-cyberani" ? ".webp" : ".svg") + ")" : "none", span: "span " + span, w: span === 6 ? "100%" : span === 3 ? "190px" : "" }; };
+const LOGO_SVG = {"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5};
+const CLIENT_LOGOMAP = {
+  "ministry of culture": "logo-ministry-of-culture",
+  "وزارة الثقافة": "logo-ministry-of-culture",
+  "ministry of health": "logo-ministry-of-health",
+  "وزارة الصحة": "logo-ministry-of-health",
+  "health holding": "logo-health-holding",
+  "الصحة القابضة": "logo-health-holding",
+  "شركة الصحة القابضة": "logo-health-holding",
+  "literature, publishing & translation commission": "logo-literature-publishing-translation-commission",
+  "literature, publishing and translation commission": "logo-literature-publishing-translation-commission",
+  "literature publishing translation commission": "logo-literature-publishing-translation-commission",
+  "هيئة الأدب والنشر والترجمة": "logo-literature-publishing-translation-commission",
+  "heritage commission": "logo-heritage-commission",
+  "هيئة التراث": "logo-heritage-commission",
+  "architecture & design commission": "logo-architecture-design-commission",
+  "architecture and design commission": "logo-architecture-design-commission",
+  "architecture design commission": "logo-architecture-design-commission",
+  "هيئة فنون العمارة والتصميم": "logo-architecture-design-commission",
+  "film commission": "logo-film-commission",
+  "هيئة الأفلام": "logo-film-commission",
+  "museums commission": "logo-museums-commission",
+  "هيئة المتاحف": "logo-museums-commission",
+  "thiqah": "logo-thiqah",
+  "ثقة": "logo-thiqah",
+  "شركة ثقة": "logo-thiqah",
+  "cyberani": "logo-cyberani",
+  "سبراني": "logo-cyberani",
+  "سايبراني": "logo-cyberani",
+  "شركة سبراني": "logo-cyberani",
+  "elm": "logo-elm",
+  "علم": "logo-elm",
+  "شركة علم": "logo-elm",
+  "mobily": "logo-mobily",
+  "موبايلي": "logo-mobily",
+  "شركة موبايلي": "logo-mobily",
+  "saudi sports for all federation": "logo-saudi-sports-for-all-federation",
+  "الاتحاد السعودي للرياضة للجميع": "logo-saudi-sports-for-all-federation",
+  "saudi esports federation": "logo-saudi-esports-federation",
+  "الاتحاد السعودي للرياضات الإلكترونية": "logo-saudi-esports-federation",
+  "al-qadsiah club": "logo-al-qadsiah-club",
+  "al qadsiah club": "logo-al-qadsiah-club",
+  "alqadsiah club": "logo-al-qadsiah-club",
+  "نادي القادسية": "logo-al-qadsiah-club",
+  "القادسية": "logo-al-qadsiah-club",
+  "diriyah club": "logo-diriyah-club",
+  "نادي الدرعية": "logo-diriyah-club",
+  "الدرعية": "logo-diriyah-club",
+  "diriyah season": "logo-diriyah-season",
+  "موسم الدرعية": "logo-diriyah-season",
+  "diriyah company": "logo-diriyah-season",
+  "شركة الدرعية": "logo-diriyah-season",
+  "saudi vision 2030": "logo-vision-2030",
+  "vision 2030": "logo-vision-2030",
+  "رؤية السعودية 2030": "logo-vision-2030",
+  "رؤية 2030": "logo-vision-2030"
+};
+const clientLogoId = (name) => {
+  if (!name) return "";
+  const key = String(name).trim().toLowerCase();
+  if (CLIENT_LOGOMAP[key]) return CLIENT_LOGOMAP[key];
+  const normAr = key.replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/[ً-ٟ]/g, "").trim();
+  for (const k in CLIENT_LOGOMAP) {
+    if (k.replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/[ً-ٟ]/g, "").trim() === normAr) {
+      return CLIENT_LOGOMAP[k];
+    }
+  }
+  return "logo-" + key.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+};
+const logoItem = (name, id) => {
+  const actualId = (id && id !== "logo-" && id !== "logo") ? id : clientLogoId(name);
+  const r = LOGO_SVG[actualId], has = !!r, span = !has || r <= 2 ? 2 : r <= 3.2 ? 3 : 6;
+  return {
+    name,
+    id: actualId,
+    hasSvg: has,
+    noSvg: !has,
+    svg: has ? "assets/logos/" + actualId + (actualId === "logo-cyberani" ? ".webp" : ".svg") : "",
+    svgBg: has ? "url(assets/logos/" + actualId + (actualId === "logo-cyberani" ? ".webp" : ".svg") + ")" : "none",
+    span: "span " + span,
+    w: span === 6 ? "100%" : span === 3 ? "190px" : ""
+  };
+};
 const ROUTES = ["home", "services", "sectors", "work", "about", "leadership", "history", "why", "calendar", "contact", "stories"];
 class Component extends DCLogic {
   state = { lang: (() => { try { return localStorage.getItem("tact-lang") || "en"; } catch (e) { return "en"; } })(), page: (() => { try { const m = /^#\/([a-z]+)$/.exec(location.hash); if (m && ROUTES.includes(m[1])) return m[1]; const s = sessionStorage.getItem("tact-page"); return s && (ROUTES.includes(s) || s === "legal") ? s : "home"; } catch (e) { return "home"; } })(), legalIdx: (() => { try { return +(sessionStorage.getItem("tact-legal") || 0); } catch (e) { return 0; } })(), openSector: 0, openRow: 1, caseIdx: 0, t: 0, intro: (() => { try { return !window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return true; } })(), w: typeof window !== "undefined" ? window.innerWidth : 1200, menuOpen: false, slide: 0, hoverService: -1 };
@@ -3968,7 +4049,7 @@ class Component extends DCLogic {
         const cnt = (c) => c.length ? (ar ? (c.length === 1 ? "عميل واحد" : c.length + " عملاء") : c.length + (c.length === 1 ? " client" : " clients")) : "";
         const ink = (b) => /^\[/.test(b) ? "rgba(247,245,242,.45)" : "rgba(247,245,242,.78)";
         const secPage = ar ? SECTOR_PAGE_AR : SECTOR_PAGE; const cur = secPage[si];
-        const lg = (c) => c.map((n) => logoItem(n, "logo-" + String(n).toLowerCase().replace(/[^a-z0-9]+/g, "-")));
+        const lg = (c) => c.map((n) => logoItem(n, clientLogoId(n)));
         return {
           secWide: wide, secNarrow: !wide, secTotal: pad(secPage.length),
           secDrum: secPage.map((x, i) => ({ name: x.name, num: pad(i + 1), go: () => this.goSector(i) })),
@@ -3977,10 +4058,12 @@ class Component extends DCLogic {
           secList: secPage.map((x, i) => ({ ...x, logos: lg(x.clients), num: pad(i + 1), bodyInk: ink(x.body) })),
           rows: secPage.map((x, i) => {
             const on = this.state.rowHov === i, has = x.clients.length > 0;
-            const base = x.clients.map((n) => { const id = "logo-" + String(n).toLowerCase().replace(/[^a-z0-9]+/g, "-"), r = LOGO_SVG[id];
-              if (!r) return { name: n, w: 0, h: 40, bg: "transparent", txt: n, f: "none" };
+            const base = x.clients.map((n) => {
+              const id = clientLogoId(n), r = LOGO_SVG[id];
+              if (!r) return { name: n, w: Math.max(120, Math.round(n.length * 11)), h: 40, bg: "transparent", txt: n, f: "none" };
               let hh = Math.sqrt(3400 / r); hh = Math.max(26, Math.min(60, hh)); let ww = hh * r; if (ww > 220) { ww = 220; hh = ww / r; }
-              return { name: n, w: Math.round(ww), h: Math.round(hh), bg: logoItem(n, id).svgBg + " center / contain no-repeat", txt: "", f: "brightness(0) invert(1)" }; }).map((c) => c.w ? c : { ...c, w: undefined });
+              return { name: n, w: Math.round(ww), h: Math.round(hh), bg: logoItem(n, id).svgBg + " center / contain no-repeat", txt: "", f: "brightness(0) invert(1)" };
+            });
             let loop = base; while (has && loop.length < 8) loop = loop.concat(base);
             return { name: x.name, body: x.body, bodyInk: ink(x.body), hasTrack: has, noTrack: !has && wide, inlineBody: !wide, overlayBody: wide,
               cols: wide ? "minmax(0, 300px) minmax(0, 1fr)" : "minmax(0, 1fr)", trackH: wide ? "120px" : "96px",
@@ -4012,16 +4095,15 @@ class Component extends DCLogic {
       }),
       ...(() => {
         const D = this.state.orbD || 0, R0 = 240, all = [];
-        const idOf = (si, j) => "logo-" + String(((SECTORS_EN[si] || {}).clients || [])[j] || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/-$/, "");
-        SECTORS.forEach((s, si) => s.clients.forEach((n, j) => all.push({ n, si, j, id: idOf(si, j) })));
+        SECTORS.forEach((s, si) => s.clients.forEach((n, j) => all.push({ n, si, j, id: clientLogoId(n) })));
         const sz = (x) => { const r = LOGO_SVG[x.id]; if (!r) return { w: 150, h: 48, bg: "transparent", txt: x.n, f: "none" };
           let h = Math.sqrt(4200 / r); h = Math.max(28, Math.min(68, h)); let wd = h * r; if (wd > 190) { wd = 190; h = wd / r; }
           return { w: Math.round(wd), h: Math.round(h), bg: logoItem(x.n, x.id).svgBg + " center / contain no-repeat", txt: "", f: "brightness(0) invert(1)" }; };
-        const act = SECTORS[D].clients.length;
+        const act = (SECTORS[D] && SECTORS[D].clients.length) ? SECTORS[D].clients.length : 1;
         const ow = Math.max(260, Math.min(620, (w || 1200) - 56));
         return {
           orbW: ow, orbS: ow / 620,
-          orbRing: all.map((x, k) => { const on = x.si === D, ang = on ? (x.j / act) * 360 - 90 : (k / all.length) * 360, rad = on ? R0 : R0 + 60;
+          orbRing: all.map((x, k) => { const on = x.si === D, ang = on ? (x.j / act) * 360 - 90 : (k / (all.length || 1)) * 360, rad = on ? R0 : R0 + 60;
             return { name: x.n, ...sz(x), pos: "rotate(" + ang + "deg) translate(" + rad + "px) rotate(" + (-ang) + "deg)", sc: on ? 1 : 0.55, op: on ? 1 : 0.12, d: on ? (x.j * 80) + "ms" : "0ms" }; }),
           orbCenter: SECTORS.map((s, i) => ({ name: s.name, dir: ar ? "rtl" : "ltr", ah: i === D ? "false" : "true", body: ar ? (s.clients.length === 1 ? "عميل واحد" : s.clients.length + " عملاء") : s.clients.length + (s.clients.length === 1 ? " client" : " clients"), op: i === D ? 1 : 0, tf: i === D ? "none" : "translateY(8px)" })),
           orbChips: SECTORS.map((s, i) => ({ name: s.name, pressed: i === D ? "true" : "false", bd: i === D ? "#f15d2a" : "rgba(247,245,242,.28)", bgc: i === D ? "#f15d2a" : "transparent", ink: i === D ? "#fff" : "#f7f5f2", go: () => { clearInterval(this._orbT); this.setState({ orbD: i }); } }))
@@ -4032,7 +4114,7 @@ class Component extends DCLogic {
         return {
           ...s,
           num: String(i + 1).padStart(2, "0"),
-          logos: s.clients.map((c, j) => logoItem(c, "logo-" + String(((SECTORS_EN[i] || {}).clients || [])[j] || c).toLowerCase().replace(/[^a-z0-9]+/g, "-"))),
+          logos: s.clients.map((c) => logoItem(c, clientLogoId(c))),
           count: ar ? (s.clients.length === 1 ? "عميل واحد" : s.clients.length + " عملاء") : s.clients.length + (s.clients.length === 1 ? " client" : " clients"),
           plus: open ? "#4cc0af" : "#2f7d72",
           bg: open ? "#282829" : "#f7f5f2",
