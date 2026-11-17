@@ -53,14 +53,39 @@
   .tl-row:hover .tl-dot { transform: scale(1.5); }
   .job-row:hover .job-title { transform: translateX(10px); color: #f15d2a; }
   .nav-item { position: relative; }
-  .nav-panel { opacity: 0; visibility: hidden; pointer-events: none; transform-origin: 50% 0; transform: translateX(-50%) translateY(-6px) scale(.97); transition: opacity .18s ease, transform .24s cubic-bezier(.23,1,.32,1), visibility .18s; }
-  .nav-item:hover .nav-panel, .nav-panel:hover, .nav-item:focus-within .nav-panel { opacity: 1; visibility: visible; pointer-events: auto; transform: translateX(-50%) translateY(0) scale(1); }
+  .nav-panel {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform-origin: 50% 0;
+    transform: translateX(-50%) translateY(-6px) scale(.97);
+    transition: opacity .2s ease, transform .24s cubic-bezier(.23,1,.32,1), visibility .2s;
+    transition-delay: .2s;
+  }
+  .nav-panel::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: -20px;
+    right: -20px;
+    height: 28px;
+    background: transparent;
+  }
+  .nav-item:hover .nav-panel, .nav-panel:hover, .nav-item:focus-within .nav-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0) scale(1);
+    transition-delay: 0s;
+  }
   .nav-item[data-nav-closed="true"] .nav-panel,
   .nav-item.is-closed .nav-panel {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
     transform: translateX(-50%) translateY(-6px) scale(.97) !important;
+    transition: none !important;
+    transition-delay: 0s !important;
   }
   .nav-item[data-nav-closed="true"] .nav-caret,
   .nav-item.is-closed .nav-caret {
@@ -2916,6 +2941,14 @@ class Component extends DCLogic {
     };
     window.addEventListener("popstate", this._onPop);
     window.addEventListener("hashchange", this._onPop);
+    this._onPointerOver = (e) => {
+      const item = e.target && e.target.closest && e.target.closest(".nav-item");
+      if (item) {
+        item.removeAttribute("data-nav-closed");
+        item.classList.remove("is-closed");
+      }
+    };
+    document.addEventListener("pointerover", this._onPointerOver);
     this._onPointerOut = (e) => {
       const item = e.target && e.target.closest && e.target.closest(".nav-item");
       if (item && !item.contains(e.relatedTarget)) {
@@ -3488,8 +3521,6 @@ class Component extends DCLogic {
           .forEach((sec) => { if (vis(sec)) reveal(sec, this.state.intro ? 1150 : 0); });
       };
       if (this._revealScroll) { window.removeEventListener("scroll", this._revealScroll); window.removeEventListener("resize", this._revealScroll); }
-    if (this._onPointerOut) document.removeEventListener("pointerout", this._onPointerOut);
-    if (this._onNavClick) document.removeEventListener("click", this._onNavClick);
       let raf = 0;
       this._revealScroll = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; check(); }); };
       window.addEventListener("scroll", this._revealScroll, { passive: true });
@@ -3628,6 +3659,9 @@ class Component extends DCLogic {
     document.body.style.overflow = "";
     if (this._onResize) window.removeEventListener("resize", this._onResize);
     if (this._onScroll) window.removeEventListener("scroll", this._onScroll);
+    if (this._onPointerOver) document.removeEventListener("pointerover", this._onPointerOver);
+    if (this._onPointerOut) document.removeEventListener("pointerout", this._onPointerOut);
+    if (this._onNavClick) document.removeEventListener("click", this._onNavClick);
   }
 
   jumpTop() {
