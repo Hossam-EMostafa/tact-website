@@ -622,19 +622,16 @@
 
     <section class="ph-strip" style="display: flex; gap: 2px; background: #282829;">
       <div class="ph-cell" style="--d: 0;">
-        <img src="assets/web/strip-team.webp" loading="lazy" alt="{{ t.strip1 }}">
+        <img src="assets/web/strip-team.webp" loading="lazy" alt="tact team">
         <span class="ph-bar" aria-hidden="true"></span>
-        <span class="ph-cap" aria-hidden="true">{{ t.strip1 }}</span>
       </div>
       <div class="ph-cell" style="--d: 1;">
-        <img src="assets/web/strip-event.webp" loading="lazy" alt="{{ t.strip2 }}">
+        <img src="assets/web/strip-vr.webp" loading="lazy" alt="tact interactive experiences">
         <span class="ph-bar" aria-hidden="true"></span>
-        <span class="ph-cap" aria-hidden="true">{{ t.strip2 }}</span>
       </div>
       <div class="ph-cell" style="--d: 2;">
-        <img src="assets/web/strip-vr.webp" loading="lazy" alt="{{ t.strip3 }}">
+        <img src="assets/web/strip-event.webp" loading="lazy" alt="tact events">
         <span class="ph-bar" aria-hidden="true"></span>
-        <span class="ph-cap" aria-hidden="true">{{ t.strip3 }}</span>
       </div>
     </section>
 
@@ -760,8 +757,13 @@
       <div style="border: 1px solid rgba(40,40,41,.18); background: #fff;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 32px; align-items: end; padding: 34px 30px 28px; border-bottom: 1px solid rgba(40,40,41,.14);">
           <div>
-            <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0 0 16px;">{{ t.accredKicker }}</p>
-            <h2 data-reveal="" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; font-weight: 600; margin: 0; max-width: 22ch;">{{ t.accredHead }}</h2>
+            <sc-if value="{{ t.accredHead }}">
+              <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0 0 16px;">{{ t.accredKicker }}</p>
+              <h2 data-reveal="" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; font-weight: 600; margin: 0; max-width: 22ch;">{{ t.accredHead }}</h2>
+            </sc-if>
+            <sc-if value="{{ !t.accredHead }}">
+              <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0;">{{ t.accredKicker }}</p>
+            </sc-if>
           </div>
           <sc-if value="{{ t.accredIntro }}">
             <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.7); max-width: 44ch;">{{ t.accredIntro }}</p>
@@ -1449,8 +1451,13 @@
       <div style="border: 1px solid rgba(40,40,41,.18); background: #fff;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 32px; align-items: end; padding: 34px 30px 28px; border-bottom: 1px solid rgba(40,40,41,.14);">
           <div>
-            <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0 0 16px;">{{ t.accredKicker }}</p>
-            <h2 data-reveal="" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; font-weight: 600; margin: 0; max-width: 22ch;">{{ t.accredHead }}</h2>
+            <sc-if value="{{ t.accredHead }}">
+              <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0 0 16px;">{{ t.accredKicker }}</p>
+              <h2 data-reveal="" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; font-weight: 600; margin: 0; max-width: 22ch;">{{ t.accredHead }}</h2>
+            </sc-if>
+            <sc-if value="{{ !t.accredHead }}">
+              <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0;">{{ t.accredKicker }}</p>
+            </sc-if>
           </div>
           <sc-if value="{{ t.accredIntro }}">
             <p style="margin: 0; font-size: 15px; line-height: 1.7; color: rgba(40,40,41,.7); max-width: 44ch;">{{ t.accredIntro }}</p>
@@ -2542,7 +2549,7 @@ const T_EN = {
   sectorsKicker: "Sectors", sectorsHead: "", sectorsIntro: "Culture, health, sport, entertainment and technology — each with its own audience, tone and pace.",
   partnersKicker: "Partnerships", partnersHead: "Partnerships that make an impact", partnersIntro: "At tact we believe a successful partnership is not just presence — it is a chance to create impact that outlasts the event.", servicesDelivered: "Services delivered",
   awardsKicker: "Awards — Digital Media Awards 2025", awardsHead: "Four wins for work made in the Kingdom", awardsIntro: "Across our journey, together with our clients, we have led major campaigns and delivered the best results — with a client-first methodology and a team that looks for success in every challenge.",
-  accredKicker: "Accreditations", accredHead: "Certified to work with government mandates", accredIntro: "", viewCert: "View certificate",
+  accredKicker: "Accreditations", accredHead: "", accredIntro: "", viewCert: "View certificate",
   valuesKicker: "Values", valuesHead: "Values we believe in, impact we create", valuesIntro: "",
   ctaHead: "tact, we make an impact", ctaBody: "Send us a brief and we will come back with a plan, a team and a timeline."
 };
@@ -2577,7 +2584,7 @@ const T_AR = {
   sectorsKicker: "القطاعات", sectorsHead: "", sectorsIntro: "الثقافة والصحة والرياضة والترفيه والتقنية — لكل قطاع جمهوره ونبرته وإيقاعه.",
   partnersKicker: "الشراكات", partnersHead: "شراكات تصنع أثرًا", partnersIntro: "في تاكت، نؤمن أن الشراكة الناجحة ما تكون مجرد حضور، بل فرصة نصنع من خلالها أثرًا يمتد أبعد من الحدث.", servicesDelivered: "الخدمات المقدمة",
   awardsKicker: "الجوائز — حفل جوائز الإعلام الرقمي 2025", awardsHead: "أربع جوائز لأعمال صُنعت في المملكة", awardsIntro: "خلال مسيرتنا الممتدة؛ وبالشراكة مع عملائنا، قدنا كبرى الحملات، وحققنا أفضل النتائج، بالاعتماد على منهجية تضع العميل أوّلًا، وتسخّر الخبرات والكفاءات لتحقيق المنجزات التي نفخر دومًا بتحقيقها، مع فريقنا الذي يبحث عن النجاح في كل تحدّي.",
-  accredKicker: "الاعتمادات", accredHead: "معتمدون للعمل مع الجهات الحكومية", accredIntro: "", viewCert: "عرض الشهادة",
+  accredKicker: "الاعتمادات", accredHead: "", accredIntro: "", viewCert: "عرض الشهادة",
   valuesKicker: "قيمنا", valuesHead: "قيم نؤمن بها، وأثر نصنعه", valuesIntro: "",
   ctaHead: "تاكت، نصنع الأثر", ctaBody: "أرسل لنا موجزك ونعود إليك بخطة وفريق وجدول زمني."
 };
