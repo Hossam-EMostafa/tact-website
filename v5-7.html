@@ -204,6 +204,8 @@
   }
   @media (prefers-reduced-motion: reduce) { .case-ph [data-case-drift] { animation: none !important; transform: scale(1.04); } .case-ph [data-swap="img"] { translate: none !important; scale: none !important; } }
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { line-height: 1.08 !important; }
+  [dir="rtl"] [data-hs-text] h1 { line-height: 1.16 !important; }
+  [dir="rtl"] [data-hs-text] h1 span { overflow: visible !important; }
   [dir="rtl"] h1:not([data-lines]) { font-size: clamp(34px, 4.8vw, 76px) !important; line-height: 1.1 !important; padding-bottom: .06em; }
   [dir="rtl"] [data-ab-intro] { max-width: 95ch !important; font-size: clamp(19px, 1.5vw, 23px) !important; line-height: 1.85 !important; }
   [dir="rtl"] [data-ab-words] p { font-size: clamp(18px, 1.9vw, 28px) !important; line-height: 1.85 !important; text-align: justify !important; text-justify: inter-word !important; }
@@ -455,7 +457,7 @@
               <p style="margin: 0 0 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #4cc0af; max-width: 60ch;">{{ heroKicker }}</p>
               <h1 style="margin: 0 0 24px; font-size: clamp(28px, min(4.8vw, 8vh), 80px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600;">
                 <sc-for list="{{ heroLines }}" as="ln">
-                  <span style="display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em;"><span style="color: {{ ln.color }};">{{ ln.text }}</span></span>
+                  <span style="display: block; overflow: visible; padding-bottom: .36em; margin-bottom: -.36em;"><span style="color: {{ ln.color }};">{{ ln.text }}</span></span>
                 </sc-for>
               </h1>
               <div style="display: flex; flex-wrap: wrap; gap: 22px 40px; align-items: center;">
