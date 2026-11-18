@@ -1822,7 +1822,7 @@ const AB_VALUES = [
   { title: "Effectiveness", body: "We work to achieve our partners' goals through creative solutions, active initiative, fast response and professional execution." },
   { title: "Mastery", body: "We work with precision and high productivity, because we believe in one entity: we are a mirror of our partners, and their success is ours." }
 ];
-const TL_IMG = ["assets/web/team.webp", "assets/web/booth-screen.webp", "assets/web/crowd.webp", "assets/web/booth-talk.webp", "assets/web/booth-wide.webp", "assets/web/wheel-visitors.webp", "assets/web/ten-lit.webp", "assets/web/ten-sign.webp"];
+const TL_IMG = ["assets/web/history-2014.webp", "assets/web/booth-screen.webp", "assets/web/crowd.webp", "assets/web/booth-talk.webp", "assets/web/booth-wide.webp", "assets/web/wheel-visitors.webp", "assets/web/ten-lit.webp", "assets/web/ten-sign.webp"];
 const TIMELINE = [
   { year: "2014", title: "tact is founded in Riyadh", body: "The company starts as a small digital communication team with one conviction: Saudi entities need a partner who understands both the platform and the public." },
   { year: "2016", title: "The Thiqah partnership begins", body: "Managing the digital presence of Thiqah and its products — Etimad, Wathiq and Najiz among them — establishes the bilingual, multi-brand way of working that still shapes the company." },
@@ -3903,7 +3903,7 @@ class Component extends DCLogic {
       ...(() => { const n = new Date(), d = n.getFullYear() === 2026 ? n : new Date(2026, 0, 1), nx = new Date(d.getTime() + 864e5); return { calDay: String(d.getDate()).padStart(2, "0"), calNext: String(nx.getDate()).padStart(2, "0") }; })(),
       calBd: page === "calendar" ? "#f15d2a" : (onDark ? "rgba(247,245,242,.28)" : "rgba(40,40,41,.18)"),
       calBg: onDark ? "rgba(247,245,242,.06)" : "#fff",
-      calInk: onDark ? "#f7f5f2" : "#282829", goWork: this.go("work"),
+      calInk: onDark ? "#f7f5f2" : "#282829", goWork: this.go("stories"),
       showLang: this.props.showLangToggle ?? true,
       marquee: (() => {
         const words = ar ? ["استراتيجية", "محتوى", "حملات", "تغطيات", "تحليلات", "مجتمع", "إنتاج", "مؤثرون", "تقارير", "شراء إعلامي"] : ["Strategy", "Content", "Campaigns", "Coverage", "Analytics", "Community", "Production", "Influencers", "Reporting", "Media buying"];

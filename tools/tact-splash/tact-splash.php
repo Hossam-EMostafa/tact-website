@@ -23,7 +23,7 @@ final class Tact_Splash_Plugin {
         ];
     }
     public static function settings() {
-        $value = get_option(self::OPTION, ['enabled' => 1, 'style' => 'a']);
+        $value = get_option(self::OPTION, ['enabled' => 1, 'style' => 'f']);
         $value = is_array($value) ? $value : [];
         $style = isset($value['style']) && is_string($value['style']) ? $value['style'] : 'a';
         if ($style === 'v57') $style = 'f';
@@ -73,7 +73,7 @@ final class Tact_Splash_Plugin {
         add_options_page('Tact Splash & Loader', 'Tact Splash', 'manage_options', 'tact-splash', [__CLASS__, 'page']);
     }
     public static function register() {
-        register_setting('tact_splash', self::OPTION, ['type' => 'array', 'sanitize_callback' => [__CLASS__, 'sanitize'], 'default' => ['enabled' => 1, 'style' => 'a']]);
+        register_setting('tact_splash', self::OPTION, ['type' => 'array', 'sanitize_callback' => [__CLASS__, 'sanitize'], 'default' => ['enabled' => 1, 'style' => 'f']]);
     }
     public static function page() {
         if (!current_user_can('manage_options')) return;
