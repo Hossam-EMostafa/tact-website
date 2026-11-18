@@ -1,0 +1,136 @@
+{
+  "results": [
+    {
+      "style": "a",
+      "width": 1440,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "b",
+      "width": 1440,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "c",
+      "width": 1440,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "d",
+      "width": 1440,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "e",
+      "width": 1440,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "a",
+      "width": 390,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "b",
+      "width": 390,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "c",
+      "width": 390,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "d",
+      "width": 390,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    },
+    {
+      "style": "e",
+      "width": 390,
+      "revealEvents": 1,
+      "readyEvents": 1,
+      "earlyExpose": 0,
+      "atReveal": {
+        "initialized": true,
+        "headingAnimationTime": 0
+      },
+      "sameInstance": true,
+      "overlay": false
+    }
+  ],
+  "reducedMotion": true,
+  "errors": []
+}

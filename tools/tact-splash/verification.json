@@ -1,0 +1,72 @@
+{
+  "results": [
+    {
+      "style": "a",
+      "width": 1440,
+      "animations": 15,
+      "loaderLoops": 4
+    },
+    {
+      "style": "a",
+      "width": 390,
+      "animations": 15,
+      "loaderLoops": 4
+    },
+    {
+      "style": "b",
+      "width": 1440,
+      "animations": 191,
+      "loaderLoops": 4
+    },
+    {
+      "style": "b",
+      "width": 390,
+      "animations": 191,
+      "loaderLoops": 4
+    },
+    {
+      "style": "c",
+      "width": 1440,
+      "animations": 14,
+      "loaderLoops": 5
+    },
+    {
+      "style": "c",
+      "width": 390,
+      "animations": 14,
+      "loaderLoops": 5
+    },
+    {
+      "style": "d",
+      "width": 1440,
+      "animations": 14,
+      "loaderLoops": 6
+    },
+    {
+      "style": "d",
+      "width": 390,
+      "animations": 14,
+      "loaderLoops": 6
+    },
+    {
+      "style": "e",
+      "width": 1440,
+      "animations": 15,
+      "loaderLoops": 1
+    },
+    {
+      "style": "e",
+      "width": 390,
+      "animations": 15,
+      "loaderLoops": 1
+    }
+  ],
+  "adminSave": true,
+  "preview": true,
+  "previewPermission": true,
+  "disable": true,
+  "reducedMotion": true,
+  "noJsFallback": true,
+  "finalStyle": "a",
+  "errors": []
+}
