@@ -41,6 +41,7 @@
   @keyframes tact-mq-l { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
   @keyframes tact-mq-r { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }
   @keyframes tact-orbit-back { to { transform: rotate(-360deg); } }
+  @media (max-width: 860px) { [data-a-svg], [data-a-mile] > [data-a-node] { display: none !important; } }
   @media (prefers-reduced-motion: reduce) { [data-orb] { animation: none !important; transition-duration: .01ms !important; } }
   .sec-card .sec-rule { transform: scaleX(0); transform-origin: left; transition: transform .55s cubic-bezier(.2,.75,.2,1); }
   .sec-card:hover .sec-rule { transform: scaleX(1); }
@@ -501,7 +502,7 @@
               <div data-dev="cal" style="position: relative; width: 100%; max-width: 100%; flex: 1; min-height: clamp(300px, 30vw, 440px); box-sizing: border-box; border-radius: 24px; background: #282829; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); padding: clamp(20px, 2.6vw, 30px); display: flex; flex-direction: column; gap: 18px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(247,245,242,.6);"><span>{{ tx.k6 }}</span></div>
                 <div style="flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-template-rows: auto repeat(5, minmax(0, 1fr)); gap: 6px;">
-                  <sc-for list="{{ svDays }}" as="dy" hint-placeholder-count="7"><span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .1em; text-align: center; color: rgba(247,245,242,.45);">{{ dy }}</span></sc-for>
+                  <sc-for list="{{ svDays }}" as="dy" hint-placeholder-count="7"><span style="font-family: inherit; font-size: clamp(9.5px, .8vw, 11.5px); font-weight: 500; text-align: center; color: rgba(247,245,242,.6); white-space: nowrap;">{{ dy }}</span></sc-for>
                   <sc-for list="{{ svCal }}" as="c" hint-placeholder-count="35"><span data-cal="" data-t="{{ c.t }}" data-o="{{ c.o }}" style="display: flex; align-items: center; justify-content: center; overflow: hidden; color: transparent; font-size: clamp(9px, .8vw, 11px); font-weight: 600; letter-spacing: .01em; min-height: 0; border-radius: 8px; background: rgba(247,245,242,.06); transition: background .35s ease, color .35s ease, transform .35s cubic-bezier(.23,1,.32,1);">{{ c.label }}</span></sc-for>
                 </div>
                 <div style="display: flex; gap: 18px; font-size: 12.5px; color: rgba(247,245,242,.7);"><span style="display: flex; align-items: center; gap: 8px;"><i style="width: 10px; height: 10px; border-radius: 3px; background: #f15d2a; display: block;"></i>{{ tx.k8 }}</span><span style="display: flex; align-items: center; gap: 8px;"><i style="width: 10px; height: 10px; border-radius: 3px; background: #4cc0af; display: block;"></i>{{ tx.k9 }}</span></div>
@@ -844,7 +845,7 @@
               <div data-dev="cal" style="position: relative; width: 100%; max-width: 560px; justify-self: center; box-sizing: border-box; border-radius: 24px; background: #282829; color: #f7f5f2; border: 1px solid rgba(247,245,242,.1); box-shadow: 0 40px 80px -40px rgba(40,40,41,.5); padding: clamp(20px, 2.6vw, 30px); display: flex; flex-direction: column; gap: 18px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: rgba(247,245,242,.6);"><span>{{ tx.k6 }}</span></div>
                 <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px;">
-                  <sc-for list="{{ svDays }}" as="dy" hint-placeholder-count="7"><span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .1em; text-align: center; color: rgba(247,245,242,.45);">{{ dy }}</span></sc-for>
+                  <sc-for list="{{ svDays }}" as="dy" hint-placeholder-count="7"><span style="font-family: inherit; font-size: clamp(9.5px, .8vw, 11.5px); font-weight: 500; text-align: center; color: rgba(247,245,242,.6); white-space: nowrap;">{{ dy }}</span></sc-for>
                   <sc-for list="{{ svCal }}" as="c" hint-placeholder-count="35"><span data-cal="" data-t="{{ c.t }}" data-o="{{ c.o }}" style="display: flex; align-items: center; justify-content: center; overflow: hidden; color: transparent; font-size: clamp(9px, .8vw, 11px); font-weight: 600; letter-spacing: .01em; aspect-ratio: 1; border-radius: 8px; background: rgba(247,245,242,.06); transition: background .35s ease, color .35s ease, transform .35s cubic-bezier(.23,1,.32,1);">{{ c.label }}</span></sc-for>
                 </div>
                 <div style="display: flex; gap: 18px; font-size: 12.5px; color: rgba(247,245,242,.7);"><span style="display: flex; align-items: center; gap: 8px;"><i style="width: 10px; height: 10px; border-radius: 3px; background: #f15d2a; display: block;"></i>{{ tx.k8 }}</span><span style="display: flex; align-items: center; gap: 8px;"><i style="width: 10px; height: 10px; border-radius: 3px; background: #4cc0af; display: block;"></i>{{ tx.k9 }}</span></div>
@@ -1150,25 +1151,6 @@
         </p>
       </div>
     </section>
-    <section style="position: relative; background: #f7f5f2; padding: 12vh 28px 18vh;">
-      <div style="max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; gap: 8vh;">
-        <div data-ab-card="" data-lines="" style="position: sticky; top: calc(96px + 0 * 26px); height: min(74vh, 700px); border-radius: 28px; background: #ffffff; color: #282829; padding: clamp(26px, 4vw, 56px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; transform-origin: 50% 0; box-shadow: 0 30px 60px -34px rgba(40,40,41,.35); overflow: hidden;">
-          <div style="display: flex; justify-content: space-between; gap: 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: rgba(40,40,41,.6);"><span>01 / 03</span><span>{{ tx.k34 }}</span></div>
-          <h2 style="margin: 0; font-size: clamp(60px, 13vw, 220px); line-height: 1; letter-spacing: -.06em; font-weight: 600; color: #282829;">{{ tx.k35 }}</h2>
-          <p style="margin: 0; align-self: flex-end; max-width: 30ch; font-size: clamp(20px, 2.2vw, 32px); line-height: 1.35; letter-spacing: -.02em; text-wrap: pretty;">{{ tx.k36 }}</p>
-        </div>
-        <div data-ab-card="" data-lines="" style="position: sticky; top: calc(96px + 1 * 26px); height: min(74vh, 700px); border-radius: 28px; background: #282829; color: #f7f5f2; padding: clamp(26px, 4vw, 56px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; transform-origin: 50% 0; box-shadow: 0 30px 60px -34px rgba(40,40,41,.35); overflow: hidden;">
-          <div style="display: flex; justify-content: space-between; gap: 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: rgba(247,245,242,.6);"><span>02 / 03</span><span>{{ tx.k34 }}</span></div>
-          <h2 style="margin: 0; font-size: clamp(60px, 13vw, 220px); line-height: 1; letter-spacing: -.06em; font-weight: 600; color: #f15d2a;">{{ tx.k37 }}</h2>
-          <p style="margin: 0; align-self: flex-end; max-width: 30ch; font-size: clamp(20px, 2.2vw, 32px); line-height: 1.35; letter-spacing: -.02em; text-wrap: pretty;">{{ tx.k38 }}</p>
-        </div>
-        <div data-ab-card="" data-lines="" style="position: sticky; top: calc(96px + 2 * 26px); height: min(74vh, 700px); border-radius: 28px; background: #f15d2a; color: #ffffff; padding: clamp(26px, 4vw, 56px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; transform-origin: 50% 0; box-shadow: 0 30px 60px -34px rgba(40,40,41,.35); overflow: hidden;">
-          <div style="display: flex; justify-content: space-between; gap: 16px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #ffffff;"><span>03 / 03</span><span>{{ tx.k34 }}</span></div>
-          <h2 style="margin: 0; font-size: clamp(60px, 13vw, 220px); line-height: 1; letter-spacing: -.06em; font-weight: 600; color: #ffffff;">{{ tx.k39 }}</h2>
-          <p style="margin: 0; align-self: flex-end; max-width: 30ch; font-size: clamp(20px, 2.2vw, 32px); line-height: 1.35; letter-spacing: -.02em; text-wrap: pretty;">{{ tx.k40 }}</p>
-        </div>
-      </div>
-    </section>
     <section data-ab-vals="" style="position: relative; height: 400vh; background: #282829; color: #f7f5f2;">
       <div data-lines="" style="position: sticky; top: 0; height: 100vh; box-sizing: border-box; padding: 104px 28px 36px; display: flex;">
         <div style="max-width: 1320px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; min-height: 0;">
@@ -1365,9 +1347,10 @@
       <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 0 28px; display: flex; flex-direction: column; gap: 20vh;">
         <sc-for list="{{ timeline }}" as="m" hint-placeholder-count="3">
           <div data-a-mile="" style="position: relative; z-index: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px 72px; align-items: center;">
+            <span data-a-node="" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; border-radius: 50%; border: 2px solid #f15d2a; background: #f7f5f2; z-index: 3;"></span>
             <div data-a-txt="" style="display: flex; flex-direction: column; gap: 16px; opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform 1s cubic-bezier(.23,1,.32,1);">
               <div style="display: flex; align-items: center; gap: 18px;">
-                <span data-a-node="" style="flex: 0 0 auto; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #f15d2a; background: #f7f5f2;"></span>
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #f15d2a; display: block;"></span>
                 <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: rgba(40,40,41,.6);">{{ tx.kChapter }} {{ m.num }}</span>
               </div>
               <span style="font-size: clamp(72px, 10vw, 160px); font-weight: 600; letter-spacing: -.055em; line-height: 1.06; color: #f15d2a; font-variant-numeric: tabular-nums;">{{ m.year }}</span>
@@ -1393,55 +1376,6 @@
   </main>
   </sc-if>
 
-  <!-- ============================ WHY TACT ============================ -->
-  <sc-if value="{{ isWhy }}" hint-placeholder-val="{{ false }}">
-  <main>
-    <section data-screen-label="Why tact hero" style="position: relative; overflow: hidden; background: #282829; color: #f7f5f2; padding: 150px 28px 100px;">
-      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.045) 0 1px, transparent 1px 14px);"></div>
-      <div style="position: relative; max-width: 1320px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px 88px; align-items: end;">
-        <div>
-          <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #f15d2a; margin: 0 0 24px;">{{ tx.k59 }}</p>
-          <h1 style="font-size: clamp(40px, 6.4vw, 104px); line-height: 1.06; letter-spacing: -.05em; font-weight: 600; margin: 0 0 28px; max-width: 13ch; text-wrap: balance;">{{ tx.k60 }}</h1>
-          <p style="margin: 0; font-size: 17px; line-height: 1.75; color: rgba(247,245,242,.75); max-width: 52ch; text-wrap: pretty;">{{ tx.k61 }}</p>
-        </div>
-        <nav aria-label="{{ tx.k90 }}" style="display: flex; flex-direction: column; border-top: 1px solid rgba(247,245,242,.16);">
-          <sc-for list="{{ whyPanels }}" as="w" hint-placeholder-count="6">
-            <a href="#/why" onClick="{{ w.go }}" style="display: flex; align-items: baseline; gap: 18px; padding: 16px 0; border-bottom: 1px solid rgba(247,245,242,.16); color: #f7f5f2; font-size: clamp(17px, 1.6vw, 21px); font-weight: 500; letter-spacing: -.015em; transition: color .3s ease, padding .45s cubic-bezier(.23,1,.32,1);" style-hover="color: #f15d2a; padding-inline-start: 14px;"><span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .14em; color: #f15d2a;">{{ w.num }}</span>{{ w.head }}</a>
-          </sc-for>
-        </nav>
-      </div>
-    </section>
-    <section data-why="" data-screen-label="Six reasons" style="position: relative; height: 620vh; background: #f7f5f2; color: #282829;">
-      <div data-lines="" style="position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; gap: clamp(20px, 4vh, 40px); padding-top: 64px; box-sizing: border-box;">
-        <div data-why-track="" style="display: flex; gap: 24px; width: max-content; padding-inline: calc((100vw - min(80vw, 1000px)) / 2); will-change: transform;">
-          <sc-for list="{{ whyPanels }}" as="w" hint-placeholder-count="3">
-            <article data-why-panel="" style="--f: 0; flex: 0 0 auto; width: min(80vw, 1000px); height: min(68vh, 640px); box-sizing: border-box; border-radius: 28px; background: {{ w.bg }}; color: {{ w.fg }}; padding: clamp(24px, 3.6vw, 52px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px 48px; align-content: space-between; overflow: hidden; transform-origin: 50% 50%; box-shadow: 0 30px 60px -36px rgba(40,40,41,.35);">
-              <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-width: 0;">
-                <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: {{ w.sub }};">{{ tx.kReason }} {{ w.num }} / 06</span>
-                <span aria-hidden="true" style="font-family: Effra, 'Readex Pro', system-ui, sans-serif; font-size: clamp(120px, 20vw, 300px); font-weight: 700; letter-spacing: -.07em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px {{ w.stroke }}; background-image: linear-gradient(0deg, #f15d2a calc(var(--f) * 100%), transparent calc(var(--f) * 100%)); -webkit-background-clip: text; background-clip: text; font-variant-numeric: tabular-nums;">{{ w.num }}</span>
-              </div>
-              <div style="display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; min-width: 0;">
-                <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 56px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600; text-wrap: balance;">{{ w.head }}</h2>
-                <p style="margin: 0; font-size: clamp(15.5px, 1.3vw, 18px); line-height: 1.7; color: {{ w.sub }}; max-width: 42ch; text-wrap: pretty;">{{ w.body }}</p>
-              </div>
-            </article>
-          </sc-for>
-        </div>
-        <div style="width: min(80vw, 1000px); margin: 0 auto; display: flex; align-items: center; gap: 18px;">
-          <span data-why-n="" style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; color: #f15d2a; min-width: 2ch;">01</span>
-          <div style="flex: 1; height: 2px; background: rgba(40,40,41,.12); border-radius: 99px; overflow: hidden;"><div data-why-bar="" style="height: 100%; background: #f15d2a; transform: scaleX(0); transform-origin: 0 50%;"></div></div>
-          <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em; color: rgba(40,40,41,.6);">06</span>
-        </div>
-      </div>
-    </section>
-    <section data-screen-label="ISO certificates" style="max-width: 1320px; margin: 0 auto; padding: 110px 28px 120px;">
-      <div style="border: 1px solid rgba(40,40,41,.18); background: #fff;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 32px; align-items: end; padding: 34px 30px 28px; border-bottom: 1px solid rgba(40,40,41,.14);">
-          <div>
-            <sc-if value="{{ t.accredHead }}">
-              <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0 0 16px;">{{ t.accredKicker }}</p>
-              <h2 data-reveal="" style="font-size: clamp(26px, 3.2vw, 42px); line-height: 1.06; letter-spacing: -.035em; font-weight: 600; margin: 0; max-width: 22ch;">{{ t.accredHead }}</h2>
-            </sc-if>
             <sc-if value="{{ !t.accredHead }}">
               <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0;">{{ t.accredKicker }}</p>
             </sc-if>
@@ -1891,8 +1825,8 @@ const LEGAL = [
 ];
 
 const PAGES = ["home", "services", "sectors", "work", "contact"];
-const LABELS_EN = { calendar: "tact Calendar", company: "Company", home: "Home", services: "Services", sectors: "Sectors", work: "Partnership", career: "Career", contact: "Contact", about: "About tact", history: "History timeline", leadership: "Leadership", stories: "Success stories", why: "Why tact?" };
-const COMPANY = ["about", "history", "leadership", "stories", "why"];
+const LABELS_EN = { calendar: "tact Calendar", company: "Company", home: "Home", services: "Services", sectors: "Sectors", work: "Partnership", career: "Career", contact: "Contact", about: "About tact", history: "History timeline", leadership: "Leadership", stories: "Success stories" };
+const COMPANY = ["about", "history", "leadership", "stories"];
 const NAV = [
   { key: "home" },
   { key: "company", children: COMPANY },
@@ -2266,7 +2200,7 @@ const VALUES_EN = [
 ];
 
 
-const LABELS_AR = { calendar: "تقويم تاكت", company: "الشركة", home: "الرئيسية", services: "خدماتنا", sectors: "القطاعات", work: "شراكاتنا", career: "التوظيف", contact: "تواصل معنا", about: "عن تاكت", history: "مسيرتنا", leadership: "القيادة", stories: "قصص نجاح", why: "لماذا تاكت؟" };
+const LABELS_AR = { calendar: "تقويم تاكت", company: "الشركة", home: "الرئيسية", services: "خدماتنا", sectors: "القطاعات", work: "شراكاتنا", career: "التوظيف", contact: "تواصل معنا", about: "عن تاكت", history: "مسيرتنا", leadership: "القيادة", stories: "قصص نجاح" };
 
 const SERVICES_AR = [
   {
@@ -2736,7 +2670,7 @@ const logoItem = (name, id) => {
     w: span === 6 ? "100%" : span === 3 ? "190px" : ""
   };
 };
-const ROUTES = ["home", "services", "sectors", "work", "about", "leadership", "history", "why", "calendar", "contact", "stories"];
+const ROUTES = ["home", "services", "sectors", "work", "about", "leadership", "history", "calendar", "contact", "stories"];
 class Component extends DCLogic {
   state = { lang: (() => { try { return localStorage.getItem("tact-lang") || "en"; } catch (e) { return "en"; } })(), page: (() => { try { const m = /^#\/([a-z]+)$/.exec(location.hash); if (m && ROUTES.includes(m[1])) return m[1]; const s = sessionStorage.getItem("tact-page"); return s && (ROUTES.includes(s) || s === "legal") ? s : "home"; } catch (e) { return "home"; } })(), legalIdx: (() => { try { return +(sessionStorage.getItem("tact-legal") || 0); } catch (e) { return 0; } })(), openSector: 0, openRow: 1, caseIdx: 0, t: 0, intro: (() => { try { return !window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return true; } })(), w: typeof window !== "undefined" ? window.innerWidth : 1200, menuOpen: false, slide: 0, hoverService: -1 };
 
@@ -3339,7 +3273,7 @@ class Component extends DCLogic {
       const off = (n) => { let x = 0, y = 0; while (n && n !== el) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; } return [x, y]; };
       const NS = "http://www.w3.org/2000/svg", pad = 18;
       holes.innerHTML = "";
-      el.querySelectorAll("[data-a-txt] h2, [data-a-txt] p").forEach((t) => {
+      el.querySelectorAll("[data-a-txt]").forEach((t) => {
         const [x, y] = off(t), r = document.createElementNS(NS, "rect");
         r.setAttribute("x", x - pad); r.setAttribute("y", y - pad); r.setAttribute("width", t.offsetWidth + pad * 2); r.setAttribute("height", t.offsetHeight + pad * 2); r.setAttribute("rx", 24); r.setAttribute("fill", "#000");
         holes.appendChild(r);
@@ -3906,7 +3840,7 @@ class Component extends DCLogic {
           ct.classList.remove("is-closed");
         }
       },
-      isHistory: page === "history", isWhy: page === "why",
+      isHistory: page === "history",
       timeline: TIMELINE.map((t, i) => ({ ...t, num: String(i + 1).padStart(2, "0"), img: TL_IMG[i % TL_IMG.length], order: i % 2 ? -1 : 0 })),
       goLeadership: this.go("leadership"),
       ...(() => {
@@ -4033,7 +3967,7 @@ class Component extends DCLogic {
           svH: nar ? "auto" : "180vh", svPos: nar ? "relative" : "sticky", svInnerH: nar ? "0" : "100vh",
           svNav: SERVICES.map((sv, i) => ({ num: sv.num, title: sv.title, go: (e) => this.goSv(i, e) })),
           svMarquee: Array(3).fill(SERVICES.map((sv) => sv.title).join(" · ")).join(" · ") + " ·",
-          svDays: ar ? ["أحد", "إثن", "ثلا", "أرب", "خمي", "جمع", "سبت"] : ["S", "M", "T", "W", "T", "F", "S"],
+          svDays: ar ? ["الأحد", "الاثنين", "الثلاثاء", "الاربعاء", "الخميس", "الجمعة", "السبت"] : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
           svCal: (() => { let sd = 7; const rn = () => { sd = (sd * 16807) % 2147483647; return sd / 2147483647; }; const ord = Array.from({ length: 35 }, (_, k) => k); for (let k = 34; k > 0; k--) { const j = Math.floor(rn() * (k + 1)); [ord[k], ord[j]] = [ord[j], ord[k]]; } return Array.from({ length: 35 }, (_, k) => { const x = rn(), t = x < .36 ? "p" : x < .6 ? "s" : ""; return { t, o: String(ord[k]), label: t === "p" ? (ar ? "منشور" : "Post") : t === "s" ? (ar ? "قصة" : "Story") : "" }; }); })(),
           svVfLabel: SERVICES[2].items[1], svOpt: ar ? ["الجماهير", "المحتوى الإبداعي", "توزيع الميزانية"] : ["Audiences", "Creative", "Budget allocation"],
           svBars: SERVICES[4].items.map((t, j) => ({ t, w: [84, 66, 92, 74][j] }))
