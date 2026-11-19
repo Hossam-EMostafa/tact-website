@@ -14,3 +14,4 @@ backups/
 .~lock.*
 scripts/
 .vercel
+wordpress/build/

@@ -41,7 +41,7 @@
   @keyframes tact-mq-l { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
   @keyframes tact-mq-r { from { transform: translate3d(-50%,0,0); } to { transform: translate3d(0,0,0); } }
   @keyframes tact-orbit-back { to { transform: rotate(-360deg); } }
-  @media (max-width: 860px) { [data-a-svg], [data-a-mile] > [data-a-node] { display: none !important; } }
+  @media (max-width: 860px) { [data-a-svg] { display: none !important; } }
   @media (prefers-reduced-motion: reduce) { [data-orb] { animation: none !important; transition-duration: .01ms !important; } }
   .sec-card .sec-rule { transform: scaleX(0); transform-origin: left; transition: transform .55s cubic-bezier(.2,.75,.2,1); }
   .sec-card:hover .sec-rule { transform: scaleX(1); }
@@ -1349,18 +1349,18 @@
       <div style="position: relative; max-width: 1320px; margin: 0 auto; padding: 0 28px; display: flex; flex-direction: column; gap: 20vh;">
         <sc-for list="{{ timeline }}" as="m" hint-placeholder-count="3">
           <div data-a-mile="" style="position: relative; z-index: 2; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 40px 72px; align-items: center;">
-            <span data-a-node="" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; border-radius: 50%; border: 2px solid #f15d2a; background: #f7f5f2; z-index: 3;"></span>
+            
             <div data-a-txt="" style="display: flex; flex-direction: column; gap: 16px; opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform 1s cubic-bezier(.23,1,.32,1);">
               <div style="display: flex; align-items: center; gap: 18px;">
-                <span style="width: 8px; height: 8px; border-radius: 50%; background: #f15d2a; display: block;"></span>
+                <span data-a-node="" style="flex: 0 0 auto; width: 16px; height: 16px; border-radius: 50%; border: 2px solid #f15d2a; background: #f7f5f2;"></span>
                 <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: rgba(40,40,41,.6);">{{ tx.kChapter }} {{ m.num }}</span>
               </div>
               <span style="font-size: clamp(72px, 10vw, 160px); font-weight: 600; letter-spacing: -.055em; line-height: 1.06; color: #f15d2a; font-variant-numeric: tabular-nums;">{{ m.year }}</span>
               <h2 style="margin: 0; font-size: clamp(26px, 2.6vw, 40px); font-weight: 600; letter-spacing: -.035em; line-height: 1.15; max-width: 18ch;">{{ m.title }}</h2>
               <p style="margin: 0; max-width: 48ch; font-size: 16px; line-height: 1.75; color: rgba(40,40,41,.74);">{{ m.body }}</p>
             </div>
-            <div data-a-photo="" style="order: {{ m.order }}; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 6px; background: #282829; clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.77,0,.18,1);">
-              <img src="{{ m.img }}" alt="{{ tx.k88 }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <div data-a-photo="" style="order: {{ m.order }}; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 14px; background: {{ m.photoBg }}; border: {{ m.photoBorder }}; box-shadow: {{ m.photoShadow }}; clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.77,0,.18,1); display: flex; align-items: center; justify-content: center;">
+              <img src="{{ m.img }}" alt="{{ tx.k88 }}" loading="lazy" style="width: 100%; height: 100%; object-fit: {{ m.imgFit }}; padding: {{ m.imgPad }}; display: block; box-sizing: border-box;">
             </div>
           </div>
         </sc-for>
@@ -1822,7 +1822,7 @@ const AB_VALUES = [
   { title: "Effectiveness", body: "We work to achieve our partners' goals through creative solutions, active initiative, fast response and professional execution." },
   { title: "Mastery", body: "We work with precision and high productivity, because we believe in one entity: we are a mirror of our partners, and their success is ours." }
 ];
-const TL_IMG = ["assets/web/history-2014.webp", "assets/web/booth-screen.webp", "assets/web/crowd.webp", "assets/web/booth-talk.webp", "assets/web/booth-wide.webp", "assets/web/wheel-visitors.webp", "assets/web/ten-lit.webp", "assets/web/ten-sign.webp"];
+const TL_IMG = ["assets/web/history-2014.webp", "assets/timeline-logos/2016-thiqah.webp", "assets/timeline-logos/2019-riyadh-season.webp", "assets/timeline-logos/2021-culture.webp", "assets/timeline-logos/2022-health.webp", "assets/timeline-logos/2023-qadsiah.webp", "assets/timeline-logos/2024-diriyah.webp", "assets/web/ten-sign.webp"];
 const TIMELINE = [
   { year: "2014", title: "tact is founded in Riyadh", body: "The company starts as a small digital communication team with one conviction: Saudi entities need a partner who understands both the platform and the public." },
   { year: "2016", title: "The Thiqah partnership begins", body: "Managing the digital presence of Thiqah and its products — Etimad, Wathiq and Najiz among them — establishes the bilingual, multi-brand way of working that still shapes the company." },
@@ -1860,9 +1860,9 @@ const HIRING = [
 ];
 
 const SECTORS_EN = [
-  { name: "Culture", body: "We build communication strategies that strengthen the presence of cultural entities, highlight their initiatives and carry their messages to the public with lasting effect.", clients: ["Ministry of Culture", "Literature, Publishing & Translation Commission", "Heritage Commission", "Architecture & Design Commission", "Film Commission", "Museums Commission"] },
+  { name: "Culture", body: "We build communication strategies that strengthen the presence of cultural entities, highlight their initiatives and carry their messages to the public with lasting effect.", clients: ["Ministry of Culture", "Literature, Publishing & Translation Commission", "Heritage Commission", "The Royal Institute of Traditional Arts", "Theater and Performing Arts Commission", "Architecture & Design Commission", "Film Commission", "Museums Commission"] },
   { name: "Health", body: "We develop communication solutions that build awareness, strengthen trust and simplify health messaging in ways that land.", clients: ["Ministry of Health", "Health Holding"] },
-  { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Al-Qadsiah Club", "Diriyah Club"] },
+  { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Saudi Games", "Al-Qadsiah Club", "Diriyah Club"] },
   { name: "Entertainment", body: "We run digital communication for events and seasons with high flexibility, turning entertainment experiences into wide reach and engagement.", clients: ["Riyadh Season", "Jeddah Season", "Diriyah Season"] },
   { name: "Technology services", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"] },
   { name: "Financial sector", body: "We develop communication solutions for financial institutions that simplify concepts and build trust and transparency.", clients: ["Al Rajhi Bank", "Saudi Payments", "Saudi Banks", "Social Development Bank", "Mada"] }
@@ -1870,9 +1870,9 @@ const SECTORS_EN = [
 
 const SECTOR_PAGE_AR = [
   { name: "القطاع الحكومي العام", body: "نصنع استراتيجيات اتصالية تعزز حضور الجهات الحكومية، وتبرز مبادراتها ومشاريعها الوطنية بوضوح وموثوقية.", clients: ["وزارة الثقافة", "وزارة الصحة"], wins: [] },
-  { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"], wins: [] },
+  { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "المعهد الملكي للفنون التقليدية", "هيئة المسرح والفنون الأدائية", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"], wins: [] },
   { name: "القطاع التقني", body: "نعزز ظهور الجهات التقنية من إيصال خدماتها بوضوح، وتعزيز تجربة المستفيد عبر تواصل رقمي فعّال.", clients: ["ثقة", "سبراني", "علم", "موبايلي"], wins: [] },
-  { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "نادي القادسية", "نادي الدرعية"], wins: [] },
+  { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "دورة الألعاب السعودية", "نادي القادسية", "نادي الدرعية"], wins: [] },
   { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["رؤية السعودية 2030"], wins: [] },
   { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"], wins: [] },
   { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"], wins: [] },
@@ -1885,7 +1885,7 @@ const SECTOR_PAGE = [
   { name: "Public government sector", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Culture", body: "We build communication strategies that strengthen the presence of cultural entities, highlight their initiatives and carry their messages to the public with lasting effect.", clients: ["Ministry of Culture", "Literature, Publishing & Translation Commission", "Heritage Commission", "Architecture & Design Commission", "Film Commission", "Museums Commission"], wins: [] },
   { name: "Technology", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"], wins: [] },
-  { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Al-Qadsiah Club", "Diriyah Club"], wins: [] },
+  { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Saudi Games", "Al-Qadsiah Club", "Diriyah Club"], wins: [] },
   { name: "Vision realization programs", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Entertainment", body: "We run digital communication for events and seasons with high flexibility, turning entertainment experiences into wide reach and engagement.", clients: ["Riyadh Season", "Jeddah Season", "Diriyah Season"], wins: [] },
   { name: "PIF companies", body: "[Copy to come.]", clients: [], wins: [] },
@@ -2330,9 +2330,9 @@ const SERVICES_AR = [
 
 const SECTORS_AR = [
   { name: "القطاع الحكومي العام", body: "نقدّم استراتيجيات اتصال تعزز حضور الجهات الحكومية، وتبرز مبادراتها ومشاريعها الوطنية بوضوح وموثوقية.", clients: ["وزارة الثقافة", "وزارة الصحة", "الهيئة العامة للترفيه"] },
-  { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"] },
+  { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "المعهد الملكي للفنون التقليدية", "هيئة المسرح والفنون الأدائية", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"] },
   { name: "القطاع الصحي", body: "نطوّر حلولًا اتصالية تدعم بناء الوعي، وتعزز الثقة، وتبسط الرسائل الصحية بأساليب مؤثرة.", clients: ["وزارة الصحة", "الصحة القابضة"] },
-  { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "نادي القادسية", "نادي الدرعية"] },
+  { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "دورة الألعاب السعودية", "نادي القادسية", "نادي الدرعية"] },
   { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["رؤية السعودية 2030"] },
   { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"] },
   { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"] },
@@ -2543,7 +2543,7 @@ const HS_CASES = [
 ];
 const HS0 = { slide: 0, prev: -1, dir: 1, paused: false, on: false };
 // Client logos as SVG: add the slot id here once its file is in assets/logos/<id>.svg
-const LOGO_SVG = {"logo-alrajhi-bank":2.81,"logo-mada":3.0,"logo-saudi-banks":2.61,"logo-saudi-payments":1.56,"logo-social-development-bank":1.36,"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5};
+const LOGO_SVG = {"logo-alrajhi-bank":2.81,"logo-mada":3.0,"logo-saudi-banks":2.61,"logo-saudi-payments":1.56,"logo-social-development-bank":1.36,"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5,"logo-traditional-arts":2.07,"logo-theater-arts":7.08,"logo-saudi-games":0.55};
 const CLIENT_LOGOMAP = {
   "al rajhi bank": "logo-alrajhi-bank",
   "alrajhi bank": "logo-alrajhi-bank",
@@ -2608,6 +2608,18 @@ const CLIENT_LOGOMAP = {
   "موسم الدرعية": "logo-diriyah-season",
   "diriyah company": "logo-diriyah-season",
   "شركة الدرعية": "logo-diriyah-season",
+  "the royal institute of traditional arts": "logo-traditional-arts",
+  "royal institute of traditional arts": "logo-traditional-arts",
+  "المعهد الملكي للفنون التقليدية": "logo-traditional-arts",
+  "wirth": "logo-traditional-arts",
+  "ورث": "logo-traditional-arts",
+  "theater and performing arts commission": "logo-theater-arts",
+  "theatre and performing arts commission": "logo-theater-arts",
+  "هيئة المسرح والفنون الأدائية": "logo-theater-arts",
+  "هيئة المسرح": "logo-theater-arts",
+  "saudi games": "logo-saudi-games",
+  "دورة الألعاب السعودية": "logo-saudi-games",
+  "الألعاب السعودية": "logo-saudi-games",
   "saudi vision 2030": "logo-vision-2030",
   "vision 2030": "logo-vision-2030",
   "رؤية السعودية 2030": "logo-vision-2030",
@@ -2631,7 +2643,10 @@ const LOGO_WEBP = {
   "logo-mada": true,
   "logo-saudi-banks": true,
   "logo-saudi-payments": true,
-  "logo-social-development-bank": true
+  "logo-social-development-bank": true,
+  "logo-traditional-arts": true,
+  "logo-theater-arts": true,
+  "logo-saudi-games": true
 };
 const logoItem = (name, id) => {
   const actualId = (id && id !== "logo-" && id !== "logo") ? id : clientLogoId(name);
@@ -3241,17 +3256,18 @@ class Component extends DCLogic {
     if (pts.length < 2) return;
     let d = "M" + pts[0][0].toFixed(1) + " " + pts[0][1].toFixed(1);
     for (let i = 1; i < pts.length; i++) {
-      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], dy = (y1 - y0) * 0.6;
-      d += " C" + x0.toFixed(1) + " " + (y0 + dy).toFixed(1) + " " + x1.toFixed(1) + " " + (y1 - dy).toFixed(1) + " " + x1.toFixed(1) + " " + y1.toFixed(1);
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
+      const dy = (y1 - y0) * 0.45, dx = (x1 - x0) * 0.45;
+      d += " C" + (x0 + dx * 0.8).toFixed(1) + " " + (y0 + dy * 0.35).toFixed(1) + " " + (x1 - dx * 0.8).toFixed(1) + " " + (y1 - dy * 0.35).toFixed(1) + " " + x1.toFixed(1) + " " + y1.toFixed(1);
     }
     line.setAttribute("d", d); track.setAttribute("d", d);
     const mbg = svg.querySelector("[data-a-mbg]"), holes = svg.querySelector("[data-a-holes]");
     if (mbg && holes) {
       mbg.setAttribute("width", W); mbg.setAttribute("height", H);
       const off = (n) => { let x = 0, y = 0; while (n && n !== el) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; } return [x, y]; };
-      const NS = "http://www.w3.org/2000/svg", pad = 18;
+      const NS = "http://www.w3.org/2000/svg", pad = 24;
       holes.innerHTML = "";
-      el.querySelectorAll("[data-a-txt]").forEach((t) => {
+      el.querySelectorAll("[data-a-txt] > span, [data-a-txt] h2, [data-a-txt] p").forEach((t) => {
         const [x, y] = off(t), r = document.createElementNS(NS, "rect");
         r.setAttribute("x", x - pad); r.setAttribute("y", y - pad); r.setAttribute("width", t.offsetWidth + pad * 2); r.setAttribute("height", t.offsetHeight + pad * 2); r.setAttribute("rx", 24); r.setAttribute("fill", "#000");
         holes.appendChild(r);
@@ -3819,7 +3835,21 @@ class Component extends DCLogic {
         }
       },
       isHistory: page === "history",
-      timeline: TIMELINE.map((t, i) => ({ ...t, num: String(i + 1).padStart(2, "0"), img: TL_IMG[i % TL_IMG.length], order: i % 2 ? -1 : 0 })),
+      timeline: TIMELINE.map((t, i) => {
+        const isLogo = i >= 1 && i <= 6;
+        return {
+          ...t,
+          num: String(i + 1).padStart(2, "0"),
+          img: TL_IMG[i % TL_IMG.length],
+          order: i % 2 ? -1 : 0,
+          isLogo,
+          photoBg: isLogo ? "#ffffff" : "#282829",
+          photoBorder: isLogo ? "1px solid rgba(40,40,41,.08)" : "none",
+          photoShadow: isLogo ? "0 20px 40px -20px rgba(40,40,41,.12)" : "none",
+          imgFit: isLogo ? "contain" : "cover",
+          imgPad: isLogo ? "clamp(28px, 4.5vw, 52px)" : "0"
+        };
+      }),
       goLeadership: this.go("leadership"),
       ...(() => {
         const nar = w < 1040, ai = this.state.abIdx || 0, words = (this.state.lang === "ar" ? "تأسست tact عام 2014 برؤية سبّاقة وواعدة تستند على مسار استراتيجي واضح، وأهداف مدروسة تستشرف المستقبل التواصلي، حيث تميزت في تنفيذ الخدمات الاتصالية التي تتمثل في التخطيط وبناء الاستراتيجيات وتقديم الاستشارات لكافة مشاريع التواصل في كبرى الجهات الحكومية والشركات الخاصة والمؤسسات غير الربحية على أكمل وجه، بأيدي فريق عمل محترف يتكوّن من 250 موظفًا مؤهلًا ومتميزًا، واقتناص احتياجات سوق العمل الاتصالي في المملكة وتلبيتها بكل كفاءة في تنفيذ وإدارة المشاريع التسويقية والاتصالية بأنواعها من خلال العمل وفق أفضل الممارسات والأدوات الحديثة واستقطاب المزيد من الكفاءات وأصحاب الخبرة، واليوم نتطلع بطموح ممتد لنكون ذراع التواصل الفعّال للمشاريع الوطنية وضمان سير مراحل عملها بسلاسةٍ واحترافية؛ للمساهمة في تحقيق تطلعات رؤية السعودية 2030 على كافة المجالات والأصعدة." : AB_STATEMENT).split(" ");
