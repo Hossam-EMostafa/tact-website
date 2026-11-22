@@ -1082,7 +1082,7 @@
           <button type="button" class="wk-tile" onClick="{{ c.open }}" aria-label="Open {{ c.name }}" style="grid-column: span {{ c.span }}; position: relative; overflow: hidden; border: 0; padding: 0; border-radius: 22px; background: #1d1d1e; color: #f7f5f2; font: inherit; text-align: start; cursor: pointer;">
             <span class="wk-img" style="position: absolute; inset: 0; display: block; background-image: url({{ c.img }}); background-size: cover; background-position: center;"></span>
             <span style="position: absolute; inset: 0; display: block; background: linear-gradient(180deg, rgba(40,40,41,.35) 0%, transparent 35%, rgba(40,40,41,.88) 100%);"></span>
-            <span style="position: absolute; top: 20px; inset-inline: 20px; display: flex; justify-content: space-between; align-items: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase;"><span>{{ c.num }} · {{ c.yr }}</span><span class="wk-go" style="width: 40px; height: 40px; border-radius: 99px; background: rgba(247,245,242,.16); display: flex; align-items: center; justify-content: center; font-size: 16px; letter-spacing: 0;">↗</span></span>
+            <span style="position: absolute; top: 20px; inset-inline: 20px; display: flex; justify-content: space-between; align-items: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; text-transform: uppercase;"><span>{{ c.meta }}</span><span class="wk-go" style="width: 40px; height: 40px; border-radius: 99px; background: rgba(247,245,242,.16); display: flex; align-items: center; justify-content: center; font-size: 16px; letter-spacing: 0;">↗</span></span>
             <span style="position: absolute; bottom: 22px; inset-inline: 22px; display: flex; flex-direction: column; gap: 12px;">
               <span style="font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -.035em; line-height: 1.1;">{{ c.name }}</span>
               <span class="wk-meta" style="display: flex; flex-wrap: wrap; gap: 8px 22px;">
@@ -1111,9 +1111,11 @@
             <p style="margin: 0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .12em; line-height: 1.6; color: rgba(40,40,41,.62);">{{ wkCur.year }}</p>
             <h2 style="margin: 0; font-size: clamp(28px, 2.8vw, 42px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600;">{{ wkCur.name }}</h2>
             <p style="margin: 0; font-size: 15.5px; line-height: 1.75; color: rgba(40,40,41,.76); max-width: 60ch;">{{ wkCur.body }}</p>
+            <sc-if value="{{ wkCur.hasMetrics }}">
             <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: rgba(40,40,41,.14); border-radius: 14px; overflow: hidden;">
               <sc-for list="{{ wkCur.metrics }}" as="m" hint-placeholder-count="4"><div style="background: #fff; padding: 16px 18px;"><div style="font-size: clamp(22px, 2vw, 28px); font-weight: 600; letter-spacing: -.035em; line-height: 1.1; color: #f15d2a; font-variant-numeric: tabular-nums;">{{ m.value }}</div><div style="margin-top: 6px; font-size: 12.5px; color: rgba(40,40,41,.62);">{{ m.label }}</div></div></sc-for>
             </div>
+            </sc-if>
             <div style="display: flex; flex-wrap: wrap; gap: 7px;">
               <sc-for list="{{ wkCur.services }}" as="sv" hint-placeholder-count="4"><span style="border: 1px solid rgba(40,40,41,.2); border-radius: 99px; padding: 7px 12px; font-size: 12.5px; font-weight: 500;">{{ sv }}</span></sc-for>
             </div>
@@ -1193,13 +1195,13 @@
         </div>
         <nav aria-label="{{ tx.k85 }}" style="margin-top: 80px; border-top: 1px solid rgba(247,245,242,.16); display: flex; flex-direction: column;">
           <sc-for list="{{ stories }}" as="st" hint-placeholder-count="8">
-            <a href="#/stories" onClick="{{ st.go }}" style="display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 20px; align-items: center; padding: 22px 0; border-bottom: 1px solid rgba(247,245,242,.16); color: #f7f5f2; transition: padding .45s cubic-bezier(.23,1,.32,1), color .3s ease;" style-hover="padding-inline-start: 18px; color: #f15d2a;">
-              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .16em; color: rgba(247,245,242,.55);">{{ st.num }}</span>
-              <span style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
-                <span style="font-size: clamp(22px, 3.2vw, 48px); font-weight: 600; letter-spacing: -.04em; line-height: 1.06;">{{ st.client }}</span>
-                <span style="font-size: 14px; line-height: 1.5; color: rgba(247,245,242,.6);">{{ st.title }}</span>
+            <a href="#/stories" onClick="{{ st.go }}" style="display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 26px 0; border-bottom: 1px solid rgba(247,245,242,.16); color: #f7f5f2; text-align: start; transition: padding .45s cubic-bezier(.23,1,.32,1), color .3s ease;" style-hover="padding-inline-start: 18px; color: #f15d2a;">
+              <span style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; letter-spacing: normal; color: rgba(247,245,242,.55); align-self: center;">{{ st.num }}</span>
+              <span style="display: flex; flex-direction: column; gap: 8px; min-width: 0; text-align: start;">
+                <span style="font-size: clamp(22px, 3.2vw, 42px); font-weight: 600; letter-spacing: normal; line-height: 1.25;">{{ st.client }}</span>
+                <span style="font-size: 15px; line-height: 1.6; letter-spacing: normal; color: rgba(247,245,242,.65);">{{ st.title }}</span>
               </span>
-              <span style="font-size: clamp(22px, 2.8vw, 44px); font-weight: 600; letter-spacing: -.045em; color: #f15d2a; font-variant-numeric: tabular-nums; white-space: nowrap;">{{ st.statShort }}</span>
+              <span style="font-size: clamp(22px, 2.8vw, 44px); font-weight: 600; letter-spacing: normal; color: #f15d2a; font-variant-numeric: tabular-nums; white-space: nowrap; align-self: center; direction: ltr; text-align: end;">{{ st.statShort }}</span>
             </a>
           </sc-for>
         </nav>
@@ -1873,7 +1875,7 @@ const SECTOR_PAGE_AR = [
   { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "المعهد الملكي للفنون التقليدية", "هيئة المسرح والفنون الأدائية", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"], wins: [] },
   { name: "القطاع التقني", body: "نعزز ظهور الجهات التقنية من إيصال خدماتها بوضوح، وتعزيز تجربة المستفيد عبر تواصل رقمي فعّال.", clients: ["ثقة", "سبراني", "علم", "موبايلي"], wins: [] },
   { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "دورة الألعاب السعودية", "نادي القادسية", "نادي الدرعية"], wins: [] },
-  { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["رؤية السعودية 2030"], wins: [] },
+  { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["برنامج تحول القطاع الصحي", "برنامج الإسكان", "برنامج تطوير الصناعة الوطنية والخدمات اللوجستية", "برنامج التحول الوطني", "برنامج جودة الحياة"], wins: [] },
   { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"], wins: [] },
   { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"], wins: [] },
   { name: "القطاع المالي", body: "نطوّر حلولًا اتصالية للمؤسسات والجهات المالية تبسط المفاهيم وتعزز الثقة والشفافية.", clients: ["مصرف الراجحي", "المدفوعات السعودية", "البنوك السعودية", "بنك التنمية الاجتماعية", "مدى"], wins: [] },
@@ -1886,7 +1888,7 @@ const SECTOR_PAGE = [
   { name: "Culture", body: "We build communication strategies that strengthen the presence of cultural entities, highlight their initiatives and carry their messages to the public with lasting effect.", clients: ["Ministry of Culture", "The Royal Institute of Traditional Arts", "Theater and Performing Arts Commission", "Literature, Publishing & Translation Commission", "Heritage Commission", "Architecture & Design Commission", "Film Commission", "Museums Commission"], wins: [] },
   { name: "Technology", body: "We help technology entities communicate their services clearly and improve the user experience through effective digital communication.", clients: ["Thiqah", "Cyberani", "Elm", "Mobily"], wins: [] },
   { name: "Sport", body: "We build digital experiences that deepen fan connection and elevate the presence of sporting bodies through effective content and community.", clients: ["Saudi Sports for All Federation", "Saudi Esports Federation", "Saudi Games", "Al-Qadsiah Club", "Diriyah Club"], wins: [] },
-  { name: "Vision realization programs", body: "[Copy to come.]", clients: [], wins: [] },
+  { name: "Vision realization programs", body: "We partner with Saudi Vision 2030 programs through tailored communication campaigns that reflect national transformation and celebrate major milestones.", clients: ["Health Sector Transformation Program", "Housing Program", "National Industrial Development & Logistics Program", "National Transformation Program", "Quality of Life Program"], wins: [] },
   { name: "Entertainment", body: "We run digital communication for events and seasons with high flexibility, turning entertainment experiences into wide reach and engagement.", clients: ["Riyadh Season", "Jeddah Season", "Diriyah Season"], wins: [] },
   { name: "PIF companies", body: "[Copy to come.]", clients: [], wins: [] },
   { name: "Financial sector", body: "We develop communication solutions for financial institutions that simplify concepts and build trust and transparency.", clients: ["Al Rajhi Bank", "Saudi Payments", "Saudi Banks", "Social Development Bank", "Mada"], wins: [] },
@@ -1895,6 +1897,16 @@ const SECTOR_PAGE = [
 ];
 
 const CASES_EN = [
+  { tab: "Impact Makers", year: "2026 — Impact Makers Forum", name: "Impact Makers Forum 2026 Marketing Partner",
+    body: "Comprehensive digital coverage during the Innovation Summit 2026 across social media, documenting activities and driving engagement.",
+    metrics: [{ value: "+149", label: "Posts" }, { value: "+5.03K", label: "Engagements" }, { value: "291.2K+", label: "Views" }, { value: "101.41K+", label: "Followers" }],
+    services: ["Project management", "Full account management", "Final report", "3-day event coverage"],
+    img: "assets/stories/impact-makers-2026.webp", shotLabel: "" },
+  { tab: "TEDx KSU", year: "2025 — TEDx King Saud University", name: "TEDx King Saud University 2025 Strategic Media Partner",
+    body: "An inspiring conference and exhibition organised by King Saud University providing a platform for changemakers to share their stories under the theme 'Opportunities Told'.",
+    metrics: [{ value: "299", label: "Posts" }, { value: "1M", label: "Impressions" }, { value: "151K", label: "Views" }, { value: "8K", label: "Engagements" }],
+    services: ["Project management", "Copywriting", "Weekly, monthly & closing reports", "Video editing"],
+    img: "assets/web/tedx-ksu-2025.webp", shotLabel: "" },
   { tab: "Wirth Nights", year: "2026 — Royal Institute of Traditional Arts (Wirth)", name: "Wirth Ramadan Nights", body: "tact partnered as a sponsor of Wirth Ramadan Nights, a cultural event organised by the Royal Institute of Traditional Arts to celebrate Saudi heritage. The programme included handicrafts, creative trails and live experiences staged to bring the spirit of Ramadan to life.", metrics: [{ value: "5.2M", label: "Impressions" }, { value: "1.2M", label: "Views" }, { value: "43K", label: "Engagements" }, { value: "155", label: "Creative pieces" }], services: ["Project management", "Copywriting", "Design", "Daily & closing reports", "Live event monitoring"], img: "assets/web/wirth-nights-new.webp", shotLabel: "" },
   { tab: "Hajj Media Forum", year: "2026 — Hajj Media Forum", name: "Hajj Media Forum", body: "tact acted as digital communication partner for an integrated media environment supporting journalists covering the Hajj season, with interactive technology, media zones hosting the Unified Hajj Media Operations Centre, a press briefing platform and a creative exhibition on the transformation of services for pilgrims.", metrics: [{ value: "2.2M", label: "Impressions" }, { value: "631K", label: "Views" }, { value: "6.2K", label: "Engagements" }, { value: "77", label: "Creative pieces" }], services: ["Media coverage", "Project management", "Copywriting", "Production"], img: "assets/web/hajj-new.webp", shotLabel: "" },
   { tab: "Riyadh Marathon", year: "2026 — Riyadh Marathon", name: "Riyadh Marathon", body: "As supporting partner of Riyadh Marathon 2026, tact managed digital communication for the event. We created interactive content to motivate participants and followers, and covered the day from the first moments through the race routes to the sponsors' ceremony — a live, complete picture of the capital's biggest sporting event.", metrics: [{ value: "265,646", label: "Impressions" }, { value: "36,463+", label: "Views" }, { value: "8,228", label: "Engagements" }, { value: "116", label: "Posts" }], services: ["Project management", "Copywriting", "Weekly, monthly & closing reports", "Design & presentations", "Video editing", "Influencer engagement"], img: "assets/web/riyadh-marathon-new.webp", shotLabel: "" },
@@ -2333,7 +2345,7 @@ const SECTORS_AR = [
   { name: "القطاع الثقافي", body: "نصنع استراتيجيات إتصالية تعزز حضور الجهات الثقافية، وتبرز مبادراتها، وتوصل رسائلها إلى الجمهور بأثر مستدام.", clients: ["وزارة الثقافة", "المعهد الملكي للفنون التقليدية", "هيئة المسرح والفنون الأدائية", "هيئة الأدب والنشر والترجمة", "هيئة التراث", "هيئة فنون العمارة والتصميم", "هيئة الأفلام", "هيئة المتاحف"] },
   { name: "القطاع الصحي", body: "نطوّر حلولًا اتصالية تدعم بناء الوعي، وتعزز الثقة، وتبسط الرسائل الصحية بأساليب مؤثرة.", clients: ["وزارة الصحة", "الصحة القابضة"] },
   { name: "القطاع الرياضي", body: "نبني تجارب رقمية تعزز ارتباط الجماهير، وترتقي بحضور الجهات الرياضية عبر محتوى وتواصل فعّال.", clients: ["الاتحاد السعودي للرياضة للجميع", "الاتحاد السعودي للرياضات الإلكترونية", "دورة الألعاب السعودية", "نادي القادسية", "نادي الدرعية"] },
-  { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["رؤية السعودية 2030"] },
+  { name: "برامج الرؤية", body: "نواكب برامج تحقيق رؤية السعودية 2030 بحملات نوعية تعكس التحول الوطني وتبرز الإنجازات للأجيال القادمة.", clients: ["برنامج تحول القطاع الصحي", "برنامج الإسكان", "برنامج تطوير الصناعة الوطنية والخدمات اللوجستية", "برنامج التحول الوطني", "برنامج جودة الحياة"] },
   { name: "قطاع الترفيه", body: "ندير التواصل الرقمي للفعاليات والمواسم بمرونة عالية، لنحوّل التجارب الترفيهية إلى حضور وتفاعل واسع.", clients: ["موسم الرياض", "موسم جدة", "موسم الدرعية"] },
   { name: "شركات صندوق الاستثمارات العامة", body: "ندعم المشاريع والشركات الكبرى التابعة لصندوق الاستثمارات العامة بحلول تسويق واتصال رقمي عالمية المعايير.", clients: ["شركة الدرعية"] },
   { name: "القطاع التقني", body: "نعزز ظهور الجهات التقنية من إيصال خدماتها بوضوح، وتعزيز تجربة المستفيد عبر تواصل رقمي فعّال.", clients: ["ثقة", "سبراني", "علم", "موبايلي"] },
@@ -2360,6 +2372,16 @@ const VALUES_AR = [
 ];
 
 const CASES_AR = [
+  { tab: "ملتقى صناع التأثير", year: "2026 — ملتقى صناع التأثير", name: "الشريك التسويقي لــملتقى صناع التأثير 2026",
+    body: "شهدت قمة الإبداع 2026 تغطية رقمية مكثفة خلال أيام انعقادها، عبر نشر محتوى متنوع على منصات التواصل الاجتماعي أسهم ذلك في تعزيز الحضور الرقمي وتوثيق فعالياتها، مع تحقيق مشاهدات وتفاعلات عبر مختلف المنصات.",
+    metrics: [{ value: "+149", label: "عدد المنشورات" }, { value: "+5.03K", label: "التفاعل" }, { value: "291.2K+", label: "المشاهدات" }, { value: "101.41K+", label: "المتابعين" }],
+    services: ["إدارة مشروع", "إدارة كافة الحسابات", "تقرير ختامي", "تغطية الحدث لمدة 3 أيام"],
+    img: "assets/stories/impact-makers-2026.webp", shotLabel: "" },
+  { tab: "تيدكس جامعة الملك سعود", year: "2025 — تيدكس جامعة الملك سعود", name: "الشريك الإعلامي الاستراتيجي لتيدكس جامعة الملك سعود 2025",
+    body: "هو مؤتمر ومعرض إلهامي نظمته جامعة الملك سعود ممثلةً بعمادة شؤون الطلاب وبرنامج الشراكة الطلابية، بهدف توفير منصة تجمع أصحاب الأفكار والتجارب الملهمة لمشاركة قصصهم وأفكارهم مع المجتمع الجامعي والجمهور تحت شعار فرص تُروى.",
+    metrics: [{ value: "299", label: "عدد المنشورات" }, { value: "1M", label: "الظهور" }, { value: "151K", label: "المشاهدات" }, { value: "8K", label: "التفاعل" }],
+    services: ["إدارة مشروع", "كتابة محتوى", "تقارير أسبوعية وشهرية وختامية", "مونتاج فيديوهات"],
+    img: "assets/web/tedx-ksu-2025.webp", shotLabel: "" },
   { tab: "ليالي ورث", year: "2026 — المعهد الملكي للفنون التقليدية (ورث)", name: "المعهد الملكي للفنون التقليدية ( ورث ) 2026",
     body: "جاءت شراكة تاكت بوصفها راعيًا لليالي وِرث الرمضانية ممثلة فعالية ثقافية ينظمها المعهد الملكي للفنون التقليدية للاحتفاء بالإرث السعودي. وتتضمن الفعالية أنشطة متنوعة مثل: الحرف اليدوية، المسارات الإبداعية، والتجارب الحية التي تُقام لإحياء الأجواء الرمضانية.",
     metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "قطعة محتوى إبداعي" }],
@@ -2543,7 +2565,7 @@ const HS_CASES = [
 ];
 const HS0 = { slide: 0, prev: -1, dir: 1, paused: false, on: false };
 // Client logos as SVG: add the slot id here once its file is in assets/logos/<id>.svg
-const LOGO_SVG = {"logo-alrajhi-bank":2.81,"logo-mada":3.0,"logo-saudi-banks":2.61,"logo-saudi-payments":1.56,"logo-social-development-bank":1.36,"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5,"logo-traditional-arts":2.07,"logo-theater-arts":7.08,"logo-saudi-games":0.55};
+const LOGO_SVG = {"logo-alrajhi-bank":2.81,"logo-mada":3.0,"logo-saudi-banks":2.61,"logo-saudi-payments":1.56,"logo-social-development-bank":1.36,"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5,"logo-traditional-arts":2.07,"logo-theater-arts":7.08,"logo-saudi-games":0.55,"logo-health-transformation":1.0,"logo-housing-program":1.0,"logo-nildp":1.0,"logo-national-transformation":1.0,"logo-quality-of-life":1.0};
 const CLIENT_LOGOMAP = {
   "al rajhi bank": "logo-alrajhi-bank",
   "alrajhi bank": "logo-alrajhi-bank",
@@ -2620,6 +2642,20 @@ const CLIENT_LOGOMAP = {
   "saudi games": "logo-saudi-games",
   "دورة الألعاب السعودية": "logo-saudi-games",
   "الألعاب السعودية": "logo-saudi-games",
+  "health sector transformation program": "logo-health-transformation",
+  "برنامج تحول القطاع الصحي": "logo-health-transformation",
+  "housing program": "logo-housing-program",
+  "برنامج الإسكان": "logo-housing-program",
+  "national industrial development and logistics program": "logo-nildp",
+  "national industrial development & logistics program": "logo-nildp",
+  "nildp": "logo-nildp",
+  "ندلب": "logo-nildp",
+  "برنامج تطوير الصناعة الوطنية والخدمات اللوجستية": "logo-nildp",
+  "برنامج تطوير الصناعة الوطنية والخدمات اللوجستية (ندلب)": "logo-nildp",
+  "national transformation program": "logo-national-transformation",
+  "برنامج التحول الوطني": "logo-national-transformation",
+  "quality of life program": "logo-quality-of-life",
+  "برنامج جودة الحياة": "logo-quality-of-life",
   "saudi vision 2030": "logo-vision-2030",
   "vision 2030": "logo-vision-2030",
   "رؤية السعودية 2030": "logo-vision-2030",
@@ -2646,7 +2682,12 @@ const LOGO_WEBP = {
   "logo-social-development-bank": true,
   "logo-traditional-arts": true,
   "logo-theater-arts": true,
-  "logo-saudi-games": true
+  "logo-saudi-games": true,
+  "logo-health-transformation": true,
+  "logo-housing-program": true,
+  "logo-nildp": true,
+  "logo-national-transformation": true,
+  "logo-quality-of-life": true
 };
 const logoItem = (name, id) => {
   const actualId = (id && id !== "logo-" && id !== "logo") ? id : clientLogoId(name);
@@ -3252,13 +3293,24 @@ class Component extends DCLogic {
     const svg = el.querySelector("[data-a-svg]"), line = el.querySelector("[data-a-line]"), track = el.querySelector("[data-a-track]");
     const W = el.offsetWidth, H = el.offsetHeight, er = el.getBoundingClientRect();
     svg.setAttribute("width", W); svg.setAttribute("height", H); svg.setAttribute("viewBox", "0 0 " + W + " " + H);
-    const pts = [...el.querySelectorAll("[data-a-node]")].map((n) => { const r = n.getBoundingClientRect(); return [r.left - er.left + r.width / 2, r.top - er.top + r.height / 2]; });
-    if (pts.length < 2) return;
+    const rawNodes = [...el.querySelectorAll("[data-a-node]")];
+    if (rawNodes.length < 2) return;
+    const midX = W / 2;
+    // Keep the graceful wavy curvature without crossing through numbers or text (oscillating gently in center corridor)
+    const waveAmp = Math.min(64, Math.max(28, W * 0.04));
+    const pts = rawNodes.map((n, i) => {
+      const r = n.getBoundingClientRect();
+      const cy = r.top - er.top + r.height / 2;
+      if (i === 0 || i === rawNodes.length - 1) return [midX, cy];
+      const isOdd = (i % 2 === 1);
+      const cx = midX + (isOdd ? -waveAmp : waveAmp);
+      return [cx, cy];
+    });
     let d = "M" + pts[0][0].toFixed(1) + " " + pts[0][1].toFixed(1);
     for (let i = 1; i < pts.length; i++) {
       const [x0, y0] = pts[i - 1], [x1, y1] = pts[i];
-      const dy = (y1 - y0) * 0.45, dx = (x1 - x0) * 0.45;
-      d += " C" + (x0 + dx * 0.8).toFixed(1) + " " + (y0 + dy * 0.35).toFixed(1) + " " + (x1 - dx * 0.8).toFixed(1) + " " + (y1 - dy * 0.35).toFixed(1) + " " + x1.toFixed(1) + " " + y1.toFixed(1);
+      const dy = (y1 - y0) * 0.5;
+      d += " C" + x0.toFixed(1) + " " + (y0 + dy).toFixed(1) + " " + x1.toFixed(1) + " " + (y1 - dy).toFixed(1) + " " + x1.toFixed(1) + " " + y1.toFixed(1);
     }
     line.setAttribute("d", d); track.setAttribute("d", d);
     const mbg = svg.querySelector("[data-a-mbg]"), holes = svg.querySelector("[data-a-holes]");
@@ -4124,14 +4176,26 @@ class Component extends DCLogic {
         const chip = (key, label, count) => { const on = sel === key; return { label, count, on: on ? "true" : "false", bg: on ? "#f7f5f2" : "transparent", fg: on ? "#282829" : "#f7f5f2", bd: on ? "#f7f5f2" : "rgba(247,245,242,.28)", go: () => this.setState({ wkYear: key }) }; };
         return {
           wkFilters: [chip("all", ar ? "الكل" : "All", CASES.length)].concat(yrs.map((y) => chip(y, y, CASES.filter((c) => yrOf(c) === y).length))),
-          wkTiles: list.map((x, k) => ({ name: x.c.name, img: x.c.img, yr: yrOf(x.c), num: pad(x.i + 1), span: nar || (list.length % 2 && k === list.length - 1) ? 12 : pat[k % pat.length], top: x.c.metrics.slice(0, 2), open: () => this.wkOpen(x.i) })),
+          wkTiles: list.map((x, k) => {
+            const isRecent = yrOf(x.c) === "2025" || yrOf(x.c) === "2026";
+            return {
+              name: x.c.name,
+              img: x.c.img,
+              yr: isRecent ? "" : yrOf(x.c),
+              num: isRecent ? "" : pad(x.i + 1),
+              meta: isRecent ? "" : (pad(x.i + 1) + " · " + yrOf(x.c)),
+              span: nar || (list.length % 2 && k === list.length - 1) ? 12 : pat[k % pat.length],
+              top: isRecent ? [] : x.c.metrics.slice(0, 2),
+              open: () => this.wkOpen(x.i)
+            };
+          }),
           wkEmpty: !list.length, wkReset: () => this.setState({ wkYear: "all", wkSvc: "all" }),
           wkSvc: svc, wkSvcChange: (e) => this.setState({ wkSvc: e.target.value }),
           wkSvcOpts: [{ v: "all", label: ar ? "كل الخدمات" : "Services: all" }].concat(allSvc.map((t) => ({ v: t, label: t + " (" + CASES.filter((c) => c.services.includes(t)).length + ")" }))),
           wkSvcBg: svc === "all" ? "transparent" : "#f15d2a", wkSvcBd: svc === "all" ? "rgba(247,245,242,.28)" : "#f15d2a", wkSvcFg: svc === "all" ? "#f7f5f2" : "#ffffff",
           wkCount: list.length + (ar ? " مشاريع" : list.length === 1 ? " project" : " projects"),
           wkIsOpen: oi >= 0, wkTotal: pad(CASES.length),
-          wkCur: { ...cur, num: pad(Math.max(0, oi) + 1) },
+          wkCur: { ...cur, num: (cur && (yrOf(cur) === "2025" || yrOf(cur) === "2026")) ? "" : pad(Math.max(0, oi) + 1), hasMetrics: !(cur && (yrOf(cur) === "2025" || yrOf(cur) === "2026")) },
           wkClose: () => this.wkOpen(-1),
           wkBackdrop: (e) => { if (e.target === e.currentTarget) this.wkOpen(-1); },
           wkPrev: () => this.wkOpen((Math.max(0, oi) - 1 + CASES.length) % CASES.length),

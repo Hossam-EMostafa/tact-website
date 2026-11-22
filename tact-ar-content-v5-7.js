@@ -2,6 +2,11 @@ Object.assign(window.TACT_AR = window.TACT_AR || {
 "The Royal Institute of Traditional Arts": "المعهد الملكي للفنون التقليدية",
 "Theater and Performing Arts Commission": "هيئة المسرح والفنون الأدائية",
 "Saudi Games": "دورة الألعاب السعودية",
+"Health Sector Transformation Program": "برنامج تحول القطاع الصحي",
+"Housing Program": "برنامج الإسكان",
+"National Industrial Development & Logistics Program": "برنامج تطوير الصناعة الوطنية والخدمات اللوجستية",
+"National Transformation Program": "برنامج التحول الوطني",
+"Quality of Life Program": "برنامج جودة الحياة",
 }, {
 "Saudi Arabia has made awareness leaps on every front in the past decade, and that momentum has been our foundation. Through partnerships across sectors we look ahead to building effective digital communities that contribute to Saudi Vision 2030.": "حققت المملكة قفزات نوعية في الوعي على كافة الأصعدة خلال العقد الماضي، وكان هذا الزخم أساس انطلاقتنا. ومن خلال شراكاتنا في مختلف القطاعات نتطلع إلى بناء مجتمعات رقمية فعّالة تسهم في تحقيق رؤية السعودية 2030.",
 "Responsibility": "المسؤولية",
