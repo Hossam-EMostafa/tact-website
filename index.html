@@ -455,10 +455,9 @@
           <div data-hs-text="" style="position: absolute; left: 0; right: 0; top: 150px; bottom: 80px; display: flex; flex-direction: column; justify-content: safe flex-end;">
             <div style="width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 28px; box-sizing: border-box;">
               <p style="margin: 0 0 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #4cc0af; max-width: 60ch;">{{ heroKicker }}</p>
-              <h1 style="margin: 0 0 24px; font-size: clamp(28px, min(4.8vw, 8vh), 80px); line-height: 1.06; letter-spacing: -.045em; font-weight: 600;">
-                <sc-for list="{{ heroLines }}" as="ln">
-                  <span style="display: block; overflow: visible; padding-bottom: .36em; margin-bottom: -.36em;"><span style="color: {{ ln.color }};">{{ ln.text }}</span></span>
-                </sc-for>
+              <h1 style="margin: 0 0 24px; font-size: clamp(28px, min(4.8vw, 8vh), 80px); line-height: 1.15; letter-spacing: -.045em; font-weight: 600;">
+                <span style="display: block; overflow: visible; padding-bottom: .2em;"><span>{{ heroLine1a }}</span> <span style="color: #f15d2a;">{{ heroLine1b }}</span></span>
+                <span style="display: block; overflow: visible; padding-bottom: .2em;"><span>{{ heroLine2 }}</span></span>
               </h1>
               <div style="display: flex; flex-wrap: wrap; gap: 22px 40px; align-items: center;">
                 <sc-if value="{{ t.heroLead }}">
@@ -831,14 +830,11 @@
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv0.num }}</span><span style="color: rgba(40,40,41,.74);">/ 05</span></div>
             <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv0.title }}</h2>
             <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(40,40,41,.74); max-width: 54ch; text-wrap: pretty;">{{ sv0.body }}</p>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 0; margin-top: 14px;">
               <sc-for list="{{ sv0.subServices }}" as="sub" hint-placeholder-count="3">
-                <div style="background: rgba(40,40,41,.03); border: 1px solid rgba(40,40,41,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.04); transform: translateY(-2px);">
-                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
-                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
-                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
-                  </div>
-                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                <div style="border-top: 1px solid rgba(40,40,41,.14); padding: 14px 0 12px; transition: border-color .25s ease, padding-inline-start .25s ease;" style-hover="border-color: #f15d2a; padding-inline-start: 8px;">
+                  <h3 style="margin: 0 0 5px; font-size: 15px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty;">{{ sub.desc }}</p>
                 </div>
               </sc-for>
             </div>
@@ -863,14 +859,11 @@
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv1.num }}</span><span style="color: rgba(247,245,242,.74);">/ 05</span></div>
             <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv1.title }}</h2>
             <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(247,245,242,.74); max-width: 54ch; text-wrap: pretty;">{{ sv1.body }}</p>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 0; margin-top: 14px;">
               <sc-for list="{{ sv1.subServices }}" as="sub" hint-placeholder-count="3">
-                <div style="background: rgba(247,245,242,.03); border: 1px solid rgba(247,245,242,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.06); transform: translateY(-2px);">
-                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
-                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
-                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #f7f5f2; letter-spacing: -.01em;">{{ sub.title }}</h3>
-                  </div>
-                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(247,245,242,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                <div style="border-top: 1px solid rgba(247,245,242,.14); padding: 14px 0 12px; transition: border-color .25s ease, padding-inline-start .25s ease;" style-hover="border-color: #f15d2a; padding-inline-start: 8px;">
+                  <h3 style="margin: 0 0 5px; font-size: 15px; font-weight: 600; color: #f7f5f2; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(247,245,242,.72); text-wrap: pretty;">{{ sub.desc }}</p>
                 </div>
               </sc-for>
             </div>
@@ -894,14 +887,11 @@
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv2.num }}</span><span style="color: rgba(40,40,41,.74);">/ 05</span></div>
             <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv2.title }}</h2>
             <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(40,40,41,.74); max-width: 54ch; text-wrap: pretty;">{{ sv2.body }}</p>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 0; margin-top: 14px;">
               <sc-for list="{{ sv2.subServices }}" as="sub" hint-placeholder-count="3">
-                <div style="background: rgba(40,40,41,.03); border: 1px solid rgba(40,40,41,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.04); transform: translateY(-2px);">
-                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
-                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
-                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
-                  </div>
-                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                <div style="border-top: 1px solid rgba(40,40,41,.14); padding: 14px 0 12px; transition: border-color .25s ease, padding-inline-start .25s ease;" style-hover="border-color: #f15d2a; padding-inline-start: 8px;">
+                  <h3 style="margin: 0 0 5px; font-size: 15px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty;">{{ sub.desc }}</p>
                 </div>
               </sc-for>
             </div>
@@ -930,14 +920,11 @@
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv3.num }}</span><span style="color: rgba(247,245,242,.74);">/ 05</span></div>
             <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv3.title }}</h2>
             <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(247,245,242,.74); max-width: 54ch; text-wrap: pretty;">{{ sv3.body }}</p>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 0; margin-top: 14px;">
               <sc-for list="{{ sv3.subServices }}" as="sub" hint-placeholder-count="3">
-                <div style="background: rgba(247,245,242,.03); border: 1px solid rgba(247,245,242,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.06); transform: translateY(-2px);">
-                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
-                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
-                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #f7f5f2; letter-spacing: -.01em;">{{ sub.title }}</h3>
-                  </div>
-                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(247,245,242,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                <div style="border-top: 1px solid rgba(247,245,242,.14); padding: 14px 0 12px; transition: border-color .25s ease, padding-inline-start .25s ease;" style-hover="border-color: #f15d2a; padding-inline-start: 8px;">
+                  <h3 style="margin: 0 0 5px; font-size: 15px; font-weight: 600; color: #f7f5f2; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(247,245,242,.72); text-wrap: pretty;">{{ sub.desc }}</p>
                 </div>
               </sc-for>
             </div>
@@ -965,14 +952,11 @@
             <div style="display: flex; align-items: center; gap: 14px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .18em;"><span style="width: 40px; height: 3px; background: #f15d2a; display: block;"></span><span style="color: #f15d2a;">{{ sv4.num }}</span><span style="color: rgba(40,40,41,.74);">/ 05</span></div>
             <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -.04em; font-weight: 600; text-wrap: balance;">{{ sv4.title }}</h2>
             <p style="margin: 0; font-size: clamp(14.5px, 1.25vw, 16.5px); line-height: 1.65; color: rgba(40,40,41,.74); max-width: 54ch; text-wrap: pretty;">{{ sv4.body }}</p>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; flex-direction: column; gap: 0; margin-top: 14px;">
               <sc-for list="{{ sv4.subServices }}" as="sub" hint-placeholder-count="3">
-                <div style="background: rgba(40,40,41,.03); border: 1px solid rgba(40,40,41,.12); border-radius: 14px; padding: 13px 17px; transition: border-color .25s ease, background-color .25s ease, transform .25s ease;" style-hover="border-color: #f15d2a; background: rgba(241,93,42,.04); transform: translateY(-2px);">
-                  <div style="display: flex; align-items: center; gap: 9px; margin-bottom: 4px;">
-                    <span style="width: 7px; height: 7px; border-radius: 50%; background: #f15d2a; flex: 0 0 7px;"></span>
-                    <h3 style="margin: 0; font-size: 14.5px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
-                  </div>
-                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty; padding-inline-start: 16px;">{{ sub.desc }}</p>
+                <div style="border-top: 1px solid rgba(40,40,41,.14); padding: 14px 0 12px; transition: border-color .25s ease, padding-inline-start .25s ease;" style-hover="border-color: #f15d2a; padding-inline-start: 8px;">
+                  <h3 style="margin: 0 0 5px; font-size: 15px; font-weight: 600; color: #282829; letter-spacing: -.01em;">{{ sub.title }}</h3>
+                  <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(40,40,41,.72); text-wrap: pretty;">{{ sub.desc }}</p>
                 </div>
               </sc-for>
             </div>
@@ -1362,7 +1346,7 @@
               <p style="margin: 0; max-width: 48ch; font-size: 16px; line-height: 1.75; color: rgba(40,40,41,.74);">{{ m.body }}</p>
             </div>
             <div data-a-photo="" style="order: {{ m.order }}; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 14px; background: {{ m.photoBg }}; border: {{ m.photoBorder }}; box-shadow: {{ m.photoShadow }}; clip-path: inset(0 0 100% 0); transition: clip-path 1.2s cubic-bezier(.77,0,.18,1); display: flex; align-items: center; justify-content: center;">
-              <img src="{{ m.img }}" alt="{{ tx.k88 }}" loading="lazy" style="width: 100%; height: 100%; object-fit: {{ m.imgFit }}; padding: {{ m.imgPad }}; display: block; box-sizing: border-box;">
+              <img src="{{ m.img }}" alt="{{ tx.k88 }}" loading="lazy" style="width: 100%; height: 100%; object-fit: {{ m.imgFit }}; object-position: {{ m.imgPos }}; padding: {{ m.imgPad }}; display: block; box-sizing: border-box;">
             </div>
           </div>
         </sc-for>
@@ -1908,7 +1892,7 @@ const CASES_EN = [
     metrics: [{ value: "299", label: "Posts" }, { value: "1M", label: "Impressions" }, { value: "151K", label: "Views" }, { value: "8K", label: "Engagements" }],
     services: ["Project management", "Copywriting", "Weekly, monthly & closing reports", "Video editing"],
     img: "assets/web/tedx-ksu-2025.webp", shotLabel: "" },
-  { tab: "Wirth Nights", year: "2026 — Royal Institute of Traditional Arts (Wirth)", name: "Wirth Ramadan Nights", body: "tact partnered as a sponsor of Wirth Ramadan Nights, a cultural event organised by the Royal Institute of Traditional Arts to celebrate Saudi heritage. The programme included handicrafts, creative trails and live experiences staged to bring the spirit of Ramadan to life.", metrics: [{ value: "5.2M", label: "Impressions" }, { value: "1.2M", label: "Views" }, { value: "43K", label: "Engagements" }, { value: "155", label: "Creative pieces" }], services: ["Project management", "Copywriting", "Design", "Daily & closing reports", "Live event monitoring"], img: "assets/web/wirth-nights-new.webp", shotLabel: "" },
+  { tab: "Royal Institute of Traditional Arts - Wirth", year: "2026 — Royal Institute of Traditional Arts - Wirth", name: "Royal Institute of Traditional Arts - Wirth 2026", body: "tact partnered as a sponsor of Wirth Ramadan Nights, a cultural event organised by the Royal Institute of Traditional Arts to celebrate Saudi heritage. The programme included handicrafts, creative trails and live experiences staged to bring the spirit of Ramadan to life.", metrics: [{ value: "5.2M", label: "Impressions" }, { value: "1.2M", label: "Views" }, { value: "43K", label: "Engagements" }, { value: "155", label: "Creative pieces" }], services: ["Project management", "Copywriting", "Design", "Daily & closing reports", "Live event monitoring"], img: "assets/web/wirth-nights-new.webp", shotLabel: "" },
   { tab: "Hajj Media Forum", year: "2026 — Hajj Media Forum", name: "Hajj Media Forum", body: "tact acted as digital communication partner for an integrated media environment supporting journalists covering the Hajj season, with interactive technology, media zones hosting the Unified Hajj Media Operations Centre, a press briefing platform and a creative exhibition on the transformation of services for pilgrims.", metrics: [{ value: "2.2M", label: "Impressions" }, { value: "631K", label: "Views" }, { value: "6.2K", label: "Engagements" }, { value: "77", label: "Creative pieces" }], services: ["Media coverage", "Project management", "Copywriting", "Production"], img: "assets/web/hajj-new.webp", shotLabel: "" },
   { tab: "Riyadh Marathon", year: "2026 — Riyadh Marathon", name: "Riyadh Marathon", body: "As supporting partner of Riyadh Marathon 2026, tact managed digital communication for the event. We created interactive content to motivate participants and followers, and covered the day from the first moments through the race routes to the sponsors' ceremony — a live, complete picture of the capital's biggest sporting event.", metrics: [{ value: "265,646", label: "Impressions" }, { value: "36,463+", label: "Views" }, { value: "8,228", label: "Engagements" }, { value: "116", label: "Posts" }], services: ["Project management", "Copywriting", "Weekly, monthly & closing reports", "Design & presentations", "Video editing", "Influencer engagement"], img: "assets/web/riyadh-marathon-new.webp", shotLabel: "" },
   { tab: "Banan", year: "2025 — Banan, Saudi International Handicrafts Week", name: "Banan Exhibition", body: "As official digital communication partner for Banan, tact brought out the essence of Saudi International Handicrafts Week 2025. Daily coverage spotlighted the artisans and their work, with creative content connecting Saudi cultural heritage to audiences invested in traditional arts.", metrics: [{ value: "387K", label: "Impressions" }, { value: "17.7K", label: "Views" }, { value: "13K", label: "Engagements" }, { value: "125", label: "Posts" }], services: ["Project management", "Copywriting", "Closing reports", "Design", "Photography", "Video editing"], img: "assets/web/banan-booth.webp", shotLabel: "" },
@@ -2383,7 +2367,7 @@ const CASES_AR = [
     metrics: [{ value: "299", label: "عدد المنشورات" }, { value: "1M", label: "الظهور" }, { value: "151K", label: "المشاهدات" }, { value: "8K", label: "التفاعل" }],
     services: ["إدارة مشروع", "كتابة محتوى", "تقارير أسبوعية وشهرية وختامية", "مونتاج فيديوهات"],
     img: "assets/web/tedx-ksu-2025.webp", shotLabel: "" },
-  { tab: "ليالي ورث", year: "2026 — المعهد الملكي للفنون التقليدية (ورث)", name: "المعهد الملكي للفنون التقليدية ( ورث ) 2026",
+  { tab: "المعهد الملكي للفنون التقليدية - ورث", year: "2026 — المعهد الملكي للفنون التقليدية - ورث", name: "المعهد الملكي للفنون التقليدية - ورث 2026",
     body: "جاءت شراكة تاكت بوصفها راعيًا لليالي وِرث الرمضانية ممثلة فعالية ثقافية ينظمها المعهد الملكي للفنون التقليدية للاحتفاء بالإرث السعودي. وتتضمن الفعالية أنشطة متنوعة مثل: الحرف اليدوية، المسارات الإبداعية، والتجارب الحية التي تُقام لإحياء الأجواء الرمضانية.",
     metrics: [{ value: "5.2M", label: "الظهور" }, { value: "1.2M", label: "المشاهدات" }, { value: "43K", label: "التفاعلات" }, { value: "155", label: "قطعة محتوى إبداعي" }],
     services: ["إدارة المشروع", "كتابة المحتوى", "التصاميم", "تقرير يومي وختامي", "رصد يومي خلال الايفنت"],
@@ -2559,7 +2543,7 @@ const TX_STATIC = {"kChapter":"Chapter","kReason":"Reason","k901":"Sectors & cli
 const trAr = (v) => { const D = window.TACT_AR || {}; const walk = (x, d) => { if (typeof x === "string") { const r = D[x]; return r === undefined ? x : r; } if (!x || typeof x !== "object" || d > 9) return x; if (x.$typeof || x.nodeType) return x; if (Array.isArray(x)) return x.map((y) => walk(y, d + 1)); const p = Object.getPrototypeOf(x); if (p !== Object.prototype && p !== null) return x; const ks = Object.keys(x); if (ks.length === 1 && ks[0] === "current") return x; const o = {}; for (const k of ks) o[k] = walk(x[k], d + 1); return o; }; return walk(v, 0); };
 const HS_EO = "cubic-bezier(.23,1,.32,1)", HS_IO = "cubic-bezier(.77,0,.175,1)", HS_DUR = 6500;
 const HS_CASES = [
-  { img: "giveaway", label: "Wirth Ramadan Nights", labelAr: "ليالي ورث الرمضانية", kicker: "2026 — Royal Institute of Traditional Arts (Wirth)", kickerAr: "2026 — المعهد الملكي للفنون التقليدية (ورث)", lines: ["Wirth Ramadan", "Nights"], linesAr: ["ليالي ورث", "الرمضانية"], m: { to: 5.2, dec: 1, pre: "", suf: "M", l: "Impressions", lAr: "ظهور" }, sub: [["1.2M", "Views", "مشاهدة"], ["43K", "Engagements", "تفاعل"], ["155", "Creative pieces", "عمل إبداعي"]] },
+  { img: "giveaway", label: "Royal Institute of Traditional Arts - Wirth", labelAr: "المعهد الملكي للفنون التقليدية - ورث", kicker: "2026 — Royal Institute of Traditional Arts - Wirth", kickerAr: "2026 — المعهد الملكي للفنون التقليدية - ورث", lines: ["Traditional Arts", "Wirth"], linesAr: ["المعهد الملكي للفنون", "التقليدية - ورث"], m: { to: 5.2, dec: 1, pre: "", suf: "M", l: "Impressions", lAr: "ظهور" }, sub: [["1.2M", "Views", "مشاهدة"], ["43K", "Engagements", "تفاعل"], ["155", "Creative pieces", "عمل إبداعي"]] },
   { img: "crowd", label: "Cultural Skills", labelAr: "المهارات الثقافية", kicker: "Ministry of Culture — Best digital marketing campaign, Digital Media Awards 2025", kickerAr: "وزارة الثقافة — أفضل حملة تسويق رقمي، حفل جوائز الإعلام الرقمي 2025", lines: ["Cultural Skills", "competition"], linesAr: ["مسابقة", "المهارات الثقافية"], m: { to: 556, dec: 0, pre: "", suf: "M", l: "Impressions", lAr: "ظهور" }, sub: [["15.8M", "Engagements", "تفاعل"]] },
   { img: "booth-wide", label: "Riyadh Season", labelAr: "موسم الرياض", kicker: "General Entertainment Authority — since 2019", kickerAr: "الهيئة العامة للترفيه — منذ 2019", lines: ["Riyadh Season,", "around the clock"], linesAr: ["موسم الرياض،", "على مدار الساعة"], m: { to: 70, dec: 0, pre: "", suf: "", l: "Posts a day, on average", lAr: "منشوراً يومياً في المتوسط" }, sub: [["15", "Specialists on site, 24/7", "متخصصاً في الموقع على مدار الساعة"]] },
   { img: "ten-lit", label: "Ten years of tact", labelAr: "عشر سنوات من تاكت", kicker: "Ten years of tact — activation, Riyadh", kickerAr: "عشر سنوات من تاكت — تفعيل، الرياض", lines: ["Ten years", "of tact"], linesAr: ["عشر سنوات", "من تاكت"], m: { to: 14, dec: 0, pre: "+", suf: "B", l: "Annual digital reach", lAr: "وصول رقمي سنوي" }, sub: [] }
@@ -2812,6 +2796,8 @@ const LOGO_WEBP = {
   "logo-kfshrc": true,
   "logo-zahra-association": true
 };
+const COLORED_LOGOS = { "logo-diriyah-club": true, "logo-film-commission": true, "logo-health-holding": true, "logo-vision-2030": true, "logo-diriyah-season": true };
+const isColorLogo = (id) => !!(LOGO_WEBP[id] || COLORED_LOGOS[id]);
 const logoItem = (name, id) => {
   const actualId = (id && id !== "logo-" && id !== "logo") ? id : clientLogoId(name);
   const r = LOGO_SVG[actualId], has = !!r, span = !has || r <= 2 ? 2 : r <= 3.2 ? 3 : 6;
@@ -2871,11 +2857,12 @@ class Component extends DCLogic {
   hsVals(ar, TX) {
     return {
       heroKicker: TX.heroKicker,
+      heroLine1a: TX.h1a,
+      heroLine1b: TX.h1b,
+      heroLine2: TX.h1c + " " + TX.h1d,
       heroLines: [
-        { text: TX.h1a, color: "inherit" },
-        { text: TX.h1b, color: "#f15d2a" },
-        { text: TX.h1c, color: "inherit" },
-        { text: TX.h1d, color: "inherit" }
+        { text: TX.h1a + " " + TX.h1b, color: "inherit" },
+        { text: TX.h1c + " " + TX.h1d, color: "inherit" }
       ],
       hsSlides: [],
       hsSegs: [],
@@ -4022,6 +4009,7 @@ class Component extends DCLogic {
           photoBorder: isLogo ? "1px solid rgba(40,40,41,.08)" : "none",
           photoShadow: isLogo ? "0 20px 40px -20px rgba(40,40,41,.12)" : "none",
           imgFit: isLogo ? "contain" : "cover",
+          imgPos: i === 0 ? "8% center" : "center center",
           imgPad: isLogo ? "clamp(28px, 4.5vw, 52px)" : "0"
         };
       }),
@@ -4215,7 +4203,7 @@ class Component extends DCLogic {
               const id = clientLogoId(n), r = LOGO_SVG[id];
               if (!r) return { name: n, w: Math.max(120, Math.round(n.length * 11)), h: 40, bg: "transparent", txt: n, f: "none" };
               let hh = Math.sqrt(5200 / r); hh = Math.max(38, Math.min(65, hh)); let ww = hh * r; if (ww > 220) { ww = 220; hh = ww / r; }
-              return { name: n, w: Math.round(ww), h: Math.round(hh), bg: logoItem(n, id).svgBg + " center / contain no-repeat", txt: "", f: "brightness(0) invert(1)" };
+              return { name: n, w: Math.round(ww), h: Math.round(hh), bg: logoItem(n, id).svgBg + " center / contain no-repeat", txt: "", f: isColorLogo(id) ? "none" : "brightness(0) invert(1)" };
             });
             let loop = base; while (has && loop.length < 8) loop = loop.concat(base);
             return { name: x.name, body: x.body, bodyInk: ink(x.body), hasTrack: has, noTrack: !has && wide, inlineBody: !wide, overlayBody: wide,
@@ -4251,7 +4239,7 @@ class Component extends DCLogic {
         SECTORS.forEach((s, si) => s.clients.forEach((n, j) => all.push({ n, si, j, id: clientLogoId(n) })));
         const sz = (x) => { const r = LOGO_SVG[x.id]; if (!r) return { w: 150, h: 48, bg: "transparent", txt: x.n, f: "none" };
           let h = Math.sqrt(5200 / r); h = Math.max(36, Math.min(68, h)); let wd = h * r; if (wd > 200) { wd = 200; h = wd / r; }
-          return { w: Math.round(wd), h: Math.round(h), bg: logoItem(x.n, x.id).svgBg + " center / contain no-repeat", txt: "", f: "brightness(0) invert(1)" }; };
+          return { w: Math.round(wd), h: Math.round(h), bg: logoItem(x.n, x.id).svgBg + " center / contain no-repeat", txt: "", f: isColorLogo(x.id) ? "none" : "brightness(0) invert(1)" }; };
         const act = (SECTORS[D] && SECTORS[D].clients.length) ? SECTORS[D].clients.length : 1;
         const ow = Math.max(260, Math.min(620, (w || 1200) - 56));
         return {
