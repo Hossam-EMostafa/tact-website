@@ -618,30 +618,30 @@
       </div>
     </section>
 
-    <section data-screen-label="Home sectors" style="position: relative; overflow: hidden; background: #282829; color: #f7f5f2; padding: 110px 28px 100px;">
-      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(247,245,242,.045) 0 1px, transparent 1px 14px);"></div>
+    <section data-screen-label="Home sectors" style="position: relative; overflow: hidden; background: #f7f5f2; color: #282829; padding: 110px 28px 100px;">
+      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(40,40,41,.03) 0 1px, transparent 1px 14px);"></div>
       <div style="position: relative; max-width: 1320px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 40px;">
         <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;">
-          <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #4cc0af; margin: 0;">{{ t.sectorsKicker }}</p>
+          <p style="font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: #2f7d72; margin: 0;">{{ t.sectorsKicker }}</p>
           <sc-if value="{{ t.sectorsHead }}">
-            <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0;">{{ t.sectorsHead }}</h2>
+            <h2 data-reveal="" style="font-size: clamp(32px, 4.4vw, 60px); line-height: 1.06; letter-spacing: -.04em; font-weight: 600; margin: 0; color: #282829;">{{ t.sectorsHead }}</h2>
           </sc-if>
         </div>
         <div style="position: relative; width: {{ orbW }}px; height: {{ orbW }}px;">
           <div style="position: absolute; left: 50%; top: 50%; width: 620px; height: 620px; margin: -310px 0 0 -310px; transform: scale({{ orbS }}); direction: ltr;">
-            <div style="position: absolute; inset: 70px; border-radius: 50%; border: 1px dashed rgba(247,245,242,.16);"></div>
+            <div style="position: absolute; inset: 70px; border-radius: 50%; border: 1px dashed rgba(40,40,41,.18);"></div>
             <div data-orb="" style="position: absolute; inset: 0; animation: tact-orbit 60s linear infinite;">
               <sc-for list="{{ orbRing }}" as="c" hint-placeholder-count="6">
                 <div data-orb="" style="position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: {{ c.pos }}; transition: transform 1s cubic-bezier(.77,0,.175,1);">
                   <div data-orb="" style="animation: tact-orbit-back 60s linear infinite;">
-                    <div data-orb="" style="transform: translate(-50%,-50%) scale({{ c.sc }}); opacity: {{ c.op }}; transition: opacity .5s cubic-bezier(.23,1,.32,1) {{ c.d }}, transform .7s cubic-bezier(.23,1,.32,1) {{ c.d }}; background: #ffffff; border-radius: 99px; height: 48px; min-width: 120px; padding: 0 16px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.2); box-sizing: border-box;">
-                      <div role="img" aria-label="{{ c.name }}" style="width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; font-weight: 600; line-height: 1.2; color: #282829; white-space: nowrap;">{{ c.txt }}</div>
+                    <div data-orb="" style="transform: translate(-50%,-50%) scale({{ c.sc }}); opacity: {{ c.op }}; transition: opacity .5s cubic-bezier(.23,1,.32,1) {{ c.d }}, transform .7s cubic-bezier(.23,1,.32,1) {{ c.d }}; background: #ffffff; border-radius: 99px; height: 56px; min-width: 140px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(40,40,41,.08); border: 1px solid rgba(40,40,41,.1); box-sizing: border-box;">
+                      <div role="img" aria-label="{{ c.name }}" style="width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.2; color: #282829; white-space: nowrap;">{{ c.txt }}</div>
                     </div>
                   </div>
                 </div>
               </sc-for>
             </div>
-            <div style="position: absolute; inset: 170px; border-radius: 50%; background: #f15d2a; color: #fff;">
+            <div style="position: absolute; inset: 170px; border-radius: 50%; background: #f15d2a; color: #fff; box-shadow: 0 10px 30px rgba(241,93,42,.35);">
               <sc-for list="{{ orbCenter }}" as="x" hint-placeholder-count="1">
                 <div data-orb="" aria-hidden="{{ x.ah }}" style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; direction: {{ x.dir }}; opacity: {{ x.op }}; transform: {{ x.tf }}; transition: opacity .45s cubic-bezier(.23,1,.32,1), transform .6s cubic-bezier(.23,1,.32,1);">
                   <span style="font-size: 30px; font-weight: 600; letter-spacing: -.035em; line-height: 1.05;">{{ x.name }}</span>
@@ -652,7 +652,7 @@
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
           <sc-for list="{{ orbChips }}" as="ch" hint-placeholder-count="5">
-            <button type="button" onClick="{{ ch.go }}" aria-pressed="{{ ch.pressed }}" style="border: 1px solid {{ ch.bd }}; background: {{ ch.bgc }}; color: {{ ch.ink }}; font-family: inherit; font-size: 14px; font-weight: 600; padding: 12px 20px; border-radius: 99px; cursor: pointer; transition: background .3s, color .3s, border-color .3s, transform .16s cubic-bezier(.23,1,.32,1);" style-active="transform: scale(.97);">{{ ch.name }}</button>
+            <button type="button" onClick="{{ ch.go }}" aria-pressed="{{ ch.pressed }}" style="border: 1px solid {{ ch.bd }}; background: {{ ch.bgc }}; color: {{ ch.ink }}; font-family: inherit; font-size: 14px; font-weight: 600; padding: 12px 20px; border-radius: 99px; cursor: pointer; box-shadow: 0 2px 8px rgba(40,40,41,.04); transition: background .3s, color .3s, border-color .3s, transform .16s cubic-bezier(.23,1,.32,1);" style-active="transform: scale(.97);">{{ ch.name }}</button>
           </sc-for>
         </div>
       </div>
@@ -4244,16 +4244,16 @@ class Component extends DCLogic {
         const D = this.state.orbD || 0, R0 = 240, all = [];
         SECTORS.forEach((s, si) => s.clients.forEach((n, j) => all.push({ n, si, j, id: clientLogoId(n) })));
         const sz = (x) => { const r = LOGO_SVG[x.id] || 2.0;
-          let hh = Math.sqrt(2400 / r); hh = Math.max(22, Math.min(32, hh)); let ww = hh * r; if (ww > 120) { ww = 120; hh = ww / r; }
+          let hh = Math.sqrt(4600 / r); hh = Math.max(30, Math.min(44, hh)); let ww = hh * r; if (ww > 140) { ww = 140; hh = ww / r; }
           return { w: Math.round(ww), h: Math.round(hh), bg: logoItem(x.n, x.id).svgBg + " center / contain no-repeat", txt: LOGO_SVG[x.id] ? "" : x.n, f: "none" }; };
         const act = (SECTORS[D] && SECTORS[D].clients.length) ? SECTORS[D].clients.length : 1;
         const ow = Math.max(260, Math.min(620, (w || 1200) - 56));
         return {
           orbW: ow, orbS: ow / 620,
           orbRing: all.map((x, k) => { const on = x.si === D, ang = on ? (x.j / act) * 360 - 90 : (k / (all.length || 1)) * 360, rad = on ? R0 : R0 + 60;
-            return { name: x.n, ...sz(x), pos: "rotate(" + ang + "deg) translate(" + rad + "px) rotate(" + (-ang) + "deg)", sc: on ? 1 : 0.55, op: on ? 1 : 0.12, d: on ? (x.j * 80) + "ms" : "0ms" }; }),
+            return { name: x.n, ...sz(x), pos: "rotate(" + ang + "deg) translate(" + rad + "px) rotate(" + (-ang) + "deg)", sc: on ? 1 : 0.65, op: on ? 1 : 0.18, d: on ? (x.j * 80) + "ms" : "0ms" }; }),
           orbCenter: SECTORS.map((s, i) => ({ name: s.name, dir: ar ? "rtl" : "ltr", ah: i === D ? "false" : "true", body: ar ? (s.clients.length === 1 ? "عميل واحد" : s.clients.length + " عملاء") : s.clients.length + (s.clients.length === 1 ? " client" : " clients"), op: i === D ? 1 : 0, tf: i === D ? "none" : "translateY(8px)" })),
-          orbChips: SECTORS.map((s, i) => ({ name: s.name, pressed: i === D ? "true" : "false", bd: i === D ? "#f15d2a" : "rgba(247,245,242,.28)", bgc: i === D ? "#f15d2a" : "transparent", ink: i === D ? "#fff" : "#f7f5f2", go: () => { clearInterval(this._orbT); this.setState({ orbD: i }); } }))
+          orbChips: SECTORS.map((s, i) => ({ name: s.name, pressed: i === D ? "true" : "false", bd: i === D ? "#f15d2a" : "rgba(40,40,41,.12)", bgc: i === D ? "#f15d2a" : "#ffffff", ink: i === D ? "#ffffff" : "#282829", go: () => { clearInterval(this._orbT); this.setState({ orbD: i }); } }))
         };
       })(),
       sectors: SECTORS.map((s, i) => {
