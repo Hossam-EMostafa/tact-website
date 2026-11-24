@@ -634,7 +634,9 @@
               <sc-for list="{{ orbRing }}" as="c" hint-placeholder-count="6">
                 <div data-orb="" style="position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: {{ c.pos }}; transition: transform 1s cubic-bezier(.77,0,.175,1);">
                   <div data-orb="" style="animation: tact-orbit-back 60s linear infinite;">
-                    <div data-orb="" role="img" aria-label="{{ c.name }}" style="transform: translate(-50%,-50%) scale({{ c.sc }}); opacity: {{ c.op }}; transition: opacity .5s cubic-bezier(.23,1,.32,1) {{ c.d }}, transform .7s cubic-bezier(.23,1,.32,1) {{ c.d }}; width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 14px; font-weight: 600; line-height: 1.2; color: #f7f5f2;">{{ c.txt }}</div>
+                    <div data-orb="" style="transform: translate(-50%,-50%) scale({{ c.sc }}); opacity: {{ c.op }}; transition: opacity .5s cubic-bezier(.23,1,.32,1) {{ c.d }}, transform .7s cubic-bezier(.23,1,.32,1) {{ c.d }}; background: #ffffff; border-radius: 99px; height: 48px; min-width: 120px; padding: 0 16px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.2); box-sizing: border-box;">
+                      <div role="img" aria-label="{{ c.name }}" style="width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px; font-weight: 600; line-height: 1.2; color: #282829; white-space: nowrap;">{{ c.txt }}</div>
+                    </div>
                   </div>
                 </div>
               </sc-for>
@@ -4241,9 +4243,9 @@ class Component extends DCLogic {
       ...(() => {
         const D = this.state.orbD || 0, R0 = 240, all = [];
         SECTORS.forEach((s, si) => s.clients.forEach((n, j) => all.push({ n, si, j, id: clientLogoId(n) })));
-        const sz = (x) => { const r = LOGO_SVG[x.id]; if (!r) return { w: 150, h: 48, bg: "transparent", txt: x.n, f: "none" };
-          let h = Math.sqrt(5200 / r); h = Math.max(36, Math.min(68, h)); let wd = h * r; if (wd > 200) { wd = 200; h = wd / r; }
-          return { w: Math.round(wd), h: Math.round(h), bg: logoItem(x.n, x.id).svgBg + " center / contain no-repeat", txt: "", f: isColorLogo(x.id) ? "none" : "brightness(0) invert(1)" }; };
+        const sz = (x) => { const r = LOGO_SVG[x.id] || 2.0;
+          let hh = Math.sqrt(2400 / r); hh = Math.max(22, Math.min(32, hh)); let ww = hh * r; if (ww > 120) { ww = 120; hh = ww / r; }
+          return { w: Math.round(ww), h: Math.round(hh), bg: logoItem(x.n, x.id).svgBg + " center / contain no-repeat", txt: LOGO_SVG[x.id] ? "" : x.n, f: "none" }; };
         const act = (SECTORS[D] && SECTORS[D].clients.length) ? SECTORS[D].clients.length : 1;
         const ow = Math.max(260, Math.min(620, (w || 1200) - 56));
         return {
