@@ -1004,21 +1004,23 @@
         <p style="margin: 0; flex: 1 1 min(100%, 440px); min-width: 0; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.4; letter-spacing: -.025em; font-weight: 500; max-width: 40ch; text-wrap: pretty;">{{ tx.k24 }}</p>
       </div>
     </section>
-    <section data-screen-label="Sector rows" style="position: relative; background: #282829; color: #f7f5f2; padding: clamp(72px, 10vh, 110px) 0;">
+    <section data-screen-label="Sector rows" style="position: relative; background: #f7f5f2; color: #282829; padding: clamp(72px, 10vh, 110px) 0;">
       <sc-for list="{{ rows }}" as="r" hint-placeholder-count="10">
-        <div onMouseEnter="{{ r.on }}" onMouseLeave="{{ r.off }}" onClick="{{ r.tap }}" style="display: grid; grid-template-columns: {{ r.cols }}; align-items: center; border-top: 1px solid rgba(247,245,242,.12); background: {{ r.bgc }}; transition: background .4s cubic-bezier(.23,1,.32,1);">
+        <div onMouseEnter="{{ r.on }}" onMouseLeave="{{ r.off }}" onClick="{{ r.tap }}" style="display: grid; grid-template-columns: {{ r.cols }}; align-items: center; border-top: 1px solid rgba(40,40,41,.12); background: {{ r.bgc }}; transition: background .4s cubic-bezier(.23,1,.32,1);">
           <div style="padding: 28px clamp(20px, 3vw, 40px) 28px clamp(20px, 5.5vw, 80px); display: flex; flex-direction: column; gap: 10px; min-width: 0;">
             <h2 style="margin: 0; font-size: clamp(22px, 2vw, 26px); line-height: 1.15; font-weight: 600; letter-spacing: -.03em; color: {{ r.ink }}; transition: color .3s;">{{ r.name }}</h2>
             <sc-if value="{{ r.inlineBody }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 15px; line-height: 1.65; color: {{ r.bodyInk }}; max-width: 60ch;">{{ r.body }}</p></sc-if>
           </div>
           <sc-if value="{{ r.hasTrack }}" hint-placeholder-val="{{ true }}">
           <div style="position: relative; overflow: hidden; height: {{ r.trackH }};">
-            <div data-orb="" style="position: absolute; top: 0; bottom: 0; left: 0; direction: ltr; display: flex; align-items: center; gap: 72px; padding-right: 72px; width: max-content; animation: {{ r.anim }}; animation-play-state: {{ r.play }}; opacity: {{ r.trackOp }}; transition: opacity .35s ease; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+            <div data-orb="" style="position: absolute; top: 0; bottom: 0; left: 0; direction: ltr; display: flex; align-items: center; gap: 20px; padding-right: 20px; width: max-content; animation: {{ r.anim }}; animation-play-state: {{ r.play }}; opacity: {{ r.trackOp }}; transition: opacity .35s ease; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);">
               <sc-for list="{{ r.loop }}" as="c" hint-placeholder-count="6">
-                <div role="img" aria-label="{{ c.name }}" style="flex: 0 0 auto; width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; font-size: 17px; font-weight: 600; white-space: nowrap; color: #f7f5f2;">{{ c.txt }}</div>
+                <div style="flex: 0 0 auto; background: #ffffff; border: 1px solid rgba(40,40,41,.08); box-shadow: 0 2px 8px rgba(40,40,41,.04); border-radius: 12px; height: 58px; min-width: 140px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;">
+                  <div role="img" aria-label="{{ c.name }}" style="width: {{ c.w }}px; height: {{ c.h }}px; background: {{ c.bg }}; filter: {{ c.f }}; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; white-space: nowrap; color: #282829;">{{ c.txt }}</div>
+                </div>
               </sc-for>
             </div>
-            <sc-if value="{{ r.overlayBody }}" hint-placeholder-val="{{ true }}"><p data-orb="" style="position: absolute; inset: 0; margin: 0; display: flex; align-items: center; padding-inline: clamp(16px, 2.5vw, 36px) clamp(20px, 5.5vw, 80px); font-size: clamp(17px, 1.35vw, 20px); font-weight: 500; line-height: 1.6; color: #ffffff; max-width: 68ch; opacity: {{ r.bodyOp }}; transform: {{ r.bodyTf }}; transition: opacity .35s cubic-bezier(.23,1,.32,1), transform .35s cubic-bezier(.23,1,.32,1); pointer-events: none; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">{{ r.body }}</p></sc-if>
+            <sc-if value="{{ r.overlayBody }}" hint-placeholder-val="{{ true }}"><p data-orb="" style="position: absolute; inset: 0; margin: 0; display: flex; align-items: center; padding-inline: clamp(16px, 2.5vw, 36px) clamp(20px, 5.5vw, 80px); font-size: clamp(17px, 1.35vw, 20px); font-weight: 500; line-height: 1.6; color: #282829; max-width: 68ch; opacity: {{ r.bodyOp }}; transform: {{ r.bodyTf }}; transition: opacity .35s cubic-bezier(.23,1,.32,1), transform .35s cubic-bezier(.23,1,.32,1); pointer-events: none;">{{ r.body }}</p></sc-if>
           </div>
           </sc-if>
           <sc-if value="{{ r.noTrack }}" hint-placeholder-val="{{ false }}">
@@ -2550,7 +2552,7 @@ const HS_CASES = [
 ];
 const HS0 = { slide: 0, prev: -1, dir: 1, paused: false, on: false };
 // Client logos as SVG: add the slot id here once its file is in assets/logos/<id>.svg
-const LOGO_SVG = {"logo-alrajhi-bank":2.81,"logo-mada":3.0,"logo-saudi-banks":2.61,"logo-saudi-payments":1.56,"logo-social-development-bank":1.36,"logo-health-holding":2.87,"logo-ministry-of-culture":4.6,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.73,"logo-architecture-design-commission":2.75,"logo-museums-commission":5.2,"logo-al-qadsiah-club":1.49,"logo-diriyah-club":0.76,"logo-elm":2.31,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.65,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":2.85,"logo-thiqah":1.33,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5,"logo-traditional-arts":2.07,"logo-theater-arts":7.08,"logo-saudi-games":0.55,"logo-health-transformation":2.9,"logo-housing-program":2.84,"logo-nildp":3.62,"logo-national-transformation":2.62,"logo-quality-of-life":2.63,"logo-awqaf":1.99,"logo-local-content":3.09,"logo-ministry-of-finance":2.63,"logo-ministry-of-hajj":2.79,"logo-ministry-of-investment":3.08,"logo-ministry-of-tourism":2.77,"logo-ministry-of-transport":2.08,"logo-mawani":1.99,"logo-zatca":1.57,"logo-gea":1.81,"logo-riyadh-season":0.71,"logo-jeddah-season":1.64,"logo-diriyah-season":1.96,"logo-national-events-center":1.11,"logo-enjoy-saudi":0.92,"logo-qiddiya":1.06,"logo-diriyah-company":1.0,"logo-new-murabba":1.33,"logo-sami":1.41,"logo-site":3.65,"logo-ehsan":0.87,"logo-donations-platform":1.33,"logo-kfshrc":1.88,"logo-zahra-association":2.64};
+const LOGO_SVG = {"logo-alrajhi-bank":2.81,"logo-mada":3.0,"logo-saudi-banks":2.61,"logo-saudi-payments":1.56,"logo-social-development-bank":1.36,"logo-health-holding":2.87,"logo-ministry-of-culture":2.79,"logo-literature-publishing-translation-commission":7,"logo-heritage-commission":1.82,"logo-architecture-design-commission":2.75,"logo-museums-commission":1.78,"logo-al-qadsiah-club":0.86,"logo-diriyah-club":0.76,"logo-elm":1.91,"logo-cyberani":3.15,"logo-ministry-of-health":1.09,"logo-mobily":0.63,"logo-saudi-esports-federation":2.56,"logo-saudi-sports-for-all-federation":1.0,"logo-thiqah":1.0,"logo-film-commission":5.01,"logo-diriyah-season":1.86,"logo-vision-2030":1.5,"logo-traditional-arts":2.07,"logo-theater-arts":7.08,"logo-saudi-games":0.55,"logo-health-transformation":2.9,"logo-housing-program":2.84,"logo-nildp":3.62,"logo-national-transformation":2.62,"logo-quality-of-life":2.63,"logo-awqaf":1.99,"logo-local-content":3.09,"logo-ministry-of-finance":2.63,"logo-ministry-of-hajj":2.79,"logo-ministry-of-investment":3.08,"logo-ministry-of-tourism":2.77,"logo-ministry-of-transport":2.08,"logo-mawani":1.99,"logo-zatca":1.57,"logo-gea":1.81,"logo-riyadh-season":0.71,"logo-jeddah-season":1.64,"logo-diriyah-season":1.96,"logo-national-events-center":1.11,"logo-enjoy-saudi":0.92,"logo-qiddiya":1.06,"logo-diriyah-company":1.0,"logo-new-murabba":1.33,"logo-sami":1.41,"logo-site":3.65,"logo-ehsan":0.87,"logo-donations-platform":1.33,"logo-kfshrc":1.88,"logo-zahra-association":2.64};
 const CLIENT_LOGOMAP = {
   "al rajhi bank": "logo-alrajhi-bank",
   "alrajhi bank": "logo-alrajhi-bank",
@@ -2758,6 +2760,9 @@ const clientLogoId = (name) => {
 };
 const LOGO_WEBP = {
   "logo-cyberani": true,
+  "logo-elm": true,
+  "logo-heritage-commission": true,
+  "logo-ministry-of-health": true,
   "logo-alrajhi-bank": true,
   "logo-mada": true,
   "logo-saudi-banks": true,
@@ -4200,17 +4205,16 @@ class Component extends DCLogic {
           rows: secPage.map((x, i) => {
             const on = this.state.rowHov === i, has = x.clients.length > 0;
             const base = x.clients.map((n) => {
-              const id = clientLogoId(n), r = LOGO_SVG[id];
-              if (!r) return { name: n, w: Math.max(120, Math.round(n.length * 11)), h: 40, bg: "transparent", txt: n, f: "none" };
-              let hh = Math.sqrt(5200 / r); hh = Math.max(38, Math.min(65, hh)); let ww = hh * r; if (ww > 220) { ww = 220; hh = ww / r; }
-              return { name: n, w: Math.round(ww), h: Math.round(hh), bg: logoItem(n, id).svgBg + " center / contain no-repeat", txt: "", f: isColorLogo(id) ? "none" : "brightness(0) invert(1)" };
+              const id = clientLogoId(n), r = LOGO_SVG[id] || 2.0;
+              let hh = Math.sqrt(2800 / r); hh = Math.max(24, Math.min(36, hh)); let ww = hh * r; if (ww > 150) { ww = 150; hh = ww / r; }
+              return { name: n, w: Math.round(ww), h: Math.round(hh), bg: logoItem(n, id).svgBg + " center / contain no-repeat", txt: "", f: "none" };
             });
             let loop = base; while (has && loop.length < 8) loop = loop.concat(base);
-            return { name: x.name, body: x.body, bodyInk: ink(x.body), hasTrack: has, noTrack: !has && wide, inlineBody: !wide, overlayBody: wide,
-              cols: wide ? "minmax(0, 300px) minmax(0, 1fr)" : "minmax(0, 1fr)", trackH: wide ? "120px" : "96px",
+            return { name: x.name, body: x.body, bodyInk: "rgba(40,40,41,.72)", hasTrack: has, noTrack: !has && wide, inlineBody: !wide, overlayBody: wide,
+              cols: wide ? "minmax(0, 300px) minmax(0, 1fr)" : "minmax(0, 1fr)", trackH: wide ? "108px" : "92px",
               loop: loop.concat(loop), anim: (i % 2 ? "tact-mq-r " : "tact-mq-l ") + (28 + loop.length * 2) + "s linear infinite",
               play: on && wide ? "paused" : "running", trackOp: on && wide ? 0 : 1, bodyOp: on ? 1 : 0, bodyTf: on ? "none" : "translateY(8px)",
-              bgc: on ? "rgba(241,93,42,.12)" : "transparent", ink: on ? "#f15d2a" : "#f7f5f2",
+              bgc: on ? "rgba(241,93,42,.05)" : "transparent", ink: on ? "#f15d2a" : "#282829",
               on: () => { if (wide) this.setState({ rowHov: i }); }, off: () => { if (wide) this.setState({ rowHov: -1 }); }, tap: () => { if (wide) this.setState({ rowHov: on ? -1 : i }); } };
           })
         };
